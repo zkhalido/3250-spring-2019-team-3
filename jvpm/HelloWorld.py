@@ -3,7 +3,7 @@ def HelloWorld():
     print("Marc Inouye")
     print("Zack Khalidov")
     print("Robert Kupfner")
-    print("Dom Licciardi")
+    print("Dominick Licciardi")
 
 if '__main__' == __name__:
     HelloWorld()
