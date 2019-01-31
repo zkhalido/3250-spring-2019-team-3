@@ -3,7 +3,7 @@ def HelloWorld():
     print("Marc Inouye")
     print("Zack Khalidov")
     print("Robert Kupfner")
-    print("Dominick Licciardi")
+    print("Dom: Licciardi")
     print("Ezequiel Lopez")
     print("Chris Johnson")
     print("Gil Leibovich")
