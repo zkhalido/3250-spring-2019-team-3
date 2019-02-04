@@ -4,7 +4,7 @@ def HelloWorld():
     print("Hello world")
     print("We are team 3 and our names are...\n")
     time.sleep(1.5)
-    print("Marc Inouye")
+    print("Marc M Inouye")
     time.sleep(1.5)
     print("Zack Khalidov")
     time.sleep(1.5)
