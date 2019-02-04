@@ -9,6 +9,7 @@ class TestHelloWorld(unittest.TestCase):
         jvpm.HelloWorld.HelloWorld()
         sys.stdout.assert_has_calls(
             [call.write('Hello world'), call.write('\n'),
+            call.write('We are team 3 and our names are...\n'), call.write('\n'),
             call.write('Marc Inouye'), call.write('\n'),
             call.write('Zack Khalidov'), call.write('\n'),
             call.write('Robert Kupfner'), call.write('\n'),
