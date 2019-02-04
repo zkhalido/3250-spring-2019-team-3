@@ -12,7 +12,7 @@ def HelloWorld():
     time.sleep(1.5)
     print("Dominick Licciardi")
     time.sleep(1.5)
-    print("Ezequiel Lopez")
+    print("Ezequiel Lopez - dev zeke")
     time.sleep(1.5)
     print("Chris Johnson")
     time.sleep(1.5)
