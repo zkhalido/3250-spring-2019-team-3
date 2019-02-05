@@ -14,7 +14,7 @@ def HelloWorld():
     time.sleep(1.5)
     print("Ezequiel Lopez - Dev Team")
     time.sleep(1.5)
-    print("Chris Johnson - Team Owner")
+    print("Chris Johnson - Product Owner")
     time.sleep(1.5)
     print("Gil Leibovich - Dev Team")
    
