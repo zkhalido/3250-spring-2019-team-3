@@ -6,8 +6,23 @@ HeaderInformation = namedtuple("HeaderInformation", "magic minor_version major_v
 
 def PullHeader():
 	x = ConstBitStream(filename='test.class')
-	b = x.read(32).hex
-	print(b)
+	headerMagic = x.read(32).hex
+	headerMinor = x.read(16).hex
+	headerMajor = x.read(16).hex
+	headerConstPoolCount = x.read(16).hex
+	headerCPInfo = []
+	headerAccessFlag = x.read(16).hex
+	headerThisClass = x.read(16).hex
+	headerSuperClass = x.read(16).hex
+	headerInterfacesCount = x.read(16).hex
+	headerInterfaces = []
+	headerFieldsCount = x.read(16).hex
+	headerFields = []
+	headerMethodsCount = x.read(16).hex
+	headerMethods = []
+	headerAttributesCount = x.read(16).hex
+	headerAttributes = []
+	print(headerMagic)
 
 	
 
