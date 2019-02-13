@@ -23,6 +23,21 @@ def PullHeader():
 	headerAttributesCount = x.read(16).hex
 	headerAttributes = []
 	print(headerMagic)
+	print(headerMinor)
+	print(headerMajor)
+	print(headerConstPoolCount)
+	print(headerCPInfo)
+	print(headerAccessFlag)
+	print(headerThisClass)
+	print(headerSuperClass)
+	print(headerInterfacesCount)
+	print(headerInterfaces)
+	print(headerFieldsCount)
+	print(headerFields)
+	print(headerMethodsCount)
+	print(headerMethods)
+	print(headerAttributesCount)
+	print(headerAttributes)
 
 	
 
