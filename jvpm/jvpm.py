@@ -33,11 +33,11 @@ def PullHeader():
 	print(headerInterfacesCount)
 	print(headerInterfaces)
 	print(headerFieldsCount)
-	print(headerFields)
-	print(headerMethodsCount)
-	print(headerMethods)
-	print(headerAttributesCount)
-	print(headerAttributes)
+#	print(headerFields)
+#	print(headerMethodsCount)
+#	print(headerMethods)
+#	print(headerAttributesCount)
+#	print(headerAttributes)
 
 	
 
