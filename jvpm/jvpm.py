@@ -10,18 +10,18 @@ def PullHeader():
 	headerMinor = x.read(16).hex
 	headerMajor = x.read(16).hex
 	headerConstPoolCount = x.read(16).hex
-	headerCPInfo = []
+	headerCPInfo = [None] * (int(headerConstPoolCount, 16) - 1)
 	headerAccessFlag = x.read(16).hex
 	headerThisClass = x.read(16).hex
 	headerSuperClass = x.read(16).hex
 	headerInterfacesCount = x.read(16).hex
-	headerInterfaces = []
+	headerInterfaces = [None] * int(headerInterfacesCount, 16)
 	headerFieldsCount = x.read(16).hex
-	headerFields = []
+	headerFields = [None] * int(headerFieldsCount, 16)
 	headerMethodsCount = x.read(16).hex
-	headerMethods = []
+	headerMethods = [None] * int(headerMethodsCount, 16)
 	headerAttributesCount = x.read(16).hex
-	headerAttributes = []
+	headerAttributes = [None] * int(headerAttributesCount, 16)
 	print(headerMagic)
 	print(headerMinor)
 	print(headerMajor)
