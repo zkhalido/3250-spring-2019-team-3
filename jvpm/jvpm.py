@@ -17,9 +17,9 @@ def pull_header():
     header_interfaces_count = x.read(16).hex
     header_interfaces = [None] * int(header_interfaces_count, 16)
     header_fields_count = x.read(16).hex
-    header_fields = [None] * int(header_fields_count, 16)
+    # header_fields = [None] * int(header_fields_count, 16)
     header_methods_count = x.read(16).hex
-    header_methods = [None] * int(header_methods_count, 16)
+    # header_methods = [None] * int(header_methods_count, 16)
     header_attributes_count = x.read(16).hex
     header_attributes = [None] * int(header_attributes_count, 16)
     print(header_magic)
@@ -39,7 +39,6 @@ def pull_header():
     print(header_attributes_count)
     print(header_attributes)
 
-	
 
 if '__main__' == __name__:
     pull_header()
