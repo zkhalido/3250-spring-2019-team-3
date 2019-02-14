@@ -13,7 +13,7 @@ class TestHelloWorld(unittest.TestCase):
             call.write('Marc Inouye - Dev Team'), call.write('\n'),
             call.write('Zack Khalidov - Dev Team'), call.write('\n'),
             call.write('Robert Kupfner - Dev Team'), call.write('\n'),
-			call.write('Dominick Licciardi - SCRUM Master'), call.write('\n'),
+	    call.write('Dominick Licciardi - SCRUM Master'), call.write('\n'),
             call.write('Ezequiel Lopez - Dev Team'), call.write('\n'),
             call.write('Chris Johnson - Product Owner'), call.write('\n'),
             call.write('Gil Leibovich - Dev Team'), call.write('\n')]
