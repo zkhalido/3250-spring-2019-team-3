@@ -14,9 +14,17 @@ class HeaderClass():
 		print("minor: ", headerMinor)
 		return headerMinor
 
-	"""	
-		headerMinor = self.x.read(8).uint + self.x.read(8).uint
+	def PullMajor(self):
 		headerMajor = self.x.read(8).uint + self.x.read(8).uint
+		print("major: ", headerMajor)
+		return headerMajor
+
+	def PullConstPoolCount(self):
+		headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint
+		print("const pool: ", headerConstPoolCount)
+		return headerConstPoolCount
+
+	"""
 		headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint
 		headerCPInfo = [None] * (headerConstPoolCount - 1)
 		headerAccessFlag = self.x.read(8).uint + self.x.read(8).uint
@@ -47,9 +55,11 @@ class HeaderClass():
 		print(headerAttributesCount)
 		print(len(headerAttributes))
 	"""
-	
+
 
 if '__main__' == __name__:
-	d = HeaderClass() 
+	d = HeaderClass()
 	d.PullMagic()
 	d.PullMinor()
+	d.PullMajor()
+	d.PullConstPoolCount()
