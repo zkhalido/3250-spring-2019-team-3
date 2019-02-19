@@ -11,3 +11,10 @@ script:
 after_success:
   - codecov
 
+addons:
+  sonarcloud:
+    organization: zkhalido-github # the key of the org you chose at step #3
+    token: ef26fd2fbab5cf6ab5dc3b775eabccedf30b7ee2
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
