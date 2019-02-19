@@ -1,3 +1,5 @@
+import sys
+import jvpm.jvpm
 import unittest
 
 #tests jvpm file method outputs
