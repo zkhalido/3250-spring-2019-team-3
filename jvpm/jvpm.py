@@ -26,7 +26,7 @@ class HeaderClass():
         print("const pool: ", self.header_const_pool_count)
         return self.header_const_pool_count
 
-	"""
+"""
 		headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint
 		headerCPInfo = [None] * (headerConstPoolCount - 1)
 		headerAccessFlag = self.x.read(8).uint + self.x.read(8).uint
@@ -56,7 +56,7 @@ class HeaderClass():
 		print(len(headerMethods))
 		print(headerAttributesCount)
 		print(len(headerAttributes))
-	"""
+"""
 	
 # Unittest to test the output of the HeaderClass() methods.
 # python3 -m unittest jvpm.py
