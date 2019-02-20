@@ -68,31 +68,34 @@ class UnittestHeader(unittest.TestCase):
 
     def test_magic(self):
         self.test.PullMagic()
-        self.assertEqual(self.test.headerMagic, 'cafebabe')
+        self.assertEqual(self.test.headerMagic, 'cafebabe') # the comparison
         print('<<<< passed headerMagic, ' + self.test.headerMagic + ' = cafebabe >>>>\n')
 
     def test_minor(self):
-        a = 0
+        a = 0 # the known output
+	# call methods in order, including the desired method, to acquire the desired value.
         self.test.PullMagic()
         self.test.PullMinor()
-        self.assertEqual(self.test.headerMinor, 0)
+        self.assertEqual(self.test.headerMinor, 0) # the comparison
         print(f'<<<< passed headerMinor, {self.test.headerMinor} = {a} >>>>\n')
 
     def test_major(self):
-        b = 54
+        b = 54 # the known output
+	# call methods in order, including the desired method, to acquire the desired value.
         self.test.PullMagic()
         self.test.PullMinor()
         self.test.PullMajor()
-        self.assertEqual(self.test.headerMajor, 54)
+        self.assertEqual(self.test.headerMajor, 54) # the comparison
         print(f'<<<< passed headerMajor, {self.test.headerMajor} = {b} >>>>\n')
 
     def test_poolCount(self):
-        c = 14
+        c = 14 # the known output
+	# call methods in order, including the desired method, to acquire the desired value.
         self.test.PullMagic()
         self.test.PullMinor()
         self.test.PullMajor()
         self.test.PullConstPoolCount()
-        self.assertEqual(self.test.headerConstPoolCount, 14)
+        self.assertEqual(self.test.headerConstPoolCount, 14) # the comparison
         print(f'<<<< passed poolCount, {self.test.headerConstPoolCount} = {c} >>>>\n')
 	
 # NOT SURE WHERE THESE LAST THREE CLASSES CAME FROM
