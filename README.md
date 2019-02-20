@@ -36,3 +36,6 @@ jvpm/test/test_HelloWorld.py       9      0   100%
 --------------------------------------------------
 TOTAL                             13      1    92%
 ```
+Also, within this program we are in the beginnings of building a JVM with python. Sprint 2 includes reading header information and opcodes to the methods.
+
+So far have a python program JVPM.py that can extract to the Constant count. Also, included are some tests to verify programs validity. Will be adding more to the Readme as time goes on.
