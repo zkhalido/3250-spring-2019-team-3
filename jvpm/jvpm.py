@@ -69,14 +69,14 @@ class UnittestHeader(unittest.TestCase):
     def test_magic(self):
         self.test.PullMagic()
         self.assertEqual(self.test.headerMagic, 'cafebabe')
-        print('\npassed headerMagic, ' + self.test.headerMagic + ' = cafebabe\n')
+        print('\n<<<< passed headerMagic, ' + self.test.headerMagic + ' = cafebabe >>>>\n')
 
     def test_minor(self):
         a = 0
         self.test.PullMagic()
         self.test.PullMinor()
         self.assertEqual(self.test.headerMinor, 0)
-        print(f'passed headerMinor, {self.test.headerMinor} = {a}')
+        print(f'<<<< passed headerMinor, {self.test.headerMinor} = {a} >>>>')
         print()
 
     def test_major(self):
@@ -85,7 +85,7 @@ class UnittestHeader(unittest.TestCase):
         self.test.PullMinor()
         self.test.PullMajor()
         self.assertEqual(self.test.headerMajor, 54)
-        print(f'\npassed headerMajor, {self.test.headerMajor} = {b}')
+        print(f'\n<<<< passed headerMajor, {self.test.headerMajor} = {b} >>>>')
         print()
 
     def test_poolCount(self):
@@ -95,7 +95,7 @@ class UnittestHeader(unittest.TestCase):
         self.test.PullMajor()
         self.test.PullConstPoolCount()
         self.assertEqual(self.test.headerConstPoolCount, 14)
-        print(f'passed poolCount, {self.test.headerConstPoolCount} = {c}')
+        print(f'<<<< passed poolCount, {self.test.headerConstPoolCount} = {c} >>>>')
         print()
 	
 # NOT SURE WHERE THESE LAST THREE CLASSES CAME FROM
