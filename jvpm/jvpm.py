@@ -1,5 +1,6 @@
 from collections import namedtuple
 from bitstring import ConstBitStream
+import unittest
 
 class HeaderClass():
 	def __init__(self):
@@ -21,7 +22,7 @@ class HeaderClass():
 
 	def PullConstPoolCount(self):
 		headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint
-		print("const pool: ", headerConstPoolCount - 1)
+		print("const pool: ", headerConstPoolCount)
 		return headerConstPoolCount
 
 	"""
@@ -56,6 +57,19 @@ class HeaderClass():
 		print(len(headerAttributes))
 	"""
 
+class OpCodes():
+    def __init__(self):
+        self.table = {
+        	0x32: 'aaload',
+        	0x01: 'aconst_null'
+
+        }
+
+    def not_implemented(self):
+        return 'not implemented'
+
+    def interpret(self, value):
+        return self.table[value]()
 
 if '__main__' == __name__:
 	d = HeaderClass()
@@ -63,3 +77,4 @@ if '__main__' == __name__:
 	d.PullMinor()
 	d.PullMajor()
 	d.PullConstPoolCount()
+
