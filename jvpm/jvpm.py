@@ -57,6 +57,11 @@ class HeaderClass():
 		print(headerAttributesCount)
 		print(len(headerAttributes))
 	"""
+	
+# Unittest to test the output of the HeaderClass() methods.
+# python3 -m unittest jvpm.py
+# We have a warning about an unclosed file but no errors.
+
 class UnittestHeader(unittest.TestCase):
     def setUp(self):
         self.test = HeaderClass() # instantiate an instance of HeaderClass
