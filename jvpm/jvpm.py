@@ -92,6 +92,9 @@ class UnittestHeader(unittest.TestCase):
         self.assertEqual(self.test.headerConstPoolCount, 14)
         print(f'passed poolCount, {self.test.headerConstPoolCount} = {c}')
         print()
+	
+# NOT SURE WHERE THESE LAST THREE CLASSES CAME FROM
+# BUT IF YOU COMMENT THEM OUT THE UNITTEST WILL WORK. D
 
 class OpCodes():
     def __init__(self):
