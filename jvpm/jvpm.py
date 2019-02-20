@@ -8,22 +8,22 @@ class HeaderClass():
 
 	def PullMagic(self):
 		self.headerMagic = self.x.read(32).hex
-		print("header: ", self.headerMagic)
+		# print("header: ", self.headerMagic)
 		return self.headerMagic
 
 	def PullMinor(self):
 		self.headerMinor = self.x.read(8).uint + self.x.read(8).uint
-		print("minor: ", self.headerMinor)
+		# print("minor: ", self.headerMinor)
 		return self.headerMinor
 
 	def PullMajor(self):
 		self.headerMajor = self.x.read(8).uint + self.x.read(8).uint
-		print("major: ", self.headerMajor)
+		# print("major: ", self.headerMajor)
 		return self.headerMajor
 
 	def PullConstPoolCount(self):
 		self.headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint - 1
-		print("const pool: ", self.headerConstPoolCount)
+		# print("const pool: ", self.headerConstPoolCount)
 		return self.headerConstPoolCount
 
 	"""
@@ -61,27 +61,38 @@ class UnittestHeader(unittest.TestCase):
     def setUp(self):
         self.test = HeaderClass() # instantiate an instance of HeaderClass
 
-    def test_headers(self):
+    def test_magic(self):
+        self.test.PullMagic()
+        self.assertEqual(self.test.headerMagic, 'cafebabe')
+        print('passed headerMagic, ' + self.test.headerMagic + ' = cafebabe')
+
+    def test_minor(self):
         a = 0
-        b = 54
-        c = 14
+        self.test.PullMagic()
+        self.test.PullMinor()
+        self.assertEqual(self.test.headerMinor, 0)
+        print(f'passed headerMinor, {self.test.headerMinor} = {a}')
         print()
-        print('HEADERS:')
+
+    def test_major(self):
+        b = 54
+        self.test.PullMagic()
+        self.test.PullMinor()
+        self.test.PullMajor()
+        self.assertEqual(self.test.headerMajor, 54)
+        print(f'passed headerMajor, {self.test.headerMajor} = {b}')
+        print()
+
+    def test_poolCount(self):
+        c = 14
         self.test.PullMagic()
         self.test.PullMinor()
         self.test.PullMajor()
         self.test.PullConstPoolCount()
-        print()
-        print('UNITTESTS:')
-        self.assertEqual(self.test.headerMagic, 'cafebabe')
-        print('passed headerMagic, ' + self.test.headerMagic + ' = cafebabe')
-        self.assertEqual(self.test.headerMinor, 0)
-        print(f'passed headerMinor, {self.test.headerMinor}  = {a}')
-        self.assertEqual(self.test.headerMajor, 54)
-        print(f'passed headerMajor, {self.test.headerMajor} = {b}')
         self.assertEqual(self.test.headerConstPoolCount, 14)
         print(f'passed poolCount, {self.test.headerConstPoolCount} = {c}')
         print()
+
 
 if '__main__' == __name__:
 	d = HeaderClass()
