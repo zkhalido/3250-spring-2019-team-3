@@ -22,15 +22,9 @@ class HeaderClass():
 		return self.headerMajor
 
 	def PullConstPoolCount(self):
-<<<<<<< HEAD
 		self.headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint - 1
 		# print("const pool: ", self.headerConstPoolCount)
 		return self.headerConstPoolCount
-=======
-		headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint
-		print("const pool: ", headerConstPoolCount)
-		return headerConstPoolCount
->>>>>>> b99d3738809da93e778557cb87f49aeb8c23b1b6
 
 	"""
 		headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint
