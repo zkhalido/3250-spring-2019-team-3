@@ -1,4 +1,3 @@
-import unittest
 import sys
 import jvpm
 from unittest.mock import Mock, call, patch, mock_open
