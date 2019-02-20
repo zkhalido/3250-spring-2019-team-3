@@ -76,11 +76,11 @@ class UnittestHeader(unittest.TestCase):
         self.assertEqual(self.test.headerMagic, 'cafebabe')
         print('passed headerMagic, ' + self.test.headerMagic + ' = cafebabe')
         self.assertEqual(self.test.headerMinor, 0)
-        print(f'passed headerMinor {self.test.headerMinor}  = {a}')
+        print(f'passed headerMinor, {self.test.headerMinor}  = {a}')
         self.assertEqual(self.test.headerMajor, 54)
-        print(f'passed headerMajor {self.test.headerMajor} = {b}')
+        print(f'passed headerMajor, {self.test.headerMajor} = {b}')
         self.assertEqual(self.test.headerConstPoolCount, 14)
-        print(f'passed poolCount {self.test.headerConstPoolCount} = {c}')
+        print(f'passed poolCount, {self.test.headerConstPoolCount} = {c}')
         print()
 
 if '__main__' == __name__:
