@@ -69,14 +69,14 @@ class UnittestHeader(unittest.TestCase):
     def test_magic(self):
         self.test.PullMagic()
         self.assertEqual(self.test.headerMagic, 'cafebabe')
-        print('passed headerMagic, ' + self.test.headerMagic + ' = cafebabe')
+        print('\npassed headerMagic, ' + self.test.headerMagic + ' = cafebabe\n')
 
     def test_minor(self):
         a = 0
         self.test.PullMagic()
         self.test.PullMinor()
         self.assertEqual(self.test.headerMinor, 0)
-        print(f'passed headerMinor, {self.test.headerMinor} = {a}')
+        print(f'\npassed headerMinor, {self.test.headerMinor} = {a}')
         print()
 
     def test_major(self):
