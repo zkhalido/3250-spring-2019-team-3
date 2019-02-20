@@ -6,25 +6,25 @@ class HeaderClass():
     def __init__(self):
         self.x = ConstBitStream(filename='test.class')
 
-    def PullMagic(self):
-        self.headerMagic = self.x.read(32).hex
-        print("header: ", self.headerMagic)
-        return self.headerMagic
+    def pull_magic(self):
+        self.header_magic = self.x.read(32).hex
+        print("header: ", self.header_magic)
+        return self.header_magic
 
-    def PullMinor(self):
-        self.headerMinor = self.x.read(8).uint + self.x.read(8).uint
-		print("minor: ", self.headerMinor)
-		return self.headerMinor
+    def pull_minor(self):
+        self.header_minor = self.x.read(8).uint + self.x.read(8).uint
+        print("minor: ", self.header_minor)
+        return self.header_minor
 
-	def PullMajor(self):
-		self.headerMajor = self.x.read(8).uint + self.x.read(8).uint
-		print("major: ", self.headerMajor)
-		return self.headerMajor
+    def pull_major(self):
+        self.header_major = self.x.read(8).uint + self.x.read(8).uint
+        print("major: ", self.header_major)
+        return self.header_major
 
-	def PullConstPoolCount(self):
-		self.headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint - 1
-		print("const pool: ", self.headerConstPoolCount)
-		return self.headerConstPoolCount
+    def pull_const_pool_count(self):
+        self.header_const_pool_count = self.x.read(8).uint + self.x.read(8).uint - 1
+        print("const pool: ", self.header_const_pool_count)
+        return self.header_const_pool_count
 
 	"""
 		headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint
@@ -67,36 +67,36 @@ class UnittestHeader(unittest.TestCase):
         self.test = HeaderClass() # instantiate an instance of HeaderClass
 
     def test_magic(self):
-        self.test.PullMagic()
-        self.assertEqual(self.test.headerMagic, 'cafebabe') # the comparison
-        print('<<<< passed headerMagic, ' + self.test.headerMagic + ' = cafebabe >>>>\n')
+        self.test.pull_magic()
+        self.assertEqual(self.test.header_magic, 'cafebabe') # the comparison
+        print('<<<< passed header_magic, ' + self.test.header_magic + ' = cafebabe >>>>\n')
 
     def test_minor(self):
-        a = 0 # the known output
+        known_minor = 0 # the known output
 	# call methods in order, including the desired method, to acquire the desired value.
-        self.test.PullMagic()
-        self.test.PullMinor()
-        self.assertEqual(self.test.headerMinor, 0) # the comparison
-        print(f'<<<< passed headerMinor, {self.test.headerMinor} = {a} >>>>\n')
+        self.test.pull_magic()
+        self.test.pull_minor()
+        self.assertEqual(self.test.header_minor, 0) # the comparison
+        print(f'<<<< passed header_minor, {self.test.header_minor} = {a} >>>>\n')
 
     def test_major(self):
         b = 54 # the known output
 	# call methods in order, including the desired method, to acquire the desired value.
-        self.test.PullMagic()
-        self.test.PullMinor()
-        self.test.PullMajor()
-        self.assertEqual(self.test.headerMajor, 54) # the comparison
-        print(f'<<<< passed headerMajor, {self.test.headerMajor} = {b} >>>>\n')
+        self.test.pull_magic()
+        self.test.pull_minor()
+        self.test.pull_major()
+        self.assertEqual(self.test.header_major, 54) # the comparison
+        print(f'<<<< passed header_major, {self.test.header_major} = {b} >>>>\n')
 
     def test_poolCount(self):
         c = 14 # the known output
 	# call methods in order, including the desired method, to acquire the desired value.
-        self.test.PullMagic()
-        self.test.PullMinor()
-        self.test.PullMajor()
-        self.test.PullConstPoolCount()
-        self.assertEqual(self.test.headerConstPoolCount, 14) # the comparison
-        print(f'<<<< passed poolCount, {self.test.headerConstPoolCount} = {c} >>>>\n')
+        self.test.pull_magic()
+        self.test.pull_minor()
+        self.test.pull_major()
+        self.test.pull_const_pool_count()
+        self.assertEqual(self.test.header_const_pool_count, 14) # the comparison
+        print(f'<<<< passed poolCount, {self.test.header_const_pool_count} = {c} >>>>\n')
 	
 # NOT SURE WHERE THESE LAST THREE CLASSES CAME FROM
 # BUT IF YOU COMMENT THEM OUT THE UNITTEST WILL WORK. D
@@ -155,8 +155,8 @@ class TestOpCodes(unittest.TestCase):
 
 if '__main__' == __name__:
 	d = HeaderClass()
-	d.PullMagic()
-	d.PullMinor()
-	d.PullMajor()
-	d.PullConstPoolCount()
+	d.pull_magic()
+	d.pull_minor()
+	d.pull_major()
+	d.pull_const_pool_count()
 
