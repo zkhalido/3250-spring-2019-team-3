@@ -76,7 +76,7 @@ class UnittestHeader(unittest.TestCase):
         self.test.PullMagic()
         self.test.PullMinor()
         self.assertEqual(self.test.headerMinor, 0)
-        print(f'\npassed headerMinor, {self.test.headerMinor} = {a}')
+        print(f'passed headerMinor, {self.test.headerMinor} = {a}')
         print()
 
     def test_major(self):
@@ -85,7 +85,7 @@ class UnittestHeader(unittest.TestCase):
         self.test.PullMinor()
         self.test.PullMajor()
         self.assertEqual(self.test.headerMajor, 54)
-        print(f'passed headerMajor, {self.test.headerMajor} = {b}')
+        print(f'\npassed headerMajor, {self.test.headerMajor} = {b}')
         print()
 
     def test_poolCount(self):
