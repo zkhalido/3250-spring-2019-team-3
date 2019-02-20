@@ -3,16 +3,16 @@ from bitstring import ConstBitStream
 import unittest
 
 class HeaderClass():
-	def __init__(self):
-            self.x = ConstBitStream(filename='test.class')
+    def __init__(self):
+        self.x = ConstBitStream(filename='test.class')
 
-	def PullMagic(self):
-		self.headerMagic = self.x.read(32).hex
-		print("header: ", self.headerMagic)
-		return self.headerMagic
+    def PullMagic(self):
+        self.headerMagic = self.x.read(32).hex
+        print("header: ", self.headerMagic)
+        return self.headerMagic
 
-	def PullMinor(self):
-		self.headerMinor = self.x.read(8).uint + self.x.read(8).uint
+    def PullMinor(self):
+        self.headerMinor = self.x.read(8).uint + self.x.read(8).uint
 		print("minor: ", self.headerMinor)
 		return self.headerMinor
 
