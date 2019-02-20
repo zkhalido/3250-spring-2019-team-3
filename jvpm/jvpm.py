@@ -61,7 +61,7 @@ class UnittestHeader(unittest.TestCase):
     def setUp(self):
         self.test = HeaderClass() # instantiate an instance of HeaderClass
 
-    def test_minor(self):
+    def test_headers(self):
         a = 0
         b = 54
         c = 14
