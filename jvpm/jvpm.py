@@ -77,7 +77,7 @@ class UnittestHeader(unittest.TestCase):
         self.test.pull_magic()
         self.test.pull_minor()
         self.assertEqual(self.test.header_minor, 0) # the comparison
-        print(f'<<<< passed header_minor, {self.test.header_minor} = {a} >>>>\n')
+        print(f'<<<< passed header_minor, {self.test.header_minor} = {known_minor} >>>>\n')
 
     def test_major(self):
         b = 54 # the known output
