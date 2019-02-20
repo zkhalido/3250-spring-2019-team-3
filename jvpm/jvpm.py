@@ -8,22 +8,22 @@ class HeaderClass():
 
 	def PullMagic(self):
 		self.headerMagic = self.x.read(32).hex
-		# print("header: ", self.headerMagic)
+		print("header: ", self.headerMagic)
 		return self.headerMagic
 
 	def PullMinor(self):
 		self.headerMinor = self.x.read(8).uint + self.x.read(8).uint
-		# print("minor: ", self.headerMinor)
+		print("minor: ", self.headerMinor)
 		return self.headerMinor
 
 	def PullMajor(self):
 		self.headerMajor = self.x.read(8).uint + self.x.read(8).uint
-		# print("major: ", self.headerMajor)
+		print("major: ", self.headerMajor)
 		return self.headerMajor
 
 	def PullConstPoolCount(self):
 		self.headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint - 1
-		# print("const pool: ", self.headerConstPoolCount)
+		print("const pool: ", self.headerConstPoolCount)
 		return self.headerConstPoolCount
 
 	"""
