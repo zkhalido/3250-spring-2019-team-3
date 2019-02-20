@@ -6,7 +6,7 @@ addons:
   sonarcloud:
     organization: git-confused-team3 # the key of the org you chose at step #3
     token:
-      secure: 
+      secure: "tQaB5FRazwvzN7TPw0WRjlcooNd+9xFv14kiEbtrJiWN/StQIfkt/NwbS1MaVGP60nNEKbaIE04qgvVCNcBkqrzt0RViGlTCdPt39XzCPQZ7clwLTKf+rOWZbyg6Thxlm10BUlQ9dbHY0yLtYGQwQVFSyz0K+AOuxyuq4J/Lv6dQ4knpZqNiL9qM8a/SZVIEv1eHQGqzUr4dy2H34W3W6dEHlQcCU20R34+vMQVJZoD6VJY8WcxJCk+ff8bHO+9KbQzqJQao+ux63af11C29BQCxalib2XGZn6txVDmXH9ngVNJw4xLQ2U16b0LRubXLE4FS8twqFaG+lWe/7KCCrm99oEhwIX/0fJmGoq3Iu5Zo1RL3FyNwVuMf0Q2ayhr7LX9HE1aOS73Dt/P4f50PGmQ4f0v8/anMKlI/pslYpAz1+jUL0m6SZfhbENmpWRlnr6wrBMYHNNprCJkqccenqT59J9ki4aWYNww7dhCBa5WPWssPTjPfl0g0SKz2wbmsJqz7iRB67oHMSYYAl/afP6veCf0WnIijUtecdYbyrYI0HEy8lplsoa0oLm56GuAv07H1IdlLkfzG6MPMuIe4iMfDE+HrSMvvBk93GMBIa6imZQzsCqm9pca6MD541hiS5ps+2nEfNbfqDK5raJe4l0Yrd3zkoFooOX6wRwQPya8="
 
 
 
