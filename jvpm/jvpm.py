@@ -69,14 +69,14 @@ class UnittestHeader(unittest.TestCase):
     def test_magic(self):
         self.test.PullMagic()
         self.assertEqual(self.test.headerMagic, 'cafebabe')
-        print('\n<<<< passed headerMagic, ' + self.test.headerMagic + ' = cafebabe >>>>\n')
+        print('<<<< passed headerMagic, ' + self.test.headerMagic + ' = cafebabe >>>>\n')
 
     def test_minor(self):
         a = 0
         self.test.PullMagic()
         self.test.PullMinor()
         self.assertEqual(self.test.headerMinor, 0)
-        print(f'\n<<<< passed headerMinor, {self.test.headerMinor} = {a} >>>>\n')
+        print(f'<<<< passed headerMinor, {self.test.headerMinor} = {a} >>>>\n')
 
     def test_major(self):
         b = 54
@@ -84,7 +84,7 @@ class UnittestHeader(unittest.TestCase):
         self.test.PullMinor()
         self.test.PullMajor()
         self.assertEqual(self.test.headerMajor, 54)
-        print(f'\n<<<< passed headerMajor, {self.test.headerMajor} = {b} >>>>\n')
+        print(f'<<<< passed headerMajor, {self.test.headerMajor} = {b} >>>>\n')
 
     def test_poolCount(self):
         c = 14
@@ -93,7 +93,7 @@ class UnittestHeader(unittest.TestCase):
         self.test.PullMajor()
         self.test.PullConstPoolCount()
         self.assertEqual(self.test.headerConstPoolCount, 14)
-        print(f'\n<<<< passed poolCount, {self.test.headerConstPoolCount} = {c} >>>>\n')
+        print(f'<<<< passed poolCount, {self.test.headerConstPoolCount} = {c} >>>>\n')
 	
 # NOT SURE WHERE THESE LAST THREE CLASSES CAME FROM
 # BUT IF YOU COMMENT THEM OUT THE UNITTEST WILL WORK. D
