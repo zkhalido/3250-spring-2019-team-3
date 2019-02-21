@@ -4,25 +4,25 @@ import unittest
 
 class HeaderClass():
     def __init__(self):
-        self.x = ConstBitStream(filename='test.class')
+        self.stream = ConstBitStream(filename='test.class')
 
     def pull_magic(self):
-        self.header_magic = self.x.read(32).hex
+        self.header_magic = self.stream.read(32).hex
         print("header: ", self.header_magic)
         return self.header_magic
 
     def pull_minor(self):
-        self.header_minor = self.x.read(8).uint + self.x.read(8).uint
+        self.header_minor = self.stream.read(8).uint + self.stream.read(8).uint
         print("minor: ", self.header_minor)
         return self.header_minor
 
     def pull_major(self):
-        self.header_major = self.x.read(8).uint + self.x.read(8).uint
+        self.header_major = self.stream.read(8).uint + self.stream.read(8).uint
         print("major: ", self.header_major)
         return self.header_major
 
     def pull_const_pool_count(self):
-        self.header_const_pool_count = self.x.read(8).uint + self.x.read(8).uint - 1
+        self.header_const_pool_count = self.stream.read(8).uint + self.stream.read(8).uint - 1
         print("const pool: ", self.header_const_pool_count)
         return self.header_const_pool_count
 
