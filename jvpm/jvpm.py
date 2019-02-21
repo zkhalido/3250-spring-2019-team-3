@@ -57,7 +57,7 @@ class HeaderClass():
 		print(headerAttributesCount)
 		print(len(headerAttributes))
 """
-	
+
 # Unittest to test the output of the HeaderClass() methods.
 # python3 -m unittest jvpm.py
 # We have a warning about an unclosed file but no errors.
@@ -97,7 +97,7 @@ class UnittestHeader(unittest.TestCase):
         self.test.pull_const_pool_count()
         self.assertEqual(self.test.header_const_pool_count, 14) # the comparison
         print(f'<<<< passed poolCount, {self.test.header_const_pool_count} = {c} >>>>\n')
-	
+
 # NOT SURE WHERE THESE LAST THREE CLASSES CAME FROM
 # BUT IF YOU COMMENT THEM OUT THE UNITTEST WILL WORK. D
 
@@ -154,9 +154,9 @@ class TestOpCodes(unittest.TestCase):
 """
 
 if '__main__' == __name__:
-	d = HeaderClass()
-	d.pull_magic()
-	d.pull_minor()
-	d.pull_major()
-	d.pull_const_pool_count()
+        d = HeaderClass()
+        d.pull_magic()
+        d.pull_minor()
+        d.pull_major()
+        d.pull_const_pool_count()
 
