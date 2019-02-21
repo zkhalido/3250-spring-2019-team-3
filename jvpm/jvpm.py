@@ -1,6 +1,6 @@
+import unittest
 from collections import namedtuple
 from bitstring import ConstBitStream
-import unittest
 
 class HeaderClass():
     def __init__(self):
@@ -80,23 +80,23 @@ class UnittestHeader(unittest.TestCase):
         print(f'<<<< passed header_minor, {self.test.header_minor} = {known_minor} >>>>\n')
 
     def test_major(self):
-        b = 54 # the known output
+        known_major = 54 # the known output
 	# call methods in order, including the desired method, to acquire the desired value.
         self.test.pull_magic()
         self.test.pull_minor()
         self.test.pull_major()
         self.assertEqual(self.test.header_major, 54) # the comparison
-        print(f'<<<< passed header_major, {self.test.header_major} = {b} >>>>\n')
+        print(f'<<<< passed header_major, {self.test.header_major} = {known_major} >>>>\n')
 
     def test_poolCount(self):
-        c = 14 # the known output
+        known_pool_count = 14 # the known output
 	# call methods in order, including the desired method, to acquire the desired value.
         self.test.pull_magic()
         self.test.pull_minor()
         self.test.pull_major()
         self.test.pull_const_pool_count()
         self.assertEqual(self.test.header_const_pool_count, 14) # the comparison
-        print(f'<<<< passed poolCount, {self.test.header_const_pool_count} = {c} >>>>\n')
+        print(f'<<<< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >>>>\n')
 
 # NOT SURE WHERE THESE LAST THREE CLASSES CAME FROM
 # BUT IF YOU COMMENT THEM OUT THE UNITTEST WILL WORK. D
