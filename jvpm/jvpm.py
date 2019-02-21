@@ -3,6 +3,7 @@ import unittest
 from collections import namedtuple
 from bitstring import ConstBitStream
 
+"""Class that parses the data from test.class"""
 class HeaderClass():
     def __init__(self):
         self.stream = ConstBitStream(filename='test.class')
