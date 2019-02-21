@@ -4,11 +4,12 @@ from collections import namedtuple
 from bitstring import ConstBitStream
 
 # pylint: disable = W0105
-"""Class that parses the data from test.class"""
 
+"""Class that parses the data from test.class"""
 class HeaderClass():
     def __init__(self):
         self.stream = ConstBitStream(filename='test.class')
+        self.header_magic = ""
 
     def pull_magic(self):
         self.header_magic = self.stream.read(32).hex
