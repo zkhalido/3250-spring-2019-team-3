@@ -1,28 +1,42 @@
-from collections import namedtuple
-from bitstring import ConstBitStream
+"""import the unittest"""
 import unittest
+# from collections import namedtuple
+from bitstring import ConstBitStream
+
+# pylint: disable = W0105, C0122
 
 class HeaderClass():
+    """Class that parses the data from test.class
+    and assigns values to variables
+    """
     def __init__(self):
-        self.x = ConstBitStream(filename='test.class')
+        self.stream = ConstBitStream(filename='test.class')
+        self.header_magic = ""
+        self.header_minor = ""
+        self.header_major = ""
+        self.header_const_pool_count = ""
 
     def pull_magic(self):
-        self.header_magic = self.x.read(32).hex
+        """method to pull the magic data"""
+        self.header_magic = self.stream.read(32).hex
         print("header: ", self.header_magic)
         return self.header_magic
 
     def pull_minor(self):
-        self.header_minor = self.x.read(8).uint + self.x.read(8).uint
+        """method to pull the minor data"""
+        self.header_minor = self.stream.read(8).uint + self.stream.read(8).uint
         print("minor: ", self.header_minor)
         return self.header_minor
 
     def pull_major(self):
-        self.header_major = self.x.read(8).uint + self.x.read(8).uint
+        """method to pull the major data"""
+        self.header_major = self.stream.read(8).uint + self.stream.read(8).uint
         print("major: ", self.header_major)
         return self.header_major
 
     def pull_const_pool_count(self):
-        self.header_const_pool_count = self.x.read(8).uint + self.x.read(8).uint - 1
+        """method to pull the pool count data"""
+        self.header_const_pool_count = self.stream.read(8).uint + self.stream.read(8).uint - 1
         print("const pool: ", self.header_const_pool_count)
         return self.header_const_pool_count
 
@@ -57,47 +71,57 @@ class HeaderClass():
 		print(headerAttributesCount)
 		print(len(headerAttributes))
 """
-	
+
 # Unittest to test the output of the HeaderClass() methods.
 # python3 -m unittest jvpm.py
 # We have a warning about an unclosed file but no errors.
 
 class UnittestHeader(unittest.TestCase):
+    """unittest to test method outputs"""
     def setUp(self):
-        self.test = HeaderClass() # instantiate an instance of HeaderClass
+        """instantiate an instance of HeaderClass"""
+        self.test = HeaderClass()
 
     def test_magic(self):
+        """method to test the pull_magic output"""
         self.test.pull_magic()
-        self.assertEqual(self.test.header_magic, 'cafebabe') # the comparison
+        """the comparison"""
+        self.assertEqual(self.test.header_magic, 'cafebabe')
         print('<<<< passed header_magic, ' + self.test.header_magic + ' = cafebabe >>>>\n')
 
     def test_minor(self):
-        known_minor = 0 # the known output
-	# call methods in order, including the desired method, to acquire the desired value.
+        """method to test the pull_minor output"""
+        known_minor = 0
+        """call methods in order, including the desired method, to acquire value."""
         self.test.pull_magic()
         self.test.pull_minor()
-        self.assertEqual(self.test.header_minor, 0) # the comparison
+        """the comparison"""
+        self.assertEqual(self.test.header_minor, 0)
         print(f'<<<< passed header_minor, {self.test.header_minor} = {known_minor} >>>>\n')
 
     def test_major(self):
-        b = 54 # the known output
-	# call methods in order, including the desired method, to acquire the desired value.
+        """method to test the pull_major output"""
+        known_major = 54
+        """call methods in order, including the desired method, to acquire value."""
         self.test.pull_magic()
         self.test.pull_minor()
         self.test.pull_major()
-        self.assertEqual(self.test.header_major, 54) # the comparison
-        print(f'<<<< passed header_major, {self.test.header_major} = {b} >>>>\n')
+        """the comparison"""
+        self.assertEqual(self.test.header_major, 54)
+        print(f'<<<< passed header_major, {self.test.header_major} = {known_major} >>>>\n')
 
-    def test_poolCount(self):
-        c = 14 # the known output
-	# call methods in order, including the desired method, to acquire the desired value.
+    def test_pool_count(self):
+        """method to test the pull_const_pool_count output"""
+        known_pool_count = 14
+        """call methods in order, including the desired method, to acquire value."""
         self.test.pull_magic()
         self.test.pull_minor()
         self.test.pull_major()
         self.test.pull_const_pool_count()
-        self.assertEqual(self.test.header_const_pool_count, 14) # the comparison
-        print(f'<<<< passed poolCount, {self.test.header_const_pool_count} = {c} >>>>\n')
-	
+        """the comparison"""
+        self.assertEqual(self.test.header_const_pool_count, 14)
+        print(f'< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >\n')
+
 # NOT SURE WHERE THESE LAST THREE CLASSES CAME FROM
 # BUT IF YOU COMMENT THEM OUT THE UNITTEST WILL WORK. D
 
@@ -154,9 +178,8 @@ class TestOpCodes(unittest.TestCase):
 """
 
 if '__main__' == __name__:
-	d = HeaderClass()
-	d.pull_magic()
-	d.pull_minor()
-	d.pull_major()
-	d.pull_const_pool_count()
-
+    D = HeaderClass()
+    D.pull_magic()
+    D.pull_minor()
+    D.pull_major()
+    D.pull_const_pool_count()
