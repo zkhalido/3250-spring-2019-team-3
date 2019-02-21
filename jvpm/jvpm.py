@@ -1,6 +1,6 @@
 """import the unittest"""
 import unittest
-from collections import namedtuple
+# from collections import namedtuple
 from bitstring import ConstBitStream
 
 # pylint: disable = W0105
