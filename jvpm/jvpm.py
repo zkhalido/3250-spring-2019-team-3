@@ -95,7 +95,7 @@ class UnittestHeader(unittest.TestCase):
         self.assertEqual(self.test.header_major, 54)
         print(f'<<<< passed header_major, {self.test.header_major} = {known_major} >>>>\n')
 
-    def test_poolCount(self):
+    def test_pool_count(self):
         """the known output"""
         known_pool_count = 14
         """call methods in order, including the desired method, to acquire value."""
@@ -163,8 +163,8 @@ class TestOpCodes(unittest.TestCase):
 """
 
 if '__main__' == __name__:
-    d = HeaderClass()
-    d.pull_magic()
-    d.pull_minor()
-    d.pull_major()
-    d.pull_const_pool_count()
+    d_class = HeaderClass()
+    d_class.pull_magic()
+    d_class.pull_minor()
+    d_class.pull_major()
+    d_class.pull_const_pool_count()
