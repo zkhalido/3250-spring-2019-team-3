@@ -73,7 +73,7 @@ class HeaderClass():
 # We have a warning about an unclosed file but no errors.
 
 class UnittestHeader(unittest.TestCase):
-    """unittest to test method outputs"""    
+    """unittest to test method outputs"""
     def setUp(self):
         """instantiate an instance of HeaderClass"""
         self.test = HeaderClass()
