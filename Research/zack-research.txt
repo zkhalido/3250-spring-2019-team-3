@@ -2,7 +2,7 @@
 
 -constant_pool_count
 The value of the constant_pool_count item is equal to the number of entries
-in the constant_pool table plus one. A constant_pool index is considered valid 
+in the constant_pool table plus one. A constant_pool index is considered valid
 if it is greater than zero and less than constant_pool_count, with the exception
 for constants of type long and double noted in.
 
@@ -60,3 +60,6 @@ iconst_m1         // Push integer -1.
 imul              // Pop top two ints, multiply, push result.
 istore_1          // Pop result of multiply to local variable 1 (imInt): imInt *= -1;
 goto 5            // Jump back to the iinc instruction: while (true) {}
+
+-Further reading:
+https://www.artima.com/underthehood/bytecodeP.html
