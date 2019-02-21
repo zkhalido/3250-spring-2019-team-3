@@ -83,7 +83,7 @@ class UnittestHeader(unittest.TestCase):
         self.test = HeaderClass()
 
     def test_magic(self):
-	"""method to test the pull_magic output"""
+        """method to test the pull_magic output"""
         self.test.pull_magic()
         """the comparison"""
         self.assertEqual(self.test.header_magic, 'cafebabe')
