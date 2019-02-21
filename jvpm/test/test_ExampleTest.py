@@ -10,20 +10,20 @@ class ClassFile():
         magic = ""
         for i in range(4):
             magic += format(self.data[i], '02X')
-        print('hexprint ' + hex(self.data[0]))
-        print('magic ' + magic)
+       # print('hexprint ' + hex(self.data[0]))
+       # print('magic ' + magic)
         return magic
 
     def get_minor(self):
-        print("minor", self.data[4], self.data[5])
+       # print("minor", self.data[4], self.data[5])
         return self.data[4] + self.data[5]
 
     def get_major(self):
-        print("major", self.data[6], self.data[7])
+       # print("major", self.data[6], self.data[7])
         return self.data[6] + self.data[7]
 
     def get_poolCount(self):
-        print("count", self.data[8], self.data[9])
+       # print("count", self.data[8], self.data[9])
         return self.data[8]+ self.data[9]
 
 class OpCodes():
@@ -44,19 +44,19 @@ class TestClassFile(unittest.TestCase):
 
     def test_magic(self):
         self.assertEqual(self.cf.get_magic(), 'CAFEBABE')
-        print("unittestmagic", self.cf.get_magic())
+       # print("unittestmagic", self.cf.get_magic())
 
     def test_minor(self):
         self.assertEqual(self.cf.get_minor(), 0)
-        print("unittestprintminor", self.cf.get_minor())
+       # print("unittestprintminor", self.cf.get_minor())
 
     def test_major(self):
         self.assertEqual(self.cf.get_major(), 54)
-        print("unittestprintmajor", self.cf.get_major())
+        # print("unittestprintmajor", self.cf.get_major())
 
     def test_PoolCount(self):
         self.assertEqual(self.cf.get_poolCount(), 15)
-        print("unittestprintpool", self.cf.get_poolCount())
+       # print("unittestprintpool", self.cf.get_poolCount())
 
 class TestOpCodes(unittest.TestCase):
     def test_not_implmented(self):
