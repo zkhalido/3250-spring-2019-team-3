@@ -1,7 +1,10 @@
 """import the unittest"""
 import unittest
+
 # from collections import namedtuple
 from bitstring import ConstBitStream
+#from pythonds.basic.stack import Stack
+
 
 # pylint: disable = W0105, C0122
 
@@ -39,6 +42,31 @@ class HeaderClass():
         self.header_const_pool_count = self.stream.read(8).uint + self.stream.read(8).uint - 1
         print("const pool: ", self.header_const_pool_count)
         return self.header_const_pool_count
+
+class Stack:
+    """Class that creates a Stack, with methods to interact with the Stack"""
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        """test if Stack is empty"""
+        return self.items == []
+
+    def push(self, item):
+        """Put item on the stack"""
+        self.items.append(item)
+
+    def pop(self):
+        """Take item off stack"""
+        return self.items.pop()
+
+    def peek(self):
+        """Look at item on top of stack"""
+        return self.items[len(self.items)-1]
+
+    def size(self):
+        """Tells how many items are on the stack"""
+        return len(self.items)
 
 """
 		headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint
@@ -183,3 +211,18 @@ if '__main__' == __name__:
     D.pull_minor()
     D.pull_major()
     D.pull_const_pool_count()
+    print()
+
+    print('Testing the Stack:')
+    S = Stack()
+    print(S.is_empty())
+    S.push('dog')      # 1st item on stack
+    S.push(1)          # 2nd item on stack
+    print(S.peek())    # look at 2nd item on stack
+    S.push(True)       # 3rd item on stack
+    print(S.size())    # print how many items on stack
+    print(S.is_empty()) # test if stack is empty
+    S.push(8.4)        # 4th item on stack
+    print(S.pop())     # take 4th item off stack
+    print(S.pop())     # take 3rd item off stack
+    print(S.size())    # print how many items left on stack
