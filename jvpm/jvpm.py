@@ -64,38 +64,46 @@ class HeaderClass():
 
 class UnittestHeader(unittest.TestCase):
     def setUp(self):
-        self.test = HeaderClass() """instantiate an instance of HeaderClass"""
+	"""instantiate an instance of HeaderClass"""
+        self.test = HeaderClass()
 
     def test_magic(self):
         self.test.pull_magic()
-        self.assertEqual(self.test.header_magic, 'cafebabe') """the comparison"""
+	"""the comparison"""
+        self.assertEqual(self.test.header_magic, 'cafebabe')
         print('<<<< passed header_magic, ' + self.test.header_magic + ' = cafebabe >>>>\n')
 
     def test_minor(self):
-        known_minor = 0 """the known output"""
+	"""the known output"""
+        known_minor = 0
 	"""call methods in order, including the desired method, to acquire value."""
         self.test.pull_magic()
         self.test.pull_minor()
-        self.assertEqual(self.test.header_minor, 0) """the comparison"""
+	 """the comparison"""
+        self.assertEqual(self.test.header_minor, 0)
         print(f'<<<< passed header_minor, {self.test.header_minor} = {known_minor} >>>>\n')
 
     def test_major(self):
-        known_major = 54 """the known output"""
+	"""the known output"""
+        known_major = 54
 	"""call methods in order, including the desired method, to acquire value."""
         self.test.pull_magic()
         self.test.pull_minor()
         self.test.pull_major()
-        self.assertEqual(self.test.header_major, 54) """the comparison"""
+	 """the comparison"""
+        self.assertEqual(self.test.header_major, 54)
         print(f'<<<< passed header_major, {self.test.header_major} = {known_major} >>>>\n')
 
     def test_poolCount(self):
-        known_pool_count = 14 """the known output"""
+	"""the known output"""
+        known_pool_count = 14
 	"""call methods in order, including the desired method, to acquire value."""
         self.test.pull_magic()
         self.test.pull_minor()
         self.test.pull_major()
         self.test.pull_const_pool_count()
-        self.assertEqual(self.test.header_const_pool_count, 14) """the comparison"""
+	"""the comparison"""
+        self.assertEqual(self.test.header_const_pool_count, 14)
         print(f'< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >\n')
 
 # NOT SURE WHERE THESE LAST THREE CLASSES CAME FROM
