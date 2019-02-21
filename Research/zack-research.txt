@@ -1,0 +1,62 @@
+02/20/2019 - zack
+
+-constant_pool_count
+The value of the constant_pool_count item is equal to the number of entries
+in the constant_pool table plus one. A constant_pool index is considered valid 
+if it is greater than zero and less than constant_pool_count, with the exception
+for constants of type long and double noted in.
+
+-constant_pool[]
+The constant_pool is a table of structures representing various string
+constants, class and interface names, field names, and other constants that
+are referred to within the ClassFile structure and its substructures.
+The format of each constant_pool table entry is indicated by its first "tag" byte.
+
+-A field descriptor represents the type of a class, instance, or local variable.
+In Demo 3 we are searching for Base Type I.
+
+FieldDescriptor:
+FieldType
+
+FieldType:
+BaseType
+ObjectType
+ArrayType
+
+BaseType:
+B C D F I (int/integer) J S Z
+
+-The field descriptor of an instance variable of type int is simply I.
+
+CONSTANT_Integer_info {
+    u1 tag;
+    u4 bytes;
+}
+
+Tag: 3
+Add. bytes: 4 bytes
+Dec. of Cosnt: Integer, a signed 32-bit two's complement number in big-endian format
+
+Java ByteCode Instructions
+https://en.wikipedia.org/wiki/Java_bytecode_instruction_listings
+
+iconst_0          // Push int constant 0.
+istore_0          // Pop to local variable 0, which is imByte: byte imByte = 0;
+bipush 125        // Expand byte constant 125 to int and push.
+istore_1          // Pop to local variable 1, which is imInt: int imInt = 125;
+iinc 1 1          // Increment local variable 1 (imInt) by 1: ++imInt;
+iload_1           // Push local variable 1 (imInt).
+int2byte          // Truncate and sign extend top of stack so it has valid byte value.
+istore_0          // Pop to local variable 0 (imByte): imByte = (byte) imInt;
+iload_1           // Push local variable 1 (imInt) again.
+iconst_m1         // Push integer -1.
+imul              // Pop top two ints, multiply, push result.
+istore_1          // Pop result of multiply to local variable 1 (imInt): imInt *= -1;
+iload_1           // Push local variable 1 (imInt).
+int2byte          // Truncate and sign extend top of stack so it has valid byte value.
+istore_0          // Pop to local variable 0 (imByte): imByte = (byte) imInt;
+iload_1           // Push local variable 1 (imInt) again.
+iconst_m1         // Push integer -1.
+imul              // Pop top two ints, multiply, push result.
+istore_1          // Pop result of multiply to local variable 1 (imInt): imInt *= -1;
+goto 5            // Jump back to the iinc instruction: while (true) {}
