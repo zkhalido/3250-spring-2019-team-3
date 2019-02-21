@@ -4,10 +4,8 @@ python:
 
 addons:
   sonarcloud:
-    organization: zkhalido-github # the key of the org you chose at step #3
+    organization: git-confused-team3 # the key of the org you chose at step #3
     token:
-      secure: KuakyFh9L8xFumGgAhorQuaFOImfsR+zsiZs41Q/h2Xmrc0j71pFq88xkU/g6h4OoNo18weXIRyIycxNxwSzMkZUkwUkCzdpKIWZnITyCkiWFH75WFfEXYFIqWlYNwP8X5IJUT8mBjMHLm4q4YgombEpXXf22z/sT/bIJ3PY5EjD+knyUT2QbHwkSn4vz35P25LEH10aPthLweKfxqOL9v5qVxVupoK2Vt25aRqM0SjjufLTHP1hRcHgkWc3+pPJcPhxVq1xZs4H2fW7zgT0Cw3AEPtci+rYlf/jnvh7utskG//E6MI8Zyz296/51RQWFq4TMuEEUXffeGDHgOtS/xY3Xw51QusD4rGhf1o20/OF68bNhvyMBxjkPoD5MXv7ikTst3aCzGA1EI5LLGfi3RkRfr/bhrxZHXFo7bvSGYdSsHGocvdouCWK0GZLAJH2pkOAF4RJ2Q2oUnWaBnwKXMn42UtkYtg7Ta32sTkpNeTiih4HygRdNt1S4Np6tn+dnFyNLs8l8LOsxHVHY9X140VOepZEVBFiLCZ4v1ZqzhaHdIPlo5fsy71Lxvrj747imbp6guYrsouw6yM6QnkxrFK+e9DccdI/B/4wdZfNjl9I3RoBLVbshvBX0K6Zviq91zLOPmgp/XlQVWYYMFSo4P0xRYiv9OaKug0ijRAcHnw=
-
 
 install:
   - pip install codecov
