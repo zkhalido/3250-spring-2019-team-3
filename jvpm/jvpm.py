@@ -5,10 +5,10 @@ from bitstring import ConstBitStream
 
 # pylint: disable = W0105
 
-"""Class that parses the data from test.class
-   and assigns values to variables"""
-
 class HeaderClass():
+    """Class that parses the data from test.class
+    and assigns values to variables
+    """
     def __init__(self):
         self.stream = ConstBitStream(filename='test.class')
         self.header_magic = ""
