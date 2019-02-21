@@ -62,6 +62,7 @@ class HeaderClass():
 # python3 -m unittest jvpm.py
 # We have a warning about an unclosed file but no errors.
 
+"""unittest to test method outputs"""
 class UnittestHeader(unittest.TestCase):
     def setUp(self):
         """instantiate an instance of HeaderClass"""
