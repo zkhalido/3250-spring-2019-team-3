@@ -83,13 +83,14 @@ class UnittestHeader(unittest.TestCase):
         self.test = HeaderClass()
 
     def test_magic(self):
+	"""method to test the pull_magic output"""
         self.test.pull_magic()
         """the comparison"""
         self.assertEqual(self.test.header_magic, 'cafebabe')
         print('<<<< passed header_magic, ' + self.test.header_magic + ' = cafebabe >>>>\n')
 
     def test_minor(self):
-        """the known output"""
+        """method to test the pull_minor output"""
         known_minor = 0
         """call methods in order, including the desired method, to acquire value."""
         self.test.pull_magic()
@@ -99,7 +100,7 @@ class UnittestHeader(unittest.TestCase):
         print(f'<<<< passed header_minor, {self.test.header_minor} = {known_minor} >>>>\n')
 
     def test_major(self):
-        """the known output"""
+        """method to test the pull_major output"""
         known_major = 54
         """call methods in order, including the desired method, to acquire value."""
         self.test.pull_magic()
@@ -110,7 +111,7 @@ class UnittestHeader(unittest.TestCase):
         print(f'<<<< passed header_major, {self.test.header_major} = {known_major} >>>>\n')
 
     def test_pool_count(self):
-        """the known output"""
+        """method to test the pull_const_pool_count output"""
         known_pool_count = 14
         """call methods in order, including the desired method, to acquire value."""
         self.test.pull_magic()
