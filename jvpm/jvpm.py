@@ -10,6 +10,9 @@ class HeaderClass():
     def __init__(self):
         self.stream = ConstBitStream(filename='test.class')
         self.header_magic = ""
+	self.header_minor = ""
+	self.header_major = ""
+	self.header_const_pool_count = ""
 
     def pull_magic(self):
         self.header_magic = self.stream.read(32).hex
