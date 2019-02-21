@@ -3,7 +3,7 @@ import unittest
 # from collections import namedtuple
 from bitstring import ConstBitStream
 
-# pylint: disable = W0105
+# pylint: disable = W0105, C0122
 
 class HeaderClass():
     """Class that parses the data from test.class
