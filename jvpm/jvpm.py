@@ -154,9 +154,8 @@ class TestOpCodes(unittest.TestCase):
 """
 
 if '__main__' == __name__:
-        d = HeaderClass()
-        d.pull_magic()
-        d.pull_minor()
-        d.pull_major()
-        d.pull_const_pool_count()
-
+    d = HeaderClass()
+    d.pull_magic()
+    d.pull_minor()
+    d.pull_major()
+    d.pull_const_pool_count()
