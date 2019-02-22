@@ -3,160 +3,51 @@ from bitstring import ConstBitStream
 import unittest
 
 class HeaderClass():
+    from collections import namedtuple
+from bitstring import ConstBitStream
+
+class HeaderClass():
     def __init__(self):
-        self.x = ConstBitStream(filename='test.class')
+        with open('test.class', 'rb') as binary_file:
+            self.data = binary_file.read()
 
-    def pull_magic(self):
-        self.header_magic = self.x.read(32).hex
-        print("header: ", self.header_magic)
-        return self.header_magic
+    def get_magic(self):
+        magic = ""
+        for i in range(4):
+            magic += format(self.data[i], '02X')
+        print(magic)
+        return magic
 
-    def pull_minor(self):
-        self.header_minor = self.x.read(8).uint + self.x.read(8).uint
-        print("minor: ", self.header_minor)
-        return self.header_minor
+    def get_minor(self):
+        print(self.data[4] + self.data[5])
+        return self.data[4] + self.data[5]
 
-    def pull_major(self):
-        self.header_major = self.x.read(8).uint + self.x.read(8).uint
-        print("major: ", self.header_major)
-        return self.header_major
+    def get_major(self):
+        print(self.data[6] + self.data[7])
+        return self.data[6] + self.data[7]
 
-    def pull_const_pool_count(self):
-        self.header_const_pool_count = self.x.read(8).uint + self.x.read(8).uint - 1
-        print("const pool: ", self.header_const_pool_count)
-        return self.header_const_pool_count
+    def get_const_pool_count(self):
+        print(self.data[8] + self.data[9])
+        return self.data[8] + self.data[9]
 
-"""
-		headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint
-		headerCPInfo = [None] * (headerConstPoolCount - 1)
-		headerAccessFlag = self.x.read(8).uint + self.x.read(8).uint
-		headerThisClass = self.x.read(8).uint + self.x.read(8).uint
-		headerSuperClass = self.x.read(8).uint + self.x.read(8).uint
-		headerInterfacesCount = self.x.read(8).uint + self.x.read(8).uint
-		headerInterfaces = [None] * headerInterfacesCount
-		headerFieldsCount = self.x.read(8).uint + self.x.read(8).uint
-		headerFields = [None] * headerFieldsCount
-		headerMethodsCount = self.x.read(8).uint + self.x.read(8).uint
-		headerMethods = [None] * headerMethodsCount
-		headerAttributesCount = self.x.read(8).uint + self.x.read(8).uint
-		headerAttributes = [None] * headerAttributesCount
-		print("header: ", headerMagic)
-		print(headerMinor)
-		print(headerMajor)
-		print(headerConstPoolCount)
-		print(len(headerCPInfo))
-		print(headerAccessFlag)
-		print(headerThisClass)
-		print(headerSuperClass)
-		print(headerInterfacesCount)
-		print(len(headerInterfaces))
-		print(headerFieldsCount)
-		print(len(headerFields))
-		print(headerMethodsCount)
-		print(len(headerMethods))
-		print(headerAttributesCount)
-		print(len(headerAttributes))
-"""
-	
-# Unittest to test the output of the HeaderClass() methods.
-# python3 -m unittest jvpm.py
-# We have a warning about an unclosed file but no errors.
+    def get_const_pool(self):
+        temp = []
+        count = self.get_const_pool_count() - 1
+        for i in range(count):
+            temp.append((self.data[10 + i]))
+        print(len(temp))
+        return temp
 
-class UnittestHeader(unittest.TestCase):
-    def setUp(self):
-        self.test = HeaderClass() # instantiate an instance of HeaderClass
-
-    def test_magic(self):
-        self.test.pull_magic()
-        self.assertEqual(self.test.header_magic, 'cafebabe') # the comparison
-        print('<<<< passed header_magic, ' + self.test.header_magic + ' = cafebabe >>>>\n')
-
-    def test_minor(self):
-        known_minor = 0 # the known output
-	# call methods in order, including the desired method, to acquire the desired value.
-        self.test.pull_magic()
-        self.test.pull_minor()
-        self.assertEqual(self.test.header_minor, 0) # the comparison
-        print(f'<<<< passed header_minor, {self.test.header_minor} = {known_minor} >>>>\n')
-
-    def test_major(self):
-        b = 54 # the known output
-	# call methods in order, including the desired method, to acquire the desired value.
-        self.test.pull_magic()
-        self.test.pull_minor()
-        self.test.pull_major()
-        self.assertEqual(self.test.header_major, 54) # the comparison
-        print(f'<<<< passed header_major, {self.test.header_major} = {b} >>>>\n')
-
-    def test_poolCount(self):
-        c = 14 # the known output
-	# call methods in order, including the desired method, to acquire the desired value.
-        self.test.pull_magic()
-        self.test.pull_minor()
-        self.test.pull_major()
-        self.test.pull_const_pool_count()
-        self.assertEqual(self.test.header_const_pool_count, 14) # the comparison
-        print(f'<<<< passed poolCount, {self.test.header_const_pool_count} = {c} >>>>\n')
-	
-# NOT SURE WHERE THESE LAST THREE CLASSES CAME FROM
-# BUT IF YOU COMMENT THEM OUT THE UNITTEST WILL WORK. D
-
-"""
-class OpCodes():
-    def __init__(self):
-        self.table = {
-        	0x32: 'aaload',
-        	0x01: 'aconst_null'
-
-        }
-
-    def not_implemented(self):
-        return 'not implemented'
-
-    def interpret(self, value):
-        return self.table[value]()
-
-class UnittestHeader(unittest.TestCase):
-	def setUp(self):
-		m = mock_open(read_data=b'\xCA\xFE\xBA\xBE\x00\x00\x00\x36\x00\x0F')
-		with patch(__name__ + '.open', m):
-			self.cf = HeaderClass()
-
-	def test_magic(self):
-		self.assertEqual(self.cf.get_magic(), 'CAFEBABE')
-		print("unittestmagic", self.cf.get_magic())
-
-	def test_minor(self):
-		self.assertEqual(self.cf.get_minor(), 0)
-		print("unittestprintminor", self.cf.get_minor())
-
-	def test_major(self):
-		self.assertEqual(self.cf.get_major(), 54)
-		print("unittestprintmajor", self.cf.get_major())
-
-	def test_PoolCount(self):
-		self.assertEqual(self.cf.get_poolCount(), 15)
-		print("unittestprintpool", self.cf.get_poolCount())
-
-class TestOpCodes(unittest.TestCase):
-	def setUp(self):
-		m = mock_open(read_data=b'\xCA\xFE\xBA\xBE\x00\x00\x00\x36\x00\x0F')
-		with patch(__name__ + '.open', m):
-			self.cf = OpCodes()
-
-	def test_interpret(self, value):
-		self.assertEqual(self.cf.interpret(1), 'aconst_null')
-
-	def test_not_implmented(self):
-		self.assertEqual(OpCodes().interpret(1), 'aconst_null')
-		with self.assertRaises(KeyError):
-			OpCodes().interpret(1)
-"""
+    def get_access_flags(self):
+    	holder = self.get_const_pool_count() + 8
+    	print(self.data[holder] + self.data[holder + 1])
+    	return self.data[holder] + self.data[holder + 1]
+        
 
 if '__main__' == __name__:
 	d = HeaderClass()
-	d.pull_magic()
-	d.pull_minor()
-	d.pull_major()
-	d.pull_const_pool_count()
-
+	d.get_magic()
+	d.get_minor()
+	d.get_major()
+	d.get_const_pool()
+	d.get_access_flags()
