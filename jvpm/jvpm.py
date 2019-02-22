@@ -1,11 +1,12 @@
-from collections import namedtuple
-from bitstring import ConstBitStream
+"""import the unittest"""
 import unittest
 
-class HeaderClass():
-    from collections import namedtuple
+# from collections import namedtuple
 from bitstring import ConstBitStream
+#from pythonds.basic.stack import Stack
 
+
+# pylint: disable = W0105, C0122
 class HeaderClass():
     def __init__(self):
         with open('test.class', 'rb') as binary_file:
@@ -51,3 +52,18 @@ if '__main__' == __name__:
 	d.get_major()
 	d.get_const_pool()
 	d.get_access_flags()
+
+
+    print('Testing the Stack:')
+    S = Stack()
+    print(S.is_empty())
+    S.push('dog')      # 1st item on stack
+    S.push(1)          # 2nd item on stack
+    print(S.peek())    # look at 2nd item on stack
+    S.push(True)       # 3rd item on stack
+    print(S.size())    # print how many items on stack
+    print(S.is_empty()) # test if stack is empty
+    S.push(8.4)        # 4th item on stack
+    print(S.pop())     # take 4th item off stack
+    print(S.pop())     # take 3rd item off stack
+    print(S.size())    # print how many items left on stack
