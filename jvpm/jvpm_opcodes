@@ -1,0 +1,338 @@
+"""import the unittest"""
+import unittest
+# from collections import namedtuple
+from bitstring import ConstBitStream
+# pylint: disable = W0105, C0122
+
+class HeaderClass():
+    """Class that parses the data from test.class
+    and assigns values to variables
+    """
+    def __init__(self):
+        self.stream = ConstBitStream(filename='test.class')
+        self.header_magic = ""
+        self.header_minor = ""
+        self.header_major = ""
+        self.header_const_pool_count = ""
+
+    def pull_magic(self):
+        """method to pull the magic data"""
+        self.header_magic = self.stream.read(32).hex
+        print("\nheader: ", self.header_magic)
+        return self.header_magic
+
+    def pull_minor(self):
+        """method to pull the minor data"""
+        self.header_minor = self.stream.read(8).uint + self.stream.read(8).uint
+        print("minor: ", self.header_minor)
+        return self.header_minor
+
+    def pull_major(self):
+        """method to pull the major data"""
+        self.header_major = self.stream.read(8).uint + self.stream.read(8).uint
+        print("major: ", self.header_major)
+        return self.header_major
+
+    def pull_const_pool_count(self):
+        """method to pull the pool count data"""
+        self.header_const_pool_count = self.stream.read(8).uint + self.stream.read(8).uint - 1
+        print("const pool: ", self.header_const_pool_count)
+        return self.header_const_pool_count
+
+class Stack:
+    """Class that creates a Stack, with methods to interact with the Stack"""
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        """test if Stack is empty"""
+        return self.items == []
+
+    def push(self, item):
+        """Put item on the stack"""
+        self.items.append(item)
+
+    def pop(self):
+        """Take item off stack"""
+        return self.items.pop()
+
+    def peek(self):
+        """Look at item on top of stack"""
+        return self.items[len(self.items)-1]
+
+    def size(self):
+        """Tells how many items are on the stack"""
+        return len(self.items)
+
+"""
+		headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint
+		headerCPInfo = [None] * (headerConstPoolCount - 1)
+		headerAccessFlag = self.x.read(8).uint + self.x.read(8).uint
+		headerThisClass = self.x.read(8).uint + self.x.read(8).uint
+		headerSuperClass = self.x.read(8).uint + self.x.read(8).uint
+		headerInterfacesCount = self.x.read(8).uint + self.x.read(8).uint
+		headerInterfaces = [None] * headerInterfacesCount
+		headerFieldsCount = self.x.read(8).uint + self.x.read(8).uint
+		headerFields = [None] * headerFieldsCount
+		headerMethodsCount = self.x.read(8).uint + self.x.read(8).uint
+		headerMethods = [None] * headerMethodsCount
+		headerAttributesCount = self.x.read(8).uint + self.x.read(8).uint
+		headerAttributes = [None] * headerAttributesCount
+		print("header: ", headerMagic)
+		print(headerMinor)
+		print(headerMajor)
+		print(headerConstPoolCount)
+		print(len(headerCPInfo))
+		print(headerAccessFlag)
+		print(headerThisClass)
+		print(headerSuperClass)
+		print(headerInterfacesCount)
+		print(len(headerInterfaces))
+		print(headerFieldsCount)
+		print(len(headerFields))
+		print(headerMethodsCount)
+		print(len(headerMethods))
+		print(headerAttributesCount)
+		print(len(headerAttributes))
+"""
+
+# Unittest to test the output of the HeaderClass() methods.
+# python3 -m unittest jvpm.py
+# We have a warning about an unclosed file but no errors.
+
+class UnittestHeader(unittest.TestCase):
+    """unittest to test method outputs"""
+    def setUp(self):
+        """instantiate an instance of HeaderClass"""
+        self.test = HeaderClass()
+
+    def test_magic(self):
+        """method to test the pull_magic output"""
+        self.test.pull_magic()
+        """the comparison"""
+        self.assertEqual(self.test.header_magic, 'cafebabe')
+        print('<<<< passed header_magic, ' + self.test.header_magic + ' = cafebabe >>>>\n')
+
+    def test_minor(self):
+        """method to test the pull_minor output"""
+        known_minor = 0
+        """call methods in order, including the desired method, to acquire value."""
+        self.test.pull_magic()
+        self.test.pull_minor()
+        """the comparison"""
+        self.assertEqual(self.test.header_minor, 0)
+        print(f'<<<< passed header_minor, {self.test.header_minor} = {known_minor} >>>>\n')
+
+    def test_major(self):
+        """method to test the pull_major output"""
+        known_major = 54
+        """call methods in order, including the desired method, to acquire value."""
+        self.test.pull_magic()
+        self.test.pull_minor()
+        self.test.pull_major()
+        """the comparison"""
+        self.assertEqual(self.test.header_major, 54)
+        print(f'<<<< passed header_major, {self.test.header_major} = {known_major} >>>>\n')
+
+    def test_pool_count(self):
+        """method to test the pull_const_pool_count output"""
+        known_pool_count = 14
+        """call methods in order, including the desired method, to acquire value."""
+        self.test.pull_magic()
+        self.test.pull_minor()
+        self.test.pull_major()
+        self.test.pull_const_pool_count()
+        """the comparison"""
+        self.assertEqual(self.test.header_const_pool_count, 14)
+        print(f'< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >\n')
+
+# NOT SURE WHERE THESE LAST THREE CLASSES CAME FROM
+# BUT IF YOU COMMENT THEM OUT THE UNITTEST WILL WORK. D
+
+"""
+class OpCodes():
+    def __init__(self):
+        self.table = {
+        	0x32: 'aaload',
+        	0x01: 'aconst_null'
+        }
+        
+        >>> self.opcodes
+        ['02', '03', '04', '05', '06', '07, '08]
+         
+
+    def not_implemented(self):
+        return 'not implemented'
+
+    def interpret(self, value):
+        return self.table[value]()
+
+class UnittestHeader(unittest.TestCase):
+	def setUp(self):
+		m = mock_open(read_data=b'\xCA\xFE\xBA\xBE\x00\x00\x00\x36\x00\x0F')
+		with patch(__name__ + '.open', m):
+			self.cf = HeaderClass()
+
+	def test_magic(self):
+		self.assertEqual(self.cf.get_magic(), 'CAFEBABE')
+		print("unittestmagic", self.cf.get_magic())
+
+	def test_minor(self):
+		self.assertEqual(self.cf.get_minor(), 0)
+		print("unittestprintminor", self.cf.get_minor())
+
+	def test_major(self):
+		self.assertEqual(self.cf.get_major(), 54)
+		print("unittestprintmajor", self.cf.get_major())
+
+	def test_PoolCount(self):
+		self.assertEqual(self.cf.get_poolCount(), 15)
+		print("unittestprintpool", self.cf.get_poolCount())
+
+class TestOpCodes(unittest.TestCase):
+	def setUp(self):
+		m = mock_open(read_data=b'\xCA\xFE\xBA\xBE\x00\x00\x00\x36\x00\x0F')
+		with patch(__name__ + '.open', m):
+			self.cf = OpCodes()
+
+	def test_interpret(self, value):
+		self.assertEqual(self.cf.interpret(1), 'aconst_null')
+
+	def test_not_implmented(self):
+		self.assertEqual(OpCodes().interpret(1), 'aconst_null')
+		with self.assertRaises(KeyError):
+			OpCodes().interpret(1)
+"""
+
+class OpCodes():
+    """Class that contains a dictionary of opcodes to Implement"""
+    def __init__(self):
+        self.opcodes = ['02', '03', '04', '05', '06', '07',
+                        '08', '3b', '3c', '3d', '3e', '84']
+        self.opcode0 = ''
+        self.opcode1 = ''
+        self.opcode2 = ''
+
+        """
+        
+        
+        BOB"S CODE HERE TO FIND AND ASSIGN OPCODE VARIABLES TO ABOVE EMPTY VARIABLES
+        
+        
+        
+        """
+
+    def opcode0_list_search(self):
+        """search list for iconst opcodes"""
+        if self.opcode0 in self.opcodes:
+            if self.opcode0 == '02':
+                code = 'iconst_m1'
+                print('Test File contains the ' + code + ' opcode.')
+            elif self.opcode0 == '03':
+                code = 'iconst_0'
+                print('Test File contains the ' + code + ' opcode.')
+            elif self.opcode0 == '04':
+                code = 'iconst_1'
+                print('Test File contains the ' + code + ' opcode.')
+            elif self.opcode0 == '05':
+                code = 'iconst_2'
+                print('Test File contains the ' + code + ' opcode.')
+            elif self.opcode0 == '06':
+                code = 'iconst_3'
+                print('Test File contains the ' + code + ' opcode.')
+            elif self.opcode0 == '07':
+                code = 'iconst_4'
+                print('Test File contains the ' + code + ' opcode.')
+            elif self.opcode0 == '08':
+                code = 'iconst_5'
+                print('Test File contains the ' + code + ' opcode.')
+        return self.opcodes.index(self.opcode0)
+
+    def opcode1_list_search(self):
+        """search list for istore opcodes"""
+        if self.opcode1 in self.opcodes:
+            if self.opcode1 == '3b':
+                code_1 = 'istore_0'
+                print('Test File contains the ' + code_1 + ' opcode.')
+            elif self.opcode1 == '3c':
+                code_1 = 'istore_1'
+                print('Test File contains the ' + code_1 + ' opcode.')
+            elif self.opcode1 == '3d':
+                code_1 = 'istore_2'
+                print('Test File contains the ' + code_1 + ' opcode.')
+            elif self.opcode1 == '3e':
+                code_1 = 'istore_3'
+                print('Test File contains the ' + code_1 + ' opcode.')
+        return self.opcodes.index(self.opcode1)
+
+    def opcode2_list_search(self):
+        """search list for iinc opcodes"""
+        if self.opcode2 in self.opcodes:
+            print('Test File contains the iinc(++) opcode.')
+        return self.opcodes.index(self.opcode2)
+
+if '__main__' == __name__:
+    D = HeaderClass()
+    D.pull_magic()
+    D.pull_minor()
+    D.pull_major()
+    D.pull_const_pool_count()
+
+    print('\n    ____IMPLEMENT THE OPCODES:____')
+    S = Stack()
+    print('        ' + str(S.is_empty()) + ': Stack is Empty.')
+
+    Z = OpCodes()
+    OP_VALUE_0 = Z.opcode0_list_search()
+    if OP_VALUE_0 == 0:
+        S.push(-1)
+        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+    elif OP_VALUE_0 == 1:
+        S.push(0)
+        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+    elif OP_VALUE_0 == 2:
+        S.push(1)
+        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+    elif OP_VALUE_0 == 3:
+        S.push(2)
+        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+    elif OP_VALUE_0 == 4:
+        S.push(3)
+        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+    elif OP_VALUE_0 == 5:
+        S.push(4)
+        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+    elif OP_VALUE_0 == 6:
+        S.push(5)
+        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+
+    OP_VALUE_1 = Z.opcode1_list_search()
+    if OP_VALUE_1 == 7:
+        VARIABLE_0 = S.peek()
+        print('       <<<< VARIABLE_0 = ' + str(VARIABLE_0) + ' >>>>')
+    elif OP_VALUE_1 == 8:
+        VARIABLE_1 = S.peek()
+        print('       <<<< VARIABLE_1 = ' + str(VARIABLE_1) + ' >>>>')
+    elif OP_VALUE_1 == 9:
+        VARIABLE_2 = S.peek()
+        print('       <<<< VARIABLE_2 = ' + str(VARIABLE_2) + ' >>>>')
+    elif OP_VALUE_1 == 10:
+        VARIABLE_3 = S.peek()
+        print('       <<<< VARIABLE_3 = ' + str(VARIABLE_3) + ' >>>>')
+
+    OP_VALUE_2 = Z.opcode2_list_search()
+    if OP_VALUE_2 == 11:
+        VARIABLE_4 = S.peek() + 1
+        if OP_VALUE_1 == 7:
+            VARIABLE_0 = VARIABLE_4
+            print('      <<<< VARIABLE_0++ = ' + str(VARIABLE_0) + ' >>>>')
+        elif OP_VALUE_1 == 8:
+            VARIABLE_1 = VARIABLE_4
+            print('      <<<< VARIABLE_1++ = ' + str(VARIABLE_1) + ' >>>>')
+        elif OP_VALUE_1 == 9:
+            VARIABLE_2 = VARIABLE_4
+            print('      <<<< VARIABLE_2++ = ' + str(VARIABLE_2) + ' >>>>')
+        elif OP_VALUE_1 == 10:
+            VARIABLE_3 = VARIABLE_4
+            print('      <<<< VARIABLE_3++ = ' + str(VARIABLE_3) + ' >>>>')
+    print()
