@@ -1,25 +1,25 @@
 class Stack:
     """Class that creates a Stack, with methods to interact with the Stack"""
     def __init__(self):
-        self.items = []
+        self.things = []
 
     def is_empty(self):
         """test if Stack is empty"""
-        return self.items == []
+        return self.things == []
 
     def push(self, item):
         """Put item on the stack"""
-        self.items.append(item)
+        self.things.append(item)
 
     def pop(self):
         """Take item off stack"""
-        return self.items.pop()
+        return self.things.pop()
 
     def peek(self):
         """Look at item on top of stack"""
-        return self.items[len(self.items)-1]
+        return self.things[len(self.things)-1]
 
     def size(self):
         """Tells how many items are on the stack"""
-        return len(self.items)
+        return len(self.things)
         
