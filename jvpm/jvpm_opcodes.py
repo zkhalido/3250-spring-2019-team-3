@@ -149,7 +149,7 @@ class OpCodes():
         methodToCall = jvpm_dict.get_opcode(self.opcode0)
         print(methodToCall)
         print(jvpm_methods.get_methods(methodToCall))
-        jvpm_methods.get_methods(methodToCall) = jvpm_methods.method1()
+        jvpm_methods.method1()
         return self.opcode0
 
     def opcode0_list_search(self):
