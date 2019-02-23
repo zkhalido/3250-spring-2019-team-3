@@ -206,7 +206,7 @@ if '__main__' == __name__:
     Z = OpCodes()
     Z.dict_search()
 
-    print('\n3) ____IMPLEMENT THE OPCODES:____')
+    print('\n3) ____IMPLEMENT THE OPCODES:____\n')
     S = Stack()
     """tests if the Stack is empty and pritns result"""
     print('       ' + str(S.is_empty()) + ': Stack is Empty.')
