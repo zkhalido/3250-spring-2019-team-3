@@ -167,7 +167,7 @@ class OpCodes():
         print("\nDict search for: " + self.opcode0 + " returns: " + jvpm_dict.get_opcode(self.opcode0))
         return self.opcode0
 
-    def iconst_switch(self.opcode0):
+    def iconst_switch(argument):
         Z = StackB()
         switcher = {
             02: Z.push(-1)
@@ -287,6 +287,7 @@ if '__main__' == __name__:
         
     Implement = Z.dict_search()
     print(Implement + "XXXXXXXXX")
+    Z.iconst_switch().
 
     """method call that searches Opcode method list for istore opcode and returns index position,
     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
@@ -322,6 +323,8 @@ if '__main__' == __name__:
             VARIABLE_3 = VARIABLE_4
             print('      <<<< VARIABLE_3++ = ' + str(VARIABLE_3) + ' >>>>')
 
-    Z.dict_search()
+    Z.dict_search().
+    
+
 	
     print()
