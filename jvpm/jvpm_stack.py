@@ -1,5 +1,5 @@
-class Stack:
-    """Class that creates a Stack, with methods to interact with the Stack"""
+# class Stack:
+#     """Class that creates a Stack, with methods to interact with the Stack"""
     def __init__(self):
         self.items = []
         self.variable_1 = ""
