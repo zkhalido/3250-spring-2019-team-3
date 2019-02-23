@@ -4,6 +4,7 @@ import unittest
 from bitstring import ConstBitStream
 # pylint: disable = W0105, C0122
 import jvpm_dict
+import jvpm_methods
 
 class HeaderClass():
     """Class that parses the data from test.class
