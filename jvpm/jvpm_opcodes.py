@@ -69,31 +69,6 @@ class Stack:
         """Tells how many items are on the stack"""
         return len(self.items)
 
-class Stack_B:
-    """Class that creates a Stack, with methods to interact with the Stack"""
-    def __init__(self):
-        self.ints = []
-
-    def is_empty(self):
-        """test if Stack is empty"""
-        return self.ints == []
-
-    def push(self, item):
-        """Put item on the stack"""
-        self.ints.append(item)
-
-    def pop(self):
-        """Take item off stack"""
-        return self.ints.pop()
-
-    def peek(self):
-        """Look at item on top of stack"""
-        return self.ints[len(self.ints)-1]
-
-    def size(self):
-        """Tells how many items are on the stack"""
-        return len(self.ints)
-
 # Unittest to test the output of the HeaderClass() methods.
 # python3 -m unittest jvpm.py
 # We have a warning about an unclosed file but no errors.
@@ -167,32 +142,6 @@ class OpCodes():
         print("\nDict search for: " + self.opcode0 + " returns: " + jvpm_dict.get_opcode(self.opcode0))
         return self.opcode0
 
-    def iconst_switch(argument):
-        Z = StackB()
-        switcher = {
-            02: Z.push(-1)
-            03: Z.push(0)
-        }
-        print(Z.peek())
-
-# def switch_demo(argument):
-#     switcher = {
-#         1: "January",
-#         2: "February",
-#         3: "March",
-#         4: "April",
-#         5: "May",
-#         6: "June",
-#         7: "July",
-#         8: "August",
-#         9: "September",
-#         10: "October",
-#         11: "November",
-#         12: "December"
-#     }
-#     print switcher.get(argument, "Invalid month")
-
-    
     def opcode0_list_search(self):
         """search list for iconst opcodes and 
 	returns the index position to method call in the main"""
