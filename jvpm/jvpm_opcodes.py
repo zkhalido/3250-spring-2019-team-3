@@ -135,6 +135,10 @@ class OpCodes():
         
         
         """
+    
+    def dict_search(self):
+        print("Gil's dict search returns: " + jvpm_dict.get_opcode('self.opcode1'))    
+                
 
     def opcode0_list_search(self):
         """search list for iconst opcodes and 
@@ -263,4 +267,5 @@ if '__main__' == __name__:
             print('      <<<< VARIABLE_3++ = ' + str(VARIABLE_3) + ' >>>>')
 		
     print("Gils dict search returns: " + jvpm_dict.get_opcode('3c'))
+    Z.dict_search()
     print()
