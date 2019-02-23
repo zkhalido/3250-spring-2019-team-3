@@ -2,6 +2,7 @@ class Stack:
     """Class that creates a Stack, with methods to interact with the Stack"""
     def __init__(self):
         self.items = []
+        variable_1 = ""
 
     def is_empty(self):
         """test if Stack is empty"""
@@ -22,3 +23,9 @@ class Stack:
     def size(self):
         """Tells how many items are on the stack"""
         return len(self.items)
+    
+    S = Stack()
+    def istore_1(self):
+        variable_1 = S.peek()
+        print(variable_1)
+        
