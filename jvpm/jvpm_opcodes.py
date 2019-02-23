@@ -212,7 +212,8 @@ if '__main__' == __name__:
     Z = OpCodes()
     Z.dict_search()
 	
-    methodToCall = jvpm_methods.tokenDict[]
+    methodToCall = jvpm_methods.tokenDict[Z.dict_search()]
+    jvpm_methods.methodToCall()
 
     print('\n3) ____IMPLEMENT THE OPCODES:____\n')
     S = Stack()
