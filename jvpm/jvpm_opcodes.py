@@ -142,7 +142,7 @@ class OpCodes():
         jvpm_dict.get_opcode(self.opcode0)
         print("\nImported Dictionary search for bytecode: " + self.opcode0 + 
 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode0))
-	methodToCall = jvpm_dict.get_opcode(self.opcode0)
+        methodToCall = jvpm_dict.get_opcode(self.opcode0)
         print(methodToCall)
         print("Imported Dictionary search for bytecode: " + self.opcode1 + 
 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode1))
