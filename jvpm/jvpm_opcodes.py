@@ -139,8 +139,7 @@ class OpCodes():
     
     def dict_search(self):
         print("\nDict search for: " + self.opcode1 + " returns: " + jvpm_dict.get_opcode(self.opcode1))
-#         jvpm_stack.push(2, 1)
-#         jvpm_stack.push(1, 2)
+        jvpm_stack.Stack().push(2)
         print(jvpm_stack.Stack().size())
     
     def opcode0_list_search(self):
