@@ -138,8 +138,12 @@ class OpCodes():
         """
     
     def dict_search(self):
-        print("\nDict search for: " + self.opcode1 + " returns: " + jvpm_dict.get_opcode(self.opcode1))
-        jvpm_stack.Stack().push(2)
+        print("\nDict search for: " + self.opcode0 + " returns: " + jvpm_dict.get_opcode(self.opcode0))
+        op_return = jvpm_dict.get_opcode(self.opcode0)
+        if op_return == 'iconst_0'
+            print('TRUE')
+            
+        
         print(jvpm_stack.Stack().size())
     
     def opcode0_list_search(self):
