@@ -167,7 +167,7 @@ class OpCodes():
         print("\nDict search for: " + self.opcode0 + " returns: " + jvpm_dict.get_opcode(self.opcode0))
         return self.opcode0
 
-    def iconst_switch(argument):
+    def iconst_switch(self.opcode0):
         Z = StackB()
         switcher = {
             02: Z.push(-1)
