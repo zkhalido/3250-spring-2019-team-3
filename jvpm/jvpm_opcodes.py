@@ -271,7 +271,3 @@ if '__main__' == __name__:
         elif OP_VALUE_1 == 10:
             VARIABLE_3 = VARIABLE_4
             print('      <<<< VARIABLE_3++ = ' + str(VARIABLE_3) + ' >>>>')
-
-    Z.dict_search()
-    
-    print()
