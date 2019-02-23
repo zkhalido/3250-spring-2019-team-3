@@ -8,4 +8,4 @@ def method2():
 def method3():
     print("called function 3")
 
-tokenDict = {"iconst_m1":method1, "istore_1":method2, "iinc":method3}
+tokenDict = {"02":method1, "3c":method2, "84":method3}
