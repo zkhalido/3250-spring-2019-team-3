@@ -138,7 +138,7 @@ class OpCodes():
 	
     """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation"""
     def dict_search(self):
-        print("\nDict search for: " + self.opcode0 + " returns: " + jvpm_dict.get_opcode(self.opcode0))
+        print("\nImported Dictionary search for bytecode: " + self.opcode0 + " returns: " + jvpm_dict.get_opcode(self.opcode0))
         return self.opcode0
 
     def opcode0_list_search(self):
