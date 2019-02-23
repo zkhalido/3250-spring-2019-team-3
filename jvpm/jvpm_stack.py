@@ -18,7 +18,7 @@ class Stack:
 
     def peek(self):
         """Look at item on top of stack"""
-        return self.items[len(self.items)-1]
+        return self.items[len(self.items)]
 
     def size(self):
         """Tells how many items are on the stack"""
