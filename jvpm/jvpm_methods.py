@@ -8,4 +8,4 @@ def function2():
 def function3():
     print("called function 3")
 
-tokenDict = {"iconst_m1":function1, "istore_1":function2, "iinc":function3}
+tokenDict = {"02":function1, "3c":function2, "84":function3}
