@@ -142,9 +142,9 @@ class OpCodes():
     def dict_search(self):
         print("\nDict search for: " + self.opcode0 + " returns: " + jvpm_dict.get_opcode(self.opcode0))
         self.op_return = jvpm_dict.get_opcode(self.opcode0)
-        jvpm_stack.Stack().push(-1)
-        jvpm_stack.Stack().push(0)
-        jvpm_stack.Stack().push(1)
+        jvpm_stack.Stack().push(self, -1)
+        jvpm_stack.Stack().push(self, 0)
+        jvpm_stack.Stack().push(self, 1)
         jvpm_stack.Stack().size()
 	
         """call the size() method from the imported Stack"""
