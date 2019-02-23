@@ -148,7 +148,7 @@ class OpCodes():
 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode2))
         methodToCall = jvpm_dict.get_opcode(self.opcode0)
         print(methodToCall)
-        print(jvpm_methods.tokenDict(methodToCall))
+        print(jvpm_methods.get_methods(methodToCall))
         return self.opcode0
 
     def opcode0_list_search(self):
