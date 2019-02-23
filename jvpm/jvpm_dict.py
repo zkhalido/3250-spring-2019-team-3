@@ -2,6 +2,10 @@
 jvpm_dict
 Method finds bytecode in dictionary and returns opcode
 """
+
+def test_method():
+    print('it works')
+
 def get_opcode(byte_code):
     jvpm_dict = {
         "91": "i2b",             # convert an int into a byte
@@ -14,7 +18,7 @@ def get_opcode(byte_code):
         "2e": "iaload",          # load an int from an array
         "7e": "iand",            # perform a bitwise AND on two integers
         "4f": "iastore",         # store an int into an array
-        "02": "iconst_m1",       # load the int value -1 onto the stack
+        "02": "iconst_m1", test_method       # load the int value -1 onto the stack
         "03": "iconst_0",        # load the int value 0 onto the stack
         "04": "iconst_1",        # load the int value 1 onto the stack
         "05": "incost_2",        # load the int value 2 onto the stack
