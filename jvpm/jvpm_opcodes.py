@@ -3,6 +3,7 @@ import unittest
 # from collections import namedtuple
 from bitstring import ConstBitStream
 # pylint: disable = W0105, C0122
+from jvpm_dict import dict
 
 class HeaderClass():
     """Class that parses the data from test.class
@@ -257,4 +258,6 @@ if '__main__' == __name__:
         elif OP_VALUE_1 == 10:
             VARIABLE_3 = VARIABLE_4
             print('      <<<< VARIABLE_3++ = ' + str(VARIABLE_3) + ' >>>>')
+		
+    dict.get['91']
     print()
