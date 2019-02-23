@@ -194,15 +194,15 @@ class OpCodes():
         return self.opcodes.index(self.opcode2)
 
 if '__main__' == __name__:
-    print('Parse, pull, and assign Header bytecodes:')
+    print('\nParse, pull, and assign Header bytecodes:')
     D = HeaderClass()
     D.pull_magic()
     D.pull_minor()
     D.pull_major()
     D.pull_const_pool_count()
     
-    print('Parse, pull, and assign Method bytecodes:')
-    print('Search imported disctionary for Method bytecodes and return opcode mnemonics:')
+    print('Parse, pull, and assign Method bytecodes, search imported disctionary for' 
+          '    Method bytecodes and return opcode mnemonics:')
     Z = OpCodes()
     Z.dict_search()
 
