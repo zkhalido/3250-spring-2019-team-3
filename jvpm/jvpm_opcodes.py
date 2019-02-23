@@ -168,29 +168,29 @@ class OpCodes():
         return self.opcode0
 
     def iconst_switch(argument):
-            Z = StackB()
+        Z = StackB()
         switcher = {
             02: Z.push(-1)
             03: Z.push(0)
         }
         print(Z.peek())
 
-def switch_demo(argument):
-    switcher = {
-        1: "January",
-        2: "February",
-        3: "March",
-        4: "April",
-        5: "May",
-        6: "June",
-        7: "July",
-        8: "August",
-        9: "September",
-        10: "October",
-        11: "November",
-        12: "December"
-    }
-    print switcher.get(argument, "Invalid month")
+# def switch_demo(argument):
+#     switcher = {
+#         1: "January",
+#         2: "February",
+#         3: "March",
+#         4: "April",
+#         5: "May",
+#         6: "June",
+#         7: "July",
+#         8: "August",
+#         9: "September",
+#         10: "October",
+#         11: "November",
+#         12: "December"
+#     }
+#     print switcher.get(argument, "Invalid month")
 
     
     def opcode0_list_search(self):
