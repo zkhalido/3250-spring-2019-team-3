@@ -194,19 +194,19 @@ class OpCodes():
         return self.opcodes.index(self.opcode2)
 
 if '__main__' == __name__:
-    print('\nParse, pull, and assign Header bytecodes:')
+    print('\n1) ___Parse, pull, and assign Header bytecodes:___')
     D = HeaderClass()
     D.pull_magic()
     D.pull_minor()
     D.pull_major()
     D.pull_const_pool_count()
     
-    print('\nParse, pull, and assign Method bytecodes, search imported disctionary for\n' 
-          '    Method bytecodes and return opcode mnemonics:')
+    print('\n2) ___Parse, pull, and assign Method bytecodes, search imported disctionary for\n' 
+          '    Method bytecodes and return opcode mnemonics:___')
     Z = OpCodes()
     Z.dict_search()
 
-    print('\n    ____IMPLEMENT THE OPCODES:____')
+    print('\n3)  ____IMPLEMENT THE OPCODES:____')
     S = Stack()
     """tests if the Stack is empty and pritns result"""
     print('        ' + str(S.is_empty()) + ': Stack is Empty.')
