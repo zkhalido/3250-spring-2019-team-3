@@ -12,4 +12,4 @@ tokenDict = {"iconst_m1":"method1()", "istore_1":"method2()", "iinc":"method3()"
 
 def get_methods(opcode):
     ''' Retrieve method name from dictionary of opcodes '''
-    return tokenDict[opcode]
+    return tokenDict[method]
