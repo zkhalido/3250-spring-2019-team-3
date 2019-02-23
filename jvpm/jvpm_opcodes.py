@@ -212,7 +212,7 @@ if '__main__' == __name__:
     Z = OpCodes()
     Z.dict_search()
 	
-    methodToCall = jvpm_methods.tokenDict[Z.dict_search()]
+    methodToCall = jvpm_methods.tokenDict[jvpm_dict.get_opcode(self.opcode0)]
     print(methodToCall)
     print('XXXXX')
     #jvpm_methods.methodToCall()
