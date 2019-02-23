@@ -7,9 +7,9 @@ class Stack:
         """test if Stack is empty"""
         return self.things == []
 
-    def push(self, 1):
+    def push(self, item):
         """Put item on the stack"""
-        self.things.append(1)
+        self.things.append(item)
 
     def pop(self):
         """Take item off stack"""
