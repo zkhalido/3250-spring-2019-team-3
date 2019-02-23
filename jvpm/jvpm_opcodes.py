@@ -213,7 +213,7 @@ if '__main__' == __name__:
     Z.dict_search()
 	
     methodToCall = jvpm_methods.tokenDict[Z.dict_search()]
-    print(methodToCall)
+    print(methodToCall + " XXXXXXXXXX")
     #jvpm_methods.methodToCall()
 
     print('\n3) ____IMPLEMENT THE OPCODES:____\n')
