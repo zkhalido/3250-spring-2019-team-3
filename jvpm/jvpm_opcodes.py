@@ -201,7 +201,7 @@ if '__main__' == __name__:
     D.pull_major()
     D.pull_const_pool_count()
     
-    print('Parse, pull, and assign Method bytecodes, search imported disctionary for' 
+    print('\nParse, pull, and assign Method bytecodes, search imported disctionary for\n' 
           '    Method bytecodes and return opcode mnemonics:')
     Z = OpCodes()
     Z.dict_search()
