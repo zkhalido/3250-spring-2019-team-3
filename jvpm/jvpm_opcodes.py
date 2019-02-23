@@ -148,6 +148,7 @@ class OpCodes():
 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode2))
         methodToCall = jvpm_dict.get_opcode(self.opcode0)
         print(methodToCall)
+        "Search jvpm_method.py for correspoding method"
         print(jvpm_methods.get_methods(methodToCall))
         jvpm_methods.method1()
         return self.opcode0
