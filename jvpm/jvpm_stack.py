@@ -23,8 +23,7 @@ class Stack:
     def size(self):
         """Tells how many items are on the stack"""
         return len(self.items)
-    
-    S = Stack()
+   
     def istore_1(self):
         variable_1 = S.peek()
         print(variable_1)
