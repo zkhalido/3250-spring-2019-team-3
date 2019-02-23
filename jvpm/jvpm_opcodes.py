@@ -233,10 +233,6 @@ if '__main__' == __name__:
     elif OP_VALUE_0 == 6:
         S.push(5)
         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-        
-    Implement = Z.dict_search()
-    print(Implement + "XXXXXXXXX")
-    Z.iconst_switch(Implement).
 
     """method call that searches Opcode method list for istore opcode and returns index position,
     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
@@ -274,6 +270,4 @@ if '__main__' == __name__:
 
     Z.dict_search().
     
-
-	
     print()
