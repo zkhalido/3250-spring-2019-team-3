@@ -137,7 +137,7 @@ class OpCodes():
         """
     
     def dict_search(self):
-        print("\nDict search for " + self.opcode1 + " returns: " + jvpm_dict.get_opcode(self.opcode1))    
+        print("\nDict search for: " + self.opcode1 + " returns: " + jvpm_dict.get_opcode(self.opcode1))    
     
     def opcode0_list_search(self):
         """search list for iconst opcodes and 
