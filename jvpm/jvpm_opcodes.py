@@ -137,11 +137,12 @@ class OpCodes():
         
         
         """
-    
+	
+    """Search the jvpm.dict.py file for the bytecode/opcode translation"""
     def dict_search(self):
         print("\nDict search for: " + self.opcode0 + " returns: " + jvpm_dict.get_opcode(self.opcode0))
-        if (self.op_return == 'iconst_m1') == TRUE
-            print(self.op_return)
+	
+	"""call the size() method from the imported Stack"""
         print(jvpm_stack.Stack().size())
     
     def opcode0_list_search(self):
