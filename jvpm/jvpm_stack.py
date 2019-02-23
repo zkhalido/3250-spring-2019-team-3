@@ -25,6 +25,6 @@ class Stack:
         return len(self.items)
    
     def istore_1(self):
-        self.variable_1 = S.peek()
+        self.variable_1 = peek()
         print(variable_1)
         
