@@ -139,13 +139,13 @@ class OpCodes():
     """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation"""
     def dict_search(self):
         jvpm_dict.get_opcode(self.opcode0)
-#         print("\nImported Dictionary search for bytecode: " + self.opcode0 + 
-# 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode0))
-#         print("Imported Dictionary search for bytecode: " + self.opcode1 + 
-# 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode1))
-#         print("Imported Dictionary search for bytecode: " + self.opcode2 + 
-# 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode2))
-        #return self.opcode0
+        print("\nImported Dictionary search for bytecode: " + self.opcode0 + 
+	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode0))
+        print("Imported Dictionary search for bytecode: " + self.opcode1 + 
+	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode1))
+        print("Imported Dictionary search for bytecode: " + self.opcode2 + 
+	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode2))
+        return self.opcode0
 
     def opcode0_list_search(self):
         """search list for iconst opcodes and returns the index position to method call in the main"""
