@@ -223,7 +223,8 @@ class OpCodes():
         """
 
     def opcode0_list_search(self):
-        """search list for iconst opcodes"""
+        """search list for iconst opcodes and 
+	returns the index position to method call in the main"""
         if self.opcode0 in self.opcodes:
             if self.opcode0 == '02':
                 code = 'iconst_m1'
@@ -249,7 +250,8 @@ class OpCodes():
         return self.opcodes.index(self.opcode0)
 
     def opcode1_list_search(self):
-        """search list for istore opcodes"""
+        """search list for istore opcodes and 
+	returns the index position to method call in the main"""
         if self.opcode1 in self.opcodes:
             if self.opcode1 == '3b':
                 code_1 = 'istore_0'
@@ -266,7 +268,8 @@ class OpCodes():
         return self.opcodes.index(self.opcode1)
 
     def opcode2_list_search(self):
-        """search list for iinc opcodes"""
+        """search list for iinc opcodes and 
+	returns the index position to method call in the main"""
         if self.opcode2 in self.opcodes:
             print('Test File contains the iinc(++) opcode.')
         return self.opcodes.index(self.opcode2)
@@ -280,10 +283,15 @@ if '__main__' == __name__:
 
     print('\n    ____IMPLEMENT THE OPCODES:____')
     S = Stack()
+    """tests if the Stack is empty and pritns result"""
     print('        ' + str(S.is_empty()) + ': Stack is Empty.')
 
     Z = OpCodes()
+    """method call that searches Opcode method list for iconst opcode and returns index position,
+    then it calls the Stack method corresponding to the Opcode command returned from the list search."""
     OP_VALUE_0 = Z.opcode0_list_search()
+    """If list search return is equal to index position 0, method pushes -1 to stack, 
+    etc., etc. , for each value."""
     if OP_VALUE_0 == 0:
         S.push(-1)
         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
@@ -306,6 +314,8 @@ if '__main__' == __name__:
         S.push(5)
         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
 
+    """method call that searches Opcode method list for istore opcode and returns index position,
+    then it calls the Stack method corresponding to the Opcode command returned from the list search."""
     OP_VALUE_1 = Z.opcode1_list_search()
     if OP_VALUE_1 == 7:
         VARIABLE_0 = S.peek()
@@ -320,6 +330,8 @@ if '__main__' == __name__:
         VARIABLE_3 = S.peek()
         print('       <<<< VARIABLE_3 = ' + str(VARIABLE_3) + ' >>>>')
 
+    """method call that searches Opcode method list for iinc opcode and returns index position,
+    then it calls the Stack method corresponding to the Opcode command returned from the list search."""
     OP_VALUE_2 = Z.opcode2_list_search()
     if OP_VALUE_2 == 11:
         VARIABLE_4 = S.peek() + 1
