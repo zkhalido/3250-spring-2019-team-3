@@ -4,6 +4,7 @@ import unittest
 from bitstring import ConstBitStream
 # pylint: disable = W0105, C0122
 import jvpm_dict
+import jvpm_stack
 
 class HeaderClass():
     """Class that parses the data from test.class
@@ -137,7 +138,8 @@ class OpCodes():
         """
     
     def dict_search(self):
-        print("\nDict search for: " + self.opcode1 + " returns: " + jvpm_dict.get_opcode(self.opcode1))    
+        print("\nDict search for: " + self.opcode1 + " returns: " + jvpm_dict.get_opcode(self.opcode1))
+	jvpm_stack.istore_1()
     
     def opcode0_list_search(self):
         """search list for iconst opcodes and 
