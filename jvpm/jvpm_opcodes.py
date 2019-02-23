@@ -140,6 +140,7 @@ class OpCodes():
     """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation"""
     def dict_search(self):
         print("\nDict search for: " + self.opcode0 + " returns: " + jvpm_dict.get_opcode(self.opcode0))
+        return self.opcode0
     
     def opcode0_list_search(self):
         """search list for iconst opcodes and 
@@ -193,6 +194,31 @@ class OpCodes():
             print('Test File contains the iinc(++) opcode.')
         return self.opcodes.index(self.opcode2)
 
+class Stack_B:
+    """Class that creates a Stack, with methods to interact with the Stack"""
+    def __init__(self):
+        self.ints = []
+
+    def is_empty(self):
+        """test if Stack is empty"""
+        return self.ints == []
+
+    def push(self, item):
+        """Put item on the stack"""
+        self.ints.append(item)
+
+    def pop(self):
+        """Take item off stack"""
+        return self.ints.pop()
+
+    def peek(self):
+        """Look at item on top of stack"""
+        return self.ints[len(self.ints)-1]
+
+    def size(self):
+        """Tells how many items are on the stack"""
+        return len(self.ints)
+
 if '__main__' == __name__:
     D = HeaderClass()
     D.pull_magic()
@@ -232,6 +258,9 @@ if '__main__' == __name__:
     elif OP_VALUE_0 == 6:
         S.push(5)
         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+        
+    Implement = Z.dict_search()
+    print(Implement + "XXXXXXXXX")
 
     """method call that searches Opcode method list for istore opcode and returns index position,
     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
