@@ -206,10 +206,10 @@ if '__main__' == __name__:
     Z = OpCodes()
     Z.dict_search()
 
-    print('\n3)  ____IMPLEMENT THE OPCODES:____')
+    print('\n3) ____IMPLEMENT THE OPCODES:____')
     S = Stack()
     """tests if the Stack is empty and pritns result"""
-    print('        ' + str(S.is_empty()) + ': Stack is Empty.')
+    print('       ' + str(S.is_empty()) + ': Stack is Empty.')
 
     """method call that searches Opcode method list for iconst opcode and returns index position,
     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
