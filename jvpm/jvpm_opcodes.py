@@ -140,6 +140,10 @@ class OpCodes():
     def dict_search(self):
         print("\nImported Dictionary search for bytecode: " + self.opcode0 + 
 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode0))
+	print("\nImported Dictionary search for bytecode: " + self.opcode1 + 
+	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode1))
+	print("\nImported Dictionary search for bytecode: " + self.opcode2 + 
+	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode2))
         return self.opcode0
 
     def opcode0_list_search(self):
