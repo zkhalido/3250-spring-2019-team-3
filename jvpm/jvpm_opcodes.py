@@ -203,6 +203,7 @@ if '__main__' == __name__:
     
     print('Parse, pull, and assign Method bytecodes:')
     print('Search imported disctionary for Method bytecodes and return opcode mnemonics:')
+    Z = OpCodes()
     Z.dict_search()
 
     print('\n    ____IMPLEMENT THE OPCODES:____')
@@ -210,7 +211,6 @@ if '__main__' == __name__:
     """tests if the Stack is empty and pritns result"""
     print('        ' + str(S.is_empty()) + ': Stack is Empty.')
 
-    Z = OpCodes()
     """method call that searches Opcode method list for iconst opcode and returns index position,
     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
     OP_VALUE_0 = Z.opcode0_list_search()
