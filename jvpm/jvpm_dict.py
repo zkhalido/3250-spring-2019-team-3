@@ -72,4 +72,4 @@ def get_opcode(byte_code):
         "7c": "iushr",           # int logical shift right
         "82": "ixor"             # xor
             }
-    return jvpm_dict[byte_code]
+    # return jvpm_dict[byte_code]
