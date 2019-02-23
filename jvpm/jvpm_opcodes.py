@@ -211,7 +211,8 @@ if '__main__' == __name__:
           '    Method bytecodes and return opcode mnemonics:___')
     Z = OpCodes()
     Z.dict_search()
-	
+        
+    print(Z.dict_search)
     command = Z.dict_search()    
     methodToCall = jvpm_methods.tokenDict[command]
     print(methodToCall)
