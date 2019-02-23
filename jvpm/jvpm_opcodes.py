@@ -127,7 +127,7 @@ class OpCodes():
         self.opcode0 = '02'
         self.opcode1 = '3c'
         self.opcode2 = '84'
-	self.op_return = ''
+        self.op_return = ''
 
         """
         
