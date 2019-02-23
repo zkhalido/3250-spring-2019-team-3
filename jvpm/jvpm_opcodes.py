@@ -119,12 +119,8 @@ class OpCodes():
     def __init__(self):
         self.opcodes = ['02', '03', '04', '05', '06', '07',
                         '08', '3b', '3c', '3d', '3e', '84']
-	"""Feel free to change the values of the variables to get different results printed to console.
-	self.opcode0 can take 02, 03, 04, 05, 06, 07, or 08"""
         self.opcode0 = '02'
-	"""self.opcode1 can take 3b, 3c, 3d, or 3e"""
         self.opcode1 = '3c'
-	"""self.opcode2 just takes 84 for now"""
         self.opcode2 = '84'
 
         """
