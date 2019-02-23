@@ -259,5 +259,5 @@ if '__main__' == __name__:
             VARIABLE_3 = VARIABLE_4
             print('      <<<< VARIABLE_3++ = ' + str(VARIABLE_3) + ' >>>>')
 		
-    print(jvpm_dict.get_opcode('3c'))
+    print(jvpm_dict.get_opcode(self.opcode1))
     print()
