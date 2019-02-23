@@ -127,7 +127,6 @@ class OpCodes():
         self.opcode0 = '02'
         self.opcode1 = '3c'
         self.opcode2 = '84'
-        self.op_return = ''
 
         """
         
@@ -141,12 +140,6 @@ class OpCodes():
     """Search the jvpm.dict.py(dictioanry) file for the bytecode/opcode translation"""
     def dict_search(self):
         print("\nDict search for: " + self.opcode0 + " returns: " + jvpm_dict.get_opcode(self.opcode0))
-        self.op_return = jvpm_dict.get_opcode(self.opcode0)
-        jvpm_stack.Stack().push(2)
-        jvpm_stack.Stack().size()
-	
-        """call the size() method from the imported Stack"""
-        print(jvpm_stack.Stack().size())
     
     def opcode0_list_search(self):
         """search list for iconst opcodes and 
