@@ -4,7 +4,7 @@ Method finds bytecode in dictionary and returns opcode
 """
 def get_opcode(byte_code):
     jvpm_dict = {
-            "91": "i2b", # convert an int into a byte
+        "91": "i2b", # convert an int into a byte
         "92": "i2c", # convert an int into a character
         "87": "i2d", # convert an int into a double
         "86": "i2f", # convert an int into a float
