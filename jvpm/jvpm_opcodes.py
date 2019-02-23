@@ -287,7 +287,7 @@ if '__main__' == __name__:
         
     Implement = Z.dict_search()
     print(Implement + "XXXXXXXXX")
-    Z.iconst_switch().
+    Z.iconst_switch(Implement).
 
     """method call that searches Opcode method list for istore opcode and returns index position,
     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
