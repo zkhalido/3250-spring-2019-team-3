@@ -59,21 +59,21 @@ def opcode_methods(argument):
         "instanceof": method46,      # determines if objectref is of a given type
         "invokedynamic": method47,   # invoke a dynamic method and puts the result on the stack
         "invokeinterface": method48, # invoke an interface method on object objectref and puts results on the stack
-#         "invokespecial": method49,   # invoke instance method on objectref and puts result on the stack
-#         "invokestatic": method50,    # invoke static method and puts result on the stack
-#         "invokevirtual": method51,   # invoke virtual method on objectref and puts result on the stack
-#         "ior": method52,             # bitwise int OR
-#         "irem": method53,            # logical in remainder
-#         "ireturn": method54,         # returner an integer from a method
-#         "ishl": method55,            # int shift left
-#         "ishr": method56,            # int arithmetic shift right
-#         "istore": method57,          # store int value into variable #index
-#         "istore_0": method58,        # store int value into variable 0
-#         "istore_2": method59,        # store int value into variable 2
-#         "istore_3": method60,        # store int value into variable 3
-#         "isub": method61,            # int subtract
-#         "iushr": method62,           # int logical shift right
-#         "ixor": method63             # xor
+        "invokespecial": method49,   # invoke instance method on objectref and puts result on the stack
+        "invokestatic": method50,    # invoke static method and puts result on the stack
+        "invokevirtual": method51,   # invoke virtual method on objectref and puts result on the stack
+        "ior": method52,             # bitwise int OR
+        "irem": method53,            # logical in remainder
+        "ireturn": method54,         # returner an integer from a method
+        "ishl": method55,            # int shift left
+        "ishr": method56,            # int arithmetic shift right
+        "istore": method57,          # store int value into variable #index
+        "istore_0": method58,        # store int value into variable 0
+        "istore_2": method59,        # store int value into variable 2
+        "istore_3": method60,        # store int value into variable 3
+        "isub": method61,            # int subtract
+        "iushr": method62,           # int logical shift right
+        "ixor": method63             # xor
     }
     # get the method name from the tokenDict dictionary
     method = tokenDict.get(argument, lambda: "Invalid opcode")
@@ -259,7 +259,3 @@ def method62():
     
 def method63():
     print('method63')
-    
-def method64():
-    print('method64')
-                 
