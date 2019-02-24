@@ -152,8 +152,8 @@ class OpCodes():
 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode1))
         print("Imported Dictionary search for bytecode: " + self.opcode2 + 
 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode2))
-        methodToCall = jvpm_dict.get_opcode(self.opcode0)
-        print(methodToCall)
+        opcodeToCall = jvpm_dict.get_opcode(self.opcode0)
+        print("Opcode to implement from imported dictionary: " + opcodeToCall)
         "Search jvpm_method.py for correspoding method"
         # print(jvpm_methods.get_methods(methodToCall))
         jvpm_methods.method1()
