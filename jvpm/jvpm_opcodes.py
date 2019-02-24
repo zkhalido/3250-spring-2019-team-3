@@ -95,11 +95,11 @@ class UnittestHeader(unittest.TestCase):
         """the comparison"""
         self.assertEqual(self.test.header_const_pool_count, 14)
         print(f'< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >\n')
-        
+
 # ****************************************************************************************
 
 class OpCodes():
-    """Class that searches the external dictionary of opcodes and Implements using 
+    """Class that searches the external dictionary of opcodes and Implements using
     the external dictionary of methods"""
     def __init__(self):
 #         self.opcodes = ['02', '03', '04', '05', '06', '07',
@@ -109,15 +109,15 @@ class OpCodes():
         self.opcode2 = '84'
 
         """
-        
-        
+
+
         BOB"S CODE HERE TO FIND AND ASSIGN OPCODE VARIABLES TO ABOVE ASSIGNED VARIABLES
-        
-        
-        
+
+
+
         """
-	
-    """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation and 
+
+    """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation and
     Implement if found"""
     def dict_search(self):
 	# Opcode to implement from imported dictionary:
@@ -127,7 +127,7 @@ class OpCodes():
         print("Opcode to implement from bytecode: " + self.opcode1 + ' = ' + opcode_to_call_1)
         opcode_to_call_2 = jvpm_dict.get_opcode(self.opcode2)
         print("Opcode to implement from bytecode: " + self.opcode2 + ' = ' + opcode_to_call_2)
-	
+
         # Search jvpm_method.py for method from above opcodeToCall variables and Implement.
         print('\n3) ____IMPLEMENT THE OPCODES:____\n')
         jvpm_methods.opcode_methods(opcodeToCall)
@@ -139,22 +139,22 @@ class OpCodes():
 # ****************************************************************************************
 
 if '__main__' == __name__:
-    
+
     # ************************************************************************************
-        
+
     print('\n1) ___Parse, pull, and assign Header bytecodes:___')
     D = HeaderClass()
     D.pull_magic()
     D.pull_minor()
     D.pull_major()
     D.pull_const_pool_count()
-        
+
     # ************************************************************************************
-    
-    print('\n2) ___Parse, pull, and assign Method bytecodes, search imported dictionary for\n' 
-        '    bytecode and return opcode. If found, send opcode to jvpm_methods.py to\n' 
-        '    Implement the method:___')
+
+    print('\n2) ___Parse, pull, and assign Method bytecodes, search imported dictionary for\n'
+        'bytecode and return opcode. If found, send opcode to jvpm_methods.py to\n'
+        'Implement the method:___')
     Z = OpCodes()
     Z.dict_search()
-        
+
 # ****************************************************************************************
