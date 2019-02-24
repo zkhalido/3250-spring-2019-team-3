@@ -227,8 +227,9 @@ if '__main__' == __name__:
         
     # ************************************************************************************
     
-    print('\n2) ___Parse, pull, and assign Method bytecodes, search imported disctionary for\n' 
-          '    Method bytecodes and return opcode mnemonics:___')
+    print('\n2) ___Parse, pull, and assign Method bytecodes, search imported dictionary for\n' 
+        '    bytecode and return opcode. If found, send opcode to jvpm_methods.py to 
+        '    Implement the method. :___')
     Z = OpCodes()
     Z.dict_search()
         
