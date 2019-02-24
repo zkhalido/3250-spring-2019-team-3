@@ -161,56 +161,56 @@ class OpCodes():
         print()
         return self.opcode0
 
-    def opcode0_list_search(self):
-        """search list for iconst opcodes and returns the index position to method call in the main"""
-        if self.opcode0 in self.opcodes:
-            if self.opcode0 == '02':
-                code = 'iconst_m1'
-                print('Test File contains the ' + code + ' opcode.')
-            elif self.opcode0 == '03':
-                code = 'iconst_0'
-                print('Test File contains the ' + code + ' opcode.')
-            elif self.opcode0 == '04':
-                code = 'iconst_1'
-                print('Test File contains the ' + code + ' opcode.')
-            elif self.opcode0 == '05':
-                code = 'iconst_2'
-                print('Test File contains the ' + code + ' opcode.')
-            elif self.opcode0 == '06':
-                code = 'iconst_3'
-                print('Test File contains the ' + code + ' opcode.')
-            elif self.opcode0 == '07':
-                code = 'iconst_4'
-                print('Test File contains the ' + code + ' opcode.')
-            elif self.opcode0 == '08':
-                code = 'iconst_5'
-                print('Test File contains the ' + code + ' opcode.')
-        return self.opcodes.index(self.opcode0)
+#     def opcode0_list_search(self):
+#         """search list for iconst opcodes and returns the index position to method call in the main"""
+#         if self.opcode0 in self.opcodes:
+#             if self.opcode0 == '02':
+#                 code = 'iconst_m1'
+#                 print('Test File contains the ' + code + ' opcode.')
+#             elif self.opcode0 == '03':
+#                 code = 'iconst_0'
+#                 print('Test File contains the ' + code + ' opcode.')
+#             elif self.opcode0 == '04':
+#                 code = 'iconst_1'
+#                 print('Test File contains the ' + code + ' opcode.')
+#             elif self.opcode0 == '05':
+#                 code = 'iconst_2'
+#                 print('Test File contains the ' + code + ' opcode.')
+#             elif self.opcode0 == '06':
+#                 code = 'iconst_3'
+#                 print('Test File contains the ' + code + ' opcode.')
+#             elif self.opcode0 == '07':
+#                 code = 'iconst_4'
+#                 print('Test File contains the ' + code + ' opcode.')
+#             elif self.opcode0 == '08':
+#                 code = 'iconst_5'
+#                 print('Test File contains the ' + code + ' opcode.')
+#         return self.opcodes.index(self.opcode0)
 
-    def opcode1_list_search(self):
-        """search list for istore opcodes and 
-	returns the index position to method call in the main"""
-        if self.opcode1 in self.opcodes:
-            if self.opcode1 == '3b':
-                code_1 = 'istore_0'
-                print('Test File contains the ' + code_1 + ' opcode.')
-            elif self.opcode1 == '3c':
-                code_1 = 'istore_1'
-                print('Test File contains the ' + code_1 + ' opcode.')
-            elif self.opcode1 == '3d':
-                code_1 = 'istore_2'
-                print('Test File contains the ' + code_1 + ' opcode.')
-            elif self.opcode1 == '3e':
-                code_1 = 'istore_3'
-                print('Test File contains the ' + code_1 + ' opcode.')
-        return self.opcodes.index(self.opcode1)
+#     def opcode1_list_search(self):
+#         """search list for istore opcodes and 
+# 	returns the index position to method call in the main"""
+#         if self.opcode1 in self.opcodes:
+#             if self.opcode1 == '3b':
+#                 code_1 = 'istore_0'
+#                 print('Test File contains the ' + code_1 + ' opcode.')
+#             elif self.opcode1 == '3c':
+#                 code_1 = 'istore_1'
+#                 print('Test File contains the ' + code_1 + ' opcode.')
+#             elif self.opcode1 == '3d':
+#                 code_1 = 'istore_2'
+#                 print('Test File contains the ' + code_1 + ' opcode.')
+#             elif self.opcode1 == '3e':
+#                 code_1 = 'istore_3'
+#                 print('Test File contains the ' + code_1 + ' opcode.')
+#         return self.opcodes.index(self.opcode1)
 
-    def opcode2_list_search(self):
-        """search list for iinc opcodes and 
-	returns the index position to method call in the main"""
-        if self.opcode2 in self.opcodes:
-            print('Test File contains the iinc(++) opcode.')
-        return self.opcodes.index(self.opcode2)
+#     def opcode2_list_search(self):
+#         """search list for iinc opcodes and 
+# 	returns the index position to method call in the main"""
+#         if self.opcode2 in self.opcodes:
+#             print('Test File contains the iinc(++) opcode.')
+#         return self.opcodes.index(self.opcode2)
 
 # ****************************************************************************************
 
