@@ -17,7 +17,9 @@ def method2():
 def method3():
     global variable_1
     variable_1 += 1
-    print("increment to " + str(variable_1) + " in the jvpm_methods.py module using iinc")
+    S.push(variable_1)
+    print("increment to " + str(variable_1) + " and push to Stack in the jvpm_methods.py module using iinc")
+    print("top of Stack is now " + str(S.peek()))
     
 # ****************************************************************************************
 
