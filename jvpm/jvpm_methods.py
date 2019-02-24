@@ -41,9 +41,9 @@ def opcode_methods(argument):
 #         "iastore": method13,         # store an int into an array
         "iconst_0": method14,        # load the int value 0 onto the stack
         "iconst_1": method15,        # load the int value 1 onto the stack
-        "iconst_2": method16,       # load the int value 2 onto the stack
-        "iconst_3": method17,       # load the int value 3 onto the stack
-        "iconst_4": method18,       # load the int value 4 onto the stack
+        "iconst_2": method16,        # load the int value 2 onto the stack
+        "iconst_3": method17,        # load the int value 3 onto the stack
+        "iconst_4": method18,        # load the int value 4 onto the stack
         "iconst_5": method19,        # load the int value 5 onto the stack
         "idiv": method20,            # divide two integers
 #         "if_acmpeq": method21,       # if references are equal branch to instruction
