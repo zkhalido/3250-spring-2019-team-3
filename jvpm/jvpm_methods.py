@@ -16,6 +16,7 @@ def opcode_methods(argument):
     }
     #get the method name from the opcode_methods dictionary
     method = opcode_methods.get(argument, lambda: "Invalid opcode")
+    print(method)
     # call the method
     method()
                                 
