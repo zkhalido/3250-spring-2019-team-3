@@ -4,7 +4,7 @@ from bitstring import ConstBitStream
 import jvpm_dict    # import external opcode dictionary
 import jvpm_methods # import external method dictionary
 
-# pylint: disable = W0105, C0122
+# pylint: disable = W0105, C0122, R0902
 
 class HeaderClass():
     """Class that parses the data from test.class
