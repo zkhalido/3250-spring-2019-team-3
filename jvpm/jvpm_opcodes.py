@@ -44,33 +44,6 @@ class HeaderClass():
         print("const pool: ", self.header_const_pool_count)
         return self.header_const_pool_count
 
-# *************************************************************************************
-
-class Stack:
-    """Class that creates a Stack, with methods to interact with the Stack"""
-    def __init__(self):
-        self.items = []
-
-    def is_empty(self):
-        """test if Stack is empty"""
-        return self.items == []
-
-    def push(self, item):
-        """Put item on the stack"""
-        self.items.append(item)
-
-    def pop(self):
-        """Take item off stack"""
-        return self.items.pop()
-
-    def peek(self):
-        """Look at item on top of stack"""
-        return self.items[len(self.items)-1]
-
-    def size(self):
-        """Tells how many items are on the stack"""
-        return len(self.items)
-
 # ****************************************************************************************
 
 # Unittest to test the output of the HeaderClass() methods.
@@ -161,57 +134,6 @@ class OpCodes():
         print()
         return self.opcode0
 
-#     def opcode0_list_search(self):
-#         """search list for iconst opcodes and returns the index position to method call in the main"""
-#         if self.opcode0 in self.opcodes:
-#             if self.opcode0 == '02':
-#                 code = 'iconst_m1'
-#                 print('Test File contains the ' + code + ' opcode.')
-#             elif self.opcode0 == '03':
-#                 code = 'iconst_0'
-#                 print('Test File contains the ' + code + ' opcode.')
-#             elif self.opcode0 == '04':
-#                 code = 'iconst_1'
-#                 print('Test File contains the ' + code + ' opcode.')
-#             elif self.opcode0 == '05':
-#                 code = 'iconst_2'
-#                 print('Test File contains the ' + code + ' opcode.')
-#             elif self.opcode0 == '06':
-#                 code = 'iconst_3'
-#                 print('Test File contains the ' + code + ' opcode.')
-#             elif self.opcode0 == '07':
-#                 code = 'iconst_4'
-#                 print('Test File contains the ' + code + ' opcode.')
-#             elif self.opcode0 == '08':
-#                 code = 'iconst_5'
-#                 print('Test File contains the ' + code + ' opcode.')
-#         return self.opcodes.index(self.opcode0)
-
-#     def opcode1_list_search(self):
-#         """search list for istore opcodes and 
-# 	returns the index position to method call in the main"""
-#         if self.opcode1 in self.opcodes:
-#             if self.opcode1 == '3b':
-#                 code_1 = 'istore_0'
-#                 print('Test File contains the ' + code_1 + ' opcode.')
-#             elif self.opcode1 == '3c':
-#                 code_1 = 'istore_1'
-#                 print('Test File contains the ' + code_1 + ' opcode.')
-#             elif self.opcode1 == '3d':
-#                 code_1 = 'istore_2'
-#                 print('Test File contains the ' + code_1 + ' opcode.')
-#             elif self.opcode1 == '3e':
-#                 code_1 = 'istore_3'
-#                 print('Test File contains the ' + code_1 + ' opcode.')
-#         return self.opcodes.index(self.opcode1)
-
-#     def opcode2_list_search(self):
-#         """search list for iinc opcodes and 
-# 	returns the index position to method call in the main"""
-#         if self.opcode2 in self.opcodes:
-#             print('Test File contains the iinc(++) opcode.')
-#         return self.opcodes.index(self.opcode2)
-
 # ****************************************************************************************
 
 if '__main__' == __name__:
@@ -232,85 +154,5 @@ if '__main__' == __name__:
         '    Implement the method:___')
     Z = OpCodes()
     Z.dict_search()
-        
-#     print(Z.dict_search)
-#     command = Z.dict_search()    
-#     methodToCall = jvpm_methods.tokenDict[command]
-#     print(methodToCall)
-#     print('XXXXX')
-#     #jvpm_methods.methodToCall()
-
-    # ************************************************************************************
-
-#     print('\n3) ____IMPLEMENT THE OPCODES:____\n')
-#     S = Stack()
-#     """tests if the Stack is empty and pritns result"""
-#     print('       ' + str(S.is_empty()) + ': Stack is Empty.')
-
-#     """method call that searches Opcode method list for iconst opcode and returns index position,
-#     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
-#     OP_VALUE_0 = Z.opcode0_list_search()
-#     """If list search return is equal to index position 0, method pushes -1 to stack, 
-#     etc., etc. , for each value."""
-#     if OP_VALUE_0 == 0:
-#         S.push(-1)
-#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-#     elif OP_VALUE_0 == 1:
-#         S.push(0)
-#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-#     elif OP_VALUE_0 == 2:
-#         S.push(1)
-#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-#     elif OP_VALUE_0 == 3:
-#         S.push(2)
-#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-#     elif OP_VALUE_0 == 4:
-#         S.push(3)
-#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-#     elif OP_VALUE_0 == 5:
-#         S.push(4)
-#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-#     elif OP_VALUE_0 == 6:
-#         S.push(5)
-#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-        
-#     # ************************************************************************************
-
-#     """method call that searches Opcode method list for istore opcode and returns index position,
-#     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
-#     OP_VALUE_1 = Z.opcode1_list_search()
-#     if OP_VALUE_1 == 7:
-#         VARIABLE_0 = S.peek()
-#         print('       <<<< VARIABLE_0 = ' + str(VARIABLE_0) + ' >>>>')
-#     elif OP_VALUE_1 == 8:
-#         VARIABLE_1 = S.peek()
-#         print('       <<<< VARIABLE_1 = ' + str(VARIABLE_1) + ' >>>>')
-#     elif OP_VALUE_1 == 9:
-#         VARIABLE_2 = S.peek()
-#         print('       <<<< VARIABLE_2 = ' + str(VARIABLE_2) + ' >>>>')
-#     elif OP_VALUE_1 == 10:
-#         VARIABLE_3 = S.peek()
-#         print('       <<<< VARIABLE_3 = ' + str(VARIABLE_3) + ' >>>>')
-        
-#     # ************************************************************************************
-
-#     """method call that searches Opcode method list for iinc opcode and returns index position,
-#     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
-#     OP_VALUE_2 = Z.opcode2_list_search()
-#     if OP_VALUE_2 == 11:
-#         VARIABLE_4 = S.peek() + 1
-#         if OP_VALUE_1 == 7:
-#             VARIABLE_0 = VARIABLE_4
-#             print('      <<<< VARIABLE_0++ = ' + str(VARIABLE_0) + ' >>>>')
-#         elif OP_VALUE_1 == 8:
-#             VARIABLE_1 = VARIABLE_4
-#             print('      <<<< VARIABLE_1++ = ' + str(VARIABLE_1) + ' >>>>')
-#         elif OP_VALUE_1 == 9:
-#             VARIABLE_2 = VARIABLE_4
-#             print('      <<<< VARIABLE_2++ = ' + str(VARIABLE_2) + ' >>>>')
-#         elif OP_VALUE_1 == 10:
-#             VARIABLE_3 = VARIABLE_4
-#             print('      <<<< VARIABLE_3++ = ' + str(VARIABLE_3) + ' >>>>')
-#         print()
         
 # ****************************************************************************************
