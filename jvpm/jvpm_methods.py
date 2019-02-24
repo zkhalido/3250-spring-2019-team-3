@@ -1,4 +1,6 @@
 # These 63 methods will eventually Implement the opcode commands.
+# Method 4 - 63 is below the Dictionary.
+
 def method1():
     print("called method 1 from jvpm_methods.py module using iconst_m1")
 
@@ -7,6 +9,8 @@ def method2():
 
 def method3():
     print("called method 3 from jvpm_methods.py module using iinc")
+    
+# ****************************************************************************************
 
 """DICTIONARY OF METHODS"""
 def opcode_methods(argument):
@@ -79,6 +83,8 @@ def opcode_methods(argument):
     method = tokenDict.get(argument, lambda: "Invalid opcode")
     # Call the Method.
     method()
+    
+# ****************************************************************************************
     
 def method4():
     print('method4')
