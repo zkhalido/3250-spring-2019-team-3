@@ -1,14 +1,14 @@
-from stack import Stack, push
-from stack import Stack, peek
+import stack
 # These 63 methods will eventually Implement the opcode commands.
 # Method 4 - 63 is below the Dictionary.
+S = stack.Stack()
 
 def method1():
-    stack.push(-1)
+    S.push(-1)
     print("called method 1 from jvpm_methods.py module using iconst_m1")
 
 def method2():
-    print(stack.peek())
+    print(S.peek())
     print("called method 2 from jvpm_methods.py module using istore_1")
 
 def method3():
