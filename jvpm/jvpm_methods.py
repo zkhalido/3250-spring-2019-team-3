@@ -6,15 +6,17 @@ variable_1 = ''
 
 def method1():
     S.push(-1)
-    print("pushed " + str(S.peek()) + " to Stack from jvpm_methods.py module using iconst_m1")
+    print("pushed " + str(S.peek()) + " to Stack in the jvpm_methods.py module using iconst_m1")
 
 def method2():
     variable_1 = S.peek()
     S.pop()
-    print("popped " + str(variable_1) + " from Stack from jvpm_methods.py module using istore_1")
+    print("popped " + str(variable_1) + " from Stack in the jvpm_methods.py module using istore_1")
 
 def method3():
-    print("called method 3 from jvpm_methods.py module using iinc")
+    variable_1++
+    S.push(variable_1)
+    print("increment " + str(variable_1) + " in the jvpm_methods.py module using iinc")
     
 # ****************************************************************************************
 
