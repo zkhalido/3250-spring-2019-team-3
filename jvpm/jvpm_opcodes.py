@@ -1,8 +1,8 @@
 """import the unittest"""
 import unittest
 from bitstring import ConstBitStream
-import jvpm_dict    # import external dictionary
-import jvpm_methods # import external methods
+import jvpm_dict    # import external opcode dictionary
+import jvpm_methods # import external method dictionary
 
 # pylint: disable = W0105, C0122
 
