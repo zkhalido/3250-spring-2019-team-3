@@ -1,4 +1,5 @@
-from jvpm import jvpm_opcodes
+import unittest
+import jvpm_opcodes
 # Unittest to test the output of the HeaderClass() methods.
 # python3 -m unittest jvpm_opcodes.py
 # We have a warning about an unclosed file but no errors.
