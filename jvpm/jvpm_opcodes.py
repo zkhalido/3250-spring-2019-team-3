@@ -99,10 +99,10 @@ class UnittestHeader(unittest.TestCase):
 # ****************************************************************************************
 
 class OpCodes():
-    """Class that contains a dictionary of opcodes to Implement"""
+    """Class that searches the external dictionary of opcodes and Implements"""
     def __init__(self):
-        self.opcodes = ['02', '03', '04', '05', '06', '07',
-                        '08', '3b', '3c', '3d', '3e', '84']
+#         self.opcodes = ['02', '03', '04', '05', '06', '07',
+#                         '08', '3b', '3c', '3d', '3e', '84']
         self.opcode0 = '02'
         self.opcode1 = '3c'
         self.opcode2 = '84'
