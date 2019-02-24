@@ -18,7 +18,7 @@ def opcode_methods(argument):
     method = tokenDict.get(argument, lambda: "Invalid opcode")
     print(method)
     # call the method
-    print(method())
+    method()
                                 
 def get_methods(opcode):
     ''' Retrieve method name from dictionary of opcodes '''
