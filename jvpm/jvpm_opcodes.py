@@ -156,9 +156,15 @@ class OpCodes():
 	# Opcode to implement from imported dictionary:
         opcodeToCall = jvpm_dict.get_opcode(self.opcode0)
         print("Opcode to implement from imported dictionary: " + opcodeToCall)
+        opcode_to_call_1 = jvpm_dict.get_opcode(self.opcode1)
+        print("Opcode to implement from imported dictionary: " + opcode_to_call_1)
+        opcode_to_call_2 = jvpm_dict.get_opcode(self.opcode1)
+        print("Opcode to implement from imported dictionary: " + opcode_to_call_2)
 	
         # Search jvpm_method.py for correspoding method
         jvpm_methods.opcode_methods(opcodeToCall)
+        jvpm_methods.opcode_methods(opcode_to_call_1)
+        jvpm_methods.opcode_methods(opcode_to_call_2)
         return self.opcode0
 
     def opcode0_list_search(self):
