@@ -99,7 +99,8 @@ class UnittestHeader(unittest.TestCase):
 # ****************************************************************************************
 
 class OpCodes():
-    """Class that searches the external dictionary of opcodes and Implements"""
+    """Class that searches the external dictionary of opcodes and Implements using 
+    the external dictionary of methods"""
     def __init__(self):
 #         self.opcodes = ['02', '03', '04', '05', '06', '07',
 #                         '08', '3b', '3c', '3d', '3e', '84']
