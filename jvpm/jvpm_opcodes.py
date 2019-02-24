@@ -239,75 +239,75 @@ if '__main__' == __name__:
 
     # ************************************************************************************
 
-    print('\n3) ____IMPLEMENT THE OPCODES:____\n')
-    S = Stack()
-    """tests if the Stack is empty and pritns result"""
-    print('       ' + str(S.is_empty()) + ': Stack is Empty.')
+#     print('\n3) ____IMPLEMENT THE OPCODES:____\n')
+#     S = Stack()
+#     """tests if the Stack is empty and pritns result"""
+#     print('       ' + str(S.is_empty()) + ': Stack is Empty.')
 
-    """method call that searches Opcode method list for iconst opcode and returns index position,
-    then it calls the Stack method corresponding to the Opcode command returned from the list search."""
-    OP_VALUE_0 = Z.opcode0_list_search()
-    """If list search return is equal to index position 0, method pushes -1 to stack, 
-    etc., etc. , for each value."""
-    if OP_VALUE_0 == 0:
-        S.push(-1)
-        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-    elif OP_VALUE_0 == 1:
-        S.push(0)
-        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-    elif OP_VALUE_0 == 2:
-        S.push(1)
-        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-    elif OP_VALUE_0 == 3:
-        S.push(2)
-        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-    elif OP_VALUE_0 == 4:
-        S.push(3)
-        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-    elif OP_VALUE_0 == 5:
-        S.push(4)
-        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
-    elif OP_VALUE_0 == 6:
-        S.push(5)
-        print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+#     """method call that searches Opcode method list for iconst opcode and returns index position,
+#     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
+#     OP_VALUE_0 = Z.opcode0_list_search()
+#     """If list search return is equal to index position 0, method pushes -1 to stack, 
+#     etc., etc. , for each value."""
+#     if OP_VALUE_0 == 0:
+#         S.push(-1)
+#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+#     elif OP_VALUE_0 == 1:
+#         S.push(0)
+#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+#     elif OP_VALUE_0 == 2:
+#         S.push(1)
+#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+#     elif OP_VALUE_0 == 3:
+#         S.push(2)
+#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+#     elif OP_VALUE_0 == 4:
+#         S.push(3)
+#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+#     elif OP_VALUE_0 == 5:
+#         S.push(4)
+#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+#     elif OP_VALUE_0 == 6:
+#         S.push(5)
+#         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
         
-    # ************************************************************************************
+#     # ************************************************************************************
 
-    """method call that searches Opcode method list for istore opcode and returns index position,
-    then it calls the Stack method corresponding to the Opcode command returned from the list search."""
-    OP_VALUE_1 = Z.opcode1_list_search()
-    if OP_VALUE_1 == 7:
-        VARIABLE_0 = S.peek()
-        print('       <<<< VARIABLE_0 = ' + str(VARIABLE_0) + ' >>>>')
-    elif OP_VALUE_1 == 8:
-        VARIABLE_1 = S.peek()
-        print('       <<<< VARIABLE_1 = ' + str(VARIABLE_1) + ' >>>>')
-    elif OP_VALUE_1 == 9:
-        VARIABLE_2 = S.peek()
-        print('       <<<< VARIABLE_2 = ' + str(VARIABLE_2) + ' >>>>')
-    elif OP_VALUE_1 == 10:
-        VARIABLE_3 = S.peek()
-        print('       <<<< VARIABLE_3 = ' + str(VARIABLE_3) + ' >>>>')
+#     """method call that searches Opcode method list for istore opcode and returns index position,
+#     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
+#     OP_VALUE_1 = Z.opcode1_list_search()
+#     if OP_VALUE_1 == 7:
+#         VARIABLE_0 = S.peek()
+#         print('       <<<< VARIABLE_0 = ' + str(VARIABLE_0) + ' >>>>')
+#     elif OP_VALUE_1 == 8:
+#         VARIABLE_1 = S.peek()
+#         print('       <<<< VARIABLE_1 = ' + str(VARIABLE_1) + ' >>>>')
+#     elif OP_VALUE_1 == 9:
+#         VARIABLE_2 = S.peek()
+#         print('       <<<< VARIABLE_2 = ' + str(VARIABLE_2) + ' >>>>')
+#     elif OP_VALUE_1 == 10:
+#         VARIABLE_3 = S.peek()
+#         print('       <<<< VARIABLE_3 = ' + str(VARIABLE_3) + ' >>>>')
         
-    # ************************************************************************************
+#     # ************************************************************************************
 
-    """method call that searches Opcode method list for iinc opcode and returns index position,
-    then it calls the Stack method corresponding to the Opcode command returned from the list search."""
-    OP_VALUE_2 = Z.opcode2_list_search()
-    if OP_VALUE_2 == 11:
-        VARIABLE_4 = S.peek() + 1
-        if OP_VALUE_1 == 7:
-            VARIABLE_0 = VARIABLE_4
-            print('      <<<< VARIABLE_0++ = ' + str(VARIABLE_0) + ' >>>>')
-        elif OP_VALUE_1 == 8:
-            VARIABLE_1 = VARIABLE_4
-            print('      <<<< VARIABLE_1++ = ' + str(VARIABLE_1) + ' >>>>')
-        elif OP_VALUE_1 == 9:
-            VARIABLE_2 = VARIABLE_4
-            print('      <<<< VARIABLE_2++ = ' + str(VARIABLE_2) + ' >>>>')
-        elif OP_VALUE_1 == 10:
-            VARIABLE_3 = VARIABLE_4
-            print('      <<<< VARIABLE_3++ = ' + str(VARIABLE_3) + ' >>>>')
-        print()
+#     """method call that searches Opcode method list for iinc opcode and returns index position,
+#     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
+#     OP_VALUE_2 = Z.opcode2_list_search()
+#     if OP_VALUE_2 == 11:
+#         VARIABLE_4 = S.peek() + 1
+#         if OP_VALUE_1 == 7:
+#             VARIABLE_0 = VARIABLE_4
+#             print('      <<<< VARIABLE_0++ = ' + str(VARIABLE_0) + ' >>>>')
+#         elif OP_VALUE_1 == 8:
+#             VARIABLE_1 = VARIABLE_4
+#             print('      <<<< VARIABLE_1++ = ' + str(VARIABLE_1) + ' >>>>')
+#         elif OP_VALUE_1 == 9:
+#             VARIABLE_2 = VARIABLE_4
+#             print('      <<<< VARIABLE_2++ = ' + str(VARIABLE_2) + ' >>>>')
+#         elif OP_VALUE_1 == 10:
+#             VARIABLE_3 = VARIABLE_4
+#             print('      <<<< VARIABLE_3++ = ' + str(VARIABLE_3) + ' >>>>')
+#         print()
         
 # ****************************************************************************************
