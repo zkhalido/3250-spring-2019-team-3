@@ -1,5 +1,6 @@
 """import the unittest"""
 import unittest
+from stack import Stack
 
 # from collections import namedtuple
 from bitstring import ConstBitStream
@@ -42,7 +43,8 @@ class HeaderClass():
         self.header_const_pool_count = self.stream.read(8).uint + self.stream.read(8).uint - 1
         print("const pool: ", self.header_const_pool_count)
         return self.header_const_pool_count
-
+'''
+#made separate class stack so u can just import it in any file
 class Stack:
     """Class that creates a Stack, with methods to interact with the Stack"""
     def __init__(self):
@@ -67,7 +69,7 @@ class Stack:
     def size(self):
         """Tells how many items are on the stack"""
         return len(self.items)
-
+'''
 """
 		headerConstPoolCount = self.x.read(8).uint + self.x.read(8).uint
 		headerCPInfo = [None] * (headerConstPoolCount - 1)
