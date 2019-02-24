@@ -1,4 +1,4 @@
-
+# These methods will eventually Implement the opcode commands to the Stack
 def method1():
     print("called method 1 from jvpm_methods.py module using iconst_m1")
 
