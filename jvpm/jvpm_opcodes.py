@@ -117,9 +117,9 @@ class OpCodes():
 
         """
 
-    """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation and
-    Implement if found"""
     def dict_search(self):
+        """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation and
+        Implement if found"""
 	# Opcode to implement from imported dictionary:
         opcodeToCall = jvpm_dict.get_opcode(self.opcode0)
         print("\nOpcode to implement from bytecode: " + self.opcode0 + ' = ' + opcodeToCall)
