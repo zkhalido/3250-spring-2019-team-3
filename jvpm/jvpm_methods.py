@@ -14,10 +14,9 @@ def opcode_methods(argument):
         "istore_1": method2, 
         "iinc": method3
     }
-    #get the method name from the opcode_methods dictionary
+    # get the method name from the tokenDict dictionary
     method = tokenDict.get(argument, lambda: "Invalid opcode")
-    # print(method)
-    # call the method
+    # Call the Method.
     method()
                                 
 def get_methods(opcode):
