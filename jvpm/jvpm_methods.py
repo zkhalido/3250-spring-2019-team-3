@@ -9,7 +9,7 @@ def method1():
     print("pushed " + str(S.peek()) + " to Stack in the jvpm_methods.py module using iconst_m1")
 
 def method2():
-    variable_1 = S.peek()
+    global variable_1 = S.peek()
     S.pop()
     print("popped " + str(variable_1) + " from Stack in the jvpm_methods.py module using istore_1")
 
