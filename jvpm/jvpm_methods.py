@@ -5,7 +5,7 @@ S = stack.Stack()
 
 def method1():
     S.push(-1)
-    print("called method 1 from jvpm_methods.py module using iconst_m1")
+    print("pushed " + S.peek() + "to Stack from jvpm_methods.py module using iconst_m1")
 
 def method2():
     print(S.peek())
