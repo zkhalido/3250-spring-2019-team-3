@@ -44,7 +44,7 @@ class HeaderClass():
         print("const pool: ", self.header_const_pool_count)
         return self.header_const_pool_count
 
-****************************************************************************************
+*************************************************************************************
 
 class Stack:
     """Class that creates a Stack, with methods to interact with the Stack"""
