@@ -147,7 +147,7 @@ class OpCodes():
     def dict_search(self):
 	# Opcode to implement from imported dictionary:
         opcodeToCall = jvpm_dict.get_opcode(self.opcode0)
-        print("Opcode to implement from bytecode: " + self.opcode0 + ' = ' + opcodeToCall)
+        print("\nOpcode to implement from bytecode: " + self.opcode0 + ' = ' + opcodeToCall)
         opcode_to_call_1 = jvpm_dict.get_opcode(self.opcode1)
         print("Opcode to implement from bytecode: " + self.opcode1 + ' = ' + opcode_to_call_1)
         opcode_to_call_2 = jvpm_dict.get_opcode(self.opcode2)
