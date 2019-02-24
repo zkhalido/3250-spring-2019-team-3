@@ -3,11 +3,11 @@ import stack
 # Method 4 - 63 is below the Dictionary.
 
 def method1():
-    stack.Stack().push(-1)
+    Stack().push(-1)
     print("called method 1 from jvpm_methods.py module using iconst_m1")
 
 def method2():
-    print(str(stack.Stack().peek()))
+    print(Stack().peek())
     print("called method 2 from jvpm_methods.py module using istore_1")
 
 def method3():
