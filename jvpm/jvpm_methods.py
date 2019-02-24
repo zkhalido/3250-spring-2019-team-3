@@ -14,7 +14,7 @@ def method2():
     print("popped " + str(variable_1) + " from Stack in the jvpm_methods.py module using istore_1")
 
 def method3():
-    variable_1++
+    variable_1 += 1
     S.push(variable_1)
     print("increment " + str(variable_1) + " in the jvpm_methods.py module using iinc")
     
