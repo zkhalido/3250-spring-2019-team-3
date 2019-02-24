@@ -4,7 +4,7 @@ from bitstring import ConstBitStream
 import jvpm_dict    # import external opcode dictionary
 import jvpm_methods # import external method dictionary
 
-# pylint: disable = W0105, C0122, R0902, R0903
+# pylint: disable = W0105, C0122, R0903
 
 class HeaderClass():
     """Class that parses the data from test.class
@@ -16,9 +16,6 @@ class HeaderClass():
         self.header_minor = ""
         self.header_major = ""
         self.header_const_pool_count = ""
-#         self.opcode0 = ""
-#         self.opcode1 = ""
-#         self.opcode2 = ""
 
     def pull_magic(self):
         """method to pull the magic data"""
