@@ -20,6 +20,6 @@ def opcode_methods(argument):
     # Call the Method.
     method()
                                 
-def get_methods(opcode):
-    ''' Retrieve method name from dictionary of opcodes '''
-    return tokenDict[opcode]
+# def get_methods(opcode):
+#     ''' Retrieve method name from dictionary of opcodes '''
+#     return tokenDict[opcode]
