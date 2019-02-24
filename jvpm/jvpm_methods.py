@@ -8,7 +8,7 @@ def method2():
 def method3():
     print("called method 3 from jvpm_methods.py module")
 
-"""DICTIONARY"""
+"""DICTIONARY OF METHODS"""
 def opcode_methods(argument):
     tokenDict = {
         "iconst_m1": method1, 
