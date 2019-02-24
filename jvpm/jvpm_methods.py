@@ -8,6 +8,7 @@ def method2():
 def method3():
     print("called method 3 from methods module")
 
+"""DICTIONARY"""
 def opcode_methods(argument):
     tokenDict = {
         "iconst_m1": method1, 
