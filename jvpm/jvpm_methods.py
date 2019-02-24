@@ -11,10 +11,10 @@ def method3():
 """DICTIONARY OF METHODS"""
 def opcode_methods(argument):
     tokenDict = {
-        "iconst_m1": method1,          # load the int value -1 onto the stack
-        "istore_1": method2,           # store int value into variable 1
-        "iinc": method3,               # increment local variable #index by signed byte const
-         "i2b": method4,              # convert an int into a byte
+        "iconst_m1": method1,        # load the int value -1 onto the stack
+        "istore_1": method2,         # store int value into variable 1
+        "iinc": method3,             # increment local variable #index by signed byte const
+        "i2b": method4,              # convert an int into a byte
         "i2c": method5,              # convert an int into a character
         "i2d": method6,              # convert an int into a double
         "i2f": method7,              # convert an int into a float
@@ -26,7 +26,7 @@ def opcode_methods(argument):
         "iastore": method13,         # store an int into an array
         "iconst_0": method14,        # load the int value 0 onto the stack
         "iconst_1": method15,        # load the int value 1 onto the stack
-        "inconst_2": method16,        # load the int value 2 onto the stack
+        "inconst_2": method16,       # load the int value 2 onto the stack
         "inconst_3": method17,       # load the int value 3 onto the stack
         "inconst_4": method18,       # load the int value 4 onto the stack
         "iconst_5": method19,        # load the int value 5 onto the stack
@@ -214,7 +214,52 @@ def method47():
     
 def method48():
     print('method48')
-                                
-# def get_methods(opcode):
-#     ''' Retrieve method name from dictionary of opcodes '''
-#     return tokenDict[opcode]
+    
+def method49():
+    print('method49')
+    
+def method50():
+    print('method50')
+    
+def method51():
+    print('method51')
+    
+def method52():
+    print('method52')
+    
+def method53():
+    print('method53')
+    
+def method54():
+    print('method54')
+    
+def method55():
+    print('method55')
+    
+def method56():
+    print('method56')
+    
+def method57():
+    print('method57')
+
+def method58():
+    print('method58')
+    
+def method59():
+    print('method59')
+    
+def method60():
+    print('method60')
+    
+def method61():
+    print('method61')
+    
+def method62():
+    print('method62')
+    
+def method63():
+    print('method63')
+    
+def method64():
+    print('method64')
+                 
