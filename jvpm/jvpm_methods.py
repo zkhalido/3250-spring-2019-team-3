@@ -1,3 +1,4 @@
+import stack
 # These 63 methods will eventually Implement the opcode commands.
 # Method 4 - 63 is below the Dictionary.
 
