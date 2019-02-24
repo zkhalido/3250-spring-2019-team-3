@@ -1,6 +1,6 @@
 import stack
 # These 63 methods will eventually Implement all the opcode commands.
-# Method 4 - 63 is below the Dictionary.
+# Method 4 - 63 is below the Dictionary, ONLY BUILD THE METHODS NOT COMMENTED OUT.
 S = stack.Stack()
 variable_1 = ''
 
