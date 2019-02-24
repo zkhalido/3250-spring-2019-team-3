@@ -145,14 +145,6 @@ class OpCodes():
 	
     """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation"""
     def dict_search(self):
-        # jvpm_dict.get_opcode(self.opcode0)
-        print("\nImported Dictionary search for bytecode: " + self.opcode0 + 
-	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode0))
-        print("Imported Dictionary search for bytecode: " + self.opcode1 + 
-	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode1))
-        print("Imported Dictionary search for bytecode: " + self.opcode2 + 
-	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode2))
-	
 	# Opcode to implement from imported dictionary:
         opcodeToCall = jvpm_dict.get_opcode(self.opcode0)
         print("Opcode to implement from bytecode: " + self.opcode0 + ' = ' + opcodeToCall)
@@ -161,7 +153,7 @@ class OpCodes():
         opcode_to_call_2 = jvpm_dict.get_opcode(self.opcode2)
         print("Opcode to implement from bytecode: " + self.opcode2 + ' = ' + opcode_to_call_2)
 	
-        # Search jvpm_method.py for correspoding method
+        # Search jvpm_method.py for correspoding method from above opcodeToCall variables
         jvpm_methods.opcode_methods(opcodeToCall)
         jvpm_methods.opcode_methods(opcode_to_call_1)
         jvpm_methods.opcode_methods(opcode_to_call_2)
