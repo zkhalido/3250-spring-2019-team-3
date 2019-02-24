@@ -1,12 +1,12 @@
 
 def method1():
-    print("called method 1 from methods module")
+    print("called method 1 from jvpm_methods.py module")
 
 def method2():
-    print("called method 2 from methods module")
+    print("called method 2 from jvpm_methods.py module")
 
 def method3():
-    print("called method 3 from methods module")
+    print("called method 3 from jvpm_methods.py module")
 
 """DICTIONARY"""
 def opcode_methods(argument):
