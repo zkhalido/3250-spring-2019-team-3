@@ -11,21 +11,21 @@ def method3():
 """DICTIONARY OF METHODS"""
 def opcode_methods(argument):
     tokenDict = {
-        "iconst_m1": method1,    # load the int value -1 onto the stack
-        "istore_1": method2,     # store int value into variable 1
-        "iinc": method3,         # increment local variable #index by signed byte const
-#         "i2b": method4,          # convert an int into a byte
-#         "i2c": method5,          # convert an int into a character
-#         "i2d": method6,          # convert an int into a double
-#         "i2f": method7,          # convert an int into a float
-#         "i2l": method8,          # convert an int into a long
-#         "i2s": method9,          # convert an int into a short
-#         "iadd": method10,         # add two ints
-#         "iaload": method11,       # load an int from an array
-#         "iand": method12,         # perform a bitwise AND on two integers
-#         "iastore": method13,      # store an int into an array
-#         "iconst_0": method14,     # load the int value 0 onto the stack
-#         "iconst_1": method15,     # load the int value 1 onto the stack
+        "iconst_m1": method1,          # load the int value -1 onto the stack
+        "istore_1": method2,           # store int value into variable 1
+        "iinc": method3,               # increment local variable #index by signed byte const
+#         "i2b": method4,              # convert an int into a byte
+#         "i2c": method5,              # convert an int into a character
+#         "i2d": method6,              # convert an int into a double
+#         "i2f": method7,              # convert an int into a float
+#         "i2l": method8,              # convert an int into a long
+#         "i2s": method9,              # convert an int into a short
+#         "iadd": method10,            # add two ints
+#         "iaload": method11,          # load an int from an array
+#         "iand": method12,            # perform a bitwise AND on two integers
+#         "iastore": method13,         # store an int into an array
+#         "iconst_0": method14,        # load the int value 0 onto the stack
+#         "iconst_1": method15,        # load the int value 1 onto the stack
 #         "incost_2": method16,        # load the int value 2 onto the stack
 #         "inconst_3": method17,       # load the int value 3 onto the stack
 #         "inconst_4": method18,       # load the int value 4 onto the stack
