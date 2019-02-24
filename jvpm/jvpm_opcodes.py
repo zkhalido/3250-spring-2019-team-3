@@ -160,7 +160,7 @@ class OpCodes():
         "Search jvpm_method.py for correspoding method"
         # print(jvpm_methods.get_methods(methodToCall))
         # jvpm_methods.method1()
-        jvpm_methods.opcode_methods('iconst_m1')
+        # jvpm_methods.opcode_methods('iconst_m1')
         return self.opcode0
 
     def opcode0_list_search(self):
