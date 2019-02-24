@@ -4,6 +4,7 @@ from bitstring import ConstBitStream
 import jvpm_dict    # import external opcode dictionary
 import jvpm_methods # import external method dictionary
 
+pylint: disable = R0902 # disable too many attributes for HeaderClass()
 # pylint: disable = W0105, C0122
 
 class HeaderClass():
