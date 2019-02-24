@@ -16,9 +16,9 @@ class HeaderClass():
         self.header_minor = ""
         self.header_major = ""
         self.header_const_pool_count = ""
-        self.opcode0 = ""
-        self.opcode1 = ""
-        self.opcode2 = ""
+#         self.opcode0 = ""
+#         self.opcode1 = ""
+#         self.opcode2 = ""
 
     def pull_magic(self):
         """method to pull the magic data"""
