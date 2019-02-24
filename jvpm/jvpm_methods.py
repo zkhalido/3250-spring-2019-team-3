@@ -23,42 +23,42 @@ def opcode_methods(argument):
         "iadd": method10,            # add two ints
         "iaload": method11,          # load an int from an array
         "iand": method12,            # perform a bitwise AND on two integers
-#         "iastore": method13,         # store an int into an array
-#         "iconst_0": method14,        # load the int value 0 onto the stack
-#         "iconst_1": method15,        # load the int value 1 onto the stack
-#         "inconst_2": method16,        # load the int value 2 onto the stack
-#         "inconst_3": method17,       # load the int value 3 onto the stack
-#         "inconst_4": method18,       # load the int value 4 onto the stack
-#         "iconst_5": method19,        # load the int value 5 onto the stack
-#         "idiv": method20,            # divide two integers
-#         "if_acmpeq": method21,       # if references are equal branch to instruction
-#         "if_acmpene": method22,      # if references are not equal branch to instruction
-#         "if_icmpeq": method23,       # if ints are equal, branch
-#         "if_icmpge": method24,       # if value1 >= value2, branch
-#         "if_icmpgt": method25,       # if value1 > value2, branch
-#         "if_icmple": method26,       # if value1 <= value 2, branch
-#         "if_icmplt": method27,       # if value1 < value2, branch
-#         "if_icmpne": method28,       # if value1 != value2, branch
-#         "ifeq": method29,            # if value is 0, branch
-#         "ifge": method30,            # if value >= 0, branch
-#         "ifgt": method31,            # if value > 0, branch
-#         "ifle": method32,            # if value <= 0, branch
-#         "iflt": method33,            # if value < 0, branch
-#         "ifne": method34,            # if value != 0 , branch
-#         "ifnonnull": method35,       # if value is not null, branch
-#         "ifnull": method36,          # if value is null, branch
-#         "iload": method37,           # load an int value from a local variabl #index
-#         "iload_0": method38,         # load an int value from local variable 0
-#         "iload_1": method39,         # load an int value from local variable 1
-#         "iload_2": method40,         # load an int value from local variable 2
-#         "iload_3": method41,         # load an int value from local variable 3
-#         "impdep1": method42,         # reserved for implementation dependent operations, should not appear in any class
-#         "impdep2": method43,         # reserved for implementation dependent operations, should not appear
-#         "imul": method44,            # multiply two integers
-#         "ineg": method45,            # negate int
-#         "instanceof": method46,      # determines if objectref is of a given type
-#         "invokedynamic": method47,   # invoke a dynamic method and puts the result on the stack
-#         "invokeinterface": method48, # invoke an interface method on object objectref and puts results on the stack
+        "iastore": method13,         # store an int into an array
+        "iconst_0": method14,        # load the int value 0 onto the stack
+        "iconst_1": method15,        # load the int value 1 onto the stack
+        "inconst_2": method16,        # load the int value 2 onto the stack
+        "inconst_3": method17,       # load the int value 3 onto the stack
+        "inconst_4": method18,       # load the int value 4 onto the stack
+        "iconst_5": method19,        # load the int value 5 onto the stack
+        "idiv": method20,            # divide two integers
+        "if_acmpeq": method21,       # if references are equal branch to instruction
+        "if_acmpene": method22,      # if references are not equal branch to instruction
+        "if_icmpeq": method23,       # if ints are equal, branch
+        "if_icmpge": method24,       # if value1 >= value2, branch
+        "if_icmpgt": method25,       # if value1 > value2, branch
+        "if_icmple": method26,       # if value1 <= value 2, branch
+        "if_icmplt": method27,       # if value1 < value2, branch
+        "if_icmpne": method28,       # if value1 != value2, branch
+        "ifeq": method29,            # if value is 0, branch
+        "ifge": method30,            # if value >= 0, branch
+        "ifgt": method31,            # if value > 0, branch
+        "ifle": method32,            # if value <= 0, branch
+        "iflt": method33,            # if value < 0, branch
+        "ifne": method34,            # if value != 0 , branch
+        "ifnonnull": method35,       # if value is not null, branch
+        "ifnull": method36,          # if value is null, branch
+        "iload": method37,           # load an int value from a local variabl #index
+        "iload_0": method38,         # load an int value from local variable 0
+        "iload_1": method39,         # load an int value from local variable 1
+        "iload_2": method40,         # load an int value from local variable 2
+        "iload_3": method41,         # load an int value from local variable 3
+        "impdep1": method42,         # reserved for implementation dependent operations, should not appear in any class
+        "impdep2": method43,         # reserved for implementation dependent operations, should not appear
+        "imul": method44,            # multiply two integers
+        "ineg": method45,            # negate int
+        "instanceof": method46,      # determines if objectref is of a given type
+        "invokedynamic": method47,   # invoke a dynamic method and puts the result on the stack
+        "invokeinterface": method48, # invoke an interface method on object objectref and puts results on the stack
 #         "invokespecial": method49,   # invoke instance method on objectref and puts result on the stack
 #         "invokestatic": method50,    # invoke static method and puts result on the stack
 #         "invokevirtual": method51,   # invoke virtual method on objectref and puts result on the stack
@@ -213,7 +213,7 @@ def method47():
     print('method47')
     
 def method48():
-    print('method49')
+    print('method48')
                                 
 # def get_methods(opcode):
 #     ''' Retrieve method name from dictionary of opcodes '''
