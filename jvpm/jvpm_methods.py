@@ -6,20 +6,20 @@ variable_1 = ''
 
 def method1():
     S.push(-1)
-    print("pushed " + str(S.peek()) + " to Stack in the jvpm_methods.py module using iconst_m1")
+    print("Pushed " + str(S.peek()) + " to Stack in the jvpm_methods.py module using iconst_m1.")
 
 def method2():
     global variable_1
     variable_1 = S.peek()
     S.pop()
-    print("popped " + str(variable_1) + " from Stack in the jvpm_methods.py module using istore_1")
+    print("Popped " + str(variable_1) + " from Stack in the jvpm_methods.py module using istore_1.")
 
 def method3():
     global variable_1
     variable_1 += 1
     S.push(variable_1)
-    print("increment to " + str(variable_1) + " and push to Stack in the jvpm_methods.py module using iinc")
-    print("top of Stack is now " + str(S.peek()))
+    print("Increment to " + str(variable_1) + " and push to Stack in the jvpm_methods.py module using iinc.")
+    print("Top of Stack is now " + str(S.peek()) + ".")
     
 # ****************************************************************************************
 
