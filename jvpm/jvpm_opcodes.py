@@ -1,10 +1,10 @@
 """import the unittest"""
 import unittest
-# from collections import namedtuple
 from bitstring import ConstBitStream
+import jvpm_dict    # import external dictionary
+import jvpm_methods # import external methods
+
 # pylint: disable = W0105, C0122
-import jvpm_dict
-import jvpm_methods
 
 class HeaderClass():
     """Class that parses the data from test.class
