@@ -14,7 +14,7 @@ def opcode_methods(argument):
         "iconst_m1": method1,          # load the int value -1 onto the stack
         "istore_1": method2,           # store int value into variable 1
         "iinc": method3,               # increment local variable #index by signed byte const
-#         "i2b": method4,              # convert an int into a byte
+         "i2b": method4,              # convert an int into a byte
 #         "i2c": method5,              # convert an int into a character
 #         "i2d": method6,              # convert an int into a double
 #         "i2f": method7,              # convert an int into a float
@@ -79,6 +79,9 @@ def opcode_methods(argument):
     method = tokenDict.get(argument, lambda: "Invalid opcode")
     # Call the Method.
     method()
+    
+def method4():
+    print('method4')
                                 
 # def get_methods(opcode):
 #     ''' Retrieve method name from dictionary of opcodes '''
