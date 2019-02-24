@@ -15,14 +15,14 @@ def opcode_methods(argument):
         "istore_1": method2,           # store int value into variable 1
         "iinc": method3,               # increment local variable #index by signed byte const
          "i2b": method4,              # convert an int into a byte
-#         "i2c": method5,              # convert an int into a character
-#         "i2d": method6,              # convert an int into a double
-#         "i2f": method7,              # convert an int into a float
-#         "i2l": method8,              # convert an int into a long
-#         "i2s": method9,              # convert an int into a short
-#         "iadd": method10,            # add two ints
-#         "iaload": method11,          # load an int from an array
-#         "iand": method12,            # perform a bitwise AND on two integers
+        "i2c": method5,              # convert an int into a character
+        "i2d": method6,              # convert an int into a double
+        "i2f": method7,              # convert an int into a float
+        "i2l": method8,              # convert an int into a long
+        "i2s": method9,              # convert an int into a short
+        "iadd": method10,            # add two ints
+        "iaload": method11,          # load an int from an array
+        "iand": method12,            # perform a bitwise AND on two integers
 #         "iastore": method13,         # store an int into an array
 #         "iconst_0": method14,        # load the int value 0 onto the stack
 #         "iconst_1": method15,        # load the int value 1 onto the stack
@@ -82,6 +82,30 @@ def opcode_methods(argument):
     
 def method4():
     print('method4')
+    
+def method5():
+    print('method5')
+
+def method6():
+    print('method6')
+    
+def method7():
+    print('method7')
+    
+def method8():
+    print('method8')
+    
+def method9():
+    print('method9')
+    
+def method10():
+    print('method10')
+    
+def method11():
+    print('method11')
+    
+def method12():
+    print('method12')
                                 
 # def get_methods(opcode):
 #     ''' Retrieve method name from dictionary of opcodes '''
