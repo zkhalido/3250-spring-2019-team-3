@@ -8,8 +8,18 @@ def method2():
 def method3():
     print("called method 3 from methods module")
 
-tokenDict = {"iconst_m1":"method1()", "istore_1":"method2()", "iinc":"method3()"}
-
+def opcode_methods(argument):
+    tokenDict = {
+        "iconst_m1": method1, 
+        "istore_1": method2, 
+        "iinc": method3
+    }
+    #get the method name from the opcode_methods dictionary
+    method = tokenDict.get(argument, lambda: "Invalid opcode")
+    print(method)
+    # call the method
+    method()
+                                
 def get_methods(opcode):
     ''' Retrieve method name from dictionary of opcodes '''
     return tokenDict[opcode]

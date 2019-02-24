@@ -44,6 +44,8 @@ class HeaderClass():
         print("const pool: ", self.header_const_pool_count)
         return self.header_const_pool_count
 
+# *************************************************************************************
+
 class Stack:
     """Class that creates a Stack, with methods to interact with the Stack"""
     def __init__(self):
@@ -68,6 +70,8 @@ class Stack:
     def size(self):
         """Tells how many items are on the stack"""
         return len(self.items)
+
+# ****************************************************************************************
 
 # Unittest to test the output of the HeaderClass() methods.
 # python3 -m unittest jvpm.py
@@ -118,6 +122,8 @@ class UnittestHeader(unittest.TestCase):
         """the comparison"""
         self.assertEqual(self.test.header_const_pool_count, 14)
         print(f'< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >\n')
+        
+# ****************************************************************************************
 
 class OpCodes():
     """Class that contains a dictionary of opcodes to Implement"""
@@ -146,11 +152,15 @@ class OpCodes():
 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode1))
         print("Imported Dictionary search for bytecode: " + self.opcode2 + 
 	      " returns opcode: " + jvpm_dict.get_opcode(self.opcode2))
-        methodToCall = jvpm_dict.get_opcode(self.opcode0)
-        print(methodToCall)
+	
+	# Opcode to implement from imported dictionary:
+        opcodeToCall = jvpm_dict.get_opcode(self.opcode0)
+        print("Opcode to implement from imported dictionary: " + opcodeToCall)
+	
         "Search jvpm_method.py for correspoding method"
-        print(jvpm_methods.get_methods(methodToCall))
-        jvpm_methods.method1()
+        # print(jvpm_methods.get_methods(methodToCall))
+        # jvpm_methods.method1()
+        jvpm_methods.opcode_methods('iconst_m1')
         return self.opcode0
 
     def opcode0_list_search(self):
@@ -204,13 +214,20 @@ class OpCodes():
             print('Test File contains the iinc(++) opcode.')
         return self.opcodes.index(self.opcode2)
 
+# ****************************************************************************************
+
 if '__main__' == __name__:
+    
+    # ************************************************************************************
+        
     print('\n1) ___Parse, pull, and assign Header bytecodes:___')
     D = HeaderClass()
     D.pull_magic()
     D.pull_minor()
     D.pull_major()
     D.pull_const_pool_count()
+        
+    # ************************************************************************************
     
     print('\n2) ___Parse, pull, and assign Method bytecodes, search imported disctionary for\n' 
           '    Method bytecodes and return opcode mnemonics:___')
@@ -223,6 +240,8 @@ if '__main__' == __name__:
 #     print(methodToCall)
 #     print('XXXXX')
 #     #jvpm_methods.methodToCall()
+
+    # ************************************************************************************
 
     print('\n3) ____IMPLEMENT THE OPCODES:____\n')
     S = Stack()
@@ -255,6 +274,8 @@ if '__main__' == __name__:
     elif OP_VALUE_0 == 6:
         S.push(5)
         print('      <<<< Push ' + str(S.peek()) + ' to Stack >>>>')
+        
+    # ************************************************************************************
 
     """method call that searches Opcode method list for istore opcode and returns index position,
     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
@@ -271,6 +292,8 @@ if '__main__' == __name__:
     elif OP_VALUE_1 == 10:
         VARIABLE_3 = S.peek()
         print('       <<<< VARIABLE_3 = ' + str(VARIABLE_3) + ' >>>>')
+        
+    # ************************************************************************************
 
     """method call that searches Opcode method list for iinc opcode and returns index position,
     then it calls the Stack method corresponding to the Opcode command returned from the list search."""
@@ -290,3 +313,5 @@ if '__main__' == __name__:
             VARIABLE_3 = VARIABLE_4
             print('      <<<< VARIABLE_3++ = ' + str(VARIABLE_3) + ' >>>>')
         print()
+        
+# ****************************************************************************************
