@@ -154,10 +154,11 @@ class OpCodes():
         print("Opcode to implement from bytecode: " + self.opcode2 + ' = ' + opcode_to_call_2)
 	
         # Search jvpm_method.py for method from above opcodeToCall variables and Implement.
-	print('\n3) ____IMPLEMENT THE OPCODES:____\n')
+        print('\n3) ____IMPLEMENT THE OPCODES:____\n')
         jvpm_methods.opcode_methods(opcodeToCall)
         jvpm_methods.opcode_methods(opcode_to_call_1)
         jvpm_methods.opcode_methods(opcode_to_call_2)
+        print()
         return self.opcode0
 
     def opcode0_list_search(self):
