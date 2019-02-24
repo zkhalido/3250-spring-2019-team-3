@@ -11,7 +11,7 @@ def method1():
 def method2():
     variable_1 = S.peek()
     S.pop()
-    print("popped " + variable_1 + " from Stack from jvpm_methods.py module using istore_1")
+    print("popped " + str(variable_1) + " from Stack from jvpm_methods.py module using istore_1")
 
 def method3():
     print("called method 3 from jvpm_methods.py module using iinc")
