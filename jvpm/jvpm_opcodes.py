@@ -108,7 +108,7 @@ class OpCodes():
         self.opcode3 = '3d' # istore_2
         self.opcode4 = '1b' # iload_1
         self.opcode5 = '1c' # iload_2
-        self.opcode6 = '60' # 60 = iadd
+        self.opcode6 = '64' # 60 = iadd
         self.opcode7 = '3e' # istore_3
 #         self.opcode7 = '64' # 64 = isub
 #         self.opcode8 = '68' # 64 = imul
