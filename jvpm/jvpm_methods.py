@@ -15,8 +15,7 @@ def method1():
 def method2():
     """istore_1: store int value into variable 1"""
     global variable_1
-    variable_1 = S.peek()
-    S.pop()
+    variable_1 = S.pop()
     print("Popped " + str(variable_1) + 
           " from Stack and stored in variable_1 in jvpm_methods.py using istore_1.")
 
