@@ -131,6 +131,7 @@ def method10():
     global variable_2
     S.push(variable_1 + variable_2)
     print("Added " + str(variable_1) + " and " + str(variable_2) + " and pushed to Stack.")
+    print("Top of Stack is now " + str(S.peek()) + ".")
 
 # def method11():
 #     print('method11')
