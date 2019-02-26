@@ -17,7 +17,7 @@ def iconst_m1():
     print("iconst_m1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
 # store int value into VARIABLE 1
-def method2():
+def istore_1():
     """istore_1: store int value into VARIABLE 1"""
     global VARIABLE_1
     VARIABLE_1 = S.pop()
@@ -39,7 +39,7 @@ def opcode_methods(argument):
     """DICTIONARY OF METHODS, FOR SPRINT 3 ONLY BUILD THE METHODS NOT COMMENTED OUT."""
     token_dict = {
         "iconst_m1": iconst_m1,        # load the int value -1 onto the stack
-        "istore_1": method2,         # store int value into VARIABLE 1
+        "istore_1": istore_1,         # store int value into VARIABLE 1
         "iinc": method3,             # increment local variable #index by signed byte const
 #         "i2b": method4,              # convert an int into a byte
 #         "i2c": method5,              # convert an int into a character
