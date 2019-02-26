@@ -372,7 +372,7 @@ def isub():
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
     var2 = S.pop()
     var1 = S.pop()
-    S.push(var1 + var2)
+    S.push(var1 - var2)
     print("> isub: Popped (" + str(var1) + ") and (" + str(var2) + 
           ") from the Stack, assigned to local variables, \nsubtracted the two," 
           " and pushed result back to Stack.")
