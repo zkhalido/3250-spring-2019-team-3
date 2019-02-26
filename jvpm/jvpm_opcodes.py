@@ -104,6 +104,8 @@ class OpCodes():
         self.opcode0 = '03'
         self.opcode1 = '3c'
         self.opcode2 = '84'
+	self.opcode3 = ''
+	self.opcode4 = ''
 
         """
 
