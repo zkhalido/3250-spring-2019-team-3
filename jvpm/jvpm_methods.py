@@ -364,12 +364,12 @@ def istore_3():
 
 def isub():
     """isub: subtract two ints"""
-    global VARIABLE_1
-    global VARIABLE_2
-    S.push(VARIABLE_1 - VARIABLE_2)
-    print("> isub: Subtracted (VARIABLE_1 = " + str(VARIABLE_1) + ") - (VARIABLE_2 = " +
-          str(VARIABLE_2) + ") and pushed to Stack.")
-    print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+#     global VARIABLE_1
+#     global VARIABLE_2
+#     S.push(VARIABLE_1 - VARIABLE_2)
+#     print("> isub: Subtracted (VARIABLE_1 = " + str(VARIABLE_1) + ") - (VARIABLE_2 = " +
+#           str(VARIABLE_2) + ") and pushed to Stack.")
+#     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 - var2)
