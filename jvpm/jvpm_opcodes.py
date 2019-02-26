@@ -108,9 +108,9 @@ class OpCodes():
         self.opcode4 = '1b'
         self.opcode5 = '1c'
         self.opcode6 = '60' # 60 = iadd
-        self.opcode7 = '64' # 64 = isub
-        self.opcode8 = '68' # 64 = imul
-        self.opcode9 = '6c' # 64 = idiv
+#         self.opcode7 = '64' # 64 = isub
+#         self.opcode8 = '68' # 64 = imul
+#         self.opcode9 = '6c' # 64 = idiv
 
         """
 
@@ -139,12 +139,12 @@ class OpCodes():
         print("Opcode to implement from bytecode " + self.opcode5 + ': ' + opcode_to_call_5)
         opcode_to_call_6 = jvpm_dict.get_opcode(self.opcode6)
         print("Opcode to implement from bytecode " + self.opcode6 + ': ' + opcode_to_call_6)
-        opcode_to_call_7 = jvpm_dict.get_opcode(self.opcode7)
-        print("Opcode to implement from bytecode " + self.opcode7 + ': ' + opcode_to_call_7)
-        opcode_to_call_8 = jvpm_dict.get_opcode(self.opcode8)
-        print("Opcode to implement from bytecode " + self.opcode8 + ': ' + opcode_to_call_8)
-        opcode_to_call_9 = jvpm_dict.get_opcode(self.opcode9)
-        print("Opcode to implement from bytecode " + self.opcode9 + ': ' + opcode_to_call_9)
+#         opcode_to_call_7 = jvpm_dict.get_opcode(self.opcode7)
+#         print("Opcode to implement from bytecode " + self.opcode7 + ': ' + opcode_to_call_7)
+#         opcode_to_call_8 = jvpm_dict.get_opcode(self.opcode8)
+#         print("Opcode to implement from bytecode " + self.opcode8 + ': ' + opcode_to_call_8)
+#         opcode_to_call_9 = jvpm_dict.get_opcode(self.opcode9)
+#         print("Opcode to implement from bytecode " + self.opcode9 + ': ' + opcode_to_call_9)
 
         # Search jvpm_method.py for method from above opcodeToCall variables and Implement.
         print('\n3) ____IMPLEMENT THE OPCODES:____\n')
@@ -155,9 +155,9 @@ class OpCodes():
         jvpm_methods.opcode_methods(opcode_to_call_4)
         jvpm_methods.opcode_methods(opcode_to_call_5)
         jvpm_methods.opcode_methods(opcode_to_call_6)
-        jvpm_methods.opcode_methods(opcode_to_call_7)
-        jvpm_methods.opcode_methods(opcode_to_call_8)
-        jvpm_methods.opcode_methods(opcode_to_call_9)
+#         jvpm_methods.opcode_methods(opcode_to_call_7)
+#         jvpm_methods.opcode_methods(opcode_to_call_8)
+#         jvpm_methods.opcode_methods(opcode_to_call_9)
         print()
         return self.opcode0
 
