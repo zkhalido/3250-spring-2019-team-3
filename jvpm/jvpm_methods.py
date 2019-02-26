@@ -183,8 +183,13 @@ def method19():
     print('"iconst_5: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py."')
 
 def method20():
-    """description here"""
-    print('method20')
+    """idiv: divide two numbers"""
+    global VARIABLE_1
+    global VARIABLE_2
+    S.push(VARIABLE_1 / VARIABLE_2)
+    print("iadd: Divided VARIABLE_1 = " + str(VARIABLE_1) + " and VARIABLE_2 = " +
+          str(VARIABLE_2) + " and pushed to Stack.")
+    print("Top of Stack is now " + str(S.peek()) + ".")
 
 # def method21():
 #     print('method21')
@@ -256,9 +261,13 @@ def method20():
 #     print('method43')
 
 def method44():
-    """multiply two integers"""
-    S.push(S.pop() * S.pop())
-    print('method44')
+    """imul: multiply two integers"""
+    global VARIABLE_1
+    global VARIABLE_2
+    S.push(VARIABLE_1 * VARIABLE_2)
+    print("imul: Multipied VARIABLE_1 = " + str(VARIABLE_1) + " and VARIABLE_2 = " +
+          str(VARIABLE_2) + " and pushed to Stack.")
+    print("Top of Stack is now " + str(S.peek()) + ".")
 
 def method45():
     """description here"""
