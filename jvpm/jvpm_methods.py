@@ -50,7 +50,7 @@ def opcode_methods(argument):
         "iadd": iadd,            # add two ints
 #         "iaload": method11,          # load an int from an array
         "iand": method12,            # perform a bitwise AND on two integers
-#         "iastore": method13,         # store an int into an array
+#         "iastore": iastore,         # store an int into an array
         "iconst_0": iconst_0,        # load the int value 0 onto the stack
         "iconst_1": iconst_1,        # load the int value 1 onto the stack
         "iconst_2": iconst_2,        # load the int value 2 onto the stack
@@ -58,30 +58,30 @@ def opcode_methods(argument):
         "iconst_4": iconst_4,        # load the int value 4 onto the stack
         "iconst_5": iconst_5,        # load the int value 5 onto the stack
         "idiv": idiv,            # divide two integers
-#         "if_acmpeq": method21,       # if references are equal branch to instruction
-#         "if_acmpene": method22,      # if references are not equal branch to instruction
-#         "if_icmpeq": method23,       # if ints are equal, branch
-#         "if_icmpge": method24,       # if value1 >= value2, branch
-#         "if_icmpgt": method25,       # if value1 > value2, branch
-#         "if_icmple": method26,       # if value1 <= value 2, branch
-#         "if_icmplt": method27,       # if value1 < value2, branch
-#         "if_icmpne": method28,       # if value1 != value2, branch
-#         "ifeq": method29,            # if value is 0, branch
-#         "ifge": method30,            # if value >= 0, branch
-#         "ifgt": method31,            # if value > 0, branch
-#         "ifle": method32,            # if value <= 0, branch
-#         "iflt": method33,            # if value < 0, branch
-#         "ifne": method34,            # if value != 0 , branch
-#         "ifnonnull": method35,       # if value is not null, branch
-#         "ifnull": method36,          # if value is null, branch
-#         "iload": method37,           # load an int value from a local variabl #index
-#         "iload_0": method38,         # load an int value from local variable 0
-#         "iload_1": method39,         # load an int value from local variable 1
-#         "iload_2": method40,         # load an int value from local variable 2
-#         "iload_3": method41,         # load an int value from local variable 3
-#         "impdep1": method42,         # reserved for implementation dependent operations,
+#         "if_acmpeq": if_acmpeq,       # if references are equal branch to instruction
+#         "if_acmpene": if_acmpene,      # if references are not equal branch to instruction
+#         "if_icmpeq": if_icmpeq,       # if ints are equal, branch
+#         "if_icmpge": if_icmpge,       # if value1 >= value2, branch
+#         "if_icmpgt": if_icmpgt,       # if value1 > value2, branch
+#         "if_icmple": if_icmple,       # if value1 <= value 2, branch
+#         "if_icmplt": if_icmplt,       # if value1 < value2, branch
+#         "if_icmpne": if_icmpne,       # if value1 != value2, branch
+#         "ifeq": ifeq,            # if value is 0, branch
+#         "ifge": ifge,            # if value >= 0, branch
+#         "ifgt": ifgt,            # if value > 0, branch
+#         "ifle": ifle,            # if value <= 0, branch
+#         "iflt": iflt,            # if value < 0, branch
+#         "ifne": ifne,            # if value != 0 , branch
+#         "ifnonnull": ifnonnull,       # if value is not null, branch
+#         "ifnull": ifnull,          # if value is null, branch
+#         "iload": iload,           # load an int value from a local variabl #index
+#         "iload_0": iload_0,         # load an int value from local variable 0
+#         "iload_1": iload_1,         # load an int value from local variable 1
+#         "iload_2": iload_2,         # load an int value from local variable 2
+#         "iload_3": iload_3,         # load an int value from local variable 3
+#         "impdep1": impdep1,         # reserved for implementation dependent operations,
 #                                      # should not appear in any class
-#         "impdep2": method43,         # reserved for implementation dependent operations,
+#         "impdep2": impdep2,         # reserved for implementation dependent operations,
 #                                      # should not appear
         "imul": imul,            # multiply two integers
         "ineg": method45,            # negate int
@@ -148,8 +148,8 @@ def method12():
     """description"""
     print('method12')
 
-# def method13():
-#     print('method13')
+# def iastore():
+#     print('iastore')
 
 def iconst_0():
     """iconst_0: load the int value 0 onto the stack"""
@@ -191,74 +191,74 @@ def idiv():
           str(VARIABLE_2) + " and pushed to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
-# def method21():
-#     print('method21')
+# def if_acmpeq():
+#     print('if_acmpeq')
 
-# def method22():
-#     print('method22')
+# def if_acmpene():
+#     print('if_acmpene')
 
-# def method23():
-#     print('method23')
+# def if_icmpeq():
+#     print('if_icmpeq')
 
-# def method24():
-#     print('method24')
+# def if_icmpge():
+#     print('if_icmpge')
 
-# def method25():
-#     print('method25')
+# def if_icmpgt():
+#     print('if_icmpgt')
 
-# def method26():
-#     print('method26')
+# def if_icmple():
+#     print('if_icmple')
 
-# def method27():
-#     print('method27')
+# def if_icmplt():
+#     print('if_icmplt')
 
-# def method28():
-#     print('method28')
+# def if_icmpne():
+#     print('if_icmpne')
 
-# def method29():
-#     print('method29')
+# def ifeq():
+#     print('ifeq')
 
-# def method30():
-#     print('method30')
+# def ifge():
+#     print('ifge')
 
-# def method31():
-#     print('method31')
+# def ifgt():
+#     print('ifgt')
 
-# def method32():
-#     print('method32')
+# def ifle():
+#     print('ifle')
 
-# def method33():
-#     print('method33')
+# def iflt():
+#     print('iflt')
 
-# def method34():
-#     print('method34')
+# def ifne():
+#     print('ifne')
 
-# def method35():
-#     print('method35')
+# def ifnonnull():
+#     print('ifnonnull')
 
-# def method36():
-#     print('method36')
+# def ifnull():
+#     print('ifnull')
 
-# def method37():
-#     print('method37')
+# def iload():
+#     print('iload')
 
-# def method38():
-#     print('method38')
+# def iload_0():
+#     print('iload_0')
 
-# def method39():
-#     print('method39')
+# def iload_1():
+#     print('iload_1')
 
-# def method40():
-#     print('method40')
+# def iload_2():
+#     print('iload_2')
 
-# def method41():
-#     print('metho415')
+# def iload_3():
+#     print('iload_3')
 
-# def method42():
-#     print('method42')
+# def impdep1():
+#     print('impdep1')
 
-# def method43():
-#     print('method43')
+# def impdep2():
+#     print('impdep2')
 
 def imul():
     """imul: multiply two integers"""
