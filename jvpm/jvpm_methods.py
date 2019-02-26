@@ -11,7 +11,7 @@ VARIABLE_2 = ''
 VARIABLE_3 = ''
 
  # load the int value -1 onto the stack
-def method1():
+def iconst_m1():
     """iconst_m1: load the int value -1 onto the stack"""
     S.push(-1)
     print("iconst_m1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
@@ -38,7 +38,7 @@ def method3():
 def opcode_methods(argument):
     """DICTIONARY OF METHODS, FOR SPRINT 3 ONLY BUILD THE METHODS NOT COMMENTED OUT."""
     token_dict = {
-        "iconst_m1": method1,        # load the int value -1 onto the stack
+        "iconst_m1": iconst_m1,        # load the int value -1 onto the stack
         "istore_1": method2,         # store int value into VARIABLE 1
         "iinc": method3,             # increment local variable #index by signed byte const
 #         "i2b": method4,              # convert an int into a byte
@@ -52,7 +52,7 @@ def opcode_methods(argument):
         "iand": method12,            # perform a bitwise AND on two integers
 #         "iastore": method13,         # store an int into an array
         "iconst_0": method14,        # load the int value 0 onto the stack
-        "iconst_1": method15,        # load the int value 1 onto the stack
+        "iconst_1": iconst_1,        # load the int value 1 onto the stack
         "iconst_2": method16,        # load the int value 2 onto the stack
         "iconst_3": method17,        # load the int value 3 onto the stack
         "iconst_4": method18,        # load the int value 4 onto the stack
@@ -156,7 +156,7 @@ def method14():
     S.push(0)
     print("iconst_0: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
-def method15():
+def iconst_1():
     """iconst_1: load the int value 1 onto the stack"""
     S.push(1)
     print("iconst_1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
