@@ -117,14 +117,9 @@ def opcode_methods(argument):
 # def method9():
 #     print('method9')
 
-# add two integers
+# add two ints
 def method10():
-    a = S.peek()
-    S.pop()
-    b = S.peek()
-    S.pop()
-    c = a + b
-    S.push(c)
+    S.push(S.pop() + S.pop())
     print('method10')
 
 # def method11():
