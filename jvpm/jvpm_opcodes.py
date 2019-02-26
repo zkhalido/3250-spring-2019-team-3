@@ -105,7 +105,7 @@ class OpCodes():
         self.opcode1 = '3c'
         self.opcode2 = '05'
         self.opcode3 = '3d'
-        self.opcode4 = '64'
+        self.opcode4 = '64' # 64 = Subtract. If you change to 60, addition will work.
 
         """
 
