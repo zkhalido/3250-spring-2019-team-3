@@ -6,13 +6,13 @@ variable_1 = ''
 
  # load the int value -1 onto the stack
 def method1():
-    """load the int value -1 onto the stack"""
+    """iconst_m1: load the int value -1 onto the stack"""
     S.push(-1)
     print("Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py using iconst_m1.")
 
 # store int value into variable 1
 def method2():
-    """store int value into variable 1"""
+    """istore_1: store int value into variable 1"""
     global variable_1
     variable_1 = S.peek()
     S.pop()
@@ -20,7 +20,7 @@ def method2():
           " from Stack and stored in variable_1 in jvpm_methods.py using istore_1.")
 
 def method3():
-    """increment local variable #index by signed byte const"""
+    """iinc: increment local variable #index by signed byte const"""
     global variable_1
     variable_1 += 1
     S.push(variable_1)
