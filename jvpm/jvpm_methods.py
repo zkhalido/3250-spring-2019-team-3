@@ -146,33 +146,33 @@ def method12():
 def method14():
     """iconst_0: load the int value 0 onto the stack"""
     S.push(0)
-    print("Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py using iconst_0.")
+    print("iconst_0: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
 def method15():
     """iconst_1: load the int value 1 onto the stack"""
     S.push(1)
-    print("Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py using iconst_1.")
+    print("iconst_1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
 # load the int value 2 onto the stack
 def method16():
     """iconst_2: load the int value 2 onto the stack"""
     S.push(2)
-    print("Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py using iconst_2.")
+    print("iconst_2: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
 def method17():
     """iconst_3: load the int value 3 onto the stack"""
     S.push(3)
-    print("Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py using iconst_3.")
+    print("iconst_3: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
 def method18():
     """iconst_4: load the int value 4 onto the stack"""
     S.push(4)
-    print('"Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py using iconst_4."')
+    print('"iconst_4: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py."')
 
 def method19():
     """iconst_5: load the int value 5 onto the stack"""
     S.push(5)
-    print('"Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py using iconst_5."')
+    print('"iconst_5: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py."')
 
 def method20():
     """description here"""
