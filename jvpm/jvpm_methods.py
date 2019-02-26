@@ -92,7 +92,7 @@ def opcode_methods(argument):
 #         "invokespecial": method49,   # invoke instance method on objectref and 
                                        # puts result on the stack
 #         "invokestatic": method50,    # invoke static method and puts result on the stack
-#         "invokevirtual": method51,   # invoke virtual method on objectref and 
+#         "invokevirtual": method51,   # invoke virtual method on objectref and
                                        # puts result on the stack
         "ior": method52,             # bitwise int OR
         "irem": method53,            # logical in remainder
