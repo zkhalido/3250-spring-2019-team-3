@@ -2,7 +2,7 @@ import stack
 # These 63 methods will eventually Implement all the opcode commands.
 # Method 4 - 63 is below the Dictionary, ONLY BUILD THE METHODS NOT COMMENTED OUT.
 S = stack.Stack()
-variable_0 = ''
+VARIABLE_0 = ''
 variable_1 = ''
 variable_2 = ''
 variable_3 = ''
@@ -301,10 +301,10 @@ def method57():
 
 def method58():
     """istore_0: store int value into variable 0"""
-    global variable_0
-    variable_0 = S.pop()
-    print("istore_0: Popped " + str(variable_0) +
-          " from Stack and stored in variable_0 in jvpm_methods.py.")
+    global VARIABLE_0
+    VARIABLE_0 = S.pop()
+    print("istore_0: Popped " + str(VARIABLE_0) +
+          " from Stack and stored in VARIABLE_0 in jvpm_methods.py.")
 
     # istore_1 is at the top
 
