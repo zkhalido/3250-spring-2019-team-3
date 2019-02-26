@@ -18,7 +18,7 @@ def get_opcode(byte_code):
         "02": "iconst_m1",       # load the int value -1 onto the stack
         "03": "iconst_0",        # load the int value 0 onto the stack
         "04": "iconst_1",        # load the int value 1 onto the stack
-        "05": "incost_2",        # load the int value 2 onto the stack
+        "05": "inconst_2",        # load the int value 2 onto the stack
         "06": "inconst_3",       # load the int value 3 onto the stack
         "07": "inconst_4",       # load the int value 4 onto the stack
         "08": "iconst_5",        # load the int value 5 onto the stack
