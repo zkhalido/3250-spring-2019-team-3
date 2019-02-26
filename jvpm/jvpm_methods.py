@@ -85,18 +85,18 @@ def opcode_methods(argument):
 #                                      # should not appear
         "imul": imul,            # multiply two integers
         "ineg": method45,            # negate int
-#         "instanceof": method46,      # determines if objectref is of a given type
-#         "invokedynamic": method47,   # invoke a dynamic method and puts the result on the stack
-#         "invokeinterface": method48, # invoke an interface method on object object ref and
+#         "instanceof": instanceof,      # determines if objectref is of a given type
+#         "invokedynamic": invokedynamic,   # invoke a dynamic method and puts the result on the stack
+#         "invokeinterface": invokeinterface, # invoke an interface method on object object ref and
 #                                      # puts results on the stack
-#         "invokespecial": method49,   # invoke instance method on objectref and
+#         "invokespecial": invokespecial,   # invoke instance method on objectref and
 #                                      # puts result on the stack
-#         "invokestatic": method50,    # invoke static method and puts result on the stack
-#         "invokevirtual": method51,   # invoke virtual method on objectref and
+#         "invokestatic": invokestatic,    # invoke static method and puts result on the stack
+#         "invokevirtual": invokevirtual,   # invoke virtual method on objectref and
 #                                      # puts result on the stack
         "ior": method52,             # bitwise int OR
         "irem": method53,            # logical in remainder
-#         "ireturn": method54,         # returner an integer from a method
+#         "ireturn": ireturn,         # returner an integer from a method
         "ishl": method55,            # int shift left
         "ishr": method56,            # int arithmetic shift right
         "istore": istore,          # store int value into variable #index
@@ -273,23 +273,23 @@ def method45():
     """description here"""
     print('method45')
 
-# def method46():
-#     print('method46')
+# def instanceof():
+#     print('instanceof')
 
-# def method47():
-#     print('method47')
+# def invokedynamic():
+#     print('invokedynamic')
 
-# def method48():
-#     print('method48')
+# def invokeinterface():
+#     print('invokeinterface')
 
-# def method49():
-#     print('method49')
+# def invokespecial():
+#     print('invokespecial')
 
-# def method50():
-#     print('method50')
+# def invokestatic():
+#     print('invokestatic')
 
-# def method51():
-#     print('method51')
+# def invokevirtual():
+#     print('invokevirtual')
 
 def method52():
     """description here"""
@@ -299,8 +299,8 @@ def method53():
     """description here"""
     print('method53')
 
-# def method54():
-#     print('method54')
+# def ireturn():
+#     print('ireturn')
 
 def method55():
     """description here"""
