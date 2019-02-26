@@ -80,8 +80,8 @@ def opcode_methods(argument):
 #         "ifnull": ifnull,          # if value is null, branch
 #         "iload": iload,           # load an int value from a local variabl #index
 #         "iload_0": iload_0,         # load an int value from local variable 0
-#         "iload_1": iload_1,         # load an int value from local variable 1
-#         "iload_2": iload_2,         # load an int value from local variable 2
+         "iload_1": iload_1,         # load an int value from local variable 1
+         "iload_2": iload_2,         # load an int value from local variable 2
 #         "iload_3": iload_3,         # load an int value from local variable 3
 #         "impdep1": impdep1,         # reserved for implementation dependent operations,
 #                                      # should not appear in any class
@@ -249,11 +249,11 @@ def idiv():
 # def iload_0():
 #     print('iload_0')
 
-# def iload_1():
-#     print('iload_1')
+ def iload_1():
+     print('iload_1')
 
-# def iload_2():
-#     print('iload_2')
+ def iload_2():
+     print('iload_2')
 
 # def iload_3():
 #     print('iload_3')
