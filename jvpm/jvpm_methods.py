@@ -6,17 +6,20 @@ variable_1 = ''
 
  # load the int value -1 onto the stack
 def method1():
+    """load the int value -1 onto the stack"""
     S.push(-1)
     print("Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py using iconst_m1.")
 
 # store int value into variable 1
 def method2():
+    """store int value into variable 1"""
     global variable_1
     variable_1 = S.peek()
     S.pop()
     print("Popped " + str(variable_1) + " from Stack and stored in variable_1 in jvpm_methods.py using istore_1.")
 
 def method3():
+    """increment local variable #index by signed byte const"""
     global variable_1
     variable_1 += 1
     S.push(variable_1)
@@ -163,6 +166,7 @@ def method19():
     print('method19')
 
 def method20():
+    """description here"""
     print('method20')
 
 # def method21():
@@ -240,6 +244,7 @@ def method44():
     print('method44')
 
 def method45():
+    """description here"""
     print('method45')
 
 # def method46():
@@ -261,37 +266,48 @@ def method45():
 #     print('method51')
 
 def method52():
+    """description here"""
     print('method52')
 
 def method53():
+    """description here"""
     print('method53')
 
 # def method54():
 #     print('method54')
 
 def method55():
+    """description here"""
     print('method55')
 
 def method56():
+    """description here"""
     print('method56')
 
 def method57():
+    """description here"""
     print('method57')
 
 def method58():
+    """description here"""
     print('method58')
 
 def method59():
+    """description here"""
     print('method59')
 
 def method60():
+    """description here"""
     print('method60')
 
 def method61():
+    """description here"""
     print('method61')
 
 def method62():
+    """description here"""
     print('method62')
 
 def method63():
+    """description here"""
     print('method63')
