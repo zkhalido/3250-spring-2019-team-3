@@ -70,7 +70,7 @@ https://www.artima.com/underthehood/bytecodeP.html
 http://pages.cs.wisc.edu/~fischer/cs536.f13/jvm.html
 
 The Java Virtual Machine specification permits Java stacks to be of either a
-fixed or a dynamically varying size. If the Java stacks are of a fixed size, 
+fixed or a dynamically varying size. If the Java stacks are of a fixed size,
 the size of each Java stack may be chosen independently when that stack is
 created. A Java Virtual Machine implementation may provide the programmer or
 the user control over the initial size of Java stacks, as well as, in the case
@@ -145,3 +145,14 @@ An operation that overflows produces a signed infinity, an operation that
 underflows produces a signed zero, and an operation that has no mathematically
 definite result produces NaN. All numeric operations with NaN as an operand
 produce NaN as a result.
+
+02/25/2019
+
+-Dictionaries allow us to work with "key value pairs". Where a Key is a value data
+that is linked to the definition. When calling the dictionary, you pass in the key
+that is searched and when found returns the value associated with the key. Keys
+and definitions can be any variable type. A keys that is not found returns a no
+key found error. Calling a .get method on a key that does not exist returns a
+none. Or a default value can be specified for keys that don't exist. Dictionaries
+can be updated with new assignments, or update methods. Benefits of using update
+method; you can update multiple Keys in one call (includes adding new keys).
