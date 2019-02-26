@@ -9,6 +9,7 @@ VARIABLE_0 = ''
 VARIABLE_1 = ''
 VARIABLE_2 = ''
 VARIABLE_3 = ''
+variables = ()
 
  # load the int value -1 onto the stack
 def iconst_m1():
@@ -21,6 +22,8 @@ def istore_1():
     """istore_1: store int value into VARIABLE 1"""
     global VARIABLE_1
     VARIABLE_1 = S.pop()
+    variables.insert(1, S.pop)
+    variables
     print("istore_1: Popped " + str(VARIABLE_1) +
           " from Stack and stored in VARIABLE_1 in jvpm_methods.py.")
 
