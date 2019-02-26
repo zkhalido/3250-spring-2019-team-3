@@ -320,8 +320,12 @@ def method60():
           " from Stack and stored in variable_3 in jvpm_methods.py using istore_3.")
 
 def method61():
-    """description here"""
-    print('method61')
+    """isub: subtract two ints"""
+    global variable_1
+    global variable_2
+    S.push(variable_1 - variable_2)
+    print("Subtracted variable_1 = " + str(variable_1) + " and variable_2 = " + str(variable_2) + " and pushed to Stack.")
+    print("Top of Stack is now " + str(S.peek()) + ".")
 
 def method62():
     """description here"""
