@@ -41,12 +41,12 @@ def opcode_methods(argument):
         "iconst_m1": iconst_m1,        # load the int value -1 onto the stack
         "istore_1": istore_1,         # store int value into VARIABLE 1
         "iinc": iinc,             # increment local variable #index by signed byte const
-#         "i2b": method4,              # convert an int into a byte
-#         "i2c": method5,              # convert an int into a character
-#         "i2d": method6,              # convert an int into a double
-#         "i2f": method7,              # convert an int into a float
-#         "i2l": method8,              # convert an int into a long
-#         "i2s": method9,              # convert an int into a short
+#         "i2b": i2b,              # convert an int into a byte
+#         "i2c": i2c,              # convert an int into a character
+#         "i2d": i2d,              # convert an int into a double
+#         "i2f": i2f,              # convert an int into a float
+#         "i2l": i2l,              # convert an int into a long
+#         "i2s": i2s,              # convert an int into a short
         "iadd": iadd,            # add two ints
 #         "iaload": method11,          # load an int from an array
         "iand": method12,            # perform a bitwise AND on two integers
@@ -114,23 +114,23 @@ def opcode_methods(argument):
 
 # ****************************************************************************************
 
-# def method4():
-#     print('method4')
+# def i2b():
+#     print('i2b')
 
-# def method5():
-#     print('method5')
+# def i2c():
+#     print('i2c')
 
-# def method6():
-#     print('method6')
+# def i2d():
+#     print('i2d')
 
-# def method7():
-#     print('method7')
+# def i2f():
+#     print('i2f')
 
-# def method8():
-#     print('method8')
+# def i2l():
+#     print('i2l')
 
-# def method9():
-#     print('method9')
+# def i2s():
+#     print('i2s')
 
 def iadd():
     """iadd: add two ints"""
