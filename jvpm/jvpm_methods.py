@@ -249,11 +249,11 @@ def idiv():
 # def iload_0():
 #     print('iload_0')
 
- def iload_1():
-     print('iload_1')
+def iload_1():
+    print('iload_1')
 
- def iload_2():
-     print('iload_2')
+def iload_2():
+    print('iload_2')
 
 # def iload_3():
 #     print('iload_3')
