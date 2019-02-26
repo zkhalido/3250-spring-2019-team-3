@@ -19,7 +19,7 @@ def method2():
     """istore_1: store int value into VARIABLE 1"""
     global VARIABLE_1
     VARIABLE_1 = S.pop()
-    print("istore_1: Popped " + str(VARIABLE_1) + 
+    print("istore_1: Popped " + str(VARIABLE_1) +
           " from Stack and stored in VARIABLE_1 in jvpm_methods.py.")
 
 def method3():
@@ -27,7 +27,7 @@ def method3():
     global VARIABLE_1
     VARIABLE_1 += 1
     S.push(VARIABLE_1)
-    print("iinc: Increment VARIABLE_1 to " + str(VARIABLE_1) + 
+    print("iinc: Increment VARIABLE_1 to " + str(VARIABLE_1) +
           " and push to Stack in jvpm_methods.py.")
     print("Top of Stack is now " + str(S.peek()) + ".")
 
@@ -77,9 +77,9 @@ def opcode_methods(argument):
 #         "iload_1": method39,         # load an int value from local variable 1
 #         "iload_2": method40,         # load an int value from local variable 2
 #         "iload_3": method41,         # load an int value from local variable 3
-#         "impdep1": method42,         # reserved for implementation dependent operations, 
+#         "impdep1": method42,         # reserved for implementation dependent operations,
 #                                      # should not appear in any class
-#         "impdep2": method43,         # reserved for implementation dependent operations, 
+#         "impdep2": method43,         # reserved for implementation dependent operations,
 #                                      # should not appear
         "imul": method44,            # multiply two integers
         "ineg": method45,            # negate int
