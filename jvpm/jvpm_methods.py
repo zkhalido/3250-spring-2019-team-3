@@ -199,11 +199,18 @@ def iconst_5():
 
 def idiv():
     """idiv: divide two numbers"""
-    global VARIABLE_1
-    global VARIABLE_2
-    S.push(VARIABLE_1 / VARIABLE_2)
-    print("> idiv: Divided (VARIABLE_1 = " + str(VARIABLE_1) + ") / (VARIABLE_2 = " +
-          str(VARIABLE_2) + ") and pushed to Stack.")
+#     global VARIABLE_1
+#     global VARIABLE_2
+#     S.push(VARIABLE_1 / VARIABLE_2)
+#     print("> idiv: Divided (VARIABLE_1 = " + str(VARIABLE_1) + ") / (VARIABLE_2 = " +
+#           str(VARIABLE_2) + ") and pushed to Stack.")
+#     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+    var2 = S.pop()
+    var1 = S.pop()
+    S.push(var1 / var2)
+    print("> idiv: Popped (" + str(var1) + ") and (" + str(var2) + 
+          ") from the Stack, assigned to local variables, \ndivided the two," 
+          " and pushed result back to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
 # def if_acmpeq():
