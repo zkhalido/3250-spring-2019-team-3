@@ -350,8 +350,11 @@ def istore_3():
     """istore_3: store int value into VARIABLE 3"""
     global VARIABLE_3
     VARIABLE_3 = S.pop()
-    print("istore_3: Popped " + str(VARIABLE_3) +
-          " from Stack and stored in VARIABLE_3 in jvpm_methods.py.")
+    popped = VARIABLE_3
+    variables.insert(3, popped)
+    print("istore_3: Popped " + str(popped) +
+          " from Stack and stored in variables[3] in jvpm_methods.py, \nc = str(popped)")
+    print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
 def isub():
     """isub: subtract two ints"""
