@@ -255,6 +255,8 @@ def iload_1():
     print('iload_1')
 
 def iload_2():
+    pushing = variables[2]
+    S.push(pushing)
     print('iload_2')
 
 # def iload_3():
