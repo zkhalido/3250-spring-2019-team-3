@@ -107,6 +107,8 @@ class OpCodes():
         self.opcode3 = '3d'
         self.opcode4 = '60' # 60 = iadd
         self.opcode5 = '64' # 64 = isub
+        self.opcode6 = '68' # 64 = imul
+        self.opcode7 = '6c' # 64 = idiv
 
         """
 
@@ -133,6 +135,10 @@ class OpCodes():
         print("Opcode to implement from bytecode " + self.opcode4 + ': ' + opcode_to_call_4)
         opcode_to_call_5 = jvpm_dict.get_opcode(self.opcode5)
         print("Opcode to implement from bytecode " + self.opcode5 + ': ' + opcode_to_call_5)
+        opcode_to_call_6 = jvpm_dict.get_opcode(self.opcode6)
+        print("Opcode to implement from bytecode " + self.opcode6 + ': ' + opcode_to_call_6)
+        opcode_to_call_7 = jvpm_dict.get_opcode(self.opcode7)
+        print("Opcode to implement from bytecode " + self.opcode7 + ': ' + opcode_to_call_7)
 
         # Search jvpm_method.py for method from above opcodeToCall variables and Implement.
         print('\n3) ____IMPLEMENT THE OPCODES:____\n')
@@ -142,6 +148,8 @@ class OpCodes():
         jvpm_methods.opcode_methods(opcode_to_call_3)
         jvpm_methods.opcode_methods(opcode_to_call_4)
         jvpm_methods.opcode_methods(opcode_to_call_5)
+        jvpm_methods.opcode_methods(opcode_to_call_6)
+        jvpm_methods.opcode_methods(opcode_to_call_7)
         print()
         return self.opcode0
 
