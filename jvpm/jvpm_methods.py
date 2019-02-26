@@ -127,7 +127,9 @@ def opcode_methods(argument):
 
 def method10():
     """add two ints"""
-    S.push(S.pop() + S.pop())
+    global variable_1
+    global variable_2
+    S.push(variable_1 + variable_2)
     print('method10')
 
 # def method11():
