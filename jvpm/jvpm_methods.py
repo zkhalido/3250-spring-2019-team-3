@@ -250,6 +250,8 @@ def idiv():
 #     print('iload_0')
 
 def iload_1():
+    pushing = variables[1]
+    S.push(pushing)
     print('iload_1')
 
 def iload_2():
@@ -334,6 +336,7 @@ def istore_2():
     popped = VARIABLE_2
     variables.insert(2, popped)
     print(variables)
+    print(variables[1])
     print("istore_2: Popped " + str(VARIABLE_2) +
           " from Stack and stored in VARIABLE_2 in jvpm_methods.py.")
 
