@@ -151,7 +151,7 @@ def method12():
 # def method13():
 #     print('method13')
 
-def method14():
+def iconst_0():
     """iconst_0: load the int value 0 onto the stack"""
     S.push(0)
     print("iconst_0: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
