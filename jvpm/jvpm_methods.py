@@ -144,6 +144,10 @@ def iadd():
     print("> iadd: Added (VARIABLE_1 = " + str(VARIABLE_1) + ") + (VARIABLE_2 = " +
           str(VARIABLE_2) + ") and pushed to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+    S.push(variables[1] + variables[2])
+    print("> iadd: Added (variables[1] = " + str(variables[1]) + ") + (variables[2] = " +
+          str(variables[2]) + ") and pushed to Stack.")
+    print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
 # def method11():
 #     print('method11')
@@ -252,12 +256,12 @@ def idiv():
 def iload_1():
     pushing = variables[1]
     S.push(pushing)
-    print('iload_1')
+    print('iload_1: Push variable[1] to Stack')
 
 def iload_2():
     pushing = variables[2]
     S.push(pushing)
-    print('iload_2')
+    print('iload_2: Push varaibles[2] to Stack')
 
 # def iload_3():
 #     print('iload_3')
