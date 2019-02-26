@@ -147,8 +147,8 @@ def iadd():
     var1 = S.pop()
     var2 = S.pop()
     S.push(var1 + var2)
-    print("> iadd: Added (variables[1] = " + str(variables[1]) + ") + (variables[2] = " +
-          str(variables[2]) + ") and pushed to Stack.")
+    print("> iadd: Popped from Stack (var1 = " + str(var1) + " and (var2 = " +
+          str(var2) + "), added, and pushed result back to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
 # def method11():
