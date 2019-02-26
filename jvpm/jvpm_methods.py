@@ -137,8 +137,8 @@ def iadd():
     global VARIABLE_1
     global VARIABLE_2
     S.push(VARIABLE_1 + VARIABLE_2)
-    print("> iadd: Added VARIABLE_1 = " + str(VARIABLE_1) + " + VARIABLE_2 = " +
-          str(VARIABLE_2) + " and pushed to Stack.")
+    print("> iadd: Added (VARIABLE_1 = " + str(VARIABLE_1) + ") + (VARIABLE_2 = " +
+          str(VARIABLE_2) + ") and pushed to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
 # def method11():
