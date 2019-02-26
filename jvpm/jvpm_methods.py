@@ -139,33 +139,33 @@ def method12():
 #     print('method13')
 
 def method14():
-    """load the int value 0 onto the stack"""
+    """iconst_0: load the int value 0 onto the stack"""
     S.push(0)
     print('method14')
 
 def method15():
-    """load the int value 1 onto the stack"""
+    """iconst_1: load the int value 1 onto the stack"""
     S.push(1)
     print('method15')
 
 # load the int value 2 onto the stack
 def method16():
-    """load the int value 2 onto the stack"""
+    """iconst_2: load the int value 2 onto the stack"""
     S.push(2)
     print('method16')
 
 def method17():
-    """load the int value 3 onto the stack"""
+    """iconst_3: load the int value 3 onto the stack"""
     S.push(3)
     print('method17')
 
 def method18():
-    """load the int value 4 onto the stack"""
+    """iconst_4: load the int value 4 onto the stack"""
     S.push(4)
     print('method18')
 
 def method19():
-    """load the int value 5 onto the stack"""
+    """iconst_5: load the int value 5 onto the stack"""
     S.push(5)
     print('method19')
 
