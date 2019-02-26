@@ -10,23 +10,23 @@ variable_2 = ''
 def method1():
     """iconst_m1: load the int value -1 onto the stack"""
     S.push(-1)
-    print("Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py using iconst_m1.")
+    print("iconst_m1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
 # store int value into variable 1
 def method2():
     """istore_1: store int value into variable 1"""
     global variable_1
     variable_1 = S.pop()
-    print("Popped " + str(variable_1) + 
-          " from Stack and stored in variable_1 in jvpm_methods.py using istore_1.")
+    print("istore_1: Popped " + str(variable_1) + 
+          " from Stack and stored in variable_1 in jvpm_methods.py.")
 
 def method3():
     """iinc: increment local variable #index by signed byte const"""
     global variable_1
     variable_1 += 1
     S.push(variable_1)
-    print("Increment variable_1 to " + str(variable_1) + 
-          " and push to Stack in jvpm_methods.py using iinc.")
+    print("iinc: Increment variable_1 to " + str(variable_1) + 
+          " and push to Stack in jvpm_methods.py.")
     print("Top of Stack is now " + str(S.peek()) + ".")
 
 # ****************************************************************************************
@@ -130,7 +130,8 @@ def method10():
     global variable_1
     global variable_2
     S.push(variable_1 + variable_2)
-    print("Added variable_1 = " + str(variable_1) + " and variable_2 = " + str(variable_2) + " and pushed to Stack.")
+    print("iadd: Added variable_1 = " + str(variable_1) + " and variable_2 = " + 
+          str(variable_2) + " and pushed to Stack.")
     print("Top of Stack is now " + str(S.peek()) + ".")
 
 # def method11():
@@ -300,8 +301,8 @@ def method58():
     """istore_0: store int value into variable 0"""
     global variable_0
     variable_0 = S.pop()
-    print("Popped " + str(variable_0) + 
-          " from Stack and stored in variable_0 in jvpm_methods.py using istore_0.")
+    print("istore_0: Popped " + str(variable_0) + 
+          " from Stack and stored in variable_0 in jvpm_methods.py.")
     
     # istore_1 is at the top
 
@@ -309,22 +310,23 @@ def method59():
     """istore_2: store int value into variable 2"""
     global variable_2
     variable_2 = S.pop()
-    print("Popped " + str(variable_2) + 
-          " from Stack and stored in variable_2 in jvpm_methods.py using istore_2.")
+    print("istore_2: Popped " + str(variable_2) + 
+          " from Stack and stored in variable_2 in jvpm_methods.py.")
 
 def method60():
     """istore_3: store int value into variable 3"""
     global variable_3
     variable_3 = S.pop()
-    print("Popped " + str(variable_3) + 
-          " from Stack and stored in variable_3 in jvpm_methods.py using istore_3.")
+    print("istore_3: Popped " + str(variable_3) + 
+          " from Stack and stored in variable_3 in jvpm_methods.py.")
 
 def method61():
     """isub: subtract two ints"""
     global variable_1
     global variable_2
     S.push(variable_1 - variable_2)
-    print("Subtracted variable_1 = " + str(variable_1) + " and variable_2 = " + str(variable_2) + " and pushed to Stack.")
+    print("isub: Subtracted variable_1 = " + str(variable_1) + " and variable_2 = " + 
+          str(variable_2) + " and pushed to Stack.")
     print("Top of Stack is now " + str(S.peek()) + ".")
 
 def method62():
