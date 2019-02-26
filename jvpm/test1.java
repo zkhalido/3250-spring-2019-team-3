@@ -5,6 +5,6 @@ class test1 {
         int c = a + b;
         int d = a - b;
 //         int e = b / a;
-//         int f = a * b;
+        int f = a * b;
     };
 }
