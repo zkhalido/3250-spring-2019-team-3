@@ -341,8 +341,6 @@ def istore_2():
     VARIABLE_2 = S.pop()
     popped = VARIABLE_2
     variables.insert(2, popped)
-    print(variables)
-    print(variables[1])
     print("istore_2: Popped " + str(VARIABLE_2) +
           " from Stack and stored in VARIABLE_2 in jvpm_methods.py.")
 
