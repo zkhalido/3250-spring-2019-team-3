@@ -51,12 +51,12 @@ def opcode_methods(argument):
 #         "iaload": method11,          # load an int from an array
         "iand": method12,            # perform a bitwise AND on two integers
 #         "iastore": method13,         # store an int into an array
-        "iconst_0": method14,        # load the int value 0 onto the stack
+        "iconst_0": iconst_0,        # load the int value 0 onto the stack
         "iconst_1": iconst_1,        # load the int value 1 onto the stack
-        "iconst_2": method16,        # load the int value 2 onto the stack
-        "iconst_3": method17,        # load the int value 3 onto the stack
-        "iconst_4": method18,        # load the int value 4 onto the stack
-        "iconst_5": method19,        # load the int value 5 onto the stack
+        "iconst_2": iconst_2,        # load the int value 2 onto the stack
+        "iconst_3": iconst_3,        # load the int value 3 onto the stack
+        "iconst_4": iconst_4,        # load the int value 4 onto the stack
+        "iconst_5": iconst_5,        # load the int value 5 onto the stack
         "idiv": method20,            # divide two integers
 #         "if_acmpeq": method21,       # if references are equal branch to instruction
 #         "if_acmpene": method22,      # if references are not equal branch to instruction
@@ -162,22 +162,22 @@ def iconst_1():
     print("iconst_1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
 # load the int value 2 onto the stack
-def method16():
+def iconst_2():
     """iconst_2: load the int value 2 onto the stack"""
     S.push(2)
     print("iconst_2: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
-def method17():
+def iconst_3():
     """iconst_3: load the int value 3 onto the stack"""
     S.push(3)
     print("iconst_3: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
-def method18():
+def iconst_4():
     """iconst_4: load the int value 4 onto the stack"""
     S.push(4)
     print('"iconst_4: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py."')
 
-def method19():
+def iconst_5():
     """iconst_5: load the int value 5 onto the stack"""
     S.push(5)
     print('"iconst_5: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py."')
