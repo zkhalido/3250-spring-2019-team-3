@@ -37,7 +37,7 @@ def method3():
 
 def opcode_methods(argument):
     """DICTIONARY OF METHODS, FOR SPRINT 3 ONLY BUILD THE METHODS NOT COMMENTED OUT."""
-    tokenDict = {
+    token_Dict = {
         "iconst_m1": method1,        # load the int value -1 onto the stack
         "istore_1": method2,         # store int value into VARIABLE 1
         "iinc": method3,             # increment local variable #index by signed byte const
@@ -104,8 +104,8 @@ def opcode_methods(argument):
         "iushr": method62,           # int logical shift right
         "ixor": method63             # xor
     }
-    # get the method name from the tokenDict dictionary
-    method = tokenDict.get(argument, lambda: "Invalid opcode")
+    # get the method name from the token_Dict dictionary
+    method = token_Dict.get(argument, lambda: "Invalid opcode")
     # Call the Method.
     method()
 
