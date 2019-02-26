@@ -16,14 +16,16 @@ def method2():
     global variable_1
     variable_1 = S.peek()
     S.pop()
-    print("Popped " + str(variable_1) + " from Stack and stored in variable_1 in jvpm_methods.py using istore_1.")
+    print("Popped " + str(variable_1) + 
+          " from Stack and stored in variable_1 in jvpm_methods.py using istore_1.")
 
 def method3():
     """increment local variable #index by signed byte const"""
     global variable_1
     variable_1 += 1
     S.push(variable_1)
-    print("Increment variable_1 to " + str(variable_1) + " and push to Stack in jvpm_methods.py using iinc.")
+    print("Increment variable_1 to " + str(variable_1) + 
+          " and push to Stack in jvpm_methods.py using iinc.")
     print("Top of Stack is now " + str(S.peek()) + ".")
 
 # ****************************************************************************************
