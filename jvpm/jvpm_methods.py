@@ -87,10 +87,13 @@ def opcode_methods(argument):
         "ineg": method45,            # negate int
 #         "instanceof": method46,      # determines if objectref is of a given type
 #         "invokedynamic": method47,   # invoke a dynamic method and puts the result on the stack
-#         "invokeinterface": method48, # invoke an interface method on object objectref and puts results on the stack
-#         "invokespecial": method49,   # invoke instance method on objectref and puts result on the stack
+#         "invokeinterface": method48, # invoke an interface method on object object ref and 
+                                       # puts results on the stack
+#         "invokespecial": method49,   # invoke instance method on objectref and 
+                                       # puts result on the stack
 #         "invokestatic": method50,    # invoke static method and puts result on the stack
-#         "invokevirtual": method51,   # invoke virtual method on objectref and puts result on the stack
+#         "invokevirtual": method51,   # invoke virtual method on objectref and 
+                                       # puts result on the stack
         "ior": method52,             # bitwise int OR
         "irem": method53,            # logical in remainder
 #         "ireturn": method54,         # returner an integer from a method
