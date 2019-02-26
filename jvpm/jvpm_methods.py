@@ -20,9 +20,9 @@ def iconst_m1():
 # store int value into VARIABLE 1
 def istore_1():
     """istore_1: store int value into VARIABLE 1"""
-#     global VARIABLE_1
-#     VARIABLE_1 = S.pop()
-    popped = S.pop()
+    global VARIABLE_1
+    VARIABLE_1 = S.pop()
+    popped = VARIABLE_1
     variables.insert(0, 0)
     variables.insert(1, popped)
     print("istore_1: Popped " + str(popped) +
@@ -138,12 +138,12 @@ def opcode_methods(argument):
 
 def iadd():
     """iadd: add two ints"""
-#     global VARIABLE_1
-#     global VARIABLE_2
-#     S.push(VARIABLE_1 + VARIABLE_2)
-#     print("> iadd: Added (VARIABLE_1 = " + str(VARIABLE_1) + ") + (VARIABLE_2 = " +
-#           str(VARIABLE_2) + ") and pushed to Stack.")
-#     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+    global VARIABLE_1
+    global VARIABLE_2
+    S.push(VARIABLE_1 + VARIABLE_2)
+    print("> iadd: Added (VARIABLE_1 = " + str(VARIABLE_1) + ") + (VARIABLE_2 = " +
+          str(VARIABLE_2) + ") and pushed to Stack.")
+    print(">>>> Top of Stack is now " + str(S.peek()) + ".")
     S.push(variables[1] + variables[2])
     print("> iadd: Added (variables[1] = " + str(variables[1]) + ") + (variables[2] = " +
           str(variables[2]) + ") and pushed to Stack.")
