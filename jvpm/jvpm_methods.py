@@ -301,8 +301,7 @@ def method58():
 def method59():
     """istore_2: store int value into variable 2"""
     global variable_2
-    variable_2 = S.peek()
-    S.pop()
+    variable_2 = S.pop()
     print("Popped " + str(variable_2) + 
           " from Stack and stored in variable_2 in jvpm_methods.py using istore_2.")
 
