@@ -232,7 +232,9 @@ def method20():
 # def method43():
 #     print('method43')
 
+# multiply two integers
 def method44():
+    S.push(S.pop() * S.pop())
     print('method44')
 
 def method45():
