@@ -330,7 +330,7 @@ def method56():
     print('method56')
 
 def istore():
-    """description here"""
+    """istore: store int value into array[in]"""
     print('method57')
 
 def istore_0():
@@ -369,6 +369,13 @@ def isub():
     S.push(VARIABLE_1 - VARIABLE_2)
     print("> isub: Subtracted (VARIABLE_1 = " + str(VARIABLE_1) + ") - (VARIABLE_2 = " +
           str(VARIABLE_2) + ") and pushed to Stack.")
+    print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+    var2 = S.pop()
+    var1 = S.pop()
+    S.push(var1 + var2)
+    print("> isub: Popped (" + str(var1) + ") and (" + str(var2) + 
+          ") from the Stack, assigned to local variables, \nsubtracted the two," 
+          " and pushed result back to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
 def method62():
