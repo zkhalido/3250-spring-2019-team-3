@@ -281,11 +281,18 @@ def iload_2():
 
 def imul():
     """imul: multiply two integers"""
-    global VARIABLE_1
-    global VARIABLE_2
-    S.push(VARIABLE_1 * VARIABLE_2)
-    print("> imul: Multipied (VARIABLE_1 = " + str(VARIABLE_1) + ") * (VARIABLE_2 = " +
-          str(VARIABLE_2) + ") and pushed to Stack.")
+#     global VARIABLE_1
+#     global VARIABLE_2
+#     S.push(VARIABLE_1 * VARIABLE_2)
+#     print("> imul: Multipied (VARIABLE_1 = " + str(VARIABLE_1) + ") * (VARIABLE_2 = " +
+#           str(VARIABLE_2) + ") and pushed to Stack.")
+#     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+    var2 = S.pop()
+    var1 = S.pop()
+    S.push(var1 * var2)
+    print("> imul: Popped (" + str(var1) + ") and (" + str(var2) + 
+          ") from the Stack, assigned to local variables, \nmultiplied the two," 
+          " and pushed result back to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
 def method45():
