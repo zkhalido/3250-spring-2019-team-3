@@ -144,8 +144,8 @@ def iadd():
     print("> iadd: Added (VARIABLE_1 = " + str(VARIABLE_1) + ") + (VARIABLE_2 = " +
           str(VARIABLE_2) + ") and pushed to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
-    var1 = S.pop
-    var2 = S.pop
+    var1 = S.pop()
+    var2 = S.pop()
     S.push(var1 + var2)
     print("> iadd: Added (variables[1] = " + str(variables[1]) + ") + (variables[2] = " +
           str(variables[2]) + ") and pushed to Stack.")
