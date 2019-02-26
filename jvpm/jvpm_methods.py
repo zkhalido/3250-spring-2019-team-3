@@ -4,10 +4,12 @@ import stack
 S = stack.Stack()
 variable_1 = ''
 
+ # load the int value -1 onto the stack
 def method1():
     S.push(-1)
     print("Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py using iconst_m1.")
 
+# store int value into variable 1
 def method2():
     global variable_1
     variable_1 = S.peek()
