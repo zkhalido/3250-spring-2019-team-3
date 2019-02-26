@@ -5,6 +5,7 @@ S = stack.Stack()
 variable_0 = ''
 variable_1 = ''
 variable_2 = ''
+variable_3 = ''
 
  # load the int value -1 onto the stack
 def method1():
