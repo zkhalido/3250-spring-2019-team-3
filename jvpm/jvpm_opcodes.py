@@ -108,7 +108,7 @@ class OpCodes():
         self.opcode4 = '1b'
         self.opcode5 = '1c'
         self.opcode6 = '60' # 60 = iadd
-	self.opcode7 = '3e'
+        self.opcode7 = '3e'
 #         self.opcode7 = '64' # 64 = isub
 #         self.opcode8 = '68' # 64 = imul
 #         self.opcode9 = '6c' # 64 = idiv
