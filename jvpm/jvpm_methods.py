@@ -310,7 +310,7 @@ def method56():
     """description here"""
     print('method56')
 
-def method57():
+def istore():
     """description here"""
     print('method57')
 
