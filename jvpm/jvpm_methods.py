@@ -74,8 +74,10 @@ def opcode_methods(argument):
 #         "iload_1": method39,         # load an int value from local variable 1
 #         "iload_2": method40,         # load an int value from local variable 2
 #         "iload_3": method41,         # load an int value from local variable 3
-#         "impdep1": method42,         # reserved for implementation dependent operations, should not appear in any class
-#         "impdep2": method43,         # reserved for implementation dependent operations, should not appear
+#         "impdep1": method42,         # reserved for implementation dependent operations, 
+#                                      # should not appear in any class
+#         "impdep2": method43,         # reserved for implementation dependent operations, 
+#                                      # should not appear
         "imul": method44,            # multiply two integers
         "ineg": method45,            # negate int
 #         "instanceof": method46,      # determines if objectref is of a given type
