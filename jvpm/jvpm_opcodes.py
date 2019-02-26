@@ -105,8 +105,8 @@ class OpCodes():
         self.opcode1 = '3c'
         self.opcode2 = '05'
         self.opcode3 = '3d'
-        self.opcode4 = '1b'
-        self.opcode5 = '1c'
+        self.opcode4 = '1b' # iload
+        self.opcode5 = '1c' # iload
         self.opcode6 = '60' # 60 = iadd
         self.opcode7 = '3e'
 #         self.opcode7 = '64' # 64 = isub
