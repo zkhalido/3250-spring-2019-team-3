@@ -11,8 +11,8 @@ VARIABLE_2 = ''
 VARIABLE_3 = ''
 
 # According to the JVPM documentation Zach posted to Slack, 
-# we need to use a local array[] for the values when using MATH.
-# I'm transitioning the 4 above variables to the below array.
+# we need to use a local array's[] index values when using MATH with iload and istore.
+# Therefore, I'm transitioning the 4 above variables to the below array.
 variables = []
 
  # load the int value -1 onto the stack
