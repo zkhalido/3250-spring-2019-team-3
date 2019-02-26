@@ -138,12 +138,12 @@ def opcode_methods(argument):
 
 def iadd():
     """iadd: add two ints"""
-    global VARIABLE_1
-    global VARIABLE_2
-    S.push(VARIABLE_1 + VARIABLE_2)
-    print("> iadd: Added (VARIABLE_1 = " + str(VARIABLE_1) + ") + (VARIABLE_2 = " +
-          str(VARIABLE_2) + ") and pushed to Stack.")
-    print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+#     global VARIABLE_1
+#     global VARIABLE_2
+#     S.push(VARIABLE_1 + VARIABLE_2)
+#     print("> iadd: Added (VARIABLE_1 = " + str(VARIABLE_1) + ") + (VARIABLE_2 = " +
+#           str(VARIABLE_2) + ") and pushed to Stack.")
+#     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
     var1 = S.pop()
     var2 = S.pop()
     S.push(var1 + var2)
