@@ -102,14 +102,14 @@ class OpCodes():
 #         self.opcodes = ['02', '03', '04', '05', '06', '07',
 #                         '08', '3b', '3c', '3d', '3e', '84']
         # Configured for the MATH/test1.java file
-        self.opcode0 = '04' # iconst
-        self.opcode1 = '3c' # istore
-        self.opcode2 = '05' # iconst
-        self.opcode3 = '3d' # istore
-        self.opcode4 = '1b' # iload
-        self.opcode5 = '1c' # iload
+        self.opcode0 = '04' # iconst_1
+        self.opcode1 = '3c' # istore_1
+        self.opcode2 = '05' # iconst_2
+        self.opcode3 = '3d' # istore_2
+        self.opcode4 = '1b' # iload_1
+        self.opcode5 = '1c' # iload_2
         self.opcode6 = '60' # 60 = iadd
-        self.opcode7 = '3e'
+        self.opcode7 = '3e' # istore_3
 #         self.opcode7 = '64' # 64 = isub
 #         self.opcode8 = '68' # 64 = imul
 #         self.opcode9 = '6c' # 64 = idiv
