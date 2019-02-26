@@ -3,9 +3,9 @@ import stack
 # Method 4 - 63 is below the Dictionary, ONLY BUILD THE METHODS NOT COMMENTED OUT.
 S = stack.Stack()
 VARIABLE_0 = ''
-variable_1 = ''
-variable_2 = ''
-variable_3 = ''
+VARIABLE_1 = ''
+VARIABLE_2 = ''
+VARIABLE_3 = ''
 
  # load the int value -1 onto the stack
 def method1():
@@ -13,20 +13,20 @@ def method1():
     S.push(-1)
     print("iconst_m1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
-# store int value into variable 1
+# store int value into VARIABLE 1
 def method2():
-    """istore_1: store int value into variable 1"""
-    global variable_1
-    variable_1 = S.pop()
-    print("istore_1: Popped " + str(variable_1) + 
-          " from Stack and stored in variable_1 in jvpm_methods.py.")
+    """istore_1: store int value into VARIABLE 1"""
+    global VARIABLE_1
+    VARIABLE_1 = S.pop()
+    print("istore_1: Popped " + str(VARIABLE_1) + 
+          " from Stack and stored in VARIABLE_1 in jvpm_methods.py.")
 
 def method3():
     """iinc: increment local variable #index by signed byte const"""
-    global variable_1
-    variable_1 += 1
-    S.push(variable_1)
-    print("iinc: Increment variable_1 to " + str(variable_1) + 
+    global VARIABLE_1
+    VARIABLE_1 += 1
+    S.push(VARIABLE_1)
+    print("iinc: Increment VARIABLE_1 to " + str(VARIABLE_1) + 
           " and push to Stack in jvpm_methods.py.")
     print("Top of Stack is now " + str(S.peek()) + ".")
 
@@ -36,7 +36,7 @@ def opcode_methods(argument):
     """DICTIONARY OF METHODS, FOR SPRINT 3 ONLY BUILD THE METHODS NOT COMMENTED OUT."""
     tokenDict = {
         "iconst_m1": method1,        # load the int value -1 onto the stack
-        "istore_1": method2,         # store int value into variable 1
+        "istore_1": method2,         # store int value into VARIABLE 1
         "iinc": method3,             # increment local variable #index by signed byte const
 #         "i2b": method4,              # convert an int into a byte
 #         "i2c": method5,              # convert an int into a character
@@ -128,11 +128,11 @@ def opcode_methods(argument):
 
 def method10():
     """iadd: add two ints"""
-    global variable_1
-    global variable_2
-    S.push(variable_1 + variable_2)
-    print("iadd: Added variable_1 = " + str(variable_1) + " and variable_2 = " +
-          str(variable_2) + " and pushed to Stack.")
+    global VARIABLE_1
+    global VARIABLE_2
+    S.push(VARIABLE_1 + VARIABLE_2)
+    print("iadd: Added VARIABLE_1 = " + str(VARIABLE_1) + " and VARIABLE_2 = " +
+          str(VARIABLE_2) + " and pushed to Stack.")
     print("Top of Stack is now " + str(S.peek()) + ".")
 
 # def method11():
@@ -300,7 +300,7 @@ def method57():
     print('method57')
 
 def method58():
-    """istore_0: store int value into variable 0"""
+    """istore_0: store int value into VARIABLE 0"""
     global VARIABLE_0
     VARIABLE_0 = S.pop()
     print("istore_0: Popped " + str(VARIABLE_0) +
@@ -309,26 +309,26 @@ def method58():
     # istore_1 is at the top
 
 def method59():
-    """istore_2: store int value into variable 2"""
-    global variable_2
-    variable_2 = S.pop()
-    print("istore_2: Popped " + str(variable_2) +
-          " from Stack and stored in variable_2 in jvpm_methods.py.")
+    """istore_2: store int value into VARIABLE 2"""
+    global VARIABLE_2
+    VARIABLE_2 = S.pop()
+    print("istore_2: Popped " + str(VARIABLE_2) +
+          " from Stack and stored in VARIABLE_2 in jvpm_methods.py.")
 
 def method60():
-    """istore_3: store int value into variable 3"""
-    global variable_3
-    variable_3 = S.pop()
-    print("istore_3: Popped " + str(variable_3) +
-          " from Stack and stored in variable_3 in jvpm_methods.py.")
+    """istore_3: store int value into VARIABLE 3"""
+    global VARIABLE_3
+    VARIABLE_3 = S.pop()
+    print("istore_3: Popped " + str(VARIABLE_3) +
+          " from Stack and stored in VARIABLE_3 in jvpm_methods.py.")
 
 def method61():
     """isub: subtract two ints"""
-    global variable_1
-    global variable_2
-    S.push(variable_1 - variable_2)
-    print("isub: Subtracted variable_1 = " + str(variable_1) + " and variable_2 = " +
-          str(variable_2) + " and pushed to Stack.")
+    global VARIABLE_1
+    global VARIABLE_2
+    S.push(VARIABLE_1 - VARIABLE_2)
+    print("isub: Subtracted VARIABLE_1 = " + str(VARIABLE_1) + " and VARIABLE_2 = " +
+          str(VARIABLE_2) + " and pushed to Stack.")
     print("Top of Stack is now " + str(S.peek()) + ".")
 
 def method62():
