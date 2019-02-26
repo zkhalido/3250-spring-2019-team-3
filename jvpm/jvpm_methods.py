@@ -331,7 +331,7 @@ def istore_2():
     """istore_2: store int value into VARIABLE 2"""
     global VARIABLE_2
     VARIABLE_2 = S.pop()
-    popped = VARAIBLE_2
+    popped = VARIABLE_2
     variables.insert(2, popped)
     print(variables)
     print("istore_2: Popped " + str(VARIABLE_2) +
