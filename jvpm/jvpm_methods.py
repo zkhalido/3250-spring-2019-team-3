@@ -258,12 +258,12 @@ def idiv():
 def iload_1():
     pushing = variables[1]
     S.push(pushing)
-    print('iload_1: Push variable[1] to Stack')
+    print('iload_1: Push variables[1] to Stack')
 
 def iload_2():
     pushing = variables[2]
     S.push(pushing)
-    print('iload_2: Push varaibles[2] to Stack')
+    print('iload_2: Push variables[2] to Stack')
 
 # def iload_3():
 #     print('iload_3')
