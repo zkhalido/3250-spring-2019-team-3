@@ -101,10 +101,11 @@ class OpCodes():
     def __init__(self):
 #         self.opcodes = ['02', '03', '04', '05', '06', '07',
 #                         '08', '3b', '3c', '3d', '3e', '84']
-        self.opcode0 = '04'
-        self.opcode1 = '3c'
-        self.opcode2 = '05'
-        self.opcode3 = '3d'
+        # Configured for the MATH/test1.java file
+        self.opcode0 = '04' # iconst
+        self.opcode1 = '3c' # istore
+        self.opcode2 = '05' # iconst
+        self.opcode3 = '3d' # istore
         self.opcode4 = '1b' # iload
         self.opcode5 = '1c' # iload
         self.opcode6 = '60' # 60 = iadd
