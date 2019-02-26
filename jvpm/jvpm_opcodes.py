@@ -101,7 +101,7 @@ class OpCodes():
     def __init__(self):
 #         self.opcodes = ['02', '03', '04', '05', '06', '07',
 #                         '08', '3b', '3c', '3d', '3e', '84']
-        self.opcode0 = '02'
+        self.opcode0 = '03'
         self.opcode1 = '3c'
         self.opcode2 = '84'
 
