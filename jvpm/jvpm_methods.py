@@ -137,7 +137,7 @@ def iadd():
     global VARIABLE_1
     global VARIABLE_2
     S.push(VARIABLE_1 + VARIABLE_2)
-    print("> iadd: Added VARIABLE_1 = " + str(VARIABLE_1) + " and VARIABLE_2 = " +
+    print("> iadd: Added VARIABLE_1 = " + str(VARIABLE_1) + " + VARIABLE_2 = " +
           str(VARIABLE_2) + " and pushed to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
@@ -187,7 +187,7 @@ def idiv():
     global VARIABLE_1
     global VARIABLE_2
     S.push(VARIABLE_1 / VARIABLE_2)
-    print("> idiv: Divided VARIABLE_1 = " + str(VARIABLE_1) + " by VARIABLE_2 = " +
+    print("> idiv: Divided VARIABLE_1 = " + str(VARIABLE_1) + " / VARIABLE_2 = " +
           str(VARIABLE_2) + " and pushed to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
@@ -265,7 +265,7 @@ def imul():
     global VARIABLE_1
     global VARIABLE_2
     S.push(VARIABLE_1 * VARIABLE_2)
-    print("> imul: Multipied VARIABLE_1 = " + str(VARIABLE_1) + " by VARIABLE_2 = " +
+    print("> imul: Multipied VARIABLE_1 = " + str(VARIABLE_1) + " * VARIABLE_2 = " +
           str(VARIABLE_2) + " and pushed to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
@@ -342,7 +342,7 @@ def isub():
     global VARIABLE_1
     global VARIABLE_2
     S.push(VARIABLE_1 - VARIABLE_2)
-    print("> isub: Subtracted VARIABLE_1 = " + str(VARIABLE_1) + " minus VARIABLE_2 = " +
+    print("> isub: Subtracted VARIABLE_1 = " + str(VARIABLE_1) + " - VARIABLE_2 = " +
           str(VARIABLE_2) + " and pushed to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
