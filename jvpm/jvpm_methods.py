@@ -22,7 +22,7 @@ def istore_1():
     """istore_1: store int value into VARIABLE 1"""
     global VARIABLE_1
     VARIABLE_1 = S.pop()
-    popped = S.pop()
+    popped = VARIABLE_1
     variables.insert(1, popped)
     print(variables)
     print("istore_1: Popped " + str(VARIABLE_1) +
