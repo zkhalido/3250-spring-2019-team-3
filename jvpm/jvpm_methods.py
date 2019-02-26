@@ -4,10 +4,12 @@ import stack
 S = stack.Stack()
 variable_1 = ''
 
+ # load the int value -1 onto the stack
 def method1():
     S.push(-1)
     print("Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py using iconst_m1.")
 
+# store int value into variable 1
 def method2():
     global variable_1
     variable_1 = S.peek()
@@ -20,7 +22,7 @@ def method3():
     S.push(variable_1)
     print("Increment variable_1 to " + str(variable_1) + " and push to Stack in jvpm_methods.py using iinc.")
     print("Top of Stack is now " + str(S.peek()) + ".")
-    
+
 # ****************************************************************************************
 
 """DICTIONARY OF METHODS, FOR SPRINT 3 ONLY BUILD THE METHODS NOT COMMENTED OUT."""
@@ -94,185 +96,200 @@ def opcode_methods(argument):
     method = tokenDict.get(argument, lambda: "Invalid opcode")
     # Call the Method.
     method()
-    
+
 # ****************************************************************************************
-    
+
 # def method4():
 #     print('method4')
-    
+
 # def method5():
 #     print('method5')
 
 # def method6():
 #     print('method6')
-    
+
 # def method7():
 #     print('method7')
-    
+
 # def method8():
 #     print('method8')
-    
+
 # def method9():
 #     print('method9')
-    
+
+# add two ints
 def method10():
+    S.push(S.pop() + S.pop())
     print('method10')
-    
+
 # def method11():
 #     print('method11')
-    
+
 def method12():
     print('method12')
-    
+
 # def method13():
 #     print('method13')
-    
+
+# load the int value 0 onto the stack
 def method14():
+    S.push(0)
     print('method14')
 
+# load the int value 1 onto the stack
 def method15():
+    S.push(1)
     print('method15')
-    
+
+# load the int value 2 onto the stack
 def method16():
+    S.push(2)
     print('method16')
-    
+
+# load the int value 3 onto the stack
 def method17():
+    S.push(3)
     print('method17')
-    
+# load the int value 4 onto the stack
 def method18():
+    S.push(4)
     print('method18')
-    
+
+# load the int value 5 onto the stack
 def method19():
+    S.push(5)
     print('method19')
-    
+
 def method20():
     print('method20')
-    
+
 # def method21():
 #     print('method21')
-    
+
 # def method22():
 #     print('method22')
-    
+
 # def method23():
 #     print('method23')
 
 # def method24():
 #     print('method24')
-    
+
 # def method25():
 #     print('method25')
-    
+
 # def method26():
 #     print('method26')
-    
+
 # def method27():
 #     print('method27')
-    
+
 # def method28():
 #     print('method28')
-    
+
 # def method29():
 #     print('method29')
-    
+
 # def method30():
 #     print('method30')
-    
+
 # def method31():
 #     print('method31')
-    
+
 # def method32():
 #     print('method32')
 
 # def method33():
 #     print('method33')
-    
+
 # def method34():
 #     print('method34')
-    
+
 # def method35():
 #     print('method35')
-    
+
 # def method36():
 #     print('method36')
-    
+
 # def method37():
 #     print('method37')
-    
+
 # def method38():
 #     print('method38')
-    
+
 # def method39():
 #     print('method39')
-    
+
 # def method40():
 #     print('method40')
-    
+
 # def method41():
 #     print('metho415')
 
 # def method42():
 #     print('method42')
-    
+
 # def method43():
 #     print('method43')
-    
+
+# multiply two integers
 def method44():
+    S.push(S.pop() * S.pop())
     print('method44')
-    
+
 def method45():
     print('method45')
-    
+
 # def method46():
 #     print('method46')
-    
+
 # def method47():
 #     print('method47')
-    
+
 # def method48():
 #     print('method48')
-    
+
 # def method49():
 #     print('method49')
-    
+
 # def method50():
 #     print('method50')
-    
+
 # def method51():
 #     print('method51')
-    
+
 def method52():
     print('method52')
-    
+
 def method53():
     print('method53')
-    
+
 # def method54():
 #     print('method54')
-    
+
 def method55():
     print('method55')
-    
+
 def method56():
     print('method56')
-    
+
 def method57():
     print('method57')
 
 def method58():
     print('method58')
-    
+
 def method59():
     print('method59')
-    
+
 def method60():
     print('method60')
-    
+
 def method61():
     print('method61')
-    
+
 def method62():
     print('method62')
-    
+
 def method63():
     print('method63')
