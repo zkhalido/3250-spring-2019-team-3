@@ -115,7 +115,14 @@ def opcode_methods(argument):
 # def method9():
 #     print('method9')
 
+# add two integers
 def method10():
+    a = S.peek()
+    S.pop()
+    b = S.peek()
+    S.pop()
+    c = a + b
+    S.push(c)
     print('method10')
 
 # def method11():
@@ -127,26 +134,31 @@ def method12():
 # def method13():
 #     print('method13')
 
+# load the int value 0 onto the stack
 def method14():
     S.push(0)
     print('method14')
 
+# load the int value 1 onto the stack
 def method15():
     S.push(1)
     print('method15')
 
+# load the int value 2 onto the stack
 def method16():
     S.push(2)
     print('method16')
 
+# load the int value 3 onto the stack
 def method17():
     S.push(3)
     print('method17')
-
+# load the int value 4 onto the stack
 def method18():
     S.push(4)
     print('method18')
 
+# load the int value 5 onto the stack
 def method19():
     S.push(5)
     print('method19')
