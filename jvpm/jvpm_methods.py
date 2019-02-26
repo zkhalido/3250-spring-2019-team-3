@@ -9,7 +9,7 @@ VARIABLE_0 = ''
 VARIABLE_1 = ''
 VARIABLE_2 = ''
 VARIABLE_3 = ''
-variables = ()
+variables = []
 
  # load the int value -1 onto the stack
 def iconst_m1():
