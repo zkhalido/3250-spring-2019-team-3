@@ -24,7 +24,7 @@ def istore_1():
     print("istore_1: Popped " + str(VARIABLE_1) +
           " from Stack and stored in VARIABLE_1 in jvpm_methods.py.")
 
-def method3():
+def iinc():
     """iinc: increment local variable #index by signed byte const"""
     global VARIABLE_1
     VARIABLE_1 += 1
@@ -40,14 +40,14 @@ def opcode_methods(argument):
     token_dict = {
         "iconst_m1": iconst_m1,        # load the int value -1 onto the stack
         "istore_1": istore_1,         # store int value into VARIABLE 1
-        "iinc": method3,             # increment local variable #index by signed byte const
+        "iinc": iinc,             # increment local variable #index by signed byte const
 #         "i2b": method4,              # convert an int into a byte
 #         "i2c": method5,              # convert an int into a character
 #         "i2d": method6,              # convert an int into a double
 #         "i2f": method7,              # convert an int into a float
 #         "i2l": method8,              # convert an int into a long
 #         "i2s": method9,              # convert an int into a short
-        "iadd": method10,            # add two ints
+        "iadd": iadd,            # add two ints
 #         "iaload": method11,          # load an int from an array
         "iand": method12,            # perform a bitwise AND on two integers
 #         "iastore": method13,         # store an int into an array
@@ -57,7 +57,7 @@ def opcode_methods(argument):
         "iconst_3": iconst_3,        # load the int value 3 onto the stack
         "iconst_4": iconst_4,        # load the int value 4 onto the stack
         "iconst_5": iconst_5,        # load the int value 5 onto the stack
-        "idiv": method20,            # divide two integers
+        "idiv": idiv,            # divide two integers
 #         "if_acmpeq": method21,       # if references are equal branch to instruction
 #         "if_acmpene": method22,      # if references are not equal branch to instruction
 #         "if_icmpeq": method23,       # if ints are equal, branch
@@ -83,7 +83,7 @@ def opcode_methods(argument):
 #                                      # should not appear in any class
 #         "impdep2": method43,         # reserved for implementation dependent operations,
 #                                      # should not appear
-        "imul": method44,            # multiply two integers
+        "imul": imul,            # multiply two integers
         "ineg": method45,            # negate int
 #         "instanceof": method46,      # determines if objectref is of a given type
 #         "invokedynamic": method47,   # invoke a dynamic method and puts the result on the stack
@@ -99,11 +99,11 @@ def opcode_methods(argument):
 #         "ireturn": method54,         # returner an integer from a method
         "ishl": method55,            # int shift left
         "ishr": method56,            # int arithmetic shift right
-        "istore": method57,          # store int value into variable #index
-        "istore_0": method58,        # store int value into variable 0
-        "istore_2": method59,        # store int value into variable 2
-        "istore_3": method60,        # store int value into variable 3
-        "isub": method61,            # int subtract
+        "istore": istore,          # store int value into variable #index
+        "istore_0": istore_0,        # store int value into variable 0
+        "istore_2": istore_2,        # store int value into variable 2
+        "istore_3": istore_3,        # store int value into variable 3
+        "isub": isub,            # int subtract
         "iushr": method62,           # int logical shift right
         "ixor": method63             # xor
     }
@@ -132,7 +132,7 @@ def opcode_methods(argument):
 # def method9():
 #     print('method9')
 
-def method10():
+def iadd():
     """iadd: add two ints"""
     global VARIABLE_1
     global VARIABLE_2
@@ -182,7 +182,7 @@ def iconst_5():
     S.push(5)
     print('"iconst_5: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py."')
 
-def method20():
+def idiv():
     """idiv: divide two numbers"""
     global VARIABLE_1
     global VARIABLE_2
@@ -260,7 +260,7 @@ def method20():
 # def method43():
 #     print('method43')
 
-def method44():
+def imul():
     """imul: multiply two integers"""
     global VARIABLE_1
     global VARIABLE_2
@@ -314,7 +314,7 @@ def method57():
     """description here"""
     print('method57')
 
-def method58():
+def istore_0():
     """istore_0: store int value into VARIABLE 0"""
     global VARIABLE_0
     VARIABLE_0 = S.pop()
@@ -323,21 +323,21 @@ def method58():
 
     # istore_1 is at the top
 
-def method59():
+def istore_2():
     """istore_2: store int value into VARIABLE 2"""
     global VARIABLE_2
     VARIABLE_2 = S.pop()
     print("istore_2: Popped " + str(VARIABLE_2) +
           " from Stack and stored in VARIABLE_2 in jvpm_methods.py.")
 
-def method60():
+def istore_3():
     """istore_3: store int value into VARIABLE 3"""
     global VARIABLE_3
     VARIABLE_3 = S.pop()
     print("istore_3: Popped " + str(VARIABLE_3) +
           " from Stack and stored in VARIABLE_3 in jvpm_methods.py.")
 
-def method61():
+def isub():
     """isub: subtract two ints"""
     global VARIABLE_1
     global VARIABLE_2
