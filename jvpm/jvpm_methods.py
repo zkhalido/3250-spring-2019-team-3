@@ -76,7 +76,7 @@ def opcode_methods(argument):
         "irem": irem,          # logical in remainder
 #         "ireturn": ireturn,       # returner an integer from a method
         "ishl": ishl,          # int shift left
-        "ishr": method56,          # int arithmetic shift right
+        "ishr": ishr,          # int arithmetic shift right
         "istore": istore_3,        # store int value into variable #index
         "istore_0": istore_0,      # store int value into VARIABLE[0]
         "istore_1": istore_1,      # store int value into VARIABLE[1]
@@ -330,9 +330,12 @@ def ishl():
     """description here"""
     print('method55')
 
-def method56():
+def ishr():
     """description here"""
-    print('method56')
+    var2 = S.pop()
+    var1 = S.pop()
+    S.push(var1 * (2 ** var2))
+    print(S.peek())
 
 # def istore():
 #     """istore: store int value into array[in]"""
