@@ -3,32 +3,12 @@ import stack
 # These 63 methods will eventually Implement all the opcode commands.
 # Method 4 - 63 is below the Dictionary, ONLY BUILD THE METHODS NOT COMMENTED OUT.
 # pylint: disable = W0603, C0330
-
 S = stack.Stack()
-VARIABLE_0 = ''
-VARIABLE_1 = ''
-VARIABLE_2 = ''
-VARIABLE_3 = ''
 
 # According to the JVPM documentation Zach posted to Slack, 
-# we need to use a local array's[] index values when using MATH with iload and istore.
-# Therefore, I'm transitioning the 4 above variables to the below array.
+# we need to use a local array's[] index values when using MATH for iload and istore.
+# Therefore, I transitioned the missing 4 variables to the below variables[] array.
 variables = []
-
-#  # load the int value -1 onto the stack
-# def iconst_m1():
-#     """iconst_m1: load the int value -1 onto the stack"""
-#     S.push(-1)
-#     print("iconst_m1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
-
-def iinc():
-    """iinc: increment local variable #index by signed byte const"""
-    global VARIABLE_1
-    VARIABLE_1 += 1
-    S.push(VARIABLE_1)
-    print("iinc: Increment VARIABLE_1 to " + str(VARIABLE_1) +
-          " and push to Stack in jvpm_methods.py.")
-    print("Top of Stack is now " + str(S.peek()) + ".")
 
 # ****************************************************************************************
 
@@ -242,6 +222,10 @@ def idiv():
 
 # def ifnull():
 #     print('ifnull')
+
+def iinc():
+    """iinc: increment local variable #index by signed byte const"""
+    print("iinc.")
 
 # def iload():
 #     print('iload')
