@@ -14,6 +14,8 @@ variables = []
 
 def opcode_methods(argument):
     """DICTIONARY OF METHODS, FOR SPRINT 3 ONLY BUILD THE METHODS NOT COMMENTED OUT."""
+    # Passing arguments to the method for istore
+    # arguments = []
     token_dict = {
         "iconst_m1": iconst_m1,        # load the int value -1 onto the stack
         "istore_1": istore_1,         # store int value into VARIABLE 1
@@ -86,6 +88,12 @@ def opcode_methods(argument):
     }
     # get the method name from the token_dict dictionary
     method = token_dict.get(argument, lambda: "Invalid opcode")
+    
+    # if arguments == null
+    #     method()
+    # else
+    #     method(arguments[0])
+    
     # Call the Method.
     method()
 
