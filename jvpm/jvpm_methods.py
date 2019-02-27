@@ -73,7 +73,7 @@ def opcode_methods(argument):
 #         "invokevirtual": invokevirtual,   # invoke virtual method on objectref and
 #                                      # puts result on the stack
         "ior": method52,           # bitwise int OR
-        "irem": method53,          # logical in remainder
+        "irem": irem,          # logical in remainder
 #         "ireturn": ireturn,       # returner an integer from a method
         "ishl": method55,          # int shift left
         "ishr": method56,          # int arithmetic shift right
@@ -132,12 +132,14 @@ def iadd():
 #     print('method11')
 
 def iand():
-    """perform a bitwise AND on two integers"""
+    """iand: performed bitwise AND on two integers"""
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 & var2)
-    print(S.peek())
-
+    print("> iand: Popped (" + str(var1) + ") and (" + str(var2) +
+          ") from the Stack, assigned to local variables, \nperformed bitwise"
+          " AND and pushed the result (" + str(var2 & var1) + ") back to Stack")
+    print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 # def iastore():
 #     print('iastore')
 
@@ -308,9 +310,12 @@ def method52():
     """description here"""
     print('method52')
 
-def method53():
-    """description here"""
-    print('method53')
+def irem():
+    """logical in remainder"""
+    var2 = S.pop()
+    var1 = S.pop()
+    S.push(var1 - (var1/var2) * var2)
+    print(S.peek())
 
 # def ireturn():
 #     print('ireturn')
