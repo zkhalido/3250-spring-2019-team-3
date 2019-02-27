@@ -84,7 +84,7 @@ def opcode_methods(argument):
         "istore_3": istore_3,      # store int value into VARIABLE[3]
         "isub": isub,              # int subtract
         "iushr": iushr,         # int logical shift right
-        "ixor": method62          # xor
+        "ixor": ixor          # xor
     }
     # get the method name from the token_dict dictionary
     method = token_dict.get(argument, lambda: "Invalid opcode")
@@ -386,13 +386,16 @@ def isub():
           " and pushed result back to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
-def method62():
-    """description here"""
-    print('method62')
-
 def iushr():
     """int logical shift right"""
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 >> var2)
+    print(S.peek())
+    
+def ixor():
+    """int xor"""
+    variable2 = S.pop()
+    variable1 = S.pop()
+    S.push(variable1 ^ variable2)
     print(S.peek())
