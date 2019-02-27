@@ -78,6 +78,27 @@ class OpCodes():
 
 # **************************************************************************************************
 
+if '__main__' == __name__:
+
+    # **********************************************************************************************
+
+    print('\n1) ___Parse, pull, and assign Header bytecodes:___')
+    D = HeaderClass()
+    D.pull_magic()
+    D.pull_minor()
+    D.pull_major()
+    D.pull_const_pool_count()
+
+    # **********************************************************************************************
+
+    print('\n2) ___Parse, pull, and assign method bytecodes to an array, search imported '
+          '\n  opcode dictionary for bytecode and pull opcode. If found, send opcode to'
+          '\n  imported method dictionary to implement the method:___')
+    Z = OpCodes()
+    Z.dict_search()
+
+# **************************************************************************************************
+
 # Unittest to test the output of the HeaderClass() methods.
 # python3 -m unittest jvpm_opcodes.py
 # We have a warning about an unclosed file but no errors.
@@ -127,26 +148,5 @@ class OpCodes():
 #         """the comparison"""
 #         self.assertEqual(self.test.header_const_pool_count, 14)
 #         print(f'< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >\n')
-
-# **************************************************************************************************
-
-if '__main__' == __name__:
-
-    # **********************************************************************************************
-
-    print('\n1) ___Parse, pull, and assign Header bytecodes:___')
-    D = HeaderClass()
-    D.pull_magic()
-    D.pull_minor()
-    D.pull_major()
-    D.pull_const_pool_count()
-
-    # **********************************************************************************************
-
-    print('\n2) ___Parse, pull, and assign method bytecodes to an array, search imported '
-          '\n  opcode dictionary for bytecode and pull opcode. If found, send opcode to'
-          '\n  imported method dictionary to implement the method:___')
-    Z = OpCodes()
-    Z.dict_search()
 
 # **************************************************************************************************
