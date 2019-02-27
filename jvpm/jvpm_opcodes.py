@@ -1,5 +1,6 @@
 # """import the unittest"""
 # import unittest
+"""Read bit stream."""
 from bitstring import ConstBitStream
 import jvpm_dict    # import external opcode dictionary
 import jvpm_methods # import external method dictionary
@@ -50,7 +51,7 @@ class OpCodes():
         # List of the test1.java(math) opcodes.
         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c',
                         '6c', '3e']
-        
+
         """
 
 
@@ -73,7 +74,7 @@ class OpCodes():
             jvpm_methods.opcode_methods(opcall)
             index += 1
         print()
-        return
+        # return
 
 # ****************************************************************************************
 
