@@ -166,4 +166,7 @@ https://www.youtube.com/watch?v=hvPYuqzTPIk&t=1732s
 -Nothing outside of the code has to work to test that code.
 -Coverage: how much of the code is covered (tested) by unittests.
 -Unittests are fast and simple, by testing locally in a very small scope.
--
+-Create local wrappers!
+-Searches for duplicate code.
+-Unittests can be used as documentation.
+- 
