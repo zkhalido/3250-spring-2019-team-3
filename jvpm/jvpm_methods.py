@@ -21,14 +21,14 @@ def iconst_m1():
     S.push(-1)
     print("iconst_m1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
-# store int value into VARIABLE 1
-def istore_1():
-    """istore_1: store int value into VARIABLE 1"""
-    popped = S.pop()
-    variables.insert(0, 0)
-    variables.insert(1, popped)
-    print("istore_1: Popped " + str(popped) +
-          " from Stack and stored in variables[1] in jvpm_methods.py.")
+# # store int value into VARIABLE 1
+# def istore_1():
+#     """istore_1: store int value into VARIABLE 1"""
+#     popped = S.pop()
+#     variables.insert(0, 0)
+#     variables.insert(1, popped)
+#     print("istore_1: Popped " + str(popped) +
+#           " from Stack and stored in variables[1] in jvpm_methods.py.")
 
 def iinc():
     """iinc: increment local variable #index by signed byte const"""
@@ -140,12 +140,6 @@ def opcode_methods(argument):
 
 def iadd():
     """iadd: add two ints"""
-#     global VARIABLE_1
-#     global VARIABLE_2
-#     S.push(VARIABLE_1 + VARIABLE_2)
-#     print("> iadd: Added (VARIABLE_1 = " + str(VARIABLE_1) + ") + (VARIABLE_2 = " +
-#           str(VARIABLE_2) + ") and pushed to Stack.")
-#     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 + var2)
@@ -197,12 +191,6 @@ def iconst_5():
 
 def idiv():
     """idiv: divide two numbers"""
-#     global VARIABLE_1
-#     global VARIABLE_2
-#     S.push(VARIABLE_1 / VARIABLE_2)
-#     print("> idiv: Divided (VARIABLE_1 = " + str(VARIABLE_1) + ") / (VARIABLE_2 = " +
-#           str(VARIABLE_2) + ") and pushed to Stack.")
-#     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 / var2)
@@ -286,12 +274,6 @@ def iload_2():
 
 def imul():
     """imul: multiply two integers"""
-#     global VARIABLE_1
-#     global VARIABLE_2
-#     S.push(VARIABLE_1 * VARIABLE_2)
-#     print("> imul: Multipied (VARIABLE_1 = " + str(VARIABLE_1) + ") * (VARIABLE_2 = " +
-#           str(VARIABLE_2) + ") and pushed to Stack.")
-#     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 * var2)
@@ -347,12 +329,22 @@ def istore():
 
 def istore_0():
     """istore_0: store int value into VARIABLE 0"""
-    global VARIABLE_0
-    VARIABLE_0 = S.pop()
-    print("istore_0: Popped " + str(VARIABLE_0) +
-          " from Stack and stored in VARIABLE_0 in jvpm_methods.py.")
+#     global VARIABLE_0
+#     VARIABLE_0 = S.pop()
+#     print("istore_0: Popped " + str(VARIABLE_0) +
+#           " from Stack and stored in VARIABLE_0 in jvpm_methods.py.")
+    popped = S.pop()
+    variables.insert(0, popped)
+    print("istore_0: Popped " + str(popped) +
+          " from Stack and stored in variables[0] in jvpm_methods.py.")
 
-    # istore_1 is at the top
+def istore_1():
+    """istore_1: store int value into VARIABLE 1"""
+    popped = S.pop()
+    variables.insert(0, 0)
+    variables.insert(1, popped)
+    print("istore_1: Popped " + str(popped) +
+          " from Stack and stored in variables[1] in jvpm_methods.py.")
 
 def istore_2():
     """istore_2: store int value into VARIABLE 2"""
