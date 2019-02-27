@@ -65,7 +65,7 @@ class OpCodes():
         Implement if found."""
 	# Hex to Opcode from imported opcode dictionary, 
         # implemented using imported method dictionary.
-        print("\n" + self.opcodes)
+        print("\n" + str(self.opcodes))
         index = 0
         opcall = []
         while index < len(self.opcodes):
