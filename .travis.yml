@@ -6,14 +6,14 @@ addons:
   sonarcloud:
     organization: git-confused-team3 # the key of the org you chose at step #3
     token:
-      secure: Hxeh3rABixlWEV7ySDjDpx1TGEWnCOcMnYazGf8FKb0EshgkNsDSJv2A0/y5XaXf5E24DUsEm9f/xFRL8CtXPhrcPqDbzvZyTyKjw3Xg07TtbNVK+a+ypr9AE9z+Fv6oVlIjR8Wjgb6dwEjj01cqjQWaHUbRnpcl++OqY1J4abXtIKbO4qptKINZE/sFSuwVz4kwPkldvKGnDOyCe8qRs9x4DCUCJHxJRBFKoWU6AnSLZJ0HksKLmkoJsDUN92pXzxQuclNDfNUn5BIlmd3QDJtD/t3nSc0JLb23pm2Q9UdhdD5Jqo0w6vXL/9c3G6C6H/3+CAzHHv4k93DFmK96O3/l7G1W6KCpRU51v3ISmPMCzRkXShy9cTRcCc/MOPhaMTiUGy2OgldSS6JqVSjWMLdOBTK8P6OgbpM0xOgScxqIsWjfetRlVfyLK1DdK/bkkkpx0lXG4APtu4cbFFshmEpwBbxrJfvFi6QcBOQBZCjA0IpMq+Cv3uGuUfSuIZlvOdStCLBJ2afHuPRi6Z4fMoWill3ptJY4i7IMmUtfIc6fASVi/S2jN23hHjQfXCww0P0TAhzRGV8fR9GwZeJnyzTimggjL2TjYLwEuLzZlVcpt56jBXyaa5FZ/+ZkTm4/mZllqWRxjtS8tCW4tBOAwbwrLRWZE4fLxJWo0EccnOU=
+      secure: G38mI0fOknzStb0Fqq1If75OIpKgjkuCQq0fm2TiM3uhzowaoBLzLwTubC+CQTX1emCzXftRRsx9dJccFfXBfLxk6EM8yzLVP2eCnUflSKwVMGcEAiU6XEuccOtXm1TsQsvi1+FuGGWwUxBZNBR/IqZkSg3AEC5EMwYL4UdM6Pkzmf+/cehfiOyIjmNJ0St2DhBiyYqz4nhpCy9XCj3U/pG+TyRdw0VgdfquqPKrbRxMfgi+q9nhofqOclZRd8fXeCYn2wfK4fvR6albFoufpFzfkqfcQznWlbGa47wvACidW0jwG8QiW2XGqJG7hDEg7tMek6woZmh7TvgsluPNjfJ8CIhgtTnBAlcagFbmDTzEnEWuWFKvWtu7QOfuSlwZV2gPF1pt2M1yyj1aDd6MswIHlRsHWdoVQlWEhL5hv0z4z6rsUYZGQVyU19t4mr646Ln84HyKB9WvnnIU5NE//SJCZ2hwKBPlVDKVqpKcORPSstlD85l8crdm30NbWdkRV9O2ZBjXcAPV2VjKvdw50Bos+54iwysPffuH6CGma3nuM3VRjyim27h5dAcBxw9NmdzOOBF5AUTHc8LpqzBzsSYyOsK5VOwsIYHRYC+wLIyXc3wh2yYmVX3jvD7W3M+WI80N6pU9l6yAGkqftfaZpg9p3nJahTfhbrzyGZYEbsQ=
 
 install:
   - pip install codecov
 
 script:
   # - coverage run --omit=*test* -m unittest
-  - coverage run --omit=*test* -m unittest jvpm.py
+  - coverage run --omit=*test* -m unittest jvpm
   - sonar-scanner
 
 
