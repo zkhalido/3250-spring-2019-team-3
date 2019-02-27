@@ -45,8 +45,8 @@ class HeaderClass():
 # **************************************************************************************************
 
 class OpCodes():
-    """Class that searches the external dictionary of opcodes and implements using
-    the external dictionary of methods"""
+    """Parse Opcodes into an array from the .class file, search the external dictionary of
+    opcodes, and implement the methods using the external dictionary of methods"""
     def __init__(self):
         # List of the test1.java(math) opcodes.
         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '3e', '1b', '1c', '64', '36',
