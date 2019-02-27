@@ -2,19 +2,20 @@ language: python
 python:
   - "3.6"
 
+addons:
+  sonarcloud:
+    organization: git-confused-team3 # the key of the org you chose at step #3
+    token: f15a16e9708499aaa72417411c1660ecacb56e9e
+
+
 install:
   - pip install codecov
 
 script:
+  # - coverage run --omit=*test* -m unittest
   - coverage run --omit=*test* -m unittest
+  - sonar-scanner
+
 
 after_success:
   - codecov
-
-addons:
-  sonarcloud:
-    organization: git-confused-team3 # the key of the org you chose at step #3
-    token: c392c7fb100fe94b7589639cfc5dcf521f3b22cf
-
-  # other script steps might be done before running the actual analysis
-  - sonar-scanner
