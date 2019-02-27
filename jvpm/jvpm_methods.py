@@ -320,7 +320,7 @@ def irem():
     """logical in remainder"""
     var2 = S.pop()
     var1 = S.pop()
-    S.push(var1 - (var1/var2) * var2)
+    S.push(var1 % var2)
     print(S.peek())
 
 # def ireturn():
