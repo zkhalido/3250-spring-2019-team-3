@@ -323,7 +323,7 @@ def irem():
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 % var2)
-    print(S.peek())
+    print("irem = " + str(S.peek()))
 
 # def ireturn():
 #     print('ireturn')
@@ -336,7 +336,7 @@ def ishl():
     print("> ishl: Popped (" +str(var1) + ") and (" + str(var2) + ") and shifted"
           + str(var1) + " left by " + str(var2) + " bit(s) and pushed the result"
           " back to Stack.")
-    print(S.peek())
+    print("ishl = " + str(S.peek()))
 
 
 def ishr():
@@ -344,7 +344,7 @@ def ishr():
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 >> var2)
-    print(S.peek())
+    print("ishr = " + str(S.peek()))
 
 # def istore():
 #     """istore: store int value into array[in]"""
@@ -399,7 +399,7 @@ def iushr():
         S.push(var1 >> var2)
     else:
         S.push((var1 + 0x10000000) >> var2)
-    print(S.peek())
+    print("iushr = " + str(S.peek()))
 
 def ixor():
     """int xor"""
