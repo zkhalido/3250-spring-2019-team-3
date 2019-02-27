@@ -50,15 +50,7 @@ class OpCodes():
         # List of the test1.java(math) opcodes.
         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c',
                         '6c', '3e']
-#         self.opcode0 = '04' # iconst_1
-#         self.opcode1 = '3c' # istore_1
-#         self.opcode2 = '05' # iconst_2
-#         self.opcode3 = '3d' # istore_2
-#         self.opcode4 = '1b' # iload_1
-#         self.opcode5 = '1c' # iload_2
-#         self.opcode6 = '6c' # 60 = iadd, 64 = isub, 68 = imul, 6c = idiv
-#         self.opcode7 = '3e' # istore_3
-
+        
         """
 
 
@@ -70,12 +62,10 @@ class OpCodes():
 
     def dict_search(self):
         """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation and
-        Implement if found"""
+        Implement if found."""
 	# Hex to Opcode from imported opcode dictionary, 
-        # implemented using imported method dictionary:
-	# LOOP TIME
-        print()
-        print(self.opcodes)
+        # implemented using imported method dictionary.
+        print("\n" + self.opcodes)
         index = 0
         opcall = []
         while index < len(self.opcodes):
