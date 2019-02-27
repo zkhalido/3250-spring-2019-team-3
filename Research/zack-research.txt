@@ -165,3 +165,5 @@ https://www.youtube.com/watch?v=hvPYuqzTPIk&t=1732s
 -Unittests exercise small amounts of code.
 -Nothing outside of the code has to work to test that code.
 -Coverage: how much of the code is covered (tested) by unittests.
+-Unittests are fast and simple, by testing locally in a very small scope.
+-
