@@ -393,7 +393,10 @@ def iushr():
     """int logical shift right"""
     var2 = S.pop()
     var1 = S.pop()
-    S.push(var1 >>> var2)
+    if val1 >= 0
+        push(val1 >> val2)
+    else
+        push((val1 + 0x10000000) >> val2)
     print(S.peek())
 
 def ixor():
