@@ -72,7 +72,7 @@ def opcode_methods(argument):
 #         "invokestatic": invokestatic,    # invoke static method and puts result on the stack
 #         "invokevirtual": invokevirtual,   # invoke virtual method on objectref and
 #                                      # puts result on the stack
-        "ior": method52,           # bitwise int OR
+        "ior": ior,           # bitwise int OR
         "irem": irem,          # logical in remainder
 #         "ireturn": ireturn,       # returner an integer from a method
         "ishl": method55,          # int shift left
@@ -306,9 +306,15 @@ def method45():
 # def invokevirtual():
 #     print('invokevirtual')
 
-def method52():
-    """description here"""
-    print('method52')
+def ior():
+    """ior: performed bitwise OR on two integers"""
+    var2 = S.pop()
+    var1 = S.pop()
+    S.push(var1 | var2)
+    print("> ior: Popped (" + str(var1) + ") and (" + str(var2) +
+          ") from the Stack, assigned to local variables, \nperformed bitwise"
+          " AND and pushed the result (" + str(var2 | var1) + ") back to Stack")
+    print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
 def irem():
     """logical in remainder"""
