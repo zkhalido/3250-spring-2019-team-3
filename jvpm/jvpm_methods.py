@@ -25,7 +25,7 @@ def opcode_methods(argument):
 #         "i2s": i2s,              # convert an int into a short
         "iadd": iadd,              # add two ints
 #         "iaload": method11,          # load an int from an array
-        "iand": method12,          # perform a bitwise AND on two integers
+        "iand": iand,          # perform a bitwise AND on two integers
 #         "iastore": iastore,         # store an int into an array
         "iconst_m1": iconst_m1,    # load the int value -1 onto the stack
         "iconst_0": iconst_0,      # load the int value 0 onto the stack
@@ -131,9 +131,12 @@ def iadd():
 # def method11():
 #     print('method11')
 
-def method12():
-    """description"""
-    print('method12')
+def iand():
+    """perform a bitwise AND on two integers"""
+    var2 = S.pop()
+    var1 = S.pop()
+    S.push(var1 & var2)
+    print(S.peek())
 
 # def iastore():
 #     print('iastore')
