@@ -93,8 +93,8 @@ class OpCodes():
         print()
         index = 0
         while index < len(self.opcodes):
-            opcall[index] = jvpm_dict.get_opcode(self.opcodes[index])
-            print("\nOpcode to implement from bytecode " + self.opcodes[index] + ': ' + opcall[index])
+            opcall = jvpm_dict.get_opcode(self.opcodes[index])
+            print("\nOpcode to implement from bytecode " + self.opcodes[index] + ': ' + opcall)
             index += 1
         print()
 
