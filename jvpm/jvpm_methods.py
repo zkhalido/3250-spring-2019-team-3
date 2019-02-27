@@ -327,8 +327,15 @@ def irem():
 #     print('ireturn')
 
 def ishl():
-    """description here"""
-    print('method55')
+    """int logical shift left"""
+    var2 = S.pop()
+    var1 = S.pop()
+    S.push(var1 << var2)
+    print("> ishl: Popped (" +str(var1) + ") and (" + str(var2) + ") and shifted"
+          + str(var1) + " left by " + str(var2) + " bit(s) and pushed the result"
+          " back to Stack.")
+    print(S.peek())
+
 
 def method56():
     """description here"""
