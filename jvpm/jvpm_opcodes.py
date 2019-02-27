@@ -47,7 +47,7 @@ class OpCodes():
     """Class that searches the external dictionary of opcodes and Implements using
     the external dictionary of methods"""
     def __init__(self):
-        self.opcodes = ['04', '3c', '05', '3d', '1b', '1c',
+        opcodes = ['04', '3c', '05', '3d', '1b', '1c',
                         '6c', '3e']
         # Configured for the MATH/test1.java file
         self.opcode0 = '04' # iconst_1
@@ -92,7 +92,7 @@ class OpCodes():
         # LOOP TIME
         print()
         index = 0
-        while index < len(self.opcodes)
+        while index < len(opcodes)
             opcode_to_call[index] = jvpm_dict.get_opcode(self.opcode[index])
                 print("\nOpcode to implement from bytecode " + self.opcode[index] + ': ' + opcode_to_call_[index])
             index += 1
