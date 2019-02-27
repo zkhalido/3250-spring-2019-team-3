@@ -1,9 +1,10 @@
 import unittest
 from unittest.mock import mock_open, patch
 
+from stack import Stack
+
 import jvpm_dict
 import jvpm_opcodes
-import stack
 
 
 class UnittestHeader(unittest.TestCase):
@@ -21,6 +22,7 @@ class UnittestHeader(unittest.TestCase):
 
 
 
+
 class test_get_opcode(unittest.TestCase):
     def test_opcode(self):
         self.assertEqual(jvpm_dict.get_opcode("91"), "i2b")
@@ -28,15 +30,31 @@ class test_get_opcode(unittest.TestCase):
         self.assertEqual(jvpm_dict.get_opcode("1c"), "iload_2")
         self.assertEqual(jvpm_dict.get_opcode("03"), "iconst_0")
 
-"""
+
 class test_stack(unittest.TestCase):
     #def test_is_empty(self):
     #    self.assertTrue(stack.Stack.is_empty())
 
     def test_push(self):
-        s = stack()
+        s = Stack()
         s.push(2)
         s.push(3)
-        self.assertEqual(s.pop, 3)
+        v= s.pop()
+        self.assertEqual(v, 3)
 
-"""
+    def test_pop(self):
+        s = Stack()
+        s.push(3)
+        s.push(2)
+        s.push(4)
+        s.push(0)
+        a = s.pop()
+        b = s.pop()
+
+        self.assertEqual(a, 0)
+        self.assertEqual(b, 4)
+
+    def test
+
+
+
