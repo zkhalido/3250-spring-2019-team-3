@@ -50,7 +50,7 @@ class OpCodes():
     def __init__(self):
         # List of the test1.java(math) opcodes.
         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c',
-                        '6c', '3e']
+                        '60', '3e']
 
         """
 
