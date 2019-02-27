@@ -49,8 +49,8 @@ class OpCodes():
     the external dictionary of methods"""
     def __init__(self):
         # List of the test1.java(math) opcodes.
-        self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '3e', '1b', '1c', '64', '3e',
-                        '1b', '1c', '6c', '3e', '1b', '1c', '68', '3e']
+        self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '3e', '1b', '1c', '64', '36',
+                        '1b', '1c', '6c', '36', '1b', '1c', '68', '36']
 
         """
 
