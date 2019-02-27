@@ -12,7 +12,7 @@ import jvpm_methods # import external method dictionary
 class HeaderClass():
     """Class that parses the data from test.class and assigns values to variables"""
     def __init__(self):
-        self.stream = ConstBitStream(filename='test.class')
+        self.stream = ConstBitStream(filename='test1.class')
         self.header_magic = ""
         self.header_minor = ""
         self.header_major = ""
