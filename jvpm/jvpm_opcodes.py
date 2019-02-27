@@ -75,6 +75,7 @@ class OpCodes():
         # implemented using imported method dictionary:
 	# LOOP TIME
         print()
+        print(self.opcodes)
         index = 0
         opcall = []
         while index < len(self.opcodes):
