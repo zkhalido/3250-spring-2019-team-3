@@ -47,8 +47,8 @@ class OpCodes():
     """Class that searches the external dictionary of opcodes and Implements using
     the external dictionary of methods"""
     def __init__(self):
-#         self.opcodes = ['02', '03', '04', '05', '06', '07',
-#                         '08', '3b', '3c', '3d', '3e', '84']
+        self.opcodes = ['04', '3c', '05', '3d', '1b', '1c',
+                        '6c', '3e']
         # Configured for the MATH/test1.java file
         self.opcode0 = '04' # iconst_1
         self.opcode1 = '3c' # istore_1
