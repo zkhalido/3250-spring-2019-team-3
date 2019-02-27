@@ -396,7 +396,7 @@ def iushr():
     if var1 >= 0:
         push(var1 >> var2)
     else:
-        push(var1 + 0x10000000) >> var2)
+        push((var1 + 0x10000000) >> var2)
     print(S.peek())
 
 def ixor():
