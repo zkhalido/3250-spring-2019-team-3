@@ -7,6 +7,8 @@ import jvpm_methods # import external method dictionary
 
 # pylint: disable = W0105, C0122, R0903
 
+# **************************************************************************************************
+
 class HeaderClass():
     """Class that parses the data from test.class and assigns values to variables"""
     def __init__(self):
