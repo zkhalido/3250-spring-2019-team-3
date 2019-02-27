@@ -62,7 +62,7 @@ def opcode_methods(argument):
 #         "impdep2": impdep2,       # reserved for implementation dependent operations,
 #                                   # should not appear
         "imul": imul,              # multiply two integers
-        "ineg": method45,          # negate int
+        "ineg": ineg,          # negate int
 #         "instanceof": instanceof,      # determines if objectref is of a given type
 #         "invokedynamic": invokedynamic,   # invoke a dynamic method and put the result on Stack
 #         "invokeinterface": invokeinterface, # invoke an interface method on object object ref and
@@ -284,9 +284,11 @@ def imul():
           " and pushed result back to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
-def method45():
-    """description here"""
-    print('method45')
+def ineg():
+    """ineg: value minus zero"""
+    var1 = S.pop()
+    S.push(0 - var1)
+    print('ineg = ' + S.peek())
 
 # def instanceof():
 #     print('instanceof')
