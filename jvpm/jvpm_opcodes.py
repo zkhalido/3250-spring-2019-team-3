@@ -1,15 +1,16 @@
 # """import the unittest"""
 # import unittest
+"""Read bit stream."""
 from bitstring import ConstBitStream
 import jvpm_dict    # import external opcode dictionary
 import jvpm_methods # import external method dictionary
 
 # pylint: disable = W0105, C0122, R0903
 
+# **************************************************************************************************
+
 class HeaderClass():
-    """Class that parses the data from test.class
-    and assigns values to variables
-    """
+    """Class that parses the data from test.class and assigns values to variables"""
     def __init__(self):
         self.stream = ConstBitStream(filename='test.class')
         self.header_magic = ""
@@ -41,16 +42,16 @@ class HeaderClass():
         print("const pool: ", self.header_const_pool_count)
         return self.header_const_pool_count
 
-# ****************************************************************************************
+# **************************************************************************************************
 
 class OpCodes():
-    """Class that searches the external dictionary of opcodes and Implements using
+    """Class that searches the external dictionary of opcodes and implements using
     the external dictionary of methods"""
     def __init__(self):
         # List of the test1.java(math) opcodes.
         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c',
-                        '6c', '3e']
-        
+                        '60', '3e']
+
         """
 
 
@@ -62,10 +63,10 @@ class OpCodes():
 
     def dict_search(self):
         """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation and
-        Implement if found."""
+        implement if found."""
 	# Hex to Opcode from imported opcode dictionary - jvpm_dict,
         # implemented using imported method dictionary - jvpm_methods.
-        print("\n" + str(self.opcodes))
+        print("\nBytecodes from .class file: " + str(self.opcodes))
         index = 0
         while index < len(self.opcodes):
             opcall = jvpm_dict.get_opcode(self.opcodes[index])
@@ -73,9 +74,9 @@ class OpCodes():
             jvpm_methods.opcode_methods(opcall)
             index += 1
         print()
-        return
+        # return
 
-# ****************************************************************************************
+# **************************************************************************************************
 
 # Unittest to test the output of the HeaderClass() methods.
 # python3 -m unittest jvpm_opcodes.py
@@ -127,11 +128,11 @@ class OpCodes():
 #         self.assertEqual(self.test.header_const_pool_count, 14)
 #         print(f'< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >\n')
 
-# ****************************************************************************************
+# **************************************************************************************************
 
 if '__main__' == __name__:
 
-    # ************************************************************************************
+    # **********************************************************************************************
 
     print('\n1) ___Parse, pull, and assign Header bytecodes:___')
     D = HeaderClass()
@@ -140,12 +141,12 @@ if '__main__' == __name__:
     D.pull_major()
     D.pull_const_pool_count()
 
-    # ************************************************************************************
+    # **********************************************************************************************
 
-    print('\n2) ___Parse, pull, and assign Method bytecodes to an array,'
-          '\n  search imported dictionary for bytecode and pull opcode. If found, send opcode to'
-          '\n  jvpm_methods.py to Implement the method:___\n\nOpcodes from test1.java(MATH):')
+    print('\n2) ___Parse, pull, and assign method bytecodes to an array, search imported '
+          '\n  opcode dictionary for bytecode and pull opcode. If found, send opcode to'
+          '\n  imported method dictionary to implement the method:___')
     Z = OpCodes()
     Z.dict_search()
 
-# ****************************************************************************************
+# **************************************************************************************************
