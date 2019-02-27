@@ -15,20 +15,11 @@ VARIABLE_3 = ''
 # Therefore, I'm transitioning the 4 above variables to the below array.
 variables = []
 
- # load the int value -1 onto the stack
-def iconst_m1():
-    """iconst_m1: load the int value -1 onto the stack"""
-    S.push(-1)
-    print("iconst_m1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
-
-# # store int value into VARIABLE 1
-# def istore_1():
-#     """istore_1: store int value into VARIABLE 1"""
-#     popped = S.pop()
-#     variables.insert(0, 0)
-#     variables.insert(1, popped)
-#     print("istore_1: Popped " + str(popped) +
-#           " from Stack and stored in variables[1] in jvpm_methods.py.")
+#  # load the int value -1 onto the stack
+# def iconst_m1():
+#     """iconst_m1: load the int value -1 onto the stack"""
+#     S.push(-1)
+#     print("iconst_m1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
 def iinc():
     """iinc: increment local variable #index by signed byte const"""
@@ -157,6 +148,11 @@ def method12():
 
 # def iastore():
 #     print('iastore')
+
+def iconst_m1():
+    """iconst_m1: load the int value -1 onto the stack"""
+    S.push(-1)
+    print("iconst_m1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
 
 def iconst_0():
     """iconst_0: load the int value 0 onto the stack"""
