@@ -406,4 +406,4 @@ def ixor():
     variable2 = S.pop()
     variable1 = S.pop()
     S.push(variable1 ^ variable2)
-    print(S.peek())
+    print("ixor = " + str(S.peek()))
