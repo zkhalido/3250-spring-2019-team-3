@@ -238,21 +238,29 @@ def iinc():
 # def iload():
 #     print('iload')
 
-# def iload_0():
-#     print('iload_0')
+def iload_0():
+    """iload: push variable[0] to the Stack"""
+    pushing = variables[0]
+    S.push(pushing)
+    print('iload_0: Push variables[0] to Stack')
 
 def iload_1():
+    """iload: push variable[1] to the Stack"""
     pushing = variables[1]
     S.push(pushing)
     print('iload_1: Push variables[1] to Stack')
 
 def iload_2():
+    """iload: push variable[2] to the Stack"""
     pushing = variables[2]
     S.push(pushing)
     print('iload_2: Push variables[2] to Stack')
 
-# def iload_3():
-#     print('iload_3')
+def iload_3():
+    """iload: push variable[3] to the Stack"""
+    pushing = variables[3]
+    S.push(pushing)
+    print('iload_3: Push variables[3] to Stack')
 
 # def impdep1():
 #     print('impdep1')
