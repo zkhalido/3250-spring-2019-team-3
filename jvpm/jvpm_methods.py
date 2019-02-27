@@ -14,7 +14,7 @@ variables = []
 
 def opcode_methods(argument):
     """DICTIONARY OF METHODS, FOR SPRINT 3 ONLY BUILD THE METHODS NOT COMMENTED OUT."""
-    # Passing arguments to the method for istore
+    # Array of arguments from the main for istore and iload
     # arguments = []
     token_dict = {
         "iconst_m1": iconst_m1,        # load the int value -1 onto the stack
@@ -78,7 +78,7 @@ def opcode_methods(argument):
 #         "ireturn": ireturn,         # returner an integer from a method
         "ishl": method55,            # int shift left
         "ishr": method56,            # int arithmetic shift right
-        "istore": istore,          # store int value into variable #index
+#        "istore": istore,          # store int value into variable #index
         "istore_0": istore_0,        # store int value into variable 0
         "istore_2": istore_2,        # store int value into variable 2
         "istore_3": istore_3,        # store int value into variable 3
@@ -89,6 +89,7 @@ def opcode_methods(argument):
     # get the method name from the token_dict dictionary
     method = token_dict.get(argument, lambda: "Invalid opcode")
     
+    # trying to figure out how to recieve arguments from main for istore and iload
     # if arguments == []
     #     method()
     # else
@@ -325,10 +326,6 @@ def istore():
 
 def istore_0():
     """istore_0: store int value into VARIABLE 0"""
-#     global VARIABLE_0
-#     VARIABLE_0 = S.pop()
-#     print("istore_0: Popped " + str(VARIABLE_0) +
-#           " from Stack and stored in VARIABLE_0 in jvpm_methods.py.")
     popped = S.pop()
     variables.insert(0, popped)
     print("istore_0: Popped " + str(popped) +
@@ -337,15 +334,12 @@ def istore_0():
 def istore_1():
     """istore_1: store int value into VARIABLE 1"""
     popped = S.pop()
-    variables.insert(0, 0)
     variables.insert(1, popped)
     print("istore_1: Popped " + str(popped) +
           " from Stack and stored in variables[1] in jvpm_methods.py.")
 
 def istore_2():
     """istore_2: store int value into VARIABLE 2"""
-#     global VARIABLE_2
-#     VARIABLE_2 = S.pop()
     popped = S.pop()
     variables.insert(2, popped)
     print("istore_2: Popped " + str(popped) +
@@ -353,8 +347,6 @@ def istore_2():
 
 def istore_3():
     """istore_3: store int value into VARIABLE 3"""
-#     global VARIABLE_3
-#     VARIABLE_3 = S.pop()
     popped = S.pop()
     variables.insert(3, popped)
     print("istore_3: Popped " + str(popped) +
@@ -364,12 +356,6 @@ def istore_3():
 
 def isub():
     """isub: subtract two ints"""
-#     global VARIABLE_1
-#     global VARIABLE_2
-#     S.push(VARIABLE_1 - VARIABLE_2)
-#     print("> isub: Subtracted (VARIABLE_1 = " + str(VARIABLE_1) + ") - (VARIABLE_2 = " +
-#           str(VARIABLE_2) + ") and pushed to Stack.")
-#     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 - var2)
