@@ -92,10 +92,10 @@ class OpCodes():
         # LOOP TIME
         print()
         index = 0
-        self.opcall = []
+        opcall = []
         while index < len(self.opcodes):
-            self.opcall[index] = jvpm_dict.get_opcode(self.opcodes[index])
-            print("Opcode to implement from bytecode " + self.opcodes[index] + ': ' + self.opcall[index])
+            opcall = jvpm_dict.get_opcode(self.opcodes[index])
+            print("Opcode to implement from bytecode " + self.opcodes[index] + ': ' + opcall)
             index += 1
 
         # Search jvpm_method.py for method from above opcodeToCall variables and Implement.
