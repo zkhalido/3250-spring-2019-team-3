@@ -1,0 +1,42 @@
+2/23/19
+-Questions to bring up in Monday team meeting.
+-Breaking down user stories into story points.
+-Research on stacks in python. 
+Stack info:
+http://interactivepython.org/courselib/static/pythonds/BasicDS/ImplementingaStackinPython.html
+
+As a developer, I need to implement some of the integer operations because these are the easiest to start with.
+Execute opcode integer operations.
+Should this be in python or java (Since it is opcode does it matter?)
+
+Implement integer operations:
+opcodes to be implemented https://gouda.msudenver.edu/moodle/mod/assign/view.php?id=8558
+Postfix?
+
+As a developer, I will need to create the stack for operands because the JVM is a stack-oriented machine:
+
+Push operands onto a stack.
+
+As a developer, I will need to create simple Java files to test my integer operation implementation because I need to make sure I'm interpreting the opcodes correctly:
+
+Was this meant to by a python file test? (It is a java file)
+
+Using a dictionary to select functon to execute
+https://stackoverflow.com/questions/9168340/using-a-dictionary-to-select-function-to-execute
+
+def p1(args):
+    whatever
+
+def p2(more args):
+    whatever
+
+myDict = {
+    "P1": p1,
+    "P2": p2,
+    ...
+    "Pn": pn
+}
+
+def myMain(name):
+    myDict[name]()
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
