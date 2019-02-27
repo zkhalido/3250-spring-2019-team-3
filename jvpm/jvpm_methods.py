@@ -78,7 +78,7 @@ def opcode_methods(argument):
 #         "ireturn": ireturn,         # returner an integer from a method
         "ishl": method55,            # int shift left
         "ishr": method56,            # int arithmetic shift right
-#        "istore": istore,          # store int value into variable #index
+        "istore": istore_3,          # store int value into variable #index
         "istore_0": istore_0,        # store int value into variable 0
         "istore_2": istore_2,        # store int value into variable 2
         "istore_3": istore_3,        # store int value into variable 3
