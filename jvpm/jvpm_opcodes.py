@@ -8,9 +8,7 @@ import jvpm_methods # import external method dictionary
 # pylint: disable = W0105, C0122, R0903
 
 class HeaderClass():
-    """Class that parses the data from test.class
-    and assigns values to variables
-    """
+    """Class that parses the data from test.class and assigns values to variables"""
     def __init__(self):
         self.stream = ConstBitStream(filename='test.class')
         self.header_magic = ""
@@ -45,7 +43,7 @@ class HeaderClass():
 # **************************************************************************************************
 
 class OpCodes():
-    """Class that searches the external dictionary of opcodes and Implements using
+    """Class that searches the external dictionary of opcodes and implements using
     the external dictionary of methods"""
     def __init__(self):
         # List of the test1.java(math) opcodes.
@@ -63,7 +61,7 @@ class OpCodes():
 
     def dict_search(self):
         """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation and
-        Implement if found."""
+        implement if found."""
 	# Hex to Opcode from imported opcode dictionary - jvpm_dict,
         # implemented using imported method dictionary - jvpm_methods.
         print("\nBytecodes from .class file: " + str(self.opcodes))
@@ -143,9 +141,9 @@ if '__main__' == __name__:
 
     # **********************************************************************************************
 
-    print('\n2) ___Parse, pull, and assign Method bytecodes to an array, search imported '
+    print('\n2) ___Parse, pull, and assign method bytecodes to an array, search imported '
           '\n  dictionary for bytecode and pull opcode. If found, send opcode to'
-          '\n  jvpm_methods.py to Implement the method:___')
+          '\n  jvpm_methods.py to implement the method:___')
     Z = OpCodes()
     Z.dict_search()
 
