@@ -63,7 +63,7 @@ class OpCodes():
     def dict_search(self):
         """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation and
         Implement if found."""
-	# Hex to Opcode from imported opcode dictionary - jvpm_dict, 
+	# Hex to Opcode from imported opcode dictionary - jvpm_dict,
         # implemented using imported method dictionary - jvpm_methods.
         print("\n" + str(self.opcodes))
         index = 0
@@ -142,9 +142,9 @@ if '__main__' == __name__:
 
     # ************************************************************************************
 
-    print('\n2) ___Parse, pull, and assign Method bytecodes to an array, search imported dictionary for'
-          '\n  bytecode and pull opcode. If found, send opcode to jvpm_methods.py to'
-          '\n  Implement the method:___\n\nOpcodes from test1.java(MATH):')
+    print('\n2) ___Parse, pull, and assign Method bytecodes to an array,'
+          '\n  search imported dictionary for bytecode and pull opcode. If found, send opcode to'
+          '\n  jvpm_methods.py to Implement the method:___\n\nOpcodes from test1.java(MATH):')
     Z = OpCodes()
     Z.dict_search()
 
