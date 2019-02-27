@@ -54,7 +54,7 @@ def opcode_methods(argument):
 #         "ifnonnull": ifnonnull,       # if value is not null, branch
 #         "ifnull": ifnull,          # if value is null, branch
 #         "iload": iload,           # load an int value from a local variabl #index
-#         "iload_0": iload_0,         # load an int value from local array variable[0]
+         "iload_0": iload_0,         # load an int value from local array variable[0]
          "iload_1": iload_1,         # load an int value from local array variable[1]
          "iload_2": iload_2,         # load an int value from local variable[2]
          "iload_3": iload_3,         # load an int value from local variable[3]
@@ -239,11 +239,11 @@ def iinc():
 # def iload():
 #     print('iload')
 
-# def iload_0():
-#     """iload: push variable[0] to the Stack"""
-#     pushing = variables[0]
-#     S.push(pushing)
-#     print('iload_0: Push variables[0] to Stack')
+def iload_0():
+    """iload: push variable[0] to the Stack"""
+    pushing = variables[0]
+    S.push(pushing)
+    print('iload_0: Push variables[0] to Stack')
 
 def iload_1():
     """iload: push variable[1] to the Stack"""
@@ -326,28 +326,29 @@ def istore():
     print('method57')
 
 def istore_0():
-    """istore_0: store int value into VARIABLE 0"""
+    """istore_0: store int value into variables[0]"""
     popped = S.pop()
+    variables.pop(0) # remove the assigned 0 from the [0]position
     variables.insert(0, popped)
     print("istore_0: Popped " + str(popped) +
           " from Stack and stored in variables[0] in jvpm_methods.py.")
 
 def istore_1():
-    """istore_1: store int value into VARIABLE 1"""
+    """istore_1: store int value into variables[1]"""
     popped = S.pop()
     variables.insert(1, popped)
     print("istore_1: Popped " + str(popped) +
           " from Stack and stored in variables[1] in jvpm_methods.py.")
 
 def istore_2():
-    """istore_2: store int value into VARIABLE 2"""
+    """istore_2: store int value into variables[2]"""
     popped = S.pop()
     variables.insert(2, popped)
     print("istore_2: Popped " + str(popped) +
           " from Stack and stored in variables[2] in jvpm_methods.py.")
 
 def istore_3():
-    """istore_3: store int value into VARIABLE 3"""
+    """istore_3: store int value into variables[3]"""
     popped = S.pop()
     variables.insert(3, popped)
     print("istore_3: Popped " + str(popped) +
