@@ -250,7 +250,7 @@ def iload_1():
     pushing = variables[1]
     S.push(pushing)
     print('iload_1: Push variables[1] to Stack')
-    variables
+    print(variables)
 
 def iload_2():
     """iload: push variable[2] to the Stack"""
