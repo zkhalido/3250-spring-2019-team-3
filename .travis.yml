@@ -14,8 +14,7 @@ after_success:
 addons:
   sonarcloud:
     organization: git-confused-team3 # the key of the org you chose at step #3
-    token:
-      secure: PTqUmAgmqt3kdGqWwMah2bH84FH7jzVS8UM279G+yDR1q0XV55JhNcz3zpFm7PULweBDz8m0dbGdW+4ivOVjnFtJzd8rvjGnyhSfpBpvZLMXFGB7RwrfFDgVDEdJ8Sgde/oS8V8LctgMKuhrbgO5O+enXW5miagA+lHwJsnJgpWgjKFV/4tzwmfkCGa2u2gQ+qCfubP2q/FfryWU0NUQZbA5ga6Dx7hgurJICZFwenbX/wbBm9xJUYrY07eZ4LMm2R875nznnkK+J3Nl0HcAqtbw1YoL8NhWXriB+EV9qsTFny3mURfq4vjFLKk6LQjfh6gZeMfMm5lYN63nwXPaEOe5ETjvQNFu4f7Klc2BrOXVjP5fIeJGwSgNWWd+qbNbpQ381kssoEJzcW75B2KynVaS1h1IGD/mob10cMkezE21iGHB4kSw2NqYWP+1b+kQgepQw/pNVFKFnsXFVrFPDmzGpesuVAOOt4TVcsmJ6YjewBcWGv3YKKnIl27yy90nLHAGHFLrXp84ZC9XIV0a5/522zNCvayT8FIr87j56dsn+IwKDqTueEuQCG5TLrKiK/dGG5gV5yMviXvpIVTYx2MAEn3LJbAEVPkaGY2LK6fynGlVuThDDUvY6jjuG/z9yG85DakkpsZ/04dsoo9r43kTmgBBlZ+6P4p0WEU6sV8=
-script:
+    token: c392c7fb100fe94b7589639cfc5dcf521f3b22cf
+
   # other script steps might be done before running the actual analysis
   - sonar-scanner
