@@ -89,7 +89,7 @@ def opcode_methods(argument):
     # get the method name from the token_dict dictionary
     method = token_dict.get(argument, lambda: "Invalid opcode")
     
-    # if arguments == null
+    # if arguments == []
     #     method()
     # else
     #     method(arguments[0])
