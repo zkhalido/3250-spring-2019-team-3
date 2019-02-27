@@ -83,7 +83,7 @@ def opcode_methods(argument):
         "istore_2": istore_2,      # store int value into VARIABLE[2]
         "istore_3": istore_3,      # store int value into VARIABLE[3]
         "isub": isub,              # int subtract
-        "iushr": method62,         # int logical shift right
+        "iushr": iushr,         # int logical shift right
         "ixor": method63           # xor
     }
     # get the method name from the token_dict dictionary
@@ -383,6 +383,9 @@ def method62():
     """description here"""
     print('method62')
 
-def method63():
-    """description here"""
-    print('method63')
+def iushr():
+    """int logical shift right"""
+    var2 = S.pop()
+    var1 = S.pop()
+    S.push(var1 >> var2)
+    print(S.peek())
