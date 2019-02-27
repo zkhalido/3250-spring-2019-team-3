@@ -66,7 +66,7 @@ class OpCodes():
         Implement if found."""
 	# Hex to Opcode from imported opcode dictionary - jvpm_dict,
         # implemented using imported method dictionary - jvpm_methods.
-        print("\nBytecodes from .class file:" + str(self.opcodes))
+        print("\nBytecodes from .class file: " + str(self.opcodes))
         index = 0
         while index < len(self.opcodes):
             opcall = jvpm_dict.get_opcode(self.opcodes[index])
