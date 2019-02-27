@@ -140,10 +140,6 @@ class OpCodes():
         print("Opcode to implement from bytecode " + self.opcode6 + ': ' + opcode_to_call_6)
         opcode_to_call_7 = jvpm_dict.get_opcode(self.opcode7)
         print("Opcode to implement from bytecode " + self.opcode7 + ': ' + opcode_to_call_7)
-#         opcode_to_call_8 = jvpm_dict.get_opcode(self.opcode8)
-#         print("Opcode to implement from bytecode " + self.opcode8 + ': ' + opcode_to_call_8)
-#         opcode_to_call_9 = jvpm_dict.get_opcode(self.opcode9)
-#         print("Opcode to implement from bytecode " + self.opcode9 + ': ' + opcode_to_call_9)
 
         # Search jvpm_method.py for method from above opcodeToCall variables and Implement.
         print('\n3) ____IMPLEMENT THE OPCODES:____\n\nOpcodes from test1.java(MATH):\n')
@@ -155,10 +151,8 @@ class OpCodes():
         jvpm_methods.opcode_methods(opcode_to_call_5)
         jvpm_methods.opcode_methods(opcode_to_call_6)
         jvpm_methods.opcode_methods(opcode_to_call_7)
-#         jvpm_methods.opcode_methods(opcode_to_call_8)
-#         jvpm_methods.opcode_methods(opcode_to_call_9)
         print()
-        return self.opcode0
+        return # self.opcode0
 
 # ****************************************************************************************
 
