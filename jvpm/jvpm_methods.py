@@ -24,9 +24,9 @@ def iconst_m1():
 # store int value into VARIABLE 1
 def istore_1():
     """istore_1: store int value into VARIABLE 1"""
-    global VARIABLE_1
-    VARIABLE_1 = S.pop()
-    popped = VARIABLE_1
+#     global VARIABLE_1
+#     VARIABLE_1 = S.pop()
+    popped = S.pop()
     variables.insert(0, 0)
     variables.insert(1, popped)
     print("istore_1: Popped " + str(popped) +
