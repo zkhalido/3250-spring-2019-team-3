@@ -67,7 +67,6 @@ class OpCodes():
         # implemented using imported method dictionary - jvpm_methods.
         print("\n" + str(self.opcodes))
         index = 0
-        opcall = []
         while index < len(self.opcodes):
             opcall = jvpm_dict.get_opcode(self.opcodes[index])
             print("Bytecode " + self.opcodes[index] + ' = Opcode: ' + opcall)
