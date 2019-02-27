@@ -341,7 +341,7 @@ def ishr():
     """description here"""
     var2 = S.pop()
     var1 = S.pop()
-    S.push(var1 * (2 ** var2))
+    S.push(var1 >> var2)
     print(S.peek())
 
 # def istore():
@@ -393,9 +393,9 @@ def iushr():
     """int logical shift right"""
     var2 = S.pop()
     var1 = S.pop()
-    S.push(var1 >> var2)
+    S.push(var1 >>> var2)
     print(S.peek())
-    
+
 def ixor():
     """int xor"""
     variable2 = S.pop()
