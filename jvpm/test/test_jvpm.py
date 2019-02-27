@@ -54,7 +54,4 @@ class test_stack(unittest.TestCase):
         self.assertEqual(a, 0)
         self.assertEqual(b, 4)
 
-    def test
-
-
-
+   # def test
