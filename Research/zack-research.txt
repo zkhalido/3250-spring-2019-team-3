@@ -156,3 +156,12 @@ key found error. Calling a .get method on a key that does not exist returns a
 none. Or a default value can be specified for keys that don't exist. Dictionaries
 can be updated with new assignments, or update methods. Benefits of using update
 method; you can update multiple Keys in one call (includes adding new keys).
+
+02/26/2019
+
+-Unittesting
+https://www.youtube.com/watch?v=hvPYuqzTPIk&t=1732s
+
+-Unittests exercise small amounts of code.
+-Nothing outside of the code has to work to test that code.
+-Coverage: how much of the code is covered (tested) by unittests.
