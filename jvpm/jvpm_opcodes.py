@@ -49,8 +49,8 @@ class OpCodes():
     opcodes, and implement the methods using the external dictionary of methods"""
     def __init__(self):
         # List of the test1.java(math) opcodes.
-        self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '3e', '1b', '1c', '64', '36',
-                        '1b', '1c', '6c', '36', '1b', '1c', '68', '36']
+        self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '1c', '68', '1c', '6c', '1c',
+                        '64', '3e']
 
         """
 
