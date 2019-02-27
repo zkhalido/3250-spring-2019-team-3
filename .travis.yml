@@ -12,8 +12,7 @@ install:
   - pip install codecov
 
 script:
-  # - coverage run --omit=*test* -m unittest
-  - coverage run --omit=*test* -m unittest jvpm.py
+  - coverage run --omit=*test* -m unittest
   - sonar-scanner
 
 
