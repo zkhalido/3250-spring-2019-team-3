@@ -232,9 +232,9 @@ def idiv():
 # def ifnull():
 #     print('ifnull')
 
-def iinc():
-    """iinc: increment local variable #index by signed byte const"""
-    print("iinc.")
+# def iinc():
+#     """iinc: increment local variable #index by signed byte const"""
+#     print("iinc.")
 
 # def iload():
 #     print('iload')
@@ -320,9 +320,9 @@ def method56():
     """description here"""
     print('method56')
 
-def istore():
-    """istore: store int value into array[in]"""
-    print('method57')
+# def istore():
+#     """istore: store int value into array[in]"""
+#     print('method57')
 
 def istore_0():
     """istore_0: store int value into VARIABLES[0]"""
