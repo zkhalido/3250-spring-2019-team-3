@@ -143,8 +143,8 @@ if '__main__' == __name__:
 
     # ************************************************************************************
 
-    print('\n2) ___Parse, pull, and assign Method bytecodes to an array,'
-          '\n  search imported dictionary for bytecode and pull opcode. If found, send opcode to'
+    print('\n2) ___Parse, pull, and assign Method bytecodes to an array, search imported '
+          '\n  dictionary for bytecode and pull opcode. If found, send opcode to'
           '\n  jvpm_methods.py to Implement the method:___\n\nOpcodes from test1.java(MATH):')
     Z = OpCodes()
     Z.dict_search()
