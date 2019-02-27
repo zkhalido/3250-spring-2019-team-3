@@ -5,10 +5,10 @@ import stack
 # pylint: disable = W0603, C0330
 S = stack.Stack()
 
-# According to the JVPM documentation Zach posted to Slack, 
+# According to the JVPM documentation Zach posted to Slack,
 # we need to use a local array's[] index values when using MATH for iload and istore.
 # Therefore, I transitioned the missing 4 variables to the below variables[] array.
-variables = [0]
+VARIABLES = [0]
 
 # ****************************************************************************************
 
@@ -65,7 +65,7 @@ def opcode_methods(argument):
         "imul": imul,            # multiply two integers
         "ineg": method45,            # negate int
 #         "instanceof": instanceof,      # determines if objectref is of a given type
-#         "invokedynamic": invokedynamic,   # invoke a dynamic method and puts the result on the stack
+#         "invokedynamic": invokedynamic,   # invoke a dynamic method and put the result on Stack
 #         "invokeinterface": invokeinterface, # invoke an interface method on object object ref and
 #                                      # puts results on the stack
 #         "invokespecial": invokespecial,   # invoke instance method on objectref and
@@ -88,13 +88,13 @@ def opcode_methods(argument):
     }
     # get the method name from the token_dict dictionary
     method = token_dict.get(argument, lambda: "Invalid opcode")
-    
+
     # trying to figure out how to recieve arguments from main for istore and iload
     # if arguments == []
     #     method()
     # else
     #     method(arguments[0])
-    
+
     # Call the Method.
     method()
 
@@ -123,8 +123,8 @@ def iadd():
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 + var2)
-    print("> iadd: Popped (" + str(var1) + ") and (" + str(var2) + 
-          ") from the Stack, assigned to local variables, \nadded the two," 
+    print("> iadd: Popped (" + str(var1) + ") and (" + str(var2) +
+          ") from the Stack, assigned to local variables, \nadded the two,"
           " and pushed result back to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
@@ -179,8 +179,8 @@ def idiv():
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 / var2)
-    print("> idiv: Popped (" + str(var1) + ") and (" + str(var2) + 
-          ") from the Stack, assigned to local variables, \ndivided the two," 
+    print("> idiv: Popped (" + str(var1) + ") and (" + str(var2) +
+          ") from the Stack, assigned to local variables, \ndivided the two,"
           " and pushed result back to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
@@ -241,27 +241,27 @@ def iinc():
 
 def iload_0():
     """iload: push variable[0] to the Stack"""
-    pushing = variables[0]
+    pushing = VARIABLES[0]
     S.push(pushing)
-    print('iload_0: Push variables[0] to Stack')
+    print('iload_0: Push VARIABLES[0] to Stack')
 
 def iload_1():
     """iload: push variable[1] to the Stack"""
-    pushing = variables[1]
+    pushing = VARIABLES[1]
     S.push(pushing)
-    print('iload_1: Push variables[1] to Stack')
+    print('iload_1: Push VARIABLES[1] to Stack')
 
 def iload_2():
     """iload: push variable[2] to the Stack"""
-    pushing2 = variables[2]
+    pushing2 = VARIABLES[2]
     S.push(pushing2)
-    print('iload_2: Push variables[2] to Stack')
+    print('iload_2: Push VARIABLES[2] to Stack')
 
 def iload_3():
     """iload: push variable[3] to the Stack"""
-    pushing3 = variables[3]
+    pushing3 = VARIABLES[3]
     S.push(pushing3)
-    print('iload_3: Push variables[3] to Stack')
+    print('iload_3: Push VARIABLES[3] to Stack')
 
 # def impdep1():
 #     print('impdep1')
@@ -274,8 +274,8 @@ def imul():
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 * var2)
-    print("> imul: Popped (" + str(var1) + ") and (" + str(var2) + 
-          ") from the Stack, assigned to local variables, \nmultiplied the two," 
+    print("> imul: Popped (" + str(var1) + ") and (" + str(var2) +
+          ") from the Stack, assigned to local variables, \nmultiplied the two,"
           " and pushed result back to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
@@ -325,33 +325,33 @@ def istore():
     print('method57')
 
 def istore_0():
-    """istore_0: store int value into variables[0]"""
+    """istore_0: store int value into VARIABLES[0]"""
     popped = S.pop()
-    variables.pop(0) # remove the assigned 0 from the [0]position
-    variables.insert(0, popped)
+    VARIABLES.pop(0) # remove the assigned 0 from the [0]position
+    VARIABLES.insert(0, popped)
     print("istore_0: Popped " + str(popped) +
-          " from Stack and stored in variables[0] in jvpm_methods.py.")
+          " from Stack and stored in VARIABLES[0] in jvpm_methods.py.")
 
 def istore_1():
-    """istore_1: store int value into variables[1]"""
+    """istore_1: store int value into VARIABLES[1]"""
     popped = S.pop()
-    variables.insert(1, popped)
+    VARIABLES.insert(1, popped)
     print("istore_1: Popped " + str(popped) +
-          " from Stack and stored in variables[1] in jvpm_methods.py.")
+          " from Stack and stored in VARIABLES[1] in jvpm_methods.py.")
 
 def istore_2():
-    """istore_2: store int value into variables[2]"""
+    """istore_2: store int value into VARIABLES[2]"""
     popped = S.pop()
-    variables.insert(2, popped)
+    VARIABLES.insert(2, popped)
     print("istore_2: Popped " + str(popped) +
-          " from Stack and stored in variables[2] in jvpm_methods.py.")
+          " from Stack and stored in VARIABLES[2] in jvpm_methods.py.")
 
 def istore_3():
-    """istore_3: store int value into variables[3]"""
+    """istore_3: store int value into VARIABLES[3]"""
     popped = S.pop()
-    variables.insert(3, popped)
+    VARIABLES.insert(3, popped)
     print("istore_3: Popped " + str(popped) +
-          " from Stack and stored in variables[3] in jvpm_methods.py," 
+          " from Stack and stored in VARIABLES[3] in jvpm_methods.py,"
           "\n>>>>>>>>>>>>>>>>>>>>>>>> c = " + str(popped) + " <<<<<<<<<<<<<<<<<<<<<<<<<<<")
     print(">>>> Top of Stack is now " + str(S.size()) + ".")
 
@@ -360,8 +360,8 @@ def isub():
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 - var2)
-    print("> isub: Popped (" + str(var1) + ") and (" + str(var2) + 
-          ") from the Stack, assigned to local variables, \nsubtracted the two," 
+    print("> isub: Popped (" + str(var1) + ") and (" + str(var2) +
+          ") from the Stack, assigned to local variables, \nsubtracted the two,"
           " and pushed result back to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
