@@ -1,5 +1,6 @@
 """import the unittest"""
 import unittest
+import stack
 
 # from collections import namedtuple
 from bitstring import ConstBitStream
