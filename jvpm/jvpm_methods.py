@@ -76,7 +76,7 @@ def opcode_methods(argument):
         "irem": irem,          # logical in remainder
 #         "ireturn": ireturn,       # returner an integer from a method
         "ishl": ishl,          # int shift left
-        "ishr": method56,          # int arithmetic shift right
+        "ishr": ishr,          # int arithmetic shift right
         "istore": istore_3,        # store int value into variable #index
         "istore_0": istore_0,      # store int value into VARIABLE[0]
         "istore_1": istore_1,      # store int value into VARIABLE[1]
@@ -84,7 +84,7 @@ def opcode_methods(argument):
         "istore_3": istore_3,      # store int value into VARIABLE[3]
         "isub": isub,              # int subtract
         "iushr": iushr,         # int logical shift right
-        "ixor": method62          # xor
+        "ixor": ixor          # xor
     }
     # get the method name from the token_dict dictionary
     method = token_dict.get(argument, lambda: "Invalid opcode")
@@ -327,12 +327,22 @@ def irem():
 #     print('ireturn')
 
 def ishl():
-    """description here"""
-    print('method55')
+    """int logical shift left"""
+    var2 = S.pop()
+    var1 = S.pop()
+    S.push(var1 << var2)
+    print("> ishl: Popped (" +str(var1) + ") and (" + str(var2) + ") and shifted"
+          + str(var1) + " left by " + str(var2) + " bit(s) and pushed the result"
+          " back to Stack.")
+    print(S.peek())
 
-def method56():
+
+def ishr():
     """description here"""
-    print('method56')
+    var2 = S.pop()
+    var1 = S.pop()
+    S.push(var1 * (2 ** var2))
+    print(S.peek())
 
 # def istore():
 #     """istore: store int value into array[in]"""
@@ -379,13 +389,16 @@ def isub():
           " and pushed result back to Stack.")
     print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
-def method62():
-    """description here"""
-    print('method62')
-
 def iushr():
     """int logical shift right"""
     var2 = S.pop()
     var1 = S.pop()
     S.push(var1 >> var2)
+    print(S.peek())
+    
+def ixor():
+    """int xor"""
+    variable2 = S.pop()
+    variable1 = S.pop()
+    S.push(variable1 ^ variable2)
     print(S.peek())

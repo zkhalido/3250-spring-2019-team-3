@@ -3,7 +3,7 @@ import unittest
 # Unittest to test the output of the HeaderClass() methods.
 # python3 -m unittest jvpm_opcodes.py
 # We have a warning about an unclosed file but no errors.
-
+'''
 class UnittestHeader(unittest.TestCase):
     """unittest to test method outputs"""
     def setUp(self):
@@ -49,5 +49,5 @@ class UnittestHeader(unittest.TestCase):
         """the comparison"""
         self.assertEqual(self.test.header_const_pool_count, 14)
         print(f'< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >\n')
-
+'''
 # **************************************************************************************************
