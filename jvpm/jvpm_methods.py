@@ -54,10 +54,10 @@ def opcode_methods(argument):
 #         "ifnonnull": ifnonnull,       # if value is not null, branch
 #         "ifnull": ifnull,          # if value is null, branch
 #         "iload": iload,           # load an int value from a local variabl #index
-#         "iload_0": iload_0,         # load an int value from local variable 0
-         "iload_1": iload_1,         # load an int value from local variable 1
-         "iload_2": iload_2,         # load an int value from local variable 2
-#         "iload_3": iload_3,         # load an int value from local variable 3
+         "iload_0": iload_0,         # load an int value from local array variable[0]
+         "iload_1": iload_1,         # load an int value from local array variable[1]
+         "iload_2": iload_2,         # load an int value from local variable[2]
+         "iload_3": iload_3,         # load an int value from local variable[3]
 #         "impdep1": impdep1,         # reserved for implementation dependent operations,
 #                                      # should not appear in any class
 #         "impdep2": impdep2,         # reserved for implementation dependent operations,
