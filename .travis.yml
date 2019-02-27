@@ -13,7 +13,7 @@ install:
 
 script:
   # - coverage run --omit=*test* -m unittest
-  - coverage run --omit=*test* -m unittest jvpm
+  - coverage run --omit=*test* -m unittest
   - sonar-scanner
 
 
