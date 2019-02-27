@@ -54,7 +54,7 @@ def opcode_methods(argument):
 #         "ifnonnull": ifnonnull,       # if value is not null, branch
 #         "ifnull": ifnull,          # if value is null, branch
 #         "iload": iload,           # load an int value from a local variabl #index
-         "iload_0": iload_0,         # load an int value from local array variable[0]
+#         "iload_0": iload_0,         # load an int value from local array variable[0]
          "iload_1": iload_1,         # load an int value from local array variable[1]
          "iload_2": iload_2,         # load an int value from local variable[2]
          "iload_3": iload_3,         # load an int value from local variable[3]
@@ -239,11 +239,11 @@ def iinc():
 # def iload():
 #     print('iload')
 
-def iload_0():
-    """iload: push variable[0] to the Stack"""
-    pushing = variables[0]
-    S.push(pushing)
-    print('iload_0: Push variables[0] to Stack')
+# def iload_0():
+#     """iload: push variable[0] to the Stack"""
+#     pushing = variables[0]
+#     S.push(pushing)
+#     print('iload_0: Push variables[0] to Stack')
 
 def iload_1():
     """iload: push variable[1] to the Stack"""
