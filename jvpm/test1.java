@@ -4,7 +4,7 @@ class test1 {
         int b = 2;
         int c = a + b;
         int d = a - b;
-        int e = b / a;
+        int e = a / b;
         int f = a * b;
     };
 }
