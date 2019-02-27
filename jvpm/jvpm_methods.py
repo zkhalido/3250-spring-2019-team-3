@@ -288,7 +288,7 @@ def ineg():
     """ineg: value minus zero"""
     var1 = S.pop()
     S.push(0 - var1)
-    print('ineg = ' + S.peek())
+    print('ineg = ' + str(S.peek()))
 
 # def instanceof():
 #     print('instanceof')
