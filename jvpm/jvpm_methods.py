@@ -75,7 +75,7 @@ def opcode_methods(argument):
         "ior": ior,           # bitwise int OR
         "irem": irem,          # logical in remainder
 #         "ireturn": ireturn,       # returner an integer from a method
-        "ishl": method55,          # int shift left
+        "ishl": ishl,          # int shift left
         "ishr": method56,          # int arithmetic shift right
         "istore": istore_3,        # store int value into variable #index
         "istore_0": istore_0,      # store int value into VARIABLE[0]
@@ -84,7 +84,7 @@ def opcode_methods(argument):
         "istore_3": istore_3,      # store int value into VARIABLE[3]
         "isub": isub,              # int subtract
         "iushr": iushr,         # int logical shift right
-        "ixor": method63           # xor
+        "ixor": method62          # xor
     }
     # get the method name from the token_dict dictionary
     method = token_dict.get(argument, lambda: "Invalid opcode")
@@ -326,7 +326,7 @@ def irem():
 # def ireturn():
 #     print('ireturn')
 
-def method55():
+def ishl():
     """description here"""
     print('method55')
 
