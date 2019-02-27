@@ -43,6 +43,67 @@ class HeaderClass():
 
 # ****************************************************************************************
 
+class OpCodes():
+    """Class that searches the external dictionary of opcodes and Implements using
+    the external dictionary of methods"""
+    def __init__(self):
+#         self.opcodes = ['02', '03', '04', '05', '06', '07',
+#                         '08', '3b', '3c', '3d', '3e', '84']
+        # Configured for the MATH/test1.java file
+        self.opcode0 = '04' # iconst_1
+        self.opcode1 = '3c' # istore_1
+        self.opcode2 = '05' # iconst_2
+        self.opcode3 = '3d' # istore_2
+        self.opcode4 = '1b' # iload_1
+        self.opcode5 = '1c' # iload_2
+        self.opcode6 = '6c' # 60 = iadd, 64 = isub, 68 = imul, 6c = idiv
+        self.opcode7 = '3e' # istore_3
+
+        """
+
+
+        METHOD GOES HERE TO FIND OPCODES FROM TEST.CLASS AND SAVE TO AN ARRAY.
+
+
+
+        """
+
+    def dict_search(self):
+        """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation and
+        Implement if found"""
+	# Opcode to implement from imported dictionary:
+        opcode_to_call_0 = jvpm_dict.get_opcode(self.opcode0)
+        print("\nOpcode to implement from bytecode " + self.opcode0 + ': ' + opcode_to_call_0)
+        opcode_to_call_1 = jvpm_dict.get_opcode(self.opcode1)
+        print("Opcode to implement from bytecode " + self.opcode1 + ': ' + opcode_to_call_1)
+        opcode_to_call_2 = jvpm_dict.get_opcode(self.opcode2)
+        print("Opcode to implement from bytecode " + self.opcode2 + ': ' + opcode_to_call_2)
+        opcode_to_call_3 = jvpm_dict.get_opcode(self.opcode3)
+        print("Opcode to implement from bytecode " + self.opcode3 + ': ' + opcode_to_call_3)
+        opcode_to_call_4 = jvpm_dict.get_opcode(self.opcode4)
+        print("Opcode to implement from bytecode " + self.opcode4 + ': ' + opcode_to_call_4)
+        opcode_to_call_5 = jvpm_dict.get_opcode(self.opcode5)
+        print("Opcode to implement from bytecode " + self.opcode5 + ': ' + opcode_to_call_5)
+        opcode_to_call_6 = jvpm_dict.get_opcode(self.opcode6)
+        print("Opcode to implement from bytecode " + self.opcode6 + ': ' + opcode_to_call_6)
+        opcode_to_call_7 = jvpm_dict.get_opcode(self.opcode7)
+        print("Opcode to implement from bytecode " + self.opcode7 + ': ' + opcode_to_call_7)
+
+        # Search jvpm_method.py for method from above opcodeToCall variables and Implement.
+        print('\n3) ____IMPLEMENT THE OPCODES:____\n\nOpcodes from test1.java(MATH):\n')
+        jvpm_methods.opcode_methods(opcode_to_call_0)
+        jvpm_methods.opcode_methods(opcode_to_call_1)
+        jvpm_methods.opcode_methods(opcode_to_call_2)
+        jvpm_methods.opcode_methods(opcode_to_call_3)
+        jvpm_methods.opcode_methods(opcode_to_call_4)
+        jvpm_methods.opcode_methods(opcode_to_call_5)
+        jvpm_methods.opcode_methods(opcode_to_call_6)
+        jvpm_methods.opcode_methods(opcode_to_call_7)
+        print()
+        return # self.opcode0
+
+# ****************************************************************************************
+
 # Unittest to test the output of the HeaderClass() methods.
 # python3 -m unittest jvpm_opcodes.py
 # We have a warning about an unclosed file but no errors.
@@ -95,67 +156,6 @@ class HeaderClass():
 
 # ****************************************************************************************
 
-class OpCodes():
-    """Class that searches the external dictionary of opcodes and Implements using
-    the external dictionary of methods"""
-    def __init__(self):
-#         self.opcodes = ['02', '03', '04', '05', '06', '07',
-#                         '08', '3b', '3c', '3d', '3e', '84']
-        # Configured for the MATH/test1.java file
-        self.opcode0 = '04' # iconst_1
-        self.opcode1 = '3c' # istore_1
-        self.opcode2 = '05' # iconst_2
-        self.opcode3 = '3d' # istore_2
-        self.opcode4 = '1b' # iload_1
-        self.opcode5 = '1c' # iload_2
-        self.opcode6 = '6c' # 60 = iadd, 64 = isub, 68 = imul, 6c = idiv
-        self.opcode7 = '3e' # istore_3
-
-        """
-
-
-        METHOD GOES HERE TO FIND AND ASSIGN OPCODES FROM TEST.CLASS AND ASSIGN TO ABOVE VARIABLES.
-
-
-
-        """
-
-    def dict_search(self):
-        """Search the jvpm.dict.py(dictionary) file for the bytecode/opcode translation and
-        Implement if found"""
-	# Opcode to implement from imported dictionary:
-        opcode_to_call_0 = jvpm_dict.get_opcode(self.opcode0)
-        print("\nOpcode to implement from bytecode " + self.opcode0 + ': ' + opcode_to_call_0)
-        opcode_to_call_1 = jvpm_dict.get_opcode(self.opcode1)
-        print("Opcode to implement from bytecode " + self.opcode1 + ': ' + opcode_to_call_1)
-        opcode_to_call_2 = jvpm_dict.get_opcode(self.opcode2)
-        print("Opcode to implement from bytecode " + self.opcode2 + ': ' + opcode_to_call_2)
-        opcode_to_call_3 = jvpm_dict.get_opcode(self.opcode3)
-        print("Opcode to implement from bytecode " + self.opcode3 + ': ' + opcode_to_call_3)
-        opcode_to_call_4 = jvpm_dict.get_opcode(self.opcode4)
-        print("Opcode to implement from bytecode " + self.opcode4 + ': ' + opcode_to_call_4)
-        opcode_to_call_5 = jvpm_dict.get_opcode(self.opcode5)
-        print("Opcode to implement from bytecode " + self.opcode5 + ': ' + opcode_to_call_5)
-        opcode_to_call_6 = jvpm_dict.get_opcode(self.opcode6)
-        print("Opcode to implement from bytecode " + self.opcode6 + ': ' + opcode_to_call_6)
-        opcode_to_call_7 = jvpm_dict.get_opcode(self.opcode7)
-        print("Opcode to implement from bytecode " + self.opcode7 + ': ' + opcode_to_call_7)
-
-        # Search jvpm_method.py for method from above opcodeToCall variables and Implement.
-        print('\n3) ____IMPLEMENT THE OPCODES:____\n\nOpcodes from test1.java(MATH):\n')
-        jvpm_methods.opcode_methods(opcode_to_call_0)
-        jvpm_methods.opcode_methods(opcode_to_call_1)
-        jvpm_methods.opcode_methods(opcode_to_call_2)
-        jvpm_methods.opcode_methods(opcode_to_call_3)
-        jvpm_methods.opcode_methods(opcode_to_call_4)
-        jvpm_methods.opcode_methods(opcode_to_call_5)
-        jvpm_methods.opcode_methods(opcode_to_call_6)
-        jvpm_methods.opcode_methods(opcode_to_call_7)
-        print()
-        return # self.opcode0
-
-# ****************************************************************************************
-
 if '__main__' == __name__:
 
     # ************************************************************************************
@@ -170,7 +170,7 @@ if '__main__' == __name__:
     # ************************************************************************************
 
     print('\n2) ___Parse, pull, and assign Method bytecodes, search imported dictionary for'
-          '\n  bytecode and return opcode. If found, send opcode to jvpm_methods.py to'
+          '\n  bytecode and pull opcode. If found, send opcode to jvpm_methods.py to'
           '\n  Implement the method:___\n\nOpcodes from test1.java(MATH):')
     Z = OpCodes()
     Z.dict_search()
