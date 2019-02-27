@@ -8,7 +8,7 @@ S = stack.Stack()
 # According to the JVPM documentation Zach posted to Slack, 
 # we need to use a local array's[] index values when using MATH for iload and istore.
 # Therefore, I transitioned the missing 4 variables to the below variables[] array.
-variables = []
+variables = [0]
 
 # ****************************************************************************************
 
