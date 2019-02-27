@@ -42,7 +42,7 @@ class HeaderClass():
         print("const pool: ", self.header_const_pool_count)
         return self.header_const_pool_count
 
-# ****************************************************************************************
+# **************************************************************************************************
 
 class OpCodes():
     """Class that searches the external dictionary of opcodes and Implements using
@@ -76,7 +76,7 @@ class OpCodes():
         print()
         # return
 
-# ****************************************************************************************
+# **************************************************************************************************
 
 # Unittest to test the output of the HeaderClass() methods.
 # python3 -m unittest jvpm_opcodes.py
@@ -128,11 +128,11 @@ class OpCodes():
 #         self.assertEqual(self.test.header_const_pool_count, 14)
 #         print(f'< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >\n')
 
-# ****************************************************************************************
+# **************************************************************************************************
 
 if '__main__' == __name__:
 
-    # ************************************************************************************
+    # **********************************************************************************************
 
     print('\n1) ___Parse, pull, and assign Header bytecodes:___')
     D = HeaderClass()
@@ -141,7 +141,7 @@ if '__main__' == __name__:
     D.pull_major()
     D.pull_const_pool_count()
 
-    # ************************************************************************************
+    # **********************************************************************************************
 
     print('\n2) ___Parse, pull, and assign Method bytecodes to an array, search imported '
           '\n  dictionary for bytecode and pull opcode. If found, send opcode to'
@@ -149,4 +149,4 @@ if '__main__' == __name__:
     Z = OpCodes()
     Z.dict_search()
 
-# ****************************************************************************************
+# **************************************************************************************************
