@@ -51,7 +51,7 @@ class OpCodes():
         # List of the test1.java(math) opcodes.
 #         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '1c', '68', '1c', '6c', '1c',
 #                         '64', '3e']
-        self.opcodes = ['06', '3c', '04', '3d', '1b', '1c', '78', '3e']
+        self.opcodes = ['06', '3c', '04', '3d', '1b', '1c', '7c', '3e']
 #        self.opcodes = ['06', '3c', '1b', '74', '3e']
 
         """
