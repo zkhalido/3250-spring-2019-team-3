@@ -148,7 +148,7 @@ if '__main__' == __name__:
 
 
     print('Testing the Stack:')
-    S = Stack()
+    S = stack()
     print(S.is_empty())
     S.push('dog')      # 1st item on stack
     S.push(1)          # 2nd item on stack
