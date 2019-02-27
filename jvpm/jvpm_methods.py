@@ -1,13 +1,13 @@
 """import stack.py"""
 import stack
 # These 63 methods will eventually Implement all the opcode commands.
-# Method 4 - 63 is below the Dictionary, ONLY BUILD THE METHODS NOT COMMENTED OUT.
+# ONLY BUILD THE METHODS NOT COMMENTED OUT.
 # pylint: disable = W0603, C0330
 S = stack.Stack()
 
 # According to the JVPM documentation Zach posted to Slack,
-# we need to use a local array's[] index values when using MATH for iload and istore.
-# Therefore, I transitioned the missing 4 variables to the below variables[] array.
+# we need to use a local arrays'[] index values when using MATH for iload and istore.
+# Therefore, I transitioned the VARIABLES_0-4 to the VARIABLES[] array.
 VARIABLES = [0]
 
 # ****************************************************************************************
