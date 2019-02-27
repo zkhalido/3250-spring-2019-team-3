@@ -1,5 +1,5 @@
-"""import the unittest"""
-import unittest
+# """import the unittest"""
+# import unittest
 from bitstring import ConstBitStream
 import jvpm_dict    # import external opcode dictionary
 import jvpm_methods # import external method dictionary
@@ -40,58 +40,6 @@ class HeaderClass():
         self.header_const_pool_count = self.stream.read(8).uint + self.stream.read(8).uint - 1
         print("const pool: ", self.header_const_pool_count)
         return self.header_const_pool_count
-
-# ****************************************************************************************
-
-# Unittest to test the output of the HeaderClass() methods.
-# python3 -m unittest jvpm_opcodes.py
-# We have a warning about an unclosed file but no errors.
-
-# class UnittestHeader(unittest.TestCase):
-#     """unittest to test method outputs"""
-#     def setUp(self):
-#         """instantiate an instance of HeaderClass"""
-#         self.test = HeaderClass()
-
-#     def test_magic(self):
-#         """method to test the pull_magic output"""
-#         self.test.pull_magic()
-#         """the comparison"""
-#         self.assertEqual(self.test.header_magic, 'cafebabe')
-#         print('<<<< passed header_magic, ' + self.test.header_magic + ' = cafebabe >>>>\n')
-
-#     def test_minor(self):
-#         """method to test the pull_minor output"""
-#         known_minor = 0
-#         """call methods in order, including the desired method, to acquire value."""
-#         self.test.pull_magic()
-#         self.test.pull_minor()
-#         """the comparison"""
-#         self.assertEqual(self.test.header_minor, 0)
-#         print(f'<<<< passed header_minor, {self.test.header_minor} = {known_minor} >>>>\n')
-
-#     def test_major(self):
-#         """method to test the pull_major output"""
-#         known_major = 54
-#         """call methods in order, including the desired method, to acquire value."""
-#         self.test.pull_magic()
-#         self.test.pull_minor()
-#         self.test.pull_major()
-#         """the comparison"""
-#         self.assertEqual(self.test.header_major, 54)
-#         print(f'<<<< passed header_major, {self.test.header_major} = {known_major} >>>>\n')
-
-#     def test_pool_count(self):
-#         """method to test the pull_const_pool_count output"""
-#         known_pool_count = 14
-#         """call methods in order, including the desired method, to acquire value."""
-#         self.test.pull_magic()
-#         self.test.pull_minor()
-#         self.test.pull_major()
-#         self.test.pull_const_pool_count()
-#         """the comparison"""
-#         self.assertEqual(self.test.header_const_pool_count, 14)
-#         print(f'< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >\n')
 
 # ****************************************************************************************
 
@@ -156,6 +104,58 @@ class OpCodes():
 
 # ****************************************************************************************
 
+# Unittest to test the output of the HeaderClass() methods.
+# python3 -m unittest jvpm_opcodes.py
+# We have a warning about an unclosed file but no errors.
+
+# class UnittestHeader(unittest.TestCase):
+#     """unittest to test method outputs"""
+#     def setUp(self):
+#         """instantiate an instance of HeaderClass"""
+#         self.test = HeaderClass()
+
+#     def test_magic(self):
+#         """method to test the pull_magic output"""
+#         self.test.pull_magic()
+#         """the comparison"""
+#         self.assertEqual(self.test.header_magic, 'cafebabe')
+#         print('<<<< passed header_magic, ' + self.test.header_magic + ' = cafebabe >>>>\n')
+
+#     def test_minor(self):
+#         """method to test the pull_minor output"""
+#         known_minor = 0
+#         """call methods in order, including the desired method, to acquire value."""
+#         self.test.pull_magic()
+#         self.test.pull_minor()
+#         """the comparison"""
+#         self.assertEqual(self.test.header_minor, 0)
+#         print(f'<<<< passed header_minor, {self.test.header_minor} = {known_minor} >>>>\n')
+
+#     def test_major(self):
+#         """method to test the pull_major output"""
+#         known_major = 54
+#         """call methods in order, including the desired method, to acquire value."""
+#         self.test.pull_magic()
+#         self.test.pull_minor()
+#         self.test.pull_major()
+#         """the comparison"""
+#         self.assertEqual(self.test.header_major, 54)
+#         print(f'<<<< passed header_major, {self.test.header_major} = {known_major} >>>>\n')
+
+#     def test_pool_count(self):
+#         """method to test the pull_const_pool_count output"""
+#         known_pool_count = 14
+#         """call methods in order, including the desired method, to acquire value."""
+#         self.test.pull_magic()
+#         self.test.pull_minor()
+#         self.test.pull_major()
+#         self.test.pull_const_pool_count()
+#         """the comparison"""
+#         self.assertEqual(self.test.header_const_pool_count, 14)
+#         print(f'< passed poolCount, {self.test.header_const_pool_count} = {known_pool_count} >\n')
+
+# ****************************************************************************************
+
 if '__main__' == __name__:
 
     # ************************************************************************************
@@ -170,7 +170,7 @@ if '__main__' == __name__:
     # ************************************************************************************
 
     print('\n2) ___Parse, pull, and assign Method bytecodes, search imported dictionary for'
-          '\n  bytecode and return opcode. If found, send opcode to jvpm_methods.py to'
+          '\n  bytecode and pull opcode. If found, send opcode to jvpm_methods.py to'
           '\n  Implement the method:___\n\nOpcodes from test1.java(MATH):')
     Z = OpCodes()
     Z.dict_search()
