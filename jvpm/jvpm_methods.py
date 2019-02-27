@@ -17,9 +17,6 @@ def opcode_methods(argument):
     # Array of arguments from the main for istore and iload
     # arguments = []
     token_dict = {
-        "iconst_m1": iconst_m1,    # load the int value -1 onto the stack
-        "istore_1": istore_1,      # store int value into VARIABLE 1
-        "iinc": iinc,              # increment local variable #index by signed byte const
 #         "i2b": i2b,              # convert an int into a byte
 #         "i2c": i2c,              # convert an int into a character
 #         "i2d": i2d,              # convert an int into a double
@@ -30,6 +27,7 @@ def opcode_methods(argument):
 #         "iaload": method11,          # load an int from an array
         "iand": method12,          # perform a bitwise AND on two integers
 #         "iastore": iastore,         # store an int into an array
+        "iconst_m1": iconst_m1,    # load the int value -1 onto the stack
         "iconst_0": iconst_0,      # load the int value 0 onto the stack
         "iconst_1": iconst_1,      # load the int value 1 onto the stack
         "iconst_2": iconst_2,      # load the int value 2 onto the stack
@@ -53,6 +51,7 @@ def opcode_methods(argument):
 #         "ifne": ifne,            # if value != 0 , branch
 #         "ifnonnull": ifnonnull,   # if value is not null, branch
 #         "ifnull": ifnull,         # if value is null, branch
+#         "iinc": iinc,              # increment local variable #index by signed byte const
 #         "iload": iload,           # load an int value from a local variabl #index
          "iload_0": iload_0,       # load an int value from local array variable[0]
          "iload_1": iload_1,       # load an int value from local array variable[1]
@@ -79,9 +78,10 @@ def opcode_methods(argument):
         "ishl": method55,          # int shift left
         "ishr": method56,          # int arithmetic shift right
         "istore": istore_3,        # store int value into variable #index
-        "istore_0": istore_0,      # store int value into variable 0
-        "istore_2": istore_2,      # store int value into variable 2
-        "istore_3": istore_3,      # store int value into variable 3
+        "istore_0": istore_0,      # store int value into VARIABLE[0]
+        "istore_1": istore_1,      # store int value into VARIABLE[1]
+        "istore_2": istore_2,      # store int value into VARIABLE[2]
+        "istore_3": istore_3,      # store int value into VARIABLE[3]
         "isub": isub,              # int subtract
         "iushr": method62,         # int logical shift right
         "ixor": method63           # xor
