@@ -24,8 +24,6 @@ def iconst_m1():
 # store int value into VARIABLE 1
 def istore_1():
     """istore_1: store int value into VARIABLE 1"""
-#     global VARIABLE_1
-#     VARIABLE_1 = S.pop()
     popped = S.pop()
     variables.insert(0, 0)
     variables.insert(1, popped)
@@ -358,18 +356,18 @@ def istore_0():
 
 def istore_2():
     """istore_2: store int value into VARIABLE 2"""
-    global VARIABLE_2
-    VARIABLE_2 = S.pop()
-    popped = VARIABLE_2
+#     global VARIABLE_2
+#     VARIABLE_2 = S.pop()
+    popped = S.pop()
     variables.insert(2, popped)
     print("istore_2: Popped " + str(popped) +
           " from Stack and stored in variables[2] in jvpm_methods.py.")
 
 def istore_3():
     """istore_3: store int value into VARIABLE 3"""
-    global VARIABLE_3
-    VARIABLE_3 = S.pop()
-    popped = VARIABLE_3
+#     global VARIABLE_3
+#     VARIABLE_3 = S.pop()
+    popped = S.pop()
     variables.insert(3, popped)
     print("istore_3: Popped " + str(popped) +
           " from Stack and stored in variables[3] in jvpm_methods.py," 
