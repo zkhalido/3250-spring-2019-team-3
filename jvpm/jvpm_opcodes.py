@@ -17,6 +17,15 @@ class HeaderClass():
         self.header_minor = ""
         self.header_major = ""
         self.header_const_pool_count = ""
+        with open('test.class', 'rb') as binary_file:
+            self.data = binary_file.read()
+
+    def get_magic(self):
+        magic = ""
+        for i in range(4):
+            magic += format(self.data[i], '02X')
+        print("\nMagic: ", magic)
+        return magic
 
     def pull_magic(self):
         """method to pull the magic data"""
