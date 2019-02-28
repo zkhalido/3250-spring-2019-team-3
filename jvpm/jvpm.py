@@ -106,6 +106,7 @@ class HeaderClass():
         temp = []
         count = self.get_methods_count()
         index = self.get_const_pool_count() + self.get_interfaces_count() + self.get_fields_count() + 16
+        print("index = " + str(index))
         for i in range(count):
             temp.append(format(self.data[index + i], '02X'))
         print("Methods Length: ", len(temp))
