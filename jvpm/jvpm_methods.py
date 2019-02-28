@@ -101,7 +101,10 @@ def opcode_methods(argument):
 # ****************************************************************************************
 
 # def i2b():
-#     print('i2b')
+#     temp_int = S.pop()
+#     byte = bytes([temp_int])
+#     S.push(byte)
+#     print("i2b converts " + str(temp_int) + " to a byte: " + str(byte))
 
 # def i2c():
 #     print('i2c')
