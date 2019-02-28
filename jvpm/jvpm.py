@@ -77,8 +77,8 @@ class HeaderClass():
         for i in range(count):
             temp.append(format(self.data[index + i], '02X'))
         print("Interfaces Length: ", len(temp))
-        print(temp[152])
         print(temp)
+        print(temp[0])
         return temp
 
     def get_fields_count(self):
