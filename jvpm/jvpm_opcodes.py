@@ -57,7 +57,7 @@ class OpCodes():
                 self.print()
                 return
         
-    def print():
+    def print(self):
         print("print")
         return
 
