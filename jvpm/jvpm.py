@@ -78,7 +78,6 @@ class HeaderClass():
             temp.append(format(self.data[index + i], '02X'))
         print("Interfaces Length: ", len(temp))
         print(temp)
-        print(temp[0])
         return temp
 
     def get_fields_count(self):
@@ -111,6 +110,7 @@ class HeaderClass():
             temp.append(format(self.data[index + i], '02X'))
         print("Methods Length: ", len(temp))
         print(temp)
+        print(temp[0], temp[152])
         return temp
 
     def get_attributes_count(self):
