@@ -45,7 +45,7 @@ class OpCodes():
         """
 
 
-        METHOD GOES HERE TO FIND OPCODES FROM TEST.CLASS AND SAVE TO self.opcodes LIST.
+        METHOD GOES HERE TO FIND OPCODES FROM ANY .CLASS FILE AND SAVE TO self.opcodes LIST.
 
 
 
