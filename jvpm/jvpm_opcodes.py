@@ -57,7 +57,7 @@ class OpCodes():
 
     def interpret(self, value):
         """this is the method used to interpret a given opcode"""
-        return jvpm_methods.opcode_methods(self.table[value])
+        return self.table[value](self)
 
         """
 
@@ -82,6 +82,11 @@ class OpCodes():
             index += 1
         print()
         # return
+        
+def iconst_1(self):
+    """this function implements the iconst_1 opcode"""
+    self.byte_count += 1
+    print('iconst_1')
 
 # **************************************************************************************************
 
