@@ -53,7 +53,7 @@ class OpCodes():
         """
 
 
-        METHOD GOES HERE TO FIND OPCODES FROM TEST.CLASS AND SAVE TO self.opcodes ARRAY.
+        METHOD GOES HERE TO FIND OPCODES FROM TEST.CLASS AND SAVE TO self.opcodes LIST.
 
 
 
