@@ -101,6 +101,7 @@ def opcode_methods(argument):
 # ****************************************************************************************
 
 # def i2b():
+#     https://www.delftstack.com/howto/python/how-to-convert-int-to-bytes-in-python-2-and-python-3/
 #     temp_int = S.pop()
 #     byte = bytes([temp_int])
 #     S.push(byte)
