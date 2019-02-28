@@ -72,7 +72,8 @@ class OpCodes():
 
     def interpret(self, value):
         """this is the method used to interpret a given opcode"""
-        return jvpm_methods.opcode_methods(self.table[value])
+        jvpm_methods.opcode_methods(self.table[value])
+        return
 
         """
 
