@@ -98,6 +98,11 @@ class OpCodes():
         print()
         # return
         
+def not_implemented(self):
+    """this is a dummy function"""
+    self.byte_count += 1
+    return 'not implemented'
+
 def aload_0(self):
     """this is a dummy method"""
     print('aload_0')
