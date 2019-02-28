@@ -252,25 +252,25 @@ def iload_0():
     """iload: push variable[0] to the Stack"""
     pushing = VARIABLES[0]
     S.push(pushing)
-    print('iload_0: Push VARIABLES[0] to Stack')
+    print('iload_0: Load VARIABLES[0] on the Stack for processing.')
 
 def iload_1():
     """iload: push variable[1] to the Stack"""
     pushing = VARIABLES[1]
     S.push(pushing)
-    print('iload_1: Push VARIABLES[1] to Stack')
+    print('iload_1: Load VARIABLES[1] on the Stack for processing.')
 
 def iload_2():
     """iload: push variable[2] to the Stack"""
     pushing2 = VARIABLES[2]
     S.push(pushing2)
-    print('iload_2: Push VARIABLES[2] to Stack')
+    print('iload_2: Load VARIABLES[2] on the Stack for processing.')
 
 def iload_3():
     """iload: push variable[3] to the Stack"""
     pushing3 = VARIABLES[3]
     S.push(pushing3)
-    print('iload_3: Push VARIABLES[3] to Stack')
+    print('iload_3: Load VARIABLES[3] on the Stack for processing.')
 
 # def impdep1():
 #     print('impdep1')
@@ -292,7 +292,7 @@ def ineg():
     """ineg: value minus zero"""
     var1 = S.pop()
     S.push(0 - var1)
-    print('ineg = ' + str(S.peek()))
+    print('ineg(' + str(var1) + ') = ' + str(S.peek()))
 
 # def instanceof():
 #     print('instanceof')
