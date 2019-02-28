@@ -12,11 +12,6 @@ import jvpm_methods # import external method dictionary
 class HeaderClass():
     """Class that parses the data from test.class and assigns values to variables"""
     def __init__(self):
-#         self.stream = ConstBitStream(filename='test.class')
-#         self.header_magic = ""
-#         self.header_minor = ""
-#         self.header_major = ""
-#         self.header_const_pool_count = ""
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
 
@@ -27,41 +22,17 @@ class HeaderClass():
         print("\nMagic: ", magic)
         return magic
 
-#     def pull_magic(self):
-#         """method to pull the magic data"""
-#         self.header_magic = self.stream.read(32).hex
-#         print("\nheader: ", self.header_magic)
-#         return self.header_magic
-
     def get_minor(self):
         print("Minor: ", self.data[4] + self.data[5])
         return self.data[4] + self.data[5]
-
-#     def pull_minor(self):
-#         """method to pull the minor data"""
-#         self.header_minor = self.stream.read(8).uint + self.stream.read(8).uint
-#         print("minor: ", self.header_minor)
-#         return self.header_minor
 
     def get_major(self):
         print("Major: ", self.data[6] + self.data[7])
         return self.data[6] + self.data[7]
 
-#     def pull_major(self):
-#         """method to pull the major data"""
-#         self.header_major = self.stream.read(8).uint + self.stream.read(8).uint
-#         print("major: ", self.header_major)
-#         return self.header_major
-
     def get_const_pool_count(self):
         print("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
         return self.data[8] + self.data[9]
-
-#     def pull_const_pool_count(self):
-#         """method to pull the pool count data"""
-#         self.header_const_pool_count = self.stream.read(8).uint + self.stream.read(8).uint - 1
-#         print("const pool: ", self.header_const_pool_count)
-#         return self.header_const_pool_count
 
 # **************************************************************************************************
 
