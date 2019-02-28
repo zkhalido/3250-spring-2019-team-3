@@ -53,9 +53,9 @@ class OpCodes():
             if self.data_2[self.byte_count] in {0x2a, 0xb1, 0x04, 0x3c, 0x84, 0xb7}:
                 print("XXXXXXXXXX")
                 # self.interpret(self.data[self.byte_count])
-             else:
+            else:
                  # self.interpret(0)
-                 return
+                return
 
         """
 
