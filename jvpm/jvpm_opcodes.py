@@ -15,7 +15,7 @@ class HeaderClass():
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
             self.data2 = bytes(binary_file.read())
-		print(self.data2)
+            print(self.data2)
 
     def get_magic(self):
         magic = ""
