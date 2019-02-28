@@ -41,6 +41,21 @@ class OpCodes():
     opcodes, and implement the methods using the external dictionary of methods"""
     def __init__(self):
         self.opcodes = ['06', '3c', '1b', '74', '3e']
+        """this is the constructor"""
+        with open('test.class', 'rb') as binary_file:
+            self.data_2 = bytes(binary_file.read())
+        self.byte_count = 0
+        
+    def parse_codes(self, op_start):
+        """this method searches the bytes for only the opcodes we know are in it"""
+        self.byte_count = op_start
+        while self.byte_count < len(self.data_2):
+            if self.data[self.byte_count] in {0x2a, 0xb1, 0x04, 0x3c, 0x84, 0xb7}:
+                print(self.data[self.byte_count])
+                # self.interpret(self.data[self.byte_count])
+            else:
+                # self.interpret(0)
+                return
 
         """
 
@@ -86,6 +101,7 @@ if '__main__' == __name__:
           '\n  imported method dictionary to implement the method:___')
     Z = OpCodes()
     Z.dict_search()
+    Z.parse_codes(190)
 
 # **************************************************************************************************
 
