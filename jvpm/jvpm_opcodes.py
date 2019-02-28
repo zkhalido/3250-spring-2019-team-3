@@ -48,14 +48,7 @@ class OpCodes():
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods"""
     def __init__(self):
-        # All math operations implemented in below array.
-#         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '1c', '68', '1c', '6c', '1c',
-#                         '64', '3e']
-#        self.opcodes = ['06', '3c', '04', '3d', '1b', '1c', '82', '3e']
-#        self.opcodes = ['06', '3c', '1b', '74', '3e']
-        # All logic operations implemented in below array:
-        self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '7e', '1c', '7a', '1b', '78',
-		        '1b', '80', '1c', '70', '1b', '82', '3e']
+        self.opcodes = ['06', '3c', '1b', '74', '3e']
 
         """
 
