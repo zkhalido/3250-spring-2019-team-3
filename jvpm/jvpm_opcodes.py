@@ -75,13 +75,9 @@ if '__main__' == __name__:
     print('\n1) ___Parse, pull, and assign Header bytecodes:___')
     D = HeaderClass()
     D.get_magic()
-    # D.pull_magic()
     D.get_minor()
-    # D.pull_minor()
     D.get_major()
-    # D.pull_major()
     D.get_const_pool_count()
-    # D.pull_const_pool_count()
 
     # **********************************************************************************************
 
