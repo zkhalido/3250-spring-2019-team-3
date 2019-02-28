@@ -52,9 +52,9 @@ class OpCodes():
         while self.byte_count < len(self.data_2):
             if self.data_2[self.byte_count] in {0x2a, 0xb1, 0x04, 0x3c, 0x84, 0xb7}:
                 print("XXXXXXXXXX")
-                self.print(self)
+                self.print()
             else:
-                self.print(self)
+                self.print()
         
     def print(self):
         print("print")
