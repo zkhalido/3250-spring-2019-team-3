@@ -33,6 +33,10 @@ class HeaderClass():
         print("\nheader: ", self.header_magic)
         return self.header_magic
 
+    def get_minor(self):
+        print("\nMinor: ", self.data[4] + self.data[5])
+        return self.data[4] + self.data[5]
+
     def pull_minor(self):
         """method to pull the minor data"""
         self.header_minor = self.stream.read(8).uint + self.stream.read(8).uint
@@ -93,6 +97,7 @@ if '__main__' == __name__:
     D = HeaderClass()
     D.get_magic()
     D.pull_magic()
+    D.get_minor()
     D.pull_minor()
     D.pull_major()
     D.pull_const_pool_count()
