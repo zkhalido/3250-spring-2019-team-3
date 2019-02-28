@@ -42,7 +42,7 @@ class OpCodes():
     def __init__(self):
         self.opcodes = ['06', '3c', '1b', '74', '3e']
         """this is the constructor"""
-        with open('jvpm/Test.class', 'rb') as binary_file:
+        with open('test.class', 'rb') as binary_file:
             self.data = bytes(binary_file.read())
         self.table = {0x2a: aload_0,
                       0xb1: ret,
