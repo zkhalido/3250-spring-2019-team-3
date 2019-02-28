@@ -4,6 +4,7 @@
 from bitstring import ConstBitStream
 import jvpm_dict    # import external opcode dictionary
 import jvpm_methods # import external method dictionary
+import numpy
 
 # pylint: disable = W0105, C0122, R0903
 
@@ -36,6 +37,7 @@ class HeaderClass():
 
 # **************************************************************************************************
 
+numpy.seterr(over="ignore", under="ignore")
 class OpCodes():
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods"""
