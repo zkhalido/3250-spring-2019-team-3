@@ -11,7 +11,7 @@ from bitstring import ConstBitStream
 class HeaderClass():
 
     def __init__(self):
-        with open('test1_math.class', 'rb') as binary_file:
+        with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
 
     def get_magic(self):
