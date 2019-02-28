@@ -15,10 +15,10 @@ class UnittestHeader(unittest.TestCase):
             self.cf = jvpm_opcodes.HeaderClass()
 
     def test_magic(self):
-        self.assertEqual(self.cf.pull_magic(), 'cafebabe')
-        self.assertEqual(self.cf.pull_minor(), 0)
-        self.assertEqual(self.cf.pull_major(), 54)
-        self.assertEqual(self.cf.pull_const_pool_count(), 14)
+        self.assertEqual(self.cf.get_magic(), 'CAFEBABE')
+        self.assertEqual(self.cf.get_minor(), 0)
+        self.assertEqual(self.cf.get_major(), 54)
+        self.assertEqual(self.cf.get_const_pool_count(), 15)
 
 
 

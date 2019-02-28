@@ -51,7 +51,7 @@ def opcode_methods(argument):
 #         "ifne": ifne,            # if value != 0 , branch
 #         "ifnonnull": ifnonnull,   # if value is not null, branch
 #         "ifnull": ifnull,         # if value is null, branch
-#         "iinc": iinc,              # increment local variable #index by signed byte const
+         "iinc": iinc,              # increment local variable #index by signed byte const
 #         "iload": iload,           # load an int value from a local variabl #index
          "iload_0": iload_0,       # load an int value from local array variable[0]
          "iload_1": iload_1,       # load an int value from local array variable[1]
@@ -101,7 +101,15 @@ def opcode_methods(argument):
 # ****************************************************************************************
 
 # def i2b():
+<<<<<<< HEAD
 #     print('i2b')
+=======
+#     https://www.delftstack.com/howto/python/how-to-convert-int-to-bytes-in-python-2-and-python-3/
+#     temp_int = S.pop()
+#     byte = bytes([temp_int])
+#     S.push(byte)
+#     print("i2b converts " + str(temp_int) + " to a byte: " + str(byte))
+>>>>>>> 5e9723e0280f08daaf27f9572c0be4c6957dd58e
 
 # def i2c():
 #     print('i2c')
@@ -237,9 +245,9 @@ def idiv():
 # def ifnull():
 #     print('ifnull')
 
-# def iinc():
-#     """iinc: increment local variable #index by signed byte const"""
-#     print("iinc.")
+def iinc():
+    """iinc: increment local variable #index by signed byte const"""
+    print("iinc: not needed for this sprint")
 
 # def iload():
 #     print('iload')
@@ -248,25 +256,25 @@ def iload_0():
     """iload: push variable[0] to the Stack"""
     pushing = VARIABLES[0]
     S.push(pushing)
-    print('iload_0: Push VARIABLES[0] to Stack')
+    print('iload_0: Load VARIABLES[0] on the Stack for processing.')
 
 def iload_1():
     """iload: push variable[1] to the Stack"""
     pushing = VARIABLES[1]
     S.push(pushing)
-    print('iload_1: Push VARIABLES[1] to Stack')
+    print('iload_1: Load VARIABLES[1] on the Stack for processing.')
 
 def iload_2():
     """iload: push variable[2] to the Stack"""
     pushing2 = VARIABLES[2]
     S.push(pushing2)
-    print('iload_2: Push VARIABLES[2] to Stack')
+    print('iload_2: Load VARIABLES[2] on the Stack for processing.')
 
 def iload_3():
     """iload: push variable[3] to the Stack"""
     pushing3 = VARIABLES[3]
     S.push(pushing3)
-    print('iload_3: Push VARIABLES[3] to Stack')
+    print('iload_3: Load VARIABLES[3] on the Stack for processing.')
 
 # def impdep1():
 #     print('impdep1')
@@ -288,7 +296,8 @@ def ineg():
     """ineg: value minus zero"""
     var1 = S.pop()
     S.push(0 - var1)
-    print('ineg = ' + str(S.peek()))
+    print('ineg: Popped ' + str(var1) + ' from Stack, ineg = ' + str(S.peek()) + ','
+          ' and pushed back to Stack.')
 
 # def instanceof():
 #     print('instanceof')

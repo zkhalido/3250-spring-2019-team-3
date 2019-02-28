@@ -1,5 +1,5 @@
 import unittest
-
+import jvpm_methods
 
 class TestOpcodeMethods(unittest.TestCase):
 
