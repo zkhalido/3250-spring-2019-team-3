@@ -53,11 +53,15 @@ class HeaderClass():
 #         print("major: ", self.header_major)
 #         return self.header_major
 
-    def pull_const_pool_count(self):
-        """method to pull the pool count data"""
-        self.header_const_pool_count = self.stream.read(8).uint + self.stream.read(8).uint - 1
-        print("const pool: ", self.header_const_pool_count)
-        return self.header_const_pool_count
+    def get_const_pool_count(self):
+        # print("Contant Pool Count: ", self.data[8] + self.data[9])
+        return self.data[8] + self.data[9]
+
+#     def pull_const_pool_count(self):
+#         """method to pull the pool count data"""
+#         self.header_const_pool_count = self.stream.read(8).uint + self.stream.read(8).uint - 1
+#         print("const pool: ", self.header_const_pool_count)
+#         return self.header_const_pool_count
 
 # **************************************************************************************************
 
@@ -100,11 +104,13 @@ if '__main__' == __name__:
     print('\n1) ___Parse, pull, and assign Header bytecodes:___')
     D = HeaderClass()
     D.get_magic()
-    D.pull_magic()
+    # D.pull_magic()
     D.get_minor()
-    D.pull_minor()
-    D.pull_major()
-    D.pull_const_pool_count()
+    # D.pull_minor()
+    D.get_major()
+    # D.pull_major()
+    D.get_const_pool_count()
+    # D.pull_const_pool_count()
 
     # **********************************************************************************************
 
