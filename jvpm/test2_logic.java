@@ -1,4 +1,4 @@
-class test_logic {
+class test2_logic {
     static void main(String[] args) {
         int a = 1;
         int b = 2;
