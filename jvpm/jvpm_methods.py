@@ -51,7 +51,7 @@ def opcode_methods(argument):
 #         "ifne": ifne,            # if value != 0 , branch
 #         "ifnonnull": ifnonnull,   # if value is not null, branch
 #         "ifnull": ifnull,         # if value is null, branch
-#         "iinc": iinc,              # increment local variable #index by signed byte const
+         "iinc": iinc,              # increment local variable #index by signed byte const
 #         "iload": iload,           # load an int value from a local variabl #index
          "iload_0": iload_0,       # load an int value from local array variable[0]
          "iload_1": iload_1,       # load an int value from local array variable[1]
@@ -241,9 +241,9 @@ def idiv():
 # def ifnull():
 #     print('ifnull')
 
-# def iinc():
-#     """iinc: increment local variable #index by signed byte const"""
-#     print("iinc.")
+def iinc():
+    """iinc: increment local variable #index by signed byte const"""
+    print("iinc: not needed for this sprint")
 
 # def iload():
 #     print('iload')
