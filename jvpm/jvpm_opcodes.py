@@ -10,7 +10,7 @@ import jvpm_methods # import external method dictionary
 # **************************************************************************************************
 
 class HeaderClass():
-    """Class that parses the data from test.class and assigns values to variables"""
+    """Class that parses the header data from .class file and assigns values to variables."""
     def __init__(self):
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
