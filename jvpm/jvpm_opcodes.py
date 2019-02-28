@@ -4,7 +4,6 @@
 from bitstring import ConstBitStream
 import jvpm_dict    # import external opcode dictionary
 import jvpm_methods # import external method dictionary
-import numpy
 
 # pylint: disable = W0105, C0122, R0903
 
@@ -37,12 +36,44 @@ class HeaderClass():
 
 # **************************************************************************************************
 
-numpy.seterr(over="ignore", under="ignore")
 class OpCodes():
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods"""
     def __init__(self):
         self.opcodes = ['06', '3c', '1b', '74', '3e']
+        """this is the constructor"""
+        with open('jvpm/Test.class', 'rb') as binary_file:
+            self.data = bytes(binary_file.read())
+        self.table = {0x2a: aload_0,
+                      0xb1: ret,
+                      0x04: iconst_1,
+                      0x3c: istore_1,
+                      0x84: iinc,
+                      0xb7: invokespecial,
+                      0x60: iadd,
+                      0x64: isub,
+                      0x68: imul,
+                      0x6c: idiv,
+                      0x70: irem,
+                      0x7e: iand,
+                      0x74: ineg,
+                      0x80: ior,
+                      0x82: ixor,
+                      0x00: not_implemented}
+        self.byte_count = 0
+        self.stack = JvmStack()
+    def parse_codes(self, op_start):
+        """this method searches the binary for only the opcodes we know are in it"""
+        self.byte_count = op_start
+        while self.byte_count < len(self.data):
+            if self.data[self.byte_count] in {0x2a, 0xb1, 0x04, 0x3c, 0x84, 0xb7}:
+                print(self.interpret(self.data[self.byte_count]))
+            else:
+                self.interpret(0)
+
+    def interpret(self, value):
+        """this is the method used to interpret a given opcode"""
+        return self.table[value](self)
 
         """
 
