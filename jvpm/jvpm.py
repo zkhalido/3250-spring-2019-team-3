@@ -146,18 +146,4 @@ if '__main__' == __name__:
     d.get_methods()
     d.get_attributes_count()
     d.get_attributes()
-
-
-    print('Testing the Stack:')
-    S = stack()
-    print(S.is_empty())
-    S.push('dog')      # 1st item on stack
-    S.push(1)          # 2nd item on stack
-    print(S.peek())    # look at 2nd item on stack
-    S.push(True)       # 3rd item on stack
-    print(S.size())    # print how many items on stack
-    print(S.is_empty()) # test if stack is empty
-    S.push(8.4)        # 4th item on stack
-    print(S.pop())     # take 4th item off stack
-    print(S.pop())     # take 3rd item off stack
-    print(S.size())    # print how many items left on stack
+    
