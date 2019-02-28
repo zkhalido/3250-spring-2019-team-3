@@ -108,6 +108,7 @@ if '__main__' == __name__:
           '\n  imported method dictionary to implement the method:___')
     Z = OpCodes()
     Z.dict_search()
+    Z.parse_codes(183)
 
 # **************************************************************************************************
 
