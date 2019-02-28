@@ -77,6 +77,7 @@ class HeaderClass():
         for i in range(count):
             temp.append(format(self.data[index + i], '02X'))
         print("Interfaces Length: ", len(temp))
+        print(temp[152])
         print(temp)
         return temp
 
