@@ -14,6 +14,7 @@ class HeaderClass():
     def __init__(self):
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
+        with open('test.class', 'rb') as binary_file:
             self.data2 = bytes(binary_file.read())
             print(self.data2)
 
