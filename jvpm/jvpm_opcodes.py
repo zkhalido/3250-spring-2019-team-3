@@ -12,11 +12,11 @@ import jvpm_methods # import external method dictionary
 class HeaderClass():
     """Class that parses the data from test.class and assigns values to variables"""
     def __init__(self):
-        self.stream = ConstBitStream(filename='test.class')
-        self.header_magic = ""
-        self.header_minor = ""
-        self.header_major = ""
-        self.header_const_pool_count = ""
+#         self.stream = ConstBitStream(filename='test.class')
+#         self.header_magic = ""
+#         self.header_minor = ""
+#         self.header_major = ""
+#         self.header_const_pool_count = ""
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
 
@@ -54,7 +54,7 @@ class HeaderClass():
 #         return self.header_major
 
     def get_const_pool_count(self):
-        print("Contant Pool Count: ", self.data[8] + self.data[9])
+        print("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
         return self.data[8] + self.data[9]
 
 #     def pull_const_pool_count(self):
