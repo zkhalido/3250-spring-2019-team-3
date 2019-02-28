@@ -44,7 +44,22 @@ class OpCodes():
         """this is the constructor"""
         with open('test.class', 'rb') as binary_file:
             self.data = bytes(binary_file.read())
-        self.table = {0x04: iconst_1}
+        self.table = {0x2a: aload_0,
+                      0xb1: ret,
+                      0x04: iconst_1,
+                      0x3c: istore_1,
+                      0x84: iinc,
+                      0xb7: invokespecial,
+                      0x60: iadd,
+                      0x64: isub,
+                      0x68: imul,
+                      0x6c: idiv,
+                      0x70: irem,
+                      0x7e: iand,
+                      0x74: ineg,
+                      0x80: ior,
+                      0x82: ixor,
+                      0x00: not_implemented}
         self.byte_count = 0
     def parse_codes(self, op_start):
         """this method searches the binary for only the opcodes we know are in it"""
