@@ -232,3 +232,30 @@ class Test_Op_Methods(unittest.TestCase):
         a.ineg()
         b = a.stack.pop()
         self.assertEqual(b, 5)
+
+    def test_ior(self):
+        a = OpCodeMethods()
+
+        a.stack.push(2)
+        a.stack.push(5)
+        a.ior()
+        b = a.stack.pop()
+        self.assertEqual(b, 7)
+
+        a.stack.push(8)
+        a.stack.push(2)
+        a.ior()
+        b = a.stack.pop()
+        self.assertEqual(b, 10)
+
+        a.stack.push(10)
+        a.stack.push(-3)
+        a.ior()
+        b = a.stack.pop()
+        self.assertEqual(b, -1)
+
+        a.stack.push(-5)
+        a.stack.push(-6)
+        a.ior()
+        b = a.stack.pop()
+        self.assertEqual(b, -5)
