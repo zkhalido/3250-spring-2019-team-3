@@ -69,8 +69,8 @@ class HeaderClass():
         print(joined)
         intj = int(joined)
         hexi = hex(intj)
-        print(format(hexi, '02X'))
-        print("Interfaces Count: ", self.data[holder + 6] + self.data[holder + 7])
+        print(hexi)
+        print("Interfaces Count: " + hexi)
         print(format(self.data[holder + 6], '02X'))
         print(format(self.data[holder + 7], '02X'))
         return self.data[holder + 6] + self.data[holder + 7]
