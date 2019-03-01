@@ -23,7 +23,7 @@ class UnittestHeader(unittest.TestCase):
     def test_magic(self):
         self.assertEqual(self.cf.get_magic(), 'CAFEBABE')
         self.assertEqual(self.cf.get_minor(), 0)
-        self.assertEqual(self.cf.get_major(), 54)
+        self.assertTrue(53 <= self.cf.get_major() <= 55)
         self.assertEqual(self.cf.get_const_pool_count(), 15)
 
 
