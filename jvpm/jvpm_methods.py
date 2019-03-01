@@ -33,16 +33,19 @@ class OpCodeMethods():
         self.stack.push(-1)
 
     def iconst_0(self):
-        self.stack.push(0)
+        #self.stack.push(0)
+        print("ran iconst_0")
 
     def iconst_1(self):
-        self.stack.push(1)
+        #self.stack.push(1)
+        print ("ran Iconst_1")
 
     def iconst_2(self):
         self.stack.push(2)
 
     def iconst_3(self):
-        self.stack.push(3)
+        #self.stack.push(3)
+        print("ran iconst_3")
 
     def iconst_4(self):
         self.stack.push(4)
@@ -63,12 +66,14 @@ class OpCodeMethods():
         self.stack.push(pushing)
 
     def iload_1(self):
-        pushing = self.VARIABLES[1]
-        self.stack.push(pushing)
+        #pushing = self.VARIABLES[1]
+        #self.stack.push(pushing)
+        print("ran iload_1")
 
     def iload_2(self):
-        pushing2 = self.VARIABLES[2]
-        self.stack.push(pushing2)
+        #pushing2 = self.VARIABLES[2]
+        #self.stack.push(pushing2)
+        print ("ran iload_2")
 
     def iload_3(self):
         pushing3 = self.VARIABLES[3]
@@ -104,23 +109,27 @@ class OpCodeMethods():
         self.stack.push(var1 >> var2)
 
     def istore_0(self):
-        popped = self.stack.pop()
-        self.VARIABLES.pop(0) # remove the assigned 0 from the [0]position
-        self.VARIABLES.insert(0, popped)
+        #popped = self.stack.pop()
+        #self.VARIABLES.pop(0) # remove the assigned 0 from the [0]position
+        #self.VARIABLES.insert(0, popped)
+        print("ran istore_0")
 
 
     def istore_1(self):
-        popped = self.stack.pop()
-        self.VARIABLES.insert(1, popped)
+        #popped = self.stack.pop()
+        #self.VARIABLES.insert(1, popped)
+        print("ran istore_1")
 
 
     def istore_2(self):
-        popped = self.stack.pop()
-        self.VARIABLES.insert(2, popped)
+        #popped = self.stack.pop()
+        #self.VARIABLES.insert(2, popped)
+        print("ran istore_2")
 
     def istore_3(self):
-        popped = self.stack.pop()
-        self.VARIABLES.insert(3, popped)
+        #popped = self.stack.pop()
+        #self.VARIABLES.insert(3, popped)
+        print("ran istore_3")
 
     def isub(self):
         var2 = self.stack.pop()
@@ -136,9 +145,10 @@ class OpCodeMethods():
             self.stack.push((var1 + 0x10000000) >> var2)
 
     def ixor(self):
-        variable2 = self.stack.pop()
-        variable1 = self.stack.pop()
-        self.stack.push(variable1 ^ variable2)
+        #variable2 = self.stack.pop()
+        #variable1 = self.stack.pop()
+        #self.stack.push(variable1 ^ variable2)
+        print("ran ixor ")
 
             # Array of arguments from the main for istore and iload
     switcher = {
