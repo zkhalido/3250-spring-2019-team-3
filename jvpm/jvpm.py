@@ -5,7 +5,6 @@ import stack
 # from collections import namedtuple
 from bitstring import ConstBitStream
 #from pythonds.basic.stack import Stack
-int_count = ''
 
 
 # pylint: disable = W0105, C0122
@@ -14,7 +13,7 @@ class HeaderClass():
     def __init__(self):
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
-        self.const_pool = none
+        self.const_pool = ''
 
     def get_magic(self):
         magic = ""
