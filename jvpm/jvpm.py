@@ -65,6 +65,8 @@ class HeaderClass():
 
     def get_interfaces_count(self):
         holder = self.get_const_pool_count() + 9
+        joined = ''.join(self.data[holder + 6],self.data[holder + 7])
+        print(joined)
         print("Interfaces Count: ", self.data[holder + 6] + self.data[holder + 7])
         print(format(self.data[holder + 6], '02X'))
         print(format(self.data[holder + 7], '02X'))
@@ -78,7 +80,7 @@ class HeaderClass():
             temp.append(format(self.data[index + i], '02X'))
         print("Interfaces Length: ", len(temp))
         print(temp)
-        # return temp
+        treturn temp
 
     def get_fields_count(self):
         holder = self.get_const_pool_count() + self.get_interfaces_count() + 16
