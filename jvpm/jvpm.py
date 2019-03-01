@@ -67,7 +67,9 @@ class HeaderClass():
         holder = self.get_const_pool_count() + 9
         joined = ''.join([format(self.data[holder + 6], '02X'), format(self.data[holder + 7], '02X')])
         print(joined)
-        print(hex(int(joined, 16)))
+        intj = int(joined)
+        hexi = hex(intj)
+        print(hexi)
         print("Interfaces Count: ", self.data[holder + 6] + self.data[holder + 7])
         print(format(self.data[holder + 6], '02X'))
         print(format(self.data[holder + 7], '02X'))
