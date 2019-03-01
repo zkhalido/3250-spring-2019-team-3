@@ -5,6 +5,7 @@ import stack
 # from collections import namedtuple
 from bitstring import ConstBitStream
 #from pythonds.basic.stack import Stack
+int_count = ''
 
 
 # pylint: disable = W0105, C0122
@@ -13,6 +14,7 @@ class HeaderClass():
     def __init__(self):
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
+        self.const_pool = none
 
     def get_magic(self):
         magic = ""
@@ -31,11 +33,12 @@ class HeaderClass():
 
     def get_const_pool_count(self):
         # print("Contant Pool Count: ", self.data[8] + self.data[9])
+        self.const_pool = self.data[8] + self.data[9]
         return self.data[8] + self.data[9]
 
     def get_const_pool(self):
         temp = []
-        count = self.get_const_pool_count() - 1
+        count = self.const_pool - 1
         for i in range(count):
             temp.append((format(self.data[10 + i]), '02X'))
         print("Constant Pool Length: ", len(temp))
@@ -116,7 +119,7 @@ class HeaderClass():
             temp.append(format(self.data[index + i], '02X'))
         print("Methods Length: ", len(temp))
         print(temp)
-        print(temp[151], temp[152], temp[153]) # 04, 3c, 84
+        print(temp[151], temp[152], temp[153], temp[154]. temp[155]) # 04, 3c, 84, 01, 01
         return temp
 
     def get_attributes_count(self):
