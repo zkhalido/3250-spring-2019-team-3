@@ -150,6 +150,6 @@ if '__main__' == __name__:
     d.get_fields()
     d.get_methods_count()
     d.get_methods()
-    d.get_attributes_count()
-    d.get_attributes()
+    # d.get_attributes_count()
+    # d.get_attributes()
     
