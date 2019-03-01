@@ -35,14 +35,17 @@ class test_get_opcode(unittest.TestCase):
 
 
 class test_stack(unittest.TestCase):
-    #def test_is_empty(self):
-    #    self.assertTrue(stack.Stack.is_empty())
+    def test_is_empty(self):
+        s = Stack()
+        s.push(1)
+        s.pop()
+        self.assertTrue(s.is_empty())
 
     def test_push(self):
         s = Stack()
         s.push(2)
         s.push(3)
-        v= s.pop()
+        v = s.pop()
         self.assertEqual(v, 3)
 
     def test_pop(self):
