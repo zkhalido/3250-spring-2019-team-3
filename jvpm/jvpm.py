@@ -65,9 +65,9 @@ class HeaderClass():
 
     def get_interfaces_count(self):
         holder = self.get_const_pool_count() + 9
-        # print("Interfaces Count: ", self.data[holder + 6] + self.data[holder + 7])
-        print(format(self.data[holder], '02X'))
-        print(format(self.data[holder + 1], '02X'))
+        print("Interfaces Count: ", self.data[holder + 6] + self.data[holder + 7])
+        print(format(self.data[holder + 6], '02X'))
+        print(format(self.data[holder + 7], '02X'))
         return self.data[holder + 6] + self.data[holder + 7]
 
     def get_interfaces(self):
