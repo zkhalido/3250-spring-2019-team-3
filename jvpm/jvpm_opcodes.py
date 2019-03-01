@@ -70,20 +70,7 @@ class OpCodes():
             index += 1
         print()
 
-# this second one was can be deleted
-"""
-    def dict_search2(self, opcode):
-        index = 0
-        jvMethodsIn = OpCodeMethods()
-        while index < len(self.opcode):
-            opcall = jvpm_dict.get_opcode(self.opcode[index])
 
-            print(opcall)  # just to see what opcall is passed through
-
-            jvMethodsIn.token_dict(opcall)
-            index += 1
-        print()
-"""
 # **************************************************************************************************
 
 if '__main__' == __name__:
