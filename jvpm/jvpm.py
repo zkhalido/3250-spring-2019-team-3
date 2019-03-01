@@ -66,7 +66,7 @@ class HeaderClass():
     def get_interfaces_count(self):
         holder = self.get_const_pool_count() + 9
         joined = ''.join([format(self.data[holder + 6], '02X'), format(self.data[holder + 7], '02X')])
-        print(joined)
+        #print(joined)
         intj = int(joined)
         hexi = hex(intj)
         # print(hexi)
@@ -87,8 +87,8 @@ class HeaderClass():
 
     def get_fields_count(self):
         holder = self.get_const_pool_count() + self.get_interfaces_count() + 16
-        print(format(self.data[holder], '02X'))
-        print(format(self.data[holder + 1], '02X'))
+        # print(format(self.data[holder], '02X'))
+        # print(format(self.data[holder + 1], '02X'))
         return self.data[holder] + self.data[holder + 1]
 
     def get_fields(self):
@@ -103,8 +103,8 @@ class HeaderClass():
 
     def get_methods_count(self):
         holder = self.get_const_pool_count() + self.get_interfaces_count() + self.get_fields_count() + 14
-        print(format(self.data[holder], '02X'))
-        print(format(self.data[holder + 1], '02X'))
+        # print(format(self.data[holder], '02X'))
+        # print(format(self.data[holder + 1], '02X'))
         return self.data[holder] + self.data[holder + 1]
 
     def get_methods(self):
@@ -150,6 +150,6 @@ if '__main__' == __name__:
     d.get_fields()
     d.get_methods_count()
     d.get_methods()
-    # d.get_attributes_count()
-    # d.get_attributes()
+    d.get_attributes_count()
+    d.get_attributes()
     
