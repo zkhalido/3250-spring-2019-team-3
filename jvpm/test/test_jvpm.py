@@ -1,7 +1,11 @@
 import unittest
 from unittest.mock import mock_open, patch
 
-from stack import Stack
+import sys
+sys.path.append("/Users/zack/Documents/GitConfused/jvpm")
+import stack
+
+#from stack import Stack
 
 import jvpm_dict
 import jvpm_opcodes

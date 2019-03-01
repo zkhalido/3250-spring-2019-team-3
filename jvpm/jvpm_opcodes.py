@@ -3,7 +3,7 @@
 """Read bit stream."""
 from bitstring import ConstBitStream
 import jvpm_dict    # import external opcode dictionary
-import jvpm_methods # import external method dictionary
+from jvpm_methods import OpCodeMethods # import external method dictionary
 
 # pylint: disable = W0105, C0122, R0903
 
@@ -65,7 +65,7 @@ class OpCodes():
         while index < len(self.opcodes):
             opcall = jvpm_dict.get_opcode(self.opcodes[index])
             print("Bytecode " + self.opcodes[index] + ' = Opcode: ' + opcall)
-            jvpm_methods.opcode_methods(opcall)
+            OpCodeMethods.opcode_methods(opcall)
             index += 1
         print()
         # return
