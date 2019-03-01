@@ -12,6 +12,7 @@ VARIABLES = [0]
 
 # ****************************************************************************************
 class OpCodeMethods():
+'''
     def opcode_methods(argument):
         """DICTIONARY OF METHODS, FOR SPRINT 3 ONLY BUILD THE METHODS NOT COMMENTED OUT."""
         # Array of arguments from the main for istore and iload
@@ -87,7 +88,7 @@ class OpCodeMethods():
             "ixor": ixor          # xor
         }
         # get the method name from the token_dict dictionary
-        method = token_dict.get(argument, lambda: "Invalid opcode")
+         method = token_dict.get(argument, lambda: "Invalid opcode")
 
         # trying to figure out how to recieve arguments from main for istore and iload
         # if arguments == []
@@ -96,8 +97,8 @@ class OpCodeMethods():
         #     method(arguments[0])
 
         # Call the Method.
-        method()
-
+         method()
+'''
     # ****************************************************************************************
 
     # def i2b():
