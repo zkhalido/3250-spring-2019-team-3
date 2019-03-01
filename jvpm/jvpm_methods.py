@@ -37,8 +37,8 @@ class OpCodeMethods():
         print("ran iconst_0")
 
     def iconst_1(self):
-        self.stack.push(1)
-        print ("ran Iconst_1")
+        #self.stack.push(1)
+        print ("ran iconst_1")
 
     def iconst_2(self):
         self.stack.push(2)
@@ -148,7 +148,7 @@ class OpCodeMethods():
         #variable2 = self.stack.pop()
         #variable1 = self.stack.pop()
         #self.stack.push(variable1 ^ variable2)
-        print("ran ixor ")
+        print("ran ixor")
 
             # Array of arguments from the main for istore and iload
     switcher = {
