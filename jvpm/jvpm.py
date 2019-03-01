@@ -68,7 +68,7 @@ class HeaderClass():
         print("Interfaces Count: ", self.data[holder + 6] + self.data[holder + 7])
         print(format(self.data[holder + 6], '02X'))
         print(format(self.data[holder + 7], '02X'))
-        return self.data[holder + 6] + self.data[holder + 7]
+        # return self.data[holder + 6] + self.data[holder + 7]
 
     def get_interfaces(self):
         temp = []
