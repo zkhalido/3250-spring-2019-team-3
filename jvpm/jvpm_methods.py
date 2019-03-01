@@ -12,6 +12,7 @@ VARIABLES = [0]
 
 # ****************************************************************************************
 class OpCodeMethods():
+
 '''
     def opcode_methods(argument):
         """DICTIONARY OF METHODS, FOR SPRINT 3 ONLY BUILD THE METHODS NOT COMMENTED OUT."""
@@ -99,6 +100,7 @@ class OpCodeMethods():
         # Call the Method.
          method()
 '''
+
     # ****************************************************************************************
 
     # def i2b():
