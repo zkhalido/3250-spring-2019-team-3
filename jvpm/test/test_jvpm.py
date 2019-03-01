@@ -183,21 +183,18 @@ class Test_Op_Methods(unittest.TestCase):
 
         a.stack.push(4)
         a.stack.push(2)
-
         a.idiv()
         b = a.stack.pop()
         self.assertEqual(b, 2)
 
         a.stack.push(6)
         a.stack.push(-2)
-
         a.idiv()
         b = a.stack.pop()
         self.assertEqual(b, -3)
 
         a.stack.push(-6)
         a.stack.push(-2)
-
         a.idiv()
         b = a.stack.pop()
         self.assertEqual(b, 3)
@@ -207,21 +204,18 @@ class Test_Op_Methods(unittest.TestCase):
 
         a.stack.push(3)
         a.stack.push(4)
-
         a.imul()
         b = a.stack.pop()
         self.assertEqual(b, 12)
 
         a.stack.push(-2)
         a.stack.push(3)
-
         a.imul()
         b = a.stack.pop()
         self.assertEqual(b, -6)
 
         a.stack.push(-5)
         a.stack.push(-4)
-
         a.imul()
         b = a.stack.pop()
         self.assertEqual(b, 20)
@@ -230,8 +224,11 @@ class Test_Op_Methods(unittest.TestCase):
         a = OpCodeMethods()
 
         a.stack.push(3)
-
         a.ineg()
         b = a.stack.pop()
         self.assertEqual(b, -3)
-        
+
+        a.stack.push(-5)
+        a.ineg()
+        b = a.stack.pop()
+        self.assertEqual(b, 5)
