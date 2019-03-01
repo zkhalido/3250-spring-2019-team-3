@@ -2,6 +2,7 @@ import unittest
 import sys
 sys.path.append("/Users/zack/Documents/GitConfused/jvpm")
 from stack import Stack
+import stack
 
 
 class TestStack(unittest.TestCase):
