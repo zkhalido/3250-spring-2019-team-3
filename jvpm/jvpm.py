@@ -13,7 +13,6 @@ class HeaderClass():
     def __init__(self):
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
-        self.const_pool = ''
 
     def get_magic(self):
         magic = ""
@@ -32,12 +31,11 @@ class HeaderClass():
 
     def get_const_pool_count(self):
         # print("Contant Pool Count: ", self.data[8] + self.data[9])
-        self.const_pool = int(self.data[8]) + int(self.data[9])
         return self.data[8] + self.data[9]
 
     def get_const_pool(self):
         temp = []
-        count = int(self.const_pool) - 1
+        count = self.get_const_pool_count() - 1
         for i in range(count):
             temp.append((format(self.data[10 + i]), '02X'))
         print("Constant Pool Length: ", len(temp))
