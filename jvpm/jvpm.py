@@ -37,7 +37,7 @@ class HeaderClass():
 
     def get_const_pool(self):
         temp = []
-        count = self.const_pool - 1
+        count = int(self.const_pool) - 1
         for i in range(count):
             temp.append((format(self.data[10 + i]), '02X'))
         print("Constant Pool Length: ", len(temp))
