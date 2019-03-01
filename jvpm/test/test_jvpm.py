@@ -186,4 +186,20 @@ class Test_Op_Methods(unittest.TestCase):
 
         a.idiv()
         b = a.stack.pop()
+        self.assertEqual(b, 2)
+
+        a.stack.push(6)
+        a.stack.push(-2)
+
+        a.idiv()
+        b = a.stack.pop()
+        self.assertEqual(b, -3)
+
+        a.stack.push(-6)
+        a.stack.push(-2)
+
+        a.idiv()
+        b = a.stack.pop()
         self.assertEqual(b, 3)
+
+    
