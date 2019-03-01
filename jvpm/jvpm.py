@@ -116,7 +116,7 @@ class HeaderClass():
             temp.append(format(self.data[index + i], '02X'))
         print("Methods Length: ", len(temp))
         print(temp)
-        print(temp[151], temp[152], temp[153], temp[154]. temp[155]) # 04, 3c, 84, 01, 01
+        print(temp[151], temp[152], temp[153], temp[154], temp[155]) # 04, 3c, 84, 01, 01
         return temp
 
     def get_attributes_count(self):
