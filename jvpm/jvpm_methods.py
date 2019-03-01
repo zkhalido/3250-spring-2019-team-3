@@ -33,7 +33,7 @@ class OpCodeMethods():
         self.stack.push(-1)
 
     def iconst_0(self):
-        #self.stack.push(0)
+        self.stack.push(0)
         print("ran iconst_0")
 
     def iconst_1(self):
@@ -44,7 +44,7 @@ class OpCodeMethods():
         self.stack.push(2)
 
     def iconst_3(self):
-        #self.stack.push(3)
+        self.stack.push(3)
         print("ran iconst_3")
 
     def iconst_4(self):
