@@ -52,15 +52,15 @@ class HeaderClass():
     def get_this_class(self):
         holder = self.get_const_pool_count() + 9
         print("This Class: ", self.data[holder + 2] + self.data[holder + 3])
-        print(format(self.data[holder], '02X'))
-        print(format(self.data[holder + 1], '02X'))
+        print(format(self.data[holder + 2], '02X'))
+        print(format(self.data[holder + 3], '02X'))
         return self.data[holder + 2] + self.data[holder + 3]
 
     def get_super_class(self):
         holder = self.get_const_pool_count() + 9
         print("Super Class: ", self.data[holder + 4] + self.data[holder + 5])
-        print(format(self.data[holder], '02X'))
-        print(format(self.data[holder + 1], '02X'))
+        print(format(self.data[holder + 4], '02X'))
+        print(format(self.data[holder + 5], '02X'))
         return self.data[holder + 4] + self.data[holder + 5]
 
     def get_interfaces_count(self):
