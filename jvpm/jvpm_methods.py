@@ -3,6 +3,8 @@ import stack
 # These 63 methods will eventually Implement all the opcode commands.
 # ONLY BUILD THE METHODS NOT COMMENTED OUT.
 # pylint: disable = W0603, C0330
+from stack import Stack
+
 S = stack.Stack()
 
 # According to the JVPM documentation Zach posted to Slack,
@@ -12,6 +14,187 @@ VARIABLES = [0]
 
 # ****************************************************************************************
 class OpCodeMethods():
+
+    def __init__(self):
+        self.stack = Stack()
+
+    def iadd(self):
+        """iadd: add two ints"""
+        var2 = self.stack.pop()
+        var1 = self.stack.pop()
+        self.stack.push(var1 + var2)
+        print("> iadd: Popped (" + str(var1) + ") and (" + str(var2) +
+              ") from the Stack, assigned to local variables, \nadded the two,"
+              " and pushed result back to Stack.")
+        print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+
+    def iand(self):
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 & var2)
+        print("> iand: Popped (" + str(var1) + ") and (" + str(var2) +
+              ") from the Stack, assigned to local variables, \nperformed bitwise"
+              " AND and pushed the result (" + str(var2 & var1) + ") back to Stack")
+        print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+
+    def iconst_m1(self):
+        S.push(-1)
+        print("iconst_m1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
+
+    def iconst_0(self):
+        S.push(0)
+        print("iconst_0: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
+
+    def iconst_1(self):
+        S.push(1)
+        print("iconst_1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
+
+    def iconst_2(self):
+        S.push(2)
+        print("iconst_2: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
+
+    def iconst_3(self):
+        S.push(3)
+        print("iconst_3: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
+
+    def iconst_4(self):
+        S.push(4)
+        print('"iconst_4: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py."')
+
+    def iconst_5(self):
+        S.push(5)
+        print('"iconst_5: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py."')
+
+    def idiv(self):
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 / var2)
+        print("> idiv: Popped (" + str(var1) + ") and (" + str(var2) +
+              ") from the Stack, assigned to local variables, \ndivided the two,"
+              " and pushed result back to Stack.")
+        print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+
+    def iinc(self):
+        print("iinc: not needed for this sprint")
+
+
+    def iload_0(self):
+        pushing = VARIABLES[0]
+        S.push(pushing)
+        print('iload_0: Load VARIABLES[0] on the Stack for processing.')
+
+    def iload_1(self):
+        pushing = VARIABLES[1]
+        S.push(pushing)
+        print('iload_1: Load VARIABLES[1] on the Stack for processing.')
+
+    def iload_2(self):
+        pushing2 = VARIABLES[2]
+        S.push(pushing2)
+        print('iload_2: Load VARIABLES[2] on the Stack for processing.')
+
+    def iload_3(self):
+        pushing3 = VARIABLES[3]
+        S.push(pushing3)
+        print('iload_3: Load VARIABLES[3] on the Stack for processing.')
+
+    def imul(self):
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 * var2)
+        print("> imul: Popped (" + str(var1) + ") and (" + str(var2) +
+              ") from the Stack, assigned to local variables, \nmultiplied the two,"
+              " and pushed result back to Stack.")
+        print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+
+    def ineg(self):
+        var1 = S.pop()
+        S.push(0 - var1)
+        print('ineg: Popped ' + str(var1) + ' from Stack, ineg = ' + str(S.peek()) + ','
+              ' and pushed back to Stack.')
+
+    def ior(self):
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 | var2)
+        print("> ior: Popped (" + str(var1) + ") and (" + str(var2) +
+              ") from the Stack, assigned to local variables, \nperformed bitwise"
+              " OR and pushed the result (" + str(var2 | var1) + ") back to Stack")
+        print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+
+    def irem(self):
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 % var2)
+        print("irem = " + str(S.peek()))
+
+    def ishl(self):
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 << var2)
+        print("> ishl: Popped (" +str(var1) + ") and (" + str(var2) + ") and shifted"
+              + str(var1) + " left by " + str(var2) + " bit(s) and pushed the result"
+              " back to Stack.")
+        print("ishl = " + str(S.peek()))
+
+    def ishr(self):
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 >> var2)
+        print("ishr = " + str(S.peek()))
+
+    def istore_0(self):
+        popped = S.pop()
+        VARIABLES.pop(0) # remove the assigned 0 from the [0]position
+        VARIABLES.insert(0, popped)
+        print("istore_0: Popped " + str(popped) +
+              " from Stack and stored in VARIABLES[0] in jvpm_methods.py.")
+
+    def istore_1(self):
+        popped = S.pop()
+        VARIABLES.insert(1, popped)
+        print("istore_1: Popped " + str(popped) +
+              " from Stack and stored in VARIABLES[1] in jvpm_methods.py.")
+
+    def istore_2(self):
+        popped = S.pop()
+        VARIABLES.insert(2, popped)
+        print("istore_2: Popped " + str(popped) +
+              " from Stack and stored in VARIABLES[2] in jvpm_methods.py.")
+
+    def istore_3(self):
+        popped = S.pop()
+        VARIABLES.insert(3, popped)
+        print("istore_3: Popped " + str(popped) +
+              " from Stack and stored in VARIABLES[3] in jvpm_methods.py,"
+              "\n>>>>>>>>>>>>>>>>>>>>>>>> c = " + str(popped) + " <<<<<<<<<<<<<<<<<<<<<<<<<<<")
+        print(">>>> Top of Stack is now " + str(S.size()) + ".")
+
+    def isub(self):
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 - var2)
+        print("> isub: Popped (" + str(var1) + ") and (" + str(var2) +
+              ") from the Stack, assigned to local variables, \nsubtracted the two,"
+              " and pushed result back to Stack.")
+        print(">>>> Top of Stack is now " + str(S.peek()) + ".")
+
+    def iushr(self):
+        var2 = S.pop()
+        var1 = S.pop()
+        if var1 >= 0:
+            S.push(var1 >> var2)
+        else:
+            S.push((var1 + 0x10000000) >> var2)
+        print("iushr = " + str(S.peek()))
+
+    def ixor(self):
+        variable2 = S.pop()
+        variable1 = S.pop()
+        S.push(variable1 ^ variable2)
+        print("ixor = " + str( S.peek() ) )
+
+
 '''
     def opcode_methods(argument):
         """DICTIONARY OF METHODS, FOR SPRINT 3 ONLY BUILD THE METHODS NOT COMMENTED OUT."""
@@ -99,177 +282,178 @@ class OpCodeMethods():
         # Call the Method.
          method()
 '''
-    # ****************************************************************************************
-
-    # def i2b():
-    #     print('i2b')
-    #     https://www.delftstack.com/howto/python/how-to-convert-int-to-bytes-in-python-2-and-python-3/
-    #     temp_int = S.pop()
-    #     byte = bytes([temp_int])
-    #     S.push(byte)
-    #     print("i2b converts " + str(temp_int) + " to a byte: " + str(byte))
-
-    # def i2c():
-    #     print('i2c')
-
-    # def i2d():
-    #     print('i2d')
-
-    # def i2f():
-    #     print('i2f')
-
-    # def i2l():
-    #     print('i2l')
-
-    # def i2s():
-    #     print('i2s')
-
-    def iadd():
-        """iadd: add two ints"""
-        var2 = S.pop()
-        var1 = S.pop()
-        S.push(var1 + var2)
-        print("> iadd: Popped (" + str(var1) + ") and (" + str(var2) +
-              ") from the Stack, assigned to local variables, \nadded the two,"
-              " and pushed result back to Stack.")
-        print(">>>> Top of Stack is now " + str(S.peek()) + ".")
-
-    # def method11():
-    #     print('method11')
-
-    def iand():
-        """iand: performed bitwise AND on two integers"""
-        var2 = S.pop()
-        var1 = S.pop()
-        S.push(var1 & var2)
-        print("> iand: Popped (" + str(var1) + ") and (" + str(var2) +
-              ") from the Stack, assigned to local variables, \nperformed bitwise"
-              " AND and pushed the result (" + str(var2 & var1) + ") back to Stack")
-        print(">>>> Top of Stack is now " + str(S.peek()) + ".")
-    # def iastore():
-    #     print('iastore')
-
-    def iconst_m1():
-        """iconst_m1: load the int value -1 onto the stack"""
-        S.push(-1)
-        print("iconst_m1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
-
-    def iconst_0():
-        """iconst_0: load the int value 0 onto the stack"""
-        S.push(0)
-        print("iconst_0: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
-
-    def iconst_1():
-        """iconst_1: load the int value 1 onto the stack"""
-        S.push(1)
-        print("iconst_1: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
-
-    # load the int value 2 onto the stack
-    def iconst_2():
-        """iconst_2: load the int value 2 onto the stack"""
-        S.push(2)
-        print("iconst_2: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
-
-    def iconst_3():
-        """iconst_3: load the int value 3 onto the stack"""
-        S.push(3)
-        print("iconst_3: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py.")
-
-    def iconst_4():
-        """iconst_4: load the int value 4 onto the stack"""
-        S.push(4)
-        print('"iconst_4: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py."')
-
-    def iconst_5():
-        """iconst_5: load the int value 5 onto the stack"""
-        S.push(5)
-        print('"iconst_5: Pushed " + str(S.peek()) + " to Stack in jvpm_methods.py."')
-
-    def idiv():
-        """idiv: divide two numbers"""
-        var2 = S.pop()
-        var1 = S.pop()
-        S.push(var1 / var2)
-        print("> idiv: Popped (" + str(var1) + ") and (" + str(var2) +
-              ") from the Stack, assigned to local variables, \ndivided the two,"
-              " and pushed result back to Stack.")
-        print(">>>> Top of Stack is now " + str(S.peek()) + ".")
-
-    # def if_acmpeq():
-    #     print('if_acmpeq')
-
-    # def if_acmpene():
-    #     print('if_acmpene')
-
-    # def if_icmpeq():
-    #     print('if_icmpeq')
-
-    # def if_icmpge():
-    #     print('if_icmpge')
-
-    # def if_icmpgt():
-    #     print('if_icmpgt')
-
-    # def if_icmple():
-    #     print('if_icmple')
-
-    # def if_icmplt():
-    #     print('if_icmplt')
-
-    # def if_icmpne():
-    #     print('if_icmpne')
-
-    # def ifeq():
-    #     print('ifeq')
-
-    # def ifge():
-    #     print('ifge')
-
-    # def ifgt():
-    #     print('ifgt')
-
-    # def ifle():
-    #     print('ifle')
-
-    # def iflt():
-    #     print('iflt')
-
-    # def ifne():
-    #     print('ifne')
-
-    # def ifnonnull():
-    #     print('ifnonnull')
-
-    # def ifnull():
-    #     print('ifnull')
-
+("\n"
+ "#     def i2b():\n"
+ "    #     print('i2b')\n"
+ "    #     https://www.delftstack.com/howto/python/how-to-convert-int-to-bytes-in-python-2-and-python-3/\n"
+ "    #     temp_int = S.pop()\n"
+ "    #     byte = bytes([temp_int])\n"
+ "    #     S.push(byte)\n"
+ "    #     print(\"i2b converts \" + str(temp_int) + \" to a byte: \" + str(byte))\n"
+ "\n"
+ "    # def i2c():\n"
+ "    #     print('i2c')\n"
+ "\n"
+ "    # def i2d()\n"
+ "    #     print('i2d')\n"
+ "\n"
+ "    # def i2f():\n"
+ "    #     print('i2f')\n"
+ "\n"
+ "    # def i2l():\n"
+ "    #     print('i2l')\n"
+ "\n"
+ "    # def i2s():\n"
+ "    #     print('i2s')\n"
+ "\n"
+ "    def iadd(self):\n"
+ "        #iadd: add two ints\n"
+ "        var2 = S.pop()\n"
+ "        var1 = S.pop()\n"
+ "        S.push(var1 + var2)\n"
+ "        print(\"> iadd: Popped (\" + str(var1) + \") and (\" + str(var2) +\n"
+ "              \") from the Stack, assigned to local variables, \nadded the two,\"\n"
+ "              \" and pushed result back to Stack.\")\n"
+ "        print(\">>>> Top of Stack is now \" + str(S.peek()) + \".\")\n"
+ "\n"
+ "    # def method11():\n"
+ "    #     print('method11')\n"
+ "\n"
+ "    def iand():\n"
+ "        #iand: performed bitwise AND on two integers\n"
+ "        var2 = S.pop()\n"
+ "        var1 = S.pop()\n"
+ "        S.push(var1 & var2)\n"
+ "        print(\"> iand: Popped (\" + str(var1) + \") and (\" + str(var2) +\n"
+ "              \") from the Stack, assigned to local variables, \nperformed bitwise\"\n"
+ "              \" AND and pushed the result (\" + str(var2 & var1) + \") back to Stack\")\n"
+ "        print(\">>>> Top of Stack is now \" + str(S.peek()) + \".\")\n"
+ "    # def iastore():\n"
+ "    #     print('iastore')\n"
+ "\n"
+ "    def iconst_m1():\n"
+ "        #iconst_m1: load the int value -1 onto the stack\n"
+ "        S.push(-1)\n"
+ "        print(\"iconst_m1: Pushed \" + str(S.peek()) + \" to Stack in jvpm_methods.py.\")\n"
+ "\n"
+ "    def iconst_0():\n"
+ "        #iconst_0: load the int value 0 onto the stack\n"
+ "        S.push(0)\n"
+ "        print(\"iconst_0: Pushed \" + str(S.peek()) + \" to Stack in jvpm_methods.py.\")\n"
+ "\n"
+ "    def iconst_1():\n"
+ "        #iconst_1: load the int value 1 onto the stack\n"
+ "        S.push(1)\n"
+ "        print(\"iconst_1: Pushed \" + str(S.peek()) + \" to Stack in jvpm_methods.py.\")\n"
+ "\n"
+ "    # load the int value 2 onto the stack\n"
+ "    def iconst_2():\n"
+ "        #iconst_2: load the int value 2 onto the stack\n"
+ "        S.push(2)\n"
+ "        print(\"iconst_2: Pushed \" + str(S.peek()) + \" to Stack in jvpm_methods.py.\")\n"
+ "\n"
+ "    def iconst_3():\n"
+ "        #iconst_3: load the int value 3 onto the stack\n"
+ "        S.push(3)\n"
+ "        print(\"iconst_3: Pushed \" + str(S.peek()) + \" to Stack in jvpm_methods.py.\")\n"
+ "\n"
+ "    def iconst_4():\n"
+ "        #iconst_4: load the int value 4 onto the stack\n"
+ "        S.push(4)\n"
+ "        print('\"iconst_4: Pushed \" + str(S.peek()) + \" to Stack in jvpm_methods.py.\"')\n"
+ "\n"
+ "    def iconst_5():\n"
+ "        #iconst_5: load the int value 5 onto the stack\n"
+ "        S.push(5)\n"
+ "        print('\"iconst_5: Pushed \" + str(S.peek()) + \" to Stack in jvpm_methods.py.\"')\n"
+ "\n"
+ "    def idiv():\n"
+ "        #idiv: divide two numbers\n"
+ "        #var2 = S.pop()\n"
+ "        var1 = S.pop()\n"
+ "        S.push(var1 / var2)\n"
+ "        print(\"> idiv: Popped (\" + str(var1) + \") and (\" + str(var2) +\n"
+ "              \") from the Stack, assigned to local variables, \ndivided the two,\"\n"
+ "              \" and pushed result back to Stack.\")\n"
+ "        print(\">>>> Top of Stack is now \" + str(S.peek()) + \".\")\n"
+ "################################\n"
+ "    # def if_acmpeq():\n"
+ "    #     print('if_acmpeq')\n"
+ "\n"
+ "    # def if_acmpene():\n"
+ "    #     print('if_acmpene')\n"
+ "\n"
+ "    # def if_icmpeq():\n"
+ "    #     print('if_icmpeq')\n"
+ "\n"
+ "    # def if_icmpge():\n"
+ "    #     print('if_icmpge')\n"
+ "\n"
+ "    # def if_icmpgt():\n"
+ "    #     print('if_icmpgt')\n"
+ "\n"
+ "    # def if_icmple():\n"
+ "    #     print('if_icmple')\n"
+ "\n"
+ "    # def if_icmplt():\n"
+ "    #     print('if_icmplt')\n"
+ "\n"
+ "    # def if_icmpne():\n"
+ "    #     print('if_icmpne')\n"
+ "\n"
+ "    # def ifeq():\n"
+ "    #     print('ifeq')\n"
+ "\n"
+ "    # def ifge():\n"
+ "    #     print('ifge')\n"
+ "\n"
+ "    # def ifgt():\n"
+ "    #     print('ifgt')\n"
+ "\n"
+ "    # def ifle():\n"
+ "    #     print('ifle')\n"
+ "\n"
+ "    # def iflt():\n"
+ "    #     print('iflt')\n"
+ "\n"
+ "    # def ifne():\n"
+ "    #     print('ifne')\n"
+ "\n"
+ "    # def ifnonnull():\n"
+ "    #     print('ifnonnull')\n"
+ "\n"
+ "    # def ifnull():\n"
+ "    #     print('ifnull')\n")
+##############################
+"""
     def iinc():
-        """iinc: increment local variable #index by signed byte const"""
+        #iinc: increment local variable #index by signed byte const
         print("iinc: not needed for this sprint")
 
     # def iload():
     #     print('iload')
 
     def iload_0():
-        """iload: push variable[0] to the Stack"""
+        #iload: push variable[0] to the Stack
         pushing = VARIABLES[0]
         S.push(pushing)
         print('iload_0: Load VARIABLES[0] on the Stack for processing.')
 
     def iload_1():
-        """iload: push variable[1] to the Stack"""
+        #iload: push variable[1] to the Stack
         pushing = VARIABLES[1]
         S.push(pushing)
         print('iload_1: Load VARIABLES[1] on the Stack for processing.')
 
     def iload_2():
-        """iload: push variable[2] to the Stack"""
+        #iload: push variable[2] to the Stack
         pushing2 = VARIABLES[2]
         S.push(pushing2)
         print('iload_2: Load VARIABLES[2] on the Stack for processing.')
 
+
     def iload_3():
-        """iload: push variable[3] to the Stack"""
+        #iload: push variable[3] to the Stack
         pushing3 = VARIABLES[3]
         S.push(pushing3)
         print('iload_3: Load VARIABLES[3] on the Stack for processing.')
@@ -281,7 +465,7 @@ class OpCodeMethods():
     #     print('impdep2')
 
     def imul():
-        """imul: multiply two integers"""
+        #imul: multiply two integers
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 * var2)
@@ -290,9 +474,11 @@ class OpCodeMethods():
               " and pushed result back to Stack.")
         print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
+
+
     def ineg():
-        """ineg: value minus zero"""
-        var1 = S.pop()
+        #ineg: value minus zero
+         var1 = S.pop()
         S.push(0 - var1)
         print('ineg: Popped ' + str(var1) + ' from Stack, ineg = ' + str(S.peek()) + ','
               ' and pushed back to Stack.')
@@ -316,7 +502,7 @@ class OpCodeMethods():
     #     print('invokevirtual')
 
     def ior():
-        """ior: performed bitwise OR on two integers"""
+        #ior: performed bitwise OR on two integers
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 | var2)
@@ -326,7 +512,7 @@ class OpCodeMethods():
         print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
     def irem():
-        """logical in remainder"""
+        #logical in remainder
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 % var2)
@@ -336,7 +522,7 @@ class OpCodeMethods():
     #     print('ireturn')
 
     def ishl():
-        """int logical shift left"""
+        #int logical shift left
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 << var2)
@@ -347,18 +533,18 @@ class OpCodeMethods():
 
 
     def ishr():
-        """description here"""
+        #description here
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 >> var2)
         print("ishr = " + str(S.peek()))
 
     # def istore():
-    #     """istore: store int value into array[in]"""
+    #     #istore: store int value into array[in]
     #     print('method57')
 
     def istore_0():
-        """istore_0: store int value into VARIABLES[0]"""
+        #istore_0: store int value into VARIABLES[0]
         popped = S.pop()
         VARIABLES.pop(0) # remove the assigned 0 from the [0]position
         VARIABLES.insert(0, popped)
@@ -366,21 +552,21 @@ class OpCodeMethods():
               " from Stack and stored in VARIABLES[0] in jvpm_methods.py.")
 
     def istore_1():
-        """istore_1: store int value into VARIABLES[1]"""
+        #istore_1: store int value into VARIABLES[1]
         popped = S.pop()
         VARIABLES.insert(1, popped)
         print("istore_1: Popped " + str(popped) +
               " from Stack and stored in VARIABLES[1] in jvpm_methods.py.")
 
     def istore_2():
-        """istore_2: store int value into VARIABLES[2]"""
+        #istore_2: store int value into VARIABLES[2]
         popped = S.pop()
         VARIABLES.insert(2, popped)
         print("istore_2: Popped " + str(popped) +
               " from Stack and stored in VARIABLES[2] in jvpm_methods.py.")
 
     def istore_3():
-        """istore_3: store int value into VARIABLES[3]"""
+        #istore_3: store int value into VARIABLES[3]
         popped = S.pop()
         VARIABLES.insert(3, popped)
         print("istore_3: Popped " + str(popped) +
@@ -389,7 +575,7 @@ class OpCodeMethods():
         print(">>>> Top of Stack is now " + str(S.size()) + ".")
 
     def isub():
-        """isub: subtract two ints"""
+        #isub: subtract two ints
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 - var2)
@@ -399,7 +585,7 @@ class OpCodeMethods():
         print(">>>> Top of Stack is now " + str(S.peek()) + ".")
 
     def iushr():
-        """int logical shift right"""
+        #int logical shift right
         var2 = S.pop()
         var1 = S.pop()
         if var1 >= 0:
@@ -409,8 +595,9 @@ class OpCodeMethods():
         print("iushr = " + str(S.peek()))
 
     def ixor():
-        """int xor"""
+        #int xor
         variable2 = S.pop()
         variable1 = S.pop()
         S.push(variable1 ^ variable2)
-        print("ixor = " + str(S.peek()))
+        print("ixor = " + str( S.peek() ) )
+"""

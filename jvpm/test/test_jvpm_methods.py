@@ -1,5 +1,5 @@
 import unittest
-
+"""
 class TestOpcodeMethods(unittest.TestCase):
     def setUp(self):
         self.test = jvpm_methods()
@@ -9,3 +9,4 @@ class TestOpcodeMethods(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+"""

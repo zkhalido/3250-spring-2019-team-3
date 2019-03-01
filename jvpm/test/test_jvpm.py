@@ -5,13 +5,15 @@ import sys
 sys.path.append("/Users/zack/Documents/GitConfused/jvpm")
 import stack
 
-#from stack import Stack
+from stack import Stack
+import jvpm_methods
 
 import jvpm_dict
 import jvpm_opcodes
 
 
 class UnittestHeader(unittest.TestCase):
+
 
     def setUp(self):
         m = mock_open(read_data='CAFEBABE00000036000F')
@@ -58,4 +60,13 @@ class test_stack(unittest.TestCase):
         self.assertEqual(a, 0)
         self.assertEqual(b, 4)
 
-   # def test
+class Test_Op_Methods(unittest.TestCase):
+
+    def test_iadd(self):
+        a = jvpm_methods.OpCodeMethods()
+
+        a.stack.push(2)
+        a.stack.push(1)
+        a.iadd()
+        b = a.stack.pop()
+        self.assertEqual(b, 3)
