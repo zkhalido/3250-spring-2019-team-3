@@ -1,12 +1,9 @@
 import unittest
 from unittest.mock import mock_open, patch
 
-import sys
-sys.path.append("/Users/zack/Documents/GitConfused/jvpm")
-import stack
-
 from stack import Stack
-import jvpm_methods
+
+from jvpm_methods import OpCodeMethods
 
 import jvpm_dict
 import jvpm_opcodes
@@ -80,7 +77,7 @@ class test_stack(unittest.TestCase):
         s.pop()
 
     def test_size(self):
-        s = stack.Stack()
+        s = Stack()
         s.push("hello")
         s.push(2)
         s.push("hi")
@@ -91,7 +88,7 @@ class test_stack(unittest.TestCase):
 class Test_Op_Methods(unittest.TestCase):
 
     def test_iadd(self):
-        a = jvpm_methods.OpCodeMethods()
+        a = OpCodeMethods()
 
         a.stack.push(2)
         a.stack.push(1)
