@@ -3,6 +3,7 @@ import sys
 sys.path.append("/Users/zack/Documents/GitConfused/jvpm")
 from stack import Stack
 
+
 class TestStack(unittest.TestCase):
     #def setUp(self):
 
@@ -34,6 +35,15 @@ class TestStack(unittest.TestCase):
 
         self.assertEqual(a, 0)
         self.assertEqual(b, 4)
+
+    def test_size(self):
+        S = stack.Stack()
+        S.push("hello")
+        S.push(2)
+        S.push("hi")
+        self.assertEqual(S.size(), 3)
+        S.pop()
+        self.assertEqual(S.size(), 2)
 """
     def test_peek(self):
         #S = stack.Stack()
@@ -42,4 +52,6 @@ class TestStack(unittest.TestCase):
         S.push("hi")
         self.assertEqual(S.peek(),"hi")
         S.pop()
+        
 """
+

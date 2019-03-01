@@ -194,7 +194,6 @@ class OpCodeMethods():
         S.push(variable1 ^ variable2)
         print("ixor = " + str( S.peek() ) )
 
-
 '''
     def opcode_methods(argument):
         """DICTIONARY OF METHODS, FOR SPRINT 3 ONLY BUILD THE METHODS NOT COMMENTED OUT."""
@@ -426,6 +425,7 @@ class OpCodeMethods():
  "    #     print('ifnull')\n")
 ##############################
 """
+
     def iinc():
         #iinc: increment local variable #index by signed byte const
         print("iinc: not needed for this sprint")
