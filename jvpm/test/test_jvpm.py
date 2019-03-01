@@ -98,3 +98,92 @@ class Test_Op_Methods(unittest.TestCase):
         a.iadd()
         b = a.stack.pop()
         self.assertEqual(b, 3)
+
+    #def test_iand(self):
+
+    def test_iconst_m1(self):
+        a = OpCodeMethods()
+
+        a.iconst_m1()
+        b = a.stack.peek()
+        self.assertEqual(b, -1)
+
+        a.stack.push(5)
+        self.assertEqual(a.stack.peek(), 5)
+        self.assertNotEqual(a.stack.peek(), -1)
+
+    def test_iconst_0(self):
+        a = OpCodeMethods()
+
+        a.iconst_0()
+        b = a.stack.peek()
+        self.assertEqual(b, 0)
+
+        a.stack.push(5)
+        self.assertEqual(a.stack.peek(), 5)
+        self.assertNotEqual(a.stack.peek(), 0)
+
+    def test_iconst_1(self):
+        a = OpCodeMethods()
+
+        a.iconst_1()
+        b = a.stack.peek()
+        self.assertEqual(b, 1)
+
+        a.stack.push(5)
+        self.assertEqual(a.stack.peek(), 5)
+        self.assertNotEqual(a.stack.peek(), 1)
+
+    def test_iconst_2(self):
+        a = OpCodeMethods()
+
+        a.iconst_2()
+        b = a.stack.peek()
+        self.assertEqual(b, 2)
+
+        a.stack.push(5)
+        self.assertEqual(a.stack.peek(), 5)
+        self.assertNotEqual(a.stack.peek(), 2)
+
+    def test_iconst_3(self):
+        a = OpCodeMethods()
+
+        a.iconst_3()
+        b = a.stack.peek()
+        self.assertEqual(b, 3)
+
+        a.stack.push(5)
+        self.assertEqual(a.stack.peek(), 5)
+        self.assertNotEqual(a.stack.peek(), 3)
+
+    def test_iconst_4(self):
+        a = OpCodeMethods()
+
+        a.iconst_4()
+        b = a.stack.peek()
+        self.assertEqual(b, 4)
+
+        a.stack.push(5)
+        self.assertEqual(a.stack.peek(), 5)
+        self.assertNotEqual(a.stack.peek(), 4)
+
+    def test_iconst_5(self):
+        a = OpCodeMethods()
+
+        a.iconst_5()
+        b = a.stack.peek()
+        self.assertEqual(b, 5)
+
+        a.stack.push(2)
+        self.assertEqual(a.stack.peek(), 2)
+        self.assertNotEqual(a.stack.peek(), 5)
+
+    def test_idiv(self):
+        a = OpCodeMethods()
+
+        a.stack.push(4)
+        a.stack.push(2)
+
+        a.idiv()
+        b = a.stack.pop()
+        self.assertEqual(b, 3)
