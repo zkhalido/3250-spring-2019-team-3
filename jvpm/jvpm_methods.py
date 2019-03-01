@@ -23,7 +23,7 @@ class OpCodeMethods():
     #         "i2f": i2f,              # convert an int into a float
     #         "i2l": i2l,              # convert an int into a long
     #         "i2s": i2s,              # convert an int into a short
-            "iadd": iadd,              # add two ints
+            "iadd": iadd(),              # add two ints
     #         "iaload": method11,          # load an int from an array
             "iand": iand,          # perform a bitwise AND on two integers
     #         "iastore": iastore,         # store an int into an array
