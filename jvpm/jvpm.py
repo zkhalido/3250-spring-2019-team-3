@@ -69,10 +69,10 @@ class HeaderClass():
         print(joined)
         intj = int(joined)
         hexi = hex(intj)
-        print(hexi)
-        print("Interfaces Count: " + hexi)
-        print(format(self.data[holder + 6], '02X'))
-        print(format(self.data[holder + 7], '02X'))
+        # print(hexi)
+        #print("Interfaces Count: " + hexi)
+        #print(format(self.data[holder + 6], '02X'))
+        #print(format(self.data[holder + 7], '02X'))
         return self.data[holder + 6] + self.data[holder + 7]
 
     def get_interfaces(self):
