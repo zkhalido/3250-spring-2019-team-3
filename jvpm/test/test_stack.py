@@ -1,7 +1,7 @@
 import unittest
 import sys
-#sys.path.append("/Users/zack/Documents/GitConfused/jvpm")
-from stack import Stack
+sys.path.append("/Users/zack/Documents/GitConfused/jvpm")
+import stack
 
 class TestStack(unittest.TestCase):
     #def setUp(self):
@@ -38,3 +38,12 @@ class TestStack(unittest.TestCase):
         S.push("hi")
         self.assertEqual(S.peek(),"hi")
         S.pop()
+
+    def test_size(self):
+        S = stack.Stack()
+        S.push("hello")
+        S.push(2)
+        S.push("hi")
+        self.assertEqual(S.size(), 3)
+        S.pop()
+        self.assertEqual(S.size(), 2)
