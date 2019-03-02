@@ -99,7 +99,14 @@ class Test_Op_Methods(unittest.TestCase):
         b = a.stack.pop()
         self.assertEqual(b, 3)
 
-    #def test_iand(self):
+    def test_iand(self):
+        a = OpCodeMethods()
+        
+        a.stack.push(5)
+        a.stack.push(3)
+        a.iand()
+        b = a.stack.pop()
+        self.assertEqual(b,1)
 
     def test_iconst_m1(self):
         a = OpCodeMethods()
@@ -295,9 +302,41 @@ class Test_Op_Methods(unittest.TestCase):
         b = a.stack.pop()
         self.assertEqual(b, 0)
 
-    #def test_ish1(self):
+    def test_ishl(self):
+        a = OpCodeMethods()
+        
+        a.stack.push(2)
+        a.stack.push(1)
+        a.ishl()
+        b = a.stack.pop()
+        self.assertEqual(b, 4)
 
-    #def test_ishr(self):
+    def test_ishr(self):
+        a = OpCodeMethods()
+        
+        a.stack.push(3)
+        a.stack.push(1)
+        a.ishr()
+        b = a.stack.pop()
+        self.assertEqual(b, 2)
+        
+        a.stack.push(-1)
+        a.stack.push(1)
+        a.ishr()
+        b = a.stack.pop()
+        self.asertEqual(b, -1)
+        
+        a.stack.push(5)
+        a.stack.push(0)
+        a.ishr()
+        b = a.stack.pop()
+        self.assertEqual(b, 5)
+        
+        a.stack.push(0)
+        a.stack.push(5)
+        a.ishr()
+        b = a.stack.pop()
+        self.assertEqual(b, 0)
 
     #def test_istore_0(self):
 
@@ -340,6 +379,26 @@ class Test_Op_Methods(unittest.TestCase):
         b = a.stack.pop()
         self.assertEqual(b, -2)
 
-    #def test_iushr(self):
+    def test_iushr(self):
+        a = OpCodeMethods()
+        
+        a.stack.push(5)
+        a.stack.push(2)
+        a.iushr()
+        b = a.stack.pop()
+        self.assertEqual(b, 1)
+        
+        a.stack.push(-1)
+        a.stack.push(2)
+        a.iushr()
+        b = a.stack.pop()
+        self.assertEqual(b, 3)
 
-    #def test_ixor(self):
+    def test_ixor(self):
+        a = OpCodeMethods()
+        
+        a.stack.push(5)
+        a.stack.push(3)
+        a.ixor()
+        b = a.stack.pop()
+        self.assertEqual(b, 7)
