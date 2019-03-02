@@ -1,16 +1,3 @@
-#i
-
-
-
-
-
-
-
-
-
-
-
-
 import unittest
 from unittest.mock import mock_open, patch, Mock, call
 
@@ -144,6 +131,7 @@ class Test_More_Jvpm_opcodes (unittest.TestCase):
             call.write('ran istore_3'), call.write('\n'), call.write('\n')]
         )
 
+    #def test_iand(self):
 
 
 
