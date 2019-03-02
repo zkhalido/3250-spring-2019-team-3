@@ -42,10 +42,10 @@ class OpCodes():
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods"""
     def __init__(self):
-        # List of the test1.java(math) opcodes.
 #         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '1c', '68', '1c', '6c', '1c',
 #                         '64', '3e']
-        self.opcode = []
+        self.opcodes = []
+
 
         """
 
@@ -56,16 +56,15 @@ class OpCodes():
 
         """
 
-    def dict_search(self, opcodes = []):
+    def dict_search(self, jvMethodsIn):
 
         index = 0
-        jvMethodsIn = OpCodeMethods()
+
         while index < len(self.opcodes):
             opcall = jvpm_dict.get_opcode(self.opcodes[index])
 
-            #print("Bytecode " + self.opcodes[index] + ' = Opcode: ' + opcall)
-
             print (opcall) # just to see what opcall is passed through
+
             jvMethodsIn.token_dict(opcall)
             index += 1
         print()
@@ -91,6 +90,7 @@ if '__main__' == __name__:
           '\n  imported method dictionary to implement the method:___')
 
     O = OpCodes()
-    O.dict_search()
+    #O.dict_search() will need to pass through the oject that holds all the methods
+    # also need to have actual constant that are held in the object with the opcall methods
 
 

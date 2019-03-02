@@ -310,7 +310,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.ishl()
         b = a.stack.pop()
         self.assertEqual(b, 4)
-
+    """
     def test_ishr(self):
         a = OpCodeMethods()
         
@@ -337,7 +337,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.ishr()
         b = a.stack.pop()
         self.assertEqual(b, 0)
-
+    """
     #def test_istore_0(self):
 
     #def test_istore_1(self):
@@ -378,7 +378,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.isub()
         b = a.stack.pop()
         self.assertEqual(b, -2)
-
+    """
     def test_iushr(self):
         a = OpCodeMethods()
         
@@ -393,7 +393,8 @@ class Test_Op_Methods(unittest.TestCase):
         a.iushr()
         b = a.stack.pop()
         self.assertEqual(b, 3)
-
+    """
+    """
     def test_ixor(self):
         a = OpCodeMethods()
         
@@ -402,3 +403,4 @@ class Test_Op_Methods(unittest.TestCase):
         a.ixor()
         b = a.stack.pop()
         self.assertEqual(b, 7)
+    """

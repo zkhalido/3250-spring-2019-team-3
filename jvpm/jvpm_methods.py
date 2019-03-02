@@ -16,7 +16,7 @@ class OpCodeMethods():
 
     def __init__(self):
         self.stack = Stack()
-        self.VARIABLES = [0 ,1 ,2 ,3 ,4 ,5]
+        self.VARIABLES = []
 
     def iadd(self):
         """iadd: add two ints"""
@@ -57,8 +57,8 @@ class OpCodeMethods():
         var1 = self.stack.pop()
         self.stack.push(var1 / var2)
 
-    #def iinc(self):
-    #    print("iinc: not needed for this sprint")
+    def iinc(self):
+        print("iinc: not needed for this sprint")
 
     def iload_0(self):
         pushing = self.VARIABLES[0]
@@ -109,7 +109,7 @@ class OpCodeMethods():
 
     def istore_0(self):
         popped = self.stack.pop()
-        self.VARIABLES.pop(0) # remove the assigned 0 from the [0]position
+        #self.VARIABLES.pop(0) # remove the assigned 0 from the [0]position
         self.VARIABLES.insert(0, popped)
         print("ran istore_0")
 
@@ -162,7 +162,7 @@ class OpCodeMethods():
             "iconst_4": iconst_4,  # load the int value 4 onto the stack
             "iconst_5": iconst_5,  # load the int value 5 onto the stack
             "idiv": idiv,  # divide two integers
-            #"iinc": iinc,  # increment local variable #index by signed byte const
+            "iinc": iinc,  # increment local variable #index by signed byte const
             "iload_0": iload_0,  # load an int value from local array variable[0]
             "iload_1": iload_1,  # load an int value from local array variable[1]
             "iload_2": iload_2,  # load an int value from local variable[2]
@@ -183,7 +183,7 @@ class OpCodeMethods():
             "ixor": ixor  # xor
     }
     def token_dict(self, argument):
-        #get functio from spinner
+        # get function from spinner
         method = OpCodeMethods.switcher.get(argument, "invalid")
-        #execute function
+        # execute function
         return method(self)
