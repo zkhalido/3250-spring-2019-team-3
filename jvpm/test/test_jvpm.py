@@ -455,7 +455,7 @@ class Test_Op_Methods(unittest.TestCase):
         b = a.stack.pop()
         self.assertEqual(b, 3)
     """
-    """
+
     def test_ixor(self):
         a = OpCodeMethods()
         
@@ -463,8 +463,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.stack.push(3)
         a.ixor()
         b = a.stack.pop()
-        self.assertEqual(b, 7)
-    """
+        self.assertEqual(b, 6)
 
     def test_dict_search(self):
         a = OpCodeMethods()
