@@ -13,7 +13,7 @@ install:
 script:
   - coverage run -m unittest
   - coverage xml -i
-  - sonar-scanner -x
+  - sonar-x
 
 
 after_success:
