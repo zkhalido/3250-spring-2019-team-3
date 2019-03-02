@@ -32,6 +32,7 @@ class test_get_opcode(unittest.TestCase):
         self.assertEqual(jvpm_dict.get_opcode("82"), "ixor")
         self.assertEqual(jvpm_dict.get_opcode("1c"), "iload_2")
         self.assertEqual(jvpm_dict.get_opcode("03"), "iconst_0")
+        self.assertEqual(jvpm_dict.get_opcode("SQ"), "Byte code not found!")
 
 
 class test_stack(unittest.TestCase):
