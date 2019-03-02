@@ -199,6 +199,14 @@ class Test_Op_Methods(unittest.TestCase):
         b = a.stack.pop()
         self.assertEqual(b, 3)
 
+    #def test_iload_0(self):
+
+    #def test_iload_1(self):
+
+    #def test_iload_2(self):
+
+    #def test_iload_3(self):
+
     def test_imul(self):
         a = OpCodeMethods()
 
@@ -287,6 +295,18 @@ class Test_Op_Methods(unittest.TestCase):
         b = a.stack.pop()
         self.assertEqual(b, 0)
 
+    #def test_ish1(self):
+
+    #def test_ishr(self):
+
+    #def test_istore_0(self):
+
+    #def test_istore_1(self):
+
+    #def test_istore_2(self):
+
+    #def test_istore_3(self):
+
     def test_isub(self):
         a = OpCodeMethods()
 
@@ -319,3 +339,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.isub()
         b = a.stack.pop()
         self.assertEqual(b, -2)
+
+    #def test_iushr(self):
+
+    #def test_ixor(self):
