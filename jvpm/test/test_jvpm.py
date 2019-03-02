@@ -60,18 +60,6 @@ class test_stack(unittest.TestCase):
         self.assertEqual(a, 0)
         self.assertEqual(b, 4)
 
-    def test_pop(self):
-        s = Stack()
-        s.push(3)
-        s.push(2)
-        s.push(4)
-        s.push(0)
-        a = s.pop()
-        b = s.pop()
-
-        self.assertEqual(a, 0)
-        self.assertEqual(b, 4)
-
     def test_peek(self):
         s = Stack()
         s.push("hello")
