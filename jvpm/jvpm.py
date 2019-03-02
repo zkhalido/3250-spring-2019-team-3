@@ -136,72 +136,72 @@ class HeaderClass():
         for i in range(count):
             # Pulling class info
             if self.data[10 + i + position] == 7:
-                position += 3
+                position += 2
             # Field Ref
             elif self.data[10 + i + position] == 9:
-                position += 5
+                position += 4
             # Method Ref
             elif self.data[10 + i + position] == 10:
-                position += 5
+                position += 4
             # Interface Method Ref
             elif self.data[10 + i + position] == 11:
-                position += 5
+                position += 4
             # String
             elif self.data[10 + i + position] == 8:
-                position += 3
+                position += 2
             # Integer
             elif self.data[10 + i + position] == 3:
-                position += 5
+                position += 4
             # Float
             elif self.data[10 + i + position] == 4:
-                position += 5
+                position += 4
             # Long
             elif self.data[10 + i + position] == 5:
-                position += 9
+                position += 8
             # Double
             elif self.data[10 + i + position] == 6:
-                position += 9
+                position += 8
             # Name and Type
             elif self.data[10 + i + position] == 12:
-                position += 5
+                position += 4
             # Utf_8
             elif self.data[10 + i + position] == 1:
-                position += 3
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
+                position += 2
             # Method Handle
             elif self.data[10 + i + position] == 15:
-                position += 4
+                position += 3
             # Method Type
             elif self.data[10 + i + position] == 16:
-                position += 3
+                position += 2
             # Invoke Dynamic
             elif self.data[10 + i + position] == 18:
-                position += 5
+                position += 4
         return position
 
     def get_access_flags(self):
-        holder = self.get_const_pool_length() + 9
+        holder = self.get_const_pool_length() + 24
         print("Access Flags: ", self.data[holder] + self.data[holder + 1])
         print(format(self.data[holder], '02X'))
         print(format(self.data[holder + 1], '02X'))
         return self.data[holder] + self.data[holder + 1]
         
     def get_this_class(self):
-        holder = self.get_const_pool_length() + 9
+        holder = self.get_const_pool_length() + 24
         print("This Class: ", self.data[holder + 2] + self.data[holder + 3])
         print(format(self.data[holder + 2], '02X'))
         print(format(self.data[holder + 3], '02X'))
         return self.data[holder + 2] + self.data[holder + 3]
 
     def get_super_class(self):
-        holder = self.get_const_pool_length() + 9
+        holder = self.get_const_pool_length() + 24
         print("Super Class: ", self.data[holder + 4] + self.data[holder + 5])
         print(format(self.data[holder + 4], '02X'))
         print(format(self.data[holder + 5], '02X'))
         return self.data[holder + 4] + self.data[holder + 5]
 
     def get_interfaces_count(self):
-        holder = self.get_const_pool_length() + 9
+        holder = self.get_const_pool_length() + 25
         joined = ''.join([format(self.data[holder + 6], '02X'), format(self.data[holder + 7], '02X')])
         #print(joined)
         intj = int(joined)
