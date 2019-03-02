@@ -285,4 +285,37 @@ class Test_Op_Methods(unittest.TestCase):
         a.stack.push(-6)
         a.irem()
         b = a.stack.pop()
-        self.assertEqual(b, -1)
+        self.assertEqual(b, 0)
+
+    def test_isub(self):
+        a = OpCodeMethods()
+
+        a.stack.push(5)
+        a.stack.push(2)
+        a.isub()
+        b = a.stack.pop()
+        self.assertEqual(b, 3)
+
+        a.stack.push(5)
+        a.stack.push(5)
+        a.isub()
+        b = a.stack.pop()
+        self.assertEqual(b, 0)
+
+        a.stack.push(5)
+        a.stack.push(0)
+        a.isub()
+        b = a.stack.pop()
+        self.assertEqual(b, 5)
+
+        a.stack.push(0)
+        a.stack.push(0)
+        a.isub()
+        b = a.stack.pop()
+        self.assertEqual(b, 0)
+
+        a.stack.push(3)
+        a.stack.push(5)
+        a.isub()
+        b = a.stack.pop()
+        self.assertEqual(b, -2)
