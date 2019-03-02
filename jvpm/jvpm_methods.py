@@ -34,18 +34,15 @@ class OpCodeMethods():
 
     def iconst_0(self):
         self.stack.push(0)
-        print("ran iconst_0")
 
     def iconst_1(self):
         self.stack.push(1)
-        print ("ran Iconst_1")
 
     def iconst_2(self):
         self.stack.push(2)
 
     def iconst_3(self):
         self.stack.push(3)
-        print("ran iconst_3")
 
     def iconst_4(self):
         self.stack.push(4)
@@ -66,14 +63,12 @@ class OpCodeMethods():
         self.stack.push(pushing)
 
     def iload_1(self):
-        #pushing = self.VARIABLES[1]
-        #self.stack.push(pushing)
-        print("ran iload_1")
+        pushing = self.VARIABLES[1]
+        self.stack.push(pushing)
 
     def iload_2(self):
-        #pushing2 = self.VARIABLES[2]
-        #self.stack.push(pushing2)
-        print ("ran iload_2")
+        pushing2 = self.VARIABLES[2]
+        self.stack.push(pushing2)
 
     def iload_3(self):
         pushing3 = self.VARIABLES[3]

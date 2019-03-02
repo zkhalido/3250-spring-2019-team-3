@@ -259,3 +259,30 @@ class Test_Op_Methods(unittest.TestCase):
         a.ior()
         b = a.stack.pop()
         self.assertEqual(b, -5)
+
+    def test_irem(self):
+        a = OpCodeMethods()
+
+        a.stack.push(5)
+        a.stack.push(2)
+        a.irem()
+        b = a.stack.pop()
+        self.assertEqual(b, 1)
+
+        a.stack.push(10)
+        a.stack.push(5)
+        a.irem()
+        b = a.stack.pop()
+        self.assertEqual(b, 0)
+
+        a.stack.push(-6)
+        a.stack.push(5)
+        a.irem()
+        b = a.stack.pop()
+        self.assertEqual(b, 4)
+
+        a.stack.push(6)
+        a.stack.push(-6)
+        a.irem()
+        b = a.stack.pop()
+        self.assertEqual(b, -1)
