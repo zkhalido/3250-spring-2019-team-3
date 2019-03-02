@@ -16,7 +16,7 @@ class UnittestHeader(unittest.TestCase):
     def setUp(self):
         m = mock_open(read_data='CAFEBABE00000036000F')
         with patch(__name__ + '.open', m):
-            self.cf = jvpm_opcodes.HeaderClass()
+            self.cf = jvpm.jvpm_opcodes.HeaderClass()
 
     def test_magic(self):
         self.assertEqual(self.cf.get_magic(), 'CAFEBABE')
@@ -29,11 +29,11 @@ class UnittestHeader(unittest.TestCase):
 
 class test_get_opcode(unittest.TestCase):
     def test_opcode(self):
-        self.assertEqual(jvpm_dict.get_opcode("91"), "i2b")
-        self.assertEqual(jvpm_dict.get_opcode("82"), "ixor")
-        self.assertEqual(jvpm_dict.get_opcode("1c"), "iload_2")
-        self.assertEqual(jvpm_dict.get_opcode("03"), "iconst_0")
-        self.assertEqual(jvpm_dict.get_opcode("SQ"), "Byte code not found!")
+        self.assertEqual(jvpm.jvpm_dict.get_opcode("91"), "i2b")
+        self.assertEqual(jvpm.jvpm_dict.get_opcode("82"), "ixor")
+        self.assertEqual(jvpm.jvpm_dict.get_opcode("1c"), "iload_2")
+        self.assertEqual(jvpm.jvpm_dict.get_opcode("03"), "iconst_0")
+        self.assertEqual(jvpm.jvpm_dict.get_opcode("SQ"), "Byte code not found!")
 
 
 class test_stack(unittest.TestCase):
