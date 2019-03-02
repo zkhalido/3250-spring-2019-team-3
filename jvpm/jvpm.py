@@ -39,8 +39,6 @@ class HeaderClass():
         position = 0
         count = self.get_const_pool_count() - 1
         for i in range(count):
-            print("i: ", i)
-            print("index value: ", format(self.data[10 + i + position], '02x'))
             # Pulling class info
             if self.data[10 + i + position] == 7:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
@@ -107,10 +105,11 @@ class HeaderClass():
             elif self.data[10 + i + position] == 1:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                position += 2
-                position += (self.data[11 + i + position] + self.data[12 + i + position])
                 for f in range (self.data[11 + i + position] + self.data[12 + i + position]):
                     temp[i].append(format(self.data[13 + i + position + f], '02x'))
+                position += (self.data[11 + i + position] + self.data[12 + i + position])
+                position += 2
+                
             # Method Handle
             elif self.data[10 + i + position] == 15:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
@@ -128,8 +127,6 @@ class HeaderClass():
                 temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
                 temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
-            print("temp[i]: ", temp[i])
-            print("postion: ", position)
         return temp
 
     def get_const_pool_length(self):
@@ -280,6 +277,7 @@ if '__main__' == __name__:
     d.get_magic()
     d.get_minor()
     d.get_major()
+    print(d.get_const_pool())
     d.get_const_pool()
     d.get_access_flags()
     d.get_this_class()
