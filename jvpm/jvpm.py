@@ -7,7 +7,6 @@ from collections import defaultdict
 # from bitstring import ConstBitStream
 # from pythonds.basic.stack import Stack
 
-
 # pylint: disable = W0105, C0122
 class HeaderClass():
 
@@ -70,29 +69,29 @@ class HeaderClass():
             # Integer
             elif self.data[10 + i + position] == 3:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
             # Float
             elif self.data[10 + i + position] == 4:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
             # Long
             elif self.data[10 + i + position] == 5:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] + 
+                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] +
                     self.data[17 + i + position] + self.data[18 + i + position], '02x'))
                 position += 8
             # Double
             elif self.data[10 + i + position] == 6:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] + 
+                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] +
                     self.data[17 + i + position] + self.data[18 + i + position], '02x'))
                 position += 8
             # Name and Type
@@ -109,7 +108,7 @@ class HeaderClass():
                     temp[i].append(format(self.data[13 + i + position + f], '02x'))
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
                 position += 2
-                
+
             # Method Handle
             elif self.data[10 + i + position] == 15:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
@@ -185,7 +184,7 @@ class HeaderClass():
         print(format(self.data[holder], '02X'))
         print(format(self.data[holder + 1], '02X'))
         return self.data[holder] + self.data[holder + 1]
-        
+
     def get_this_class(self):
         holder = self.get_const_pool_length() + 24
         print("This Class: ", self.data[holder + 2] + self.data[holder + 3])
@@ -290,4 +289,3 @@ if '__main__' == __name__:
     d.get_methods()
     d.get_attributes_count()
     d.get_attributes()
-    
