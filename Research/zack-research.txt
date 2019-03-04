@@ -169,9 +169,6 @@ https://www.youtube.com/watch?v=hvPYuqzTPIk&t=1732s
 -Create local wrappers!
 -Searches for duplicate code.
 -Unittests can be used as documentation.
-<<<<<<< HEAD
-- 
-=======
 
 02/26/2019 (in class)
 
@@ -190,4 +187,3 @@ https://www.youtube.com/watch?v=hvPYuqzTPIk&t=1732s
   -Abstraction (don't need to know what is inside the method)
   -Inheritance (inherit objects from other classes)
   -Polymorphism (methods working on multiple types)
->>>>>>> testing_travis_testing_stack
