@@ -25,89 +25,110 @@ class OpCodeMethods():
         self.stack.push(var1 + var2)
 
     def iand(self):
+        """perform a bitwise AND on two integers"""
         var2 = self.stack.pop()
         var1 = self.stack.pop()
         self.stack.push(var1 & var2)
 
     def iconst_m1(self):
+        """load the int value -1 onto the stack"""
         self.stack.push(-1)
 
     def iconst_0(self):
+        """load the int value 0 onto the stack"""
         self.stack.push(0)
 
     def iconst_1(self):
+        """load the int value 1 onto the stack"""
         self.stack.push(1)
         print("ran iconst_1")
 
     def iconst_2(self):
+        """load the int value 2 onto the stack"""
         self.stack.push(2)
 
     def iconst_3(self):
+        """load the int value 3 onto the stack"""
         self.stack.push(3)
         print("ran iconst_3")
 
     def iconst_4(self):
+        """load the int value 4 onto the stack"""
         self.stack.push(4)
 
     def iconst_5(self):
+        """load the int value 5 onto the stack"""
         self.stack.push(5)
 
     def idiv(self):
+        """divide two integers"""
         var2 = self.stack.pop()
         var1 = self.stack.pop()
         self.stack.push(var1 / var2)
 
     def iinc(self):
+        """increment local variable"""
         print("iinc: not needed for this sprint")
 
     def iload_0(self):
+        """load an int value from local array variable[0]"""
         pushing = self.VARIABLES[0]
         self.stack.push(pushing)
 
     def iload_1(self):
+        """load an int value from local array variable[1]"""
         pushing = self.VARIABLES[1]
         self.stack.push(pushing)
         print("ran iload_1")
 
     def iload_2(self):
+        """load an int value from local array variable[2]"""
         pushing2 = self.VARIABLES[2]
         self.stack.push(pushing2)
         print("ran iload_2")
 
     def iload_3(self):
+        """load an int value from local array variable[3]"""
         pushing3 = self.VARIABLES[3]
         self.stack.push(pushing3)
 
     def imul(self):
+        """multiply two integers"""
         var2 = self.stack.pop()
         var1 = self.stack.pop()
         self.stack.push(var1 * var2)
 
     def ineg(self):
+        """negate int"""
         var1 = self.stack.pop()
         self.stack.push(0 - var1)
 
     def ior(self):
+        """bitwise int OR"""
         var2 = self.stack.pop()
         var1 = self.stack.pop()
         self.stack.push(var1 | var2)
 
     def irem(self):
+        """logical in remainder"""
         var2 = self.stack.pop()
         var1 = self.stack.pop()
         self.stack.push(var1 % var2)
 
     def ishl(self):
+        """int shift left"""
         var2 = self.stack.pop()
         var1 = self.stack.pop()
         self.stack.push(var1 << var2)
 
     def ishr(self):
+        """int arithmetic shift right"""
         var2 = self.stack.pop()
         var1 = self.stack.pop()
         self.stack.push(var1 >> var2)
 
     def istore_0(self):
+        """store int value into VARIABLE[0]"""
         popped = self.stack.pop()
         #self.VARIABLES.pop(0) # remove the assigned 0 from the [0]position
         self.VARIABLES.insert(0, popped)
@@ -115,27 +136,32 @@ class OpCodeMethods():
 
 
     def istore_1(self):
+        """store int value into VARIABLE[1]"""
         popped = self.stack.pop()
         self.VARIABLES.insert(1, popped)
         print("ran istore_1")
 
 
     def istore_2(self):
+        """store int value into VARIABLE[2]"""
         popped = self.stack.pop()
         self.VARIABLES.insert(2, popped)
         print("ran istore_2")
 
     def istore_3(self):
+        """store int value into VARIABLE[3]"""
         popped = self.stack.pop()
         self.VARIABLES.insert(3, popped)
         print("ran istore_3")
 
     def isub(self):
+        """int subtract"""
         var2 = self.stack.pop()
         var1 = self.stack.pop()
         self.stack.push(var1 - var2)
 
     def iushr(self):
+        """int logical shift right"""
         var2 = self.stack.pop()
         var1 = self.stack.pop()
         if var1 >= 0:
@@ -144,6 +170,7 @@ class OpCodeMethods():
             self.stack.push((var1 + 0x10000000) >> var2)
 
     def ixor(self):
+        """xor"""
         variable2 = self.stack.pop()
         variable1 = self.stack.pop()
         self.stack.push(variable1 ^ variable2)
