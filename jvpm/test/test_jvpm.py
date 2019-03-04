@@ -439,7 +439,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.isub()
         b = a.stack.pop()
         self.assertEqual(b, -2)
-    """
+    
     def test_iushr(self):
         a = OpCodeMethods()
         
@@ -448,7 +448,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.iushr()
         b = a.stack.pop()
         self.assertEqual(b, 1)
-        
+    """    
         a.stack.push(-1)
         a.stack.push(2)
         a.iushr()
