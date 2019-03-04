@@ -187,3 +187,9 @@ https://www.youtube.com/watch?v=hvPYuqzTPIk&t=1732s
   -Abstraction (don't need to know what is inside the method)
   -Inheritance (inherit objects from other classes)
   -Polymorphism (methods working on multiple types)
+
+03/04/2019 Presentation commands.
+
+coverage run --omit=jvpm/__init__.py,jvpm/test/__init__.py,jvpm/test/test_jvpm.py -m unittest
+
+coverage report -m
