@@ -1,7 +1,7 @@
 2/23/19
 -Questions to bring up in Monday team meeting.
 -Breaking down user stories into story points.
--Research on stacks in python. 
+-Research on stacks in python.
 Stack info:
 http://interactivepython.org/courselib/static/pythonds/BasicDS/ImplementingaStackinPython.html
 
@@ -40,3 +40,30 @@ myDict = {
 def myMain(name):
     myDict[name]()
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3/4/19
+
+https://gist.github.com/tasdikrahman/2bdb3fb31136a3768fac
+
+new_project
+├── antigravity
+│   ├── __init__.py         # make it a package
+│   └── antigravity.py
+└── test
+    ├── __init__.py         # also make test a package
+    └── test_antigravity.py
+
+The example structure for the directory had the working module and tests parallel to each other.
+I tried moving around the test folder so that it was inside jvpm but inside
+GitConfused instead, the same directory as jvpm.  That was the jvpm_methods.py would
+be in jvpm and the test for it, test_jvpm.py would be in the test location.
+
+This ended up returning errors because the test module was unable to import the jvpm_methods.py
+module.
+
+GitConfused
+├── jvpm
+│   ├── __init__.py
+│   └── jvpm_methods.py
+└── test
+    ├── __init__.py
+    └── test_jvpm.py
