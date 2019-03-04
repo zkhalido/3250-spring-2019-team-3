@@ -56,10 +56,10 @@ class OpCodeMethods():
         var2 = self.stack.pop()
         var1 = self.stack.pop()
         self.stack.push(var1 / var2)
-
-    def iinc(self):
-        print("iinc: not needed for this sprint")
-
+        
+#    def iinc(self):
+#        print("iinc: not needed for this sprint")
+    
     def iload_0(self):
         pushing = self.VARIABLES[0]
         self.stack.push(pushing)
@@ -162,7 +162,7 @@ class OpCodeMethods():
             "iconst_4": iconst_4,  # load the int value 4 onto the stack
             "iconst_5": iconst_5,  # load the int value 5 onto the stack
             "idiv": idiv,  # divide two integers
-            "iinc": iinc,  # increment local variable #index by signed byte const
+            #"iinc": iinc,  # increment local variable #index by signed byte const
             "iload_0": iload_0,  # load an int value from local array variable[0]
             "iload_1": iload_1,  # load an int value from local array variable[1]
             "iload_2": iload_2,  # load an int value from local variable[2]
