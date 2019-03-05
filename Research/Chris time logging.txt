@@ -1,0 +1,38 @@
+Chris team 3 time logging-
+
+
+6:26  (start)
+-making tests in opcode branch
+-switched to header info to amke tests
+-added stack class for hader info
+-ran into issues in general
+-made a xcel doc with breakdown of the bytecodes to excpect
+10:42 (stop)
+
+2/28/19 9:27 pm start-
+- call with zack 
+- we made another branch
+- made jvpm_methods into a class than can create an object
+- made one test for iadd to test object and works
+- 2/28/19 11:54 pm stop
+
+3/1/19 10:30 am start-
+- made jvpm_methods a class that is instanciable
+- made a test for iadd to test instance
+- fixed dictionary to work with object
+- pushed to test branch
+- working on testing the method to get opcodes and run them
+* issue - still need to be able to read opcodes from class file
+- call with zack 2:15 - 2:46 -(bob should be done with opcode imprt tonight)
+- added test for loop to check if it is reading bytes correctly and going through dictionaries to return methods
+- also a lot of research for making objects of classes in python
+3/1/19 5:13 pm stopped
+
+
+3/2/19 9-17 am start-
+- finished istore and load tets
+- had to fix loop test to not use fixed variables
+- fixed xor test issue, was just looking for wrong result
+- got travis to run tests on program by fixing imports and moving test.class up a folder
+- still have issues with sonar cloud not working from travis
+3/2/19 2:45 pm stopped
