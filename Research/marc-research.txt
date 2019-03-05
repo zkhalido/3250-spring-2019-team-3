@@ -1,7 +1,7 @@
 2/23/19
 -Questions to bring up in Monday team meeting.
 -Breaking down user stories into story points.
--Research on stacks in python. 
+-Research on stacks in python.
 Stack info:
 http://interactivepython.org/courselib/static/pythonds/BasicDS/ImplementingaStackinPython.html
 
@@ -40,3 +40,41 @@ myDict = {
 def myMain(name):
     myDict[name]()
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3/3/19
+
+https://gist.github.com/tasdikrahman/2bdb3fb31136a3768fac
+
+new_project
+├── antigravity
+│   ├── __init__.py         # make it a package
+│   └── antigravity.py
+└── test
+    ├── __init__.py         # also make test a package
+    └── test_antigravity.py
+
+The example structure for the directory had the working module and tests parallel to each other.
+I tried moving around the test folder so that it was inside jvpm but inside
+GitConfused instead, the same directory as jvpm.  That was the jvpm_methods.py would
+be in jvpm and the test for it, test_jvpm.py would be in the test location.
+
+This ended up returning errors because the test module was unable to import the jvpm_methods.py
+module.
+
+GitConfused
+├── jvpm
+│   ├── __init__.py
+│   └── jvpm_methods.py
+└── test
+    ├── __init__.py
+    └── test_jvpm.py
+
+For the unit testing itself we had to create a stack for each individual stack method.
+Most of the examples had something like myFunction(input,expectedoutput).  Because our
+methods do not actually take any inputs but just execute a different stack function, ie: Push
+pop,peek, we had to create a local stack for the test method to interact with.
+This included creating multiple stacks to test the different cases that the test
+needed to account for.  Mostly just switching the variables around.  ishr (arithmetic shift right)
+was a method that could not test.  Since the iconst only went up to 5 and we are
+not using istore for this sprint we cannot test to see if the method works and includes
+a sign extension.  This would require a 1 in the most significant bit which has the
+smallest number for 8.
