@@ -73,4 +73,8 @@ Most of the examples had something like myFunction(input,expectedoutput).  Becau
 methods do not actually take any inputs but just execute a different stack function, ie: Push
 pop,peek, we had to create a local stack for the test method to interact with.
 This included creating multiple stacks to test the different cases that the test
-needed to account for.  Mostly just switching the variables around.  
+needed to account for.  Mostly just switching the variables around.  ishr (arithmetic shift right)
+was a method that could not test.  Since the iconst only went up to 5 and we are
+not using istore for this sprint we cannot test to see if the method works and includes
+a sign extension.  This would require a 1 in the most significant bit which has the
+smallest number for 8.
