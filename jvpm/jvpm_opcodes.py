@@ -42,8 +42,8 @@ class OpCodes():
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods"""
     def __init__(self):
-#         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '1c', '68', '1c', '6c', '1c',
-#                         '64', '3e']
+        self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '1c', '68', '1c', '6c', '1c',
+                        '64', '3e']
         self.opcodes = []
 
 
@@ -92,5 +92,3 @@ if '__main__' == __name__:
     O = OpCodes()
     #O.dict_search() will need to pass through the oject that holds all the methods
     # also need to have actual constant that are held in the object with the opcall methods
-
-
