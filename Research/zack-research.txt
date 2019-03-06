@@ -188,6 +188,34 @@ https://www.youtube.com/watch?v=hvPYuqzTPIk&t=1732s
   -Inheritance (inherit objects from other classes)
   -Polymorphism (methods working on multiple types)
 
+02/27/2019
+
+https://docs.python.org/3/library/unittest.html#unittest.TestCase.tearDown
+
+-There are 12 methods in the Unittest module you can use to test code.
+-The purpose of Unittesting is to give a method (normally) an input and the
+compare the return result with an expected variable that is provided. If ever
+a method is broken the return result will not satisfy the test and will fail.
+Allowing the programmer to easily find the source of a problem.
+-Unittests should be written before the operation code.
+-This way you can figure out what you want that method to do, give it an input
+and write code that will make the Unittest pass. Insuring the code is working
+properly.
+-Short comings of Unittesting is that they are only as good as the programmer
+makes them. There is hundreds of ways to test a method and there is hundreds
+of ways the method can fail. Example: a method that subtracts 2 ints, receives
+a string as an input. If you do not write a Unittest for this case it does no
+good having the Unittest in that bug scenario.
+
+03/01/2019
+
+https://www.youtube.com/watch?v=CqvZ3vGoGs0&t=836s
+https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure
+
+03/03/2019
+
+-Working on the presentation slides.
+
 03/04/2019 Presentation commands.
 
 coverage run --omit=jvpm/__init__.py,jvpm/test/__init__.py,jvpm/test/test_jvpm.py -m unittest
