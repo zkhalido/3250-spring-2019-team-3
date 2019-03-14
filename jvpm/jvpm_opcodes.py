@@ -130,8 +130,8 @@ class HeaderClass():
                 temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
                 temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
-            self.temp_2 = temp
-            print(self.temp_2)
+        self.temp_2 = temp
+        print(self.temp_2)
         return temp
 
 # **************************************************************************************************
