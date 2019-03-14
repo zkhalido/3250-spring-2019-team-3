@@ -16,6 +16,7 @@ class HeaderClass():
     def __init__(self):
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
+            self.temp_2(list)
 
     def get_magic(self):
         magic = ""
@@ -128,7 +129,8 @@ class HeaderClass():
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
                 temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4    
+                position += 4
+            self.temp_2 = temp
         return temp
 
 # **************************************************************************************************
@@ -187,6 +189,7 @@ if '__main__' == __name__:
 
     O = OpCodes()
     print(H.get_const_pool())
+    print(self.temp_2)
     #O.dict_search() will need to pass through the oject that holds all the methods
     # also need to have actual constant that are held in the object with the opcall methods
 
