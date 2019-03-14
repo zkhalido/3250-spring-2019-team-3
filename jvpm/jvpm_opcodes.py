@@ -16,7 +16,7 @@ class HeaderClass():
     def __init__(self):
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
-            self.temp_2(list)
+            self.temp_2 = defaultdict(list)
 
     def get_magic(self):
         magic = ""
