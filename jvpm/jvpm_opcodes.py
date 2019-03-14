@@ -189,7 +189,7 @@ if '__main__' == __name__:
 
     O = OpCodes()
     print(H.get_const_pool())
-    print(self.temp_2)
+    print(H.self.temp_2)
     #O.dict_search() will need to pass through the oject that holds all the methods
     # also need to have actual constant that are held in the object with the opcall methods
 
