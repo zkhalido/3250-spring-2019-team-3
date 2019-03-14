@@ -2,7 +2,7 @@
 # import unittest
 """Read bit stream."""
 #from bitstring import ConstBitStream
-import jvpm.jvpm_dict    # import external opcode dictionary
+import jvpm_dict    # import external opcode dictionary
 #import jvpm_methods
 #from jvpm_methods import OpCodeMethods # import external method dictionary
 
