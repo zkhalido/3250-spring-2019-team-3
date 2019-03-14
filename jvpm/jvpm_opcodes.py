@@ -3,6 +3,7 @@
 """Read bit stream."""
 #from bitstring import ConstBitStream
 import jvpm_dict    # import external opcode dictionary
+from collections import defaultdict
 #import jvpm_methods
 #from jvpm_methods import OpCodeMethods # import external method dictionary
 
