@@ -3,6 +3,7 @@
 # ONLY BUILD THE METHODS NOT COMMENTED OUT.
 # pylint: disable = W0603, C0330
 from jvpm.stack import Stack
+import numpy
 
 #S = stack.Stack()
 
@@ -20,8 +21,9 @@ class OpCodeMethods():
 
     def iadd(self):
         """iadd: add two ints"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
+
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 + var2)
 
     def iand(self):
@@ -62,8 +64,8 @@ class OpCodeMethods():
 
     def idiv(self):
         """divide two integers"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 / var2)
 
     def iinc(self):
@@ -94,8 +96,8 @@ class OpCodeMethods():
 
     def imul(self):
         """multiply two integers"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 * var2)
 
     def ineg(self):
