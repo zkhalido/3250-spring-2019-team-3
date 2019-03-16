@@ -56,23 +56,23 @@ class OpCodeMethods():
 
     switcher = {
 
-        "01": UTF_8_string,  # add two ints
-        "03": integer,  # add two ints
-        "04": float,  # add two ints
-        "05": long,  # add two ints
-        "06": double,  # add two ints
-        "07": class_reference,  # add two ints
-        "08": string_reference,  # add two ints
-        "09": field_reference,  # add two ints
-        "0a": method_reference,  # add two ints
-        "0b": interface_method_reference,  # add two ints
-        "0c": name_and_type_discriptor,  # add two ints
-        "0f": method_handle,  # add two ints
-        "10": method_type,  # add two ints
-        "11": dynamic,  # add two ints
-        "12": invoke_dynamic,  # add two ints
-        "13": module,  # add two ints
-        "14": package,  # add two ints
+        "01": UTF_8_string,  
+        "03": integer,  
+        "04": float,  
+        "05": long,  
+        "06": double,  
+        "07": class_reference,  
+        "08": string_reference,  
+        "09": field_reference,  
+        "0a": method_reference,  
+        "0b": interface_method_reference,  
+        "0c": name_and_type_discriptor,  
+        "0f": method_handle,  
+        "10": method_type,  
+        "11": dynamic,  
+        "12": invoke_dynamic, 
+        "13": module,  
+        "14": package,  
 
     }
 
