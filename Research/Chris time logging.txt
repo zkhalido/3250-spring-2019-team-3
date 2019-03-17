@@ -36,3 +36,11 @@ Chris team 3 time logging-
 - got travis to run tests on program by fixing imports and moving test.class up a folder
 - still have issues with sonar cloud not working from travis
 3/2/19 2:45 pm stopped  5h 28m
+
+3/16/19 5:46 start-
+-making an application to translate bytecode of constant pool
+-discord chat
+-ended call with bob and mark, mark is working on the rest of the opcode methods, i am working on translating the pool
+3/16/19 7:50 break time end
+
+
