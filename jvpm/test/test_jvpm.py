@@ -471,12 +471,27 @@ class Test_Op_Methods(unittest.TestCase):
         a.stack.push(5)
         a.i2f()
         b = a.stack.pop()
-        self.asserEqual(b, 5.0)
+        self.assertEqual(b, 5.0)
 
         a.stack.push(0)
         a.i2f()
         b = a.stack.pop()
         self.assertEqual(b, 0.0)
+
+    def test_i2b(self):
+        a = OpCodeMethods()
+
+        a.stack.push(5)
+        a.i2b()
+        b = a.stack.pop()
+        self.assertEqual(b, 'b'\x00\x00\x00\x00\x00\x00\x00\x05'')
+
+        a.stack.push(0)
+        a.i2b()
+        b = a.stack.pop()
+        self.assertEqual(b, 'b'\x00\x00\x00\x00\x00\x00\x00\x00'')
+
+    
 
     def test_dict_search(self):
         a = OpCodeMethods()
