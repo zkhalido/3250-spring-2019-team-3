@@ -1,4 +1,4 @@
-2/23/19
+﻿2/23/19
 -Questions to bring up in Monday team meeting.
 -Breaking down user stories into story points.
 -Research on stacks in python.
@@ -41,7 +41,6 @@ def myMain(name):
     myDict[name]()
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 3/3/19
-
 https://gist.github.com/tasdikrahman/2bdb3fb31136a3768fac
 
 new_project
@@ -78,3 +77,136 @@ was a method that could not test.  Since the iconst only went up to 5 and we are
 not using istore for this sprint we cannot test to see if the method works and includes
 a sign extension.  This would require a 1 in the most significant bit which has the
 smallest number for 8.
+
+******************************************************************************************
+3/11/19
+For parsing the constant pool we know exactly which byte we need to pull.
+This is because the constant pool always starts in the same position, similar to the
+minor version, major version, and magic number.  The constant pool count is how we 
+determine where the constant pool ends.  By taking the constant pool count and
+subtracting one, we are able to get the number of items in the constant pool.  We then
+need to set our parser to take the numbers from the start of the connstant pool and
+then traverse the bytecode until we reach a number of bytes equal to the constant pool count
+minus one.
+
+Dissassembler: A disassembler is a software tool which transforms machine code 
+into a human readable mnemonic representation called assembly language.
+
+- This is what javap does when we make a .class file out of the .java file.
+It takes the higher level code and converts it into bytecode that is readable
+in order programming languages.
+
+Constant pool:
+I learned that the constant pool count is not just a number refering to the number
+of bytes in the constant pool.  The constant pool is actually a collection of constant
+pools that all have varying bytes.  As an example; if the first byte is a 01 then it 
+refers to a string.  You then need to read the next two bytes to determine how many
+bytes the string references. 
+
+After determining how many total bytes there are across all constant pools we are
+able to determine what the cpsize is.
+
+cpsize = all bytes across all constant pools
+
+From there we add parse past a few bytes of a determined size before coming across 
+the next variable bytes.
+
+*********************************************************************************
+3/16/19
+Need to figure out how to convert constant pool bytes into functions through python.
+
+1 	2+x bytes
+(variable) 	UTF-8 (Unicode) string: a character string prefixed by a 16-bit number (type u2) indicating the number of bytes in the encoded string which immediately follows (which may be different than the number of characters). Note that the encoding used is not actually UTF-8, but involves a slight modification of the Unicode standard encoding form. 	1.0.2
+3 	4 bytes 	Integer: a signed 32-bit two's complement number in big-endian format 	1.0.2
+4 	4 bytes 	Float: a 32-bit single-precision IEEE 754 floating-point number 	1.0.2
+5 	8 bytes 	Long: a signed 64-bit two's complement number in big-endian format (takes two slots in the constant pool table) 	1.0.2
+6 	8 bytes 	Double: a 64-bit double-precision IEEE 754 floating-point number (takes two slots in the constant pool table) 	1.0.2
+7 	2 bytes 	Class reference: an index within the constant pool to a UTF-8 string containing the fully qualified class name (in internal format) (big-endian) 	1.0.2
+8 	2 bytes 	String reference: an index within the constant pool to a UTF-8 string (big-endian too) 	1.0.2
+9 	4 bytes 	Field reference: two indexes within the constant pool, the first pointing to a Class reference, the second to a Name and Type descriptor. (big-endian) 	1.0.2
+10 	4 bytes 	Method reference: two indexes within the constant pool, the first pointing to a Class reference, the second to a Name and Type descriptor. (big-endian) 	1.0.2
+11 	4 bytes 	Interface method reference: two indexes within the constant pool, the first pointing to a Class reference, the second to a Name and Type descriptor. (big-endian) 	1.0.2
+12 	4 bytes 	Name and type descriptor: two indexes to UTF-8 strings within the constant pool, the first representing a name (identifier) and the second a specially encoded type descriptor. 	1.0.2
+15 	3 bytes 	Method handle: this structure is used to represent a method handle and consists of one byte of type descriptor, followed by an index within the constant pool.[5] 	7
+16 	2 bytes 	Method type: this structure is used to represent a method type, and consists of an index within the constant pool.[5] 	7
+17 	4 bytes 	Dynamic: this is used to specify a dynamically computed constant produced by invocation of a bootstrap method.[5] 	11
+18 	4 bytes 	InvokeDynamic: this is used by an invokedynamic instruction to specify a bootstrap method, the dynamic invocation name, the argument and return types of the call, and optionally, a sequence of additional constants called static arguments to the bootstrap method.[5] 	7
+19 	2 bytes 	Module: this is used to identify a module.[5] 	9
+20 	2 bytes 	Package: this is used to identify a package exported or opened by a module.[5]
+
+Had a meeting through discord with Bob and Chris.  Bob explained how to view the output of his
+get_cont_pool as a two dimensional array, a list of lists.  The way to access an individual byte
+withing the array is to call the index for the first list and then additionally call
+the index for the location of that lists byte.  So to get the first byte of the entire
+array called temp you could call temp[0][0], for the second it would be temp[0][1] and so on.
+The second index only works for the size of the individual constant pool and the first index
+works for the index of the constant pool within the list of constant pools.  
+
+My next assignment for this sprint is to finish the opcodes that were not included in the
+first sprint.  This includes things like converting an integer into a byte, converting an integer
+to a character, and other conversions of integers.  
+
+As a side item I will try to draw up a pseudo representation of how we will be using
+methods/functions to traverse the constant pool.  This includes a method that parses the
+array list that Bob created and sub methods that will execute the specific tag byte
+that is called.
+*********************************************************************************
+3/17/19
+
+TODO:
+i2b 	91 	value -> result 	convert an int into a byte
+i2c 	92 	value -> result 	convert an int into a character
+i2d 	87 	value -> result 	convert an int into a double
+i2f 	86 	value -> result 	convert an int into a float
+i2l 	85 	value -> result 	convert an int into a long
+i2s 	93 	value -> result 	convert an int into a short
+
+Research:
+
+i2b: int to byte
+https://www.delftstack.com/howto/python/how-to-convert-int-to-bytes-in-python-2-and-python-3/
+Options for int to byte include three build in methods through python:
+
+bytes()
+struct.pack()
+int.to_bytes()
+
+bytes() is the fastest method with an execution time of 0.31296982169325455 s
+int.to_bytes() takes the longest time with an execution time of 0.5622947660224895 s
+The downside of the first method is that it only works on integers with a value
+of 0-255.
+
+i2c: int to character
+https://docs.python.org/2/library/functions.html#chr
+
+i2f: int to float
+https://docs.python.org/2/library/functions.html#float
+
+i2l: int to long
+https://docs.python.org/2/library/functions.html#float
+
+More info on int, float, long
+https://docs.python.org/2/library/stdtypes.html#typesnumeric
+
+Difference between a decimal, double, and float
+http://net-informations.com/q/faq/float.html
+decimal - 128 bit
+double - 64 bit
+float - 32 bit
+
+short -16 bit
+
+i2s: int to short
+i2l: int to long
+https://docs.python.org/2/library/functions.html#hex
+mask for short: 0xffff
+mask for float: 0xffffffff
+
+Issue with a double vs float 
+https://stackoverflow.com/questions/6663272/double-precision-floating-values-in-python
+"Python's built-in float type has double precision (it's a C double in CPython, 
+a Java double in Jython). If you need more precision, get NumPy and use its numpy.float128."
+-Fred Foo
+
+This raises the question of how float() saves its values.
+Does this mean that i2f and i2d are the same when read in python?

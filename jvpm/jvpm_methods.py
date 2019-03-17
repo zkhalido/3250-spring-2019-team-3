@@ -211,6 +211,7 @@ class OpCodeMethods():
         self.stack.push(hex(variable1 & 0xffff))
         print("ran i2s")
 
+
             # Array of arguments from the main for istore and iload
     switcher = {
 
