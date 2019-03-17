@@ -181,8 +181,14 @@ class OpCodeMethods():
     def i2b(self):
         """convert int to byte"""
         variable1 = self.stack.pop()
-        self.stack.push(int.to_bytes(8, byteorder='big')) #int.to_bytes(length, byteorder, *, signed=False)
+        self.stack.push(variable1.to_bytes(8, byteorder='big')) #int.to_bytes(length, byteorder, *, signed=False)
+    #    self.stack.push(byte(variable1))  <- Works with ints of 0-255
         print("ran i2b")
+
+    def i2c(self):
+        """convert int to character"""
+        variable1 = self.stack.pop()
+        self.stack.push(char(variable1))
 
             # Array of arguments from the main for istore and iload
     switcher = {
