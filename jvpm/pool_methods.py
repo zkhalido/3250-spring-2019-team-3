@@ -77,6 +77,6 @@ class OpCodeMethods():
     }
 
     def token_dict(self, argument):
-        method = OpCodeMethods.switcher.get(argument, "invalid")    +
+        method = OpCodeMethods.switcher.get(argument, "invalid")
         # execute function
         return method(self)

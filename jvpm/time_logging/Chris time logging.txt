@@ -41,6 +41,12 @@ Chris team 3 time logging-
 -making an application to translate bytecode of constant pool
 -discord chat
 -ended call with bob and mark, mark is working on the rest of the opcode methods, i am working on translating the pool
-3/16/19 7:50 break time end
+3/16/19 7:50 end
+
+3/16/19 8:29 pm start-
+finishing translator
+
+
+
 
 
