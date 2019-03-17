@@ -191,16 +191,19 @@ class OpCodeMethods():
         variable1 = self.stack.pop()
         #chr = Return a string of one character whose ASCII code is the integer i
         self.stack.push(chr(variable1))
+        print("ran i2c")
 
     def i2f(self):
         """convert int to float"""
         variable1 = self.stack.pop()
         self.stack.push(float(variable1))
+        print("ran i2f")
 
     def i2l(self):
         """convert int to long"""
         variable1 = self.stack.pop()
         self.stack.push(long(variable1))
+        print("ran i2l")
 
             # Array of arguments from the main for istore and iload
     switcher = {
