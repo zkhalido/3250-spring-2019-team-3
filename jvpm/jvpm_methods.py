@@ -192,6 +192,11 @@ class OpCodeMethods():
         #chr = Return a string of one character whose ASCII code is the integer i
         self.stack.push(chr(variable1))
 
+    def i2d(self):
+        """convert int to double"""
+        variable1 = self.stack.pop()
+        self.stack.push(float(variable1))
+
             # Array of arguments from the main for istore and iload
     switcher = {
 
