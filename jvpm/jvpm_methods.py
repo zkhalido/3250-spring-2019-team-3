@@ -178,13 +178,13 @@ class OpCodeMethods():
         self.stack.push(variable1 ^ variable2)
         print("ran ixor")
 
-    #def i2b(self):
-    #    """convert int to byte"""
-    #    variable1 = self.stack.pop()
-    #    #int.to_bytes(length, byteorder, *, signed=False)
-    #    self.stack.push(variable1.to_bytes(8, byteorder='big'))
-    #    #self.stack.push(byte(variable1))  <- Works with ints of 0-255
-    #    print("ran i2b")
+    def i2b(self):
+
+        """convert int to byte"""
+        variable1 = self.stack.pop()
+        #int.to_bytes(length, byteorder, *, signed=False)
+        self.stack.push(variable1.to_bytes(8, byteorder='big'))
+        print("ran i2b")
 
     def i2c(self):
         """convert int to character"""
