@@ -503,7 +503,20 @@ class Test_Op_Methods(unittest.TestCase):
         a.i2c()
         b = a.stack.pop()
         self.assertEqual(b, \x00)
-    
+
+    def test_i2s(self):
+        a = OpCodeMethods()
+
+        a.stack.push(555555)
+        a.i2s()
+        b = a.stack.pop()
+        self.assertEqual(b, 0x7a23)
+
+        a.stack.push(000000)
+        a.i2s()
+        b - a.stack.pop()
+        self.assertEqual(b, 0x0)
+
 
 
     def test_dict_search(self):
