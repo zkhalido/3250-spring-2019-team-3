@@ -205,6 +205,12 @@ class OpCodeMethods():
         self.stack.push(long(variable1))
         print("ran i2l")
 
+    def i2s(self):
+        """convert int to short"""
+        variable1 = self.stack.pop()
+        self.stack.push(hex(variable1 & 0xffff))
+        print("ran i2s")
+
             # Array of arguments from the main for istore and iload
     switcher = {
 
