@@ -34,7 +34,11 @@ class HeaderClass():
         return self.data[6] + self.data[7]
 
     def get_const_pool_count(self):
-        print("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
+        #c = ("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
+        #print(c)
+
+        #print("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
+
         return self.data[8] + self.data[9]
     
     def get_const_pool(self):
