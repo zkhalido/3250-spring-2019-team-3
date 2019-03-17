@@ -202,7 +202,7 @@ class OpCodeMethods():
     def i2l(self):
         """convert int to long"""
         variable1 = self.stack.pop()
-        self.stack.push(long(variable1))
+        self.stack.push(long(variable1, base=10))
         print("ran i2l")
 
     def i2s(self):
