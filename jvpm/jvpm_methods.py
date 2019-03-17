@@ -197,6 +197,11 @@ class OpCodeMethods():
         variable1 = self.stack.pop()
         self.stack.push(float(variable1))
 
+    def i2l(self):
+        """convert int to long"""
+        variable1 = self.stack.pop()
+        self.stack.push(long(variable1))
+
             # Array of arguments from the main for istore and iload
     switcher = {
 
