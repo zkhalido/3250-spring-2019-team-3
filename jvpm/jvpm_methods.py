@@ -178,6 +178,12 @@ class OpCodeMethods():
         self.stack.push(variable1 ^ variable2)
         print("ran ixor")
 
+    def i2b(self):
+        """convert int to byte"""
+        variable1 = self.stack.pop()
+        self.stack.push(int.to_bytes(8, byteorder='big')) #int.to_bytes(length, byteorder, *, signed=False)
+        print("ran i2b")
+
             # Array of arguments from the main for istore and iload
     switcher = {
 
