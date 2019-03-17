@@ -192,8 +192,8 @@ class OpCodeMethods():
         #chr = Return a string of one character whose ASCII code is the integer i
         self.stack.push(chr(variable1))
 
-    def i2d(self):
-        """convert int to double"""
+    def i2f(self):
+        """convert int to float"""
         variable1 = self.stack.pop()
         self.stack.push(float(variable1))
 
