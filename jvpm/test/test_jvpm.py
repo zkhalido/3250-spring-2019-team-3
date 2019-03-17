@@ -484,14 +484,27 @@ class Test_Op_Methods(unittest.TestCase):
         a.stack.push(5)
         a.i2b()
         b = a.stack.pop()
-        self.assertEqual(b, 'b'\x00\x00\x00\x00\x00\x00\x00\x05'')
+        self.assertEqual(b, b'\x00\x00\x00\x00\x00\x00\x00\x05')
 
         a.stack.push(0)
         a.i2b()
         b = a.stack.pop()
-        self.assertEqual(b, 'b'\x00\x00\x00\x00\x00\x00\x00\x00'')
+        self.assertEqual(b, b'\x00\x00\x00\x00\x00\x00\x00\x00')
 
+    def test_i2c(self):
+        a = OpCodeMethods()
+
+        a.stack.push(5)
+        a.i2c()
+        b = a.stack.pop()
+        self.assertEqual(b, \x05)
+
+        a.stack.push(0)
+        a.i2c()
+        b = a.stack.pop()
+        self.assertEqual(b, \x00)
     
+
 
     def test_dict_search(self):
         a = OpCodeMethods()
