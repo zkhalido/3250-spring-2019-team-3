@@ -13,12 +13,11 @@ class PoolTranslate:
         self.byte_list_count = len(self.dictionary.keys())
         global new_l
         new_l = []
-        print(self.dictionary)
         self.current_k = 0
         self.main_index =0
         self.super_index = 0
         dictLen = len(self.dictionary)
-        i = -1
+        i = 0
         self.vals = ["0"]
         while i<dictLen:
             new_l.append("0")
@@ -62,6 +61,8 @@ class PoolTranslate:
         print("Double    8 bytes")
 
     def class_reference(self, di, super_index):              #7
+        print("class reference           4 bytes")
+
         self.super_index = super_index
         index = self.main_index
 
@@ -86,14 +87,11 @@ class PoolTranslate:
         index = 0
         list_len = len(di2)
 
-        index = self.main_index
-
         M = ""
         C = ""
         J = 0
 
         while index < list_len :
-
             self.main_index = di2[index]
 
             if self.main_index != 0:
@@ -105,12 +103,7 @@ class PoolTranslate:
                 M = M + "."
             J += 1
             C  += M
-        new_l[self.super_index-1] = C
-
-
-
-
-
+        new_l[self.super_index - 1] = C
 
 
     def interface_method_reference(self):   #11
@@ -138,10 +131,10 @@ class PoolTranslate:
                 M = M + ":"
             J += 1
             C  += M
-            print(C)
-        print(C)
+
 
         new_l[self.super_index-1] = C
+
         return C
 
 
@@ -193,17 +186,15 @@ class PoolTranslate:
 
         d_len = len(d.keys())
         if type(main_index) == str :
-            self.main_index = int(main_index)-1
+            self.main_index = int(main_index)
         if self.main_index == 0:
             index = int(self.main_index)
         else:
             index = int(self.main_index)-1  # dont think this is doing anything
 
+
         key_list = list(d.keys())
-        if self.main_index == 0:
-            key_current = key_list[int(self.main_index)]
-        else:
-            key_current = key_list[int(self.main_index)-1]
+        key_current = key_list[int(self.main_index)-1]
         list_current = d[key_current]
         tag_byte = list_current[0]
         list_len = len(list_current)
@@ -263,7 +254,6 @@ class PoolTranslate:
         while i < l :
             H.name_tostring(dictionary[i][i2])
             val_len = dictionary[i]
-            #while i2 <
 
 
 if '__main__' == __name__:
@@ -271,10 +261,10 @@ if '__main__' == __name__:
 
     n = o.do_it()
     print(n)
-    print(len(n))
-    i = n[0][0]
-    print (i)
-    print(type(i))
-    t = pool_tag_translate
+    #print(len(n))
+    #i = n[0][0]
+    #print (i)
+    #print(type(i))
+    #t = pool_tag_translate
 
-    print( "#1 ", n[0][0], "\t", n[0][1] )
+    #print( "#1 ", n[0][0], "\t", n[0][1] )
