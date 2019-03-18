@@ -502,7 +502,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.stack.push(0)
         a.i2c()
         b = a.stack.pop()
-        self.assertEqual(b, 'x00')
+        self.assertEqual(b, '\x00')
 
     def test_i2s(self):
         a = OpCodeMethods()
@@ -510,12 +510,12 @@ class Test_Op_Methods(unittest.TestCase):
         a.stack.push(555555)
         a.i2s()
         b = a.stack.pop()
-        self.assertEqual(b, 0x7a23)
+        self.assertEqual(b, "0x7a23")
 
         a.stack.push(000000)
         a.i2s()
-        b - a.stack.pop()
-        self.assertEqual(b, 0x0)
+        b = a.stack.pop()
+        self.assertEqual(b, "0x0")
 
 
 
