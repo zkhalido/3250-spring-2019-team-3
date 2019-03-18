@@ -3,6 +3,7 @@
 # ONLY BUILD THE METHODS NOT COMMENTED OUT.
 # pylint: disable = W0603, C0330
 from jvpm.stack import Stack
+import numpy
 
 #S = stack.Stack()
 
@@ -20,8 +21,9 @@ class OpCodeMethods():
 
     def iadd(self):
         """iadd: add two ints"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
+
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 + var2)
 
     def iand(self):
@@ -62,8 +64,8 @@ class OpCodeMethods():
 
     def idiv(self):
         """divide two integers"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 / var2)
 
     def iinc(self):
@@ -94,8 +96,8 @@ class OpCodeMethods():
 
     def imul(self):
         """multiply two integers"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 * var2)
 
     def ineg(self):
@@ -175,6 +177,44 @@ class OpCodeMethods():
         variable1 = self.stack.pop()
         self.stack.push(variable1 ^ variable2)
         print("ran ixor")
+
+    def i2b(self):
+
+        """convert int to byte"""
+        variable1 = self.stack.pop()
+        # int.to_bytes(length, byteorder, *, signed=False)
+        self.stack.push(variable1.to_bytes(8, byteorder='big'))
+        print("ran i2b")
+
+    def i2c(self):
+        """convert int to character"""
+        variable1 = self.stack.pop()
+        # chr = Return a string of one character whose ASCII code is the integer i
+        # chr(i)
+        self.stack.push(chr(variable1))
+        print("ran i2c")
+
+    def i2f(self):
+        """convert int to float"""
+        variable1 = self.stack.pop()
+        # float([x])
+        self.stack.push(float(variable1))
+        print("ran i2f")
+
+    def i2l(self):
+        """convert int to long"""
+        variable1 = self.stack.pop()
+        # long(x, base=10)
+        self.stack.push(long(variable1, base=10))
+        print("ran i2l")
+
+    def i2s(self):
+        """convert int to short"""
+        variable1 = self.stack.pop()
+        # hex(x & mask)
+        self.stack.push(hex(variable1 & 0xffff))
+        print("ran i2s")
+
 
             # Array of arguments from the main for istore and iload
     switcher = {

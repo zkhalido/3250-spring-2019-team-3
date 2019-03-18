@@ -2,7 +2,8 @@
 # import unittest
 """Read bit stream."""
 #from bitstring import ConstBitStream
-import jvpm.jvpm_dict    # import external opcode dictionary
+import jvpm_dict    # import external opcode dictionary
+from collections import defaultdict
 #import jvpm_methods
 #from jvpm_methods import OpCodeMethods # import external method dictionary
 
@@ -15,6 +16,7 @@ class HeaderClass():
     def __init__(self):
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
+            self.temp_2 = defaultdict(list)
 
     def get_magic(self):
         magic = ""
@@ -34,6 +36,104 @@ class HeaderClass():
     def get_const_pool_count(self):
         print("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
         return self.data[8] + self.data[9]
+    
+    def get_const_pool(self):
+        temp = defaultdict(list)
+        position = 0
+        count = self.get_const_pool_count() - 1
+        for i in range(count):
+            # Pulling class info
+            if self.data[10 + i + position] == 7:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
+                position += 2
+            # Field Ref
+            elif self.data[10 + i + position] == 9:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                position += 4
+            # Method Ref
+            elif self.data[10 + i + position] == 10:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                position += 4
+            # Interface Method Ref
+            elif self.data[10 + i + position] == 11:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                position += 4
+            # String
+            elif self.data[10 + i + position] == 8:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
+                position += 4
+            # Integer
+            elif self.data[10 + i + position] == 3:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                position += 4
+            # Float
+            elif self.data[10 + i + position] == 4:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                position += 4
+            # Long
+            elif self.data[10 + i + position] == 5:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] + 
+                    self.data[17 + i + position] + self.data[18 + i + position], '02x'))
+                position += 8
+            # Double
+            elif self.data[10 + i + position] == 6:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] + 
+                    self.data[17 + i + position] + self.data[18 + i + position], '02x'))
+                position += 8
+            # Name and Type
+            elif self.data[10 + i + position] == 12:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                position += 4
+            # Utf_8
+            elif self.data[10 + i + position] == 1:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
+                for f in range (self.data[11 + i + position] + self.data[12 + i + position]):
+                    temp[i].append(format(self.data[13 + i + position + f], '02x'))
+                position += (self.data[11 + i + position] + self.data[12 + i + position])
+                position += 2
+                
+            # Method Handle
+            elif self.data[10 + i + position] == 15:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position], '02x'))
+                temp[i].append(format(self.data[12 + i + position] + self.data[13 + i + position], '02x'))
+                position += 3
+            # Method Type
+            elif self.data[10 + i + position] == 16:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
+                position += 2
+            # Invoke Dynamic
+            elif self.data[10 + i + position] == 18:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                position += 4
+        self.temp_2 = temp
+        # print(self.temp_2)
+        # print(self.temp_2[0])
+        return temp
 
 # **************************************************************************************************
 
@@ -90,5 +190,6 @@ if '__main__' == __name__:
           '\n  imported method dictionary to implement the method:___')
 
     O = OpCodes()
+    print(H.get_const_pool())
     #O.dict_search() will need to pass through the oject that holds all the methods
     # also need to have actual constant that are held in the object with the opcall methods
