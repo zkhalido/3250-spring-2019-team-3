@@ -49,6 +49,19 @@ finishing translator
 - need to start building all the methods and append the dictionary with the new strings that are pulled
 3/17/19 1:50 am end
 
+3/17/19  10:45 am start-
+-continuing to translate pool
+-issues decoding byte(as string) from utf-8
+-decoding finally working for utf 8- had to convert to int then to hex then decode utf8
+
+-break - 11:26 am
+
+- cont - 11:30 am-
+-got it to append a new dictionary with corresponding strings
+but am getting an extra string for some reason in slot 1
+stopped -5:16
+
+
 
 
 

@@ -1,60 +1,56 @@
 
 from collections import defaultdict
 import jvpm_opcodes
+import pool_tag_translate
 
-
+super_index = 0
 class PoolTranslate:
 
     def __init__(self):
         self.dictionary = defaultdict(list)
         H = jvpm_opcodes.HeaderClass()
-
         self.dictionary = H.get_const_pool()
-        d = defaultdict(list)
-        self.new_l = []
+        self.byte_list_count = len(self.dictionary.keys())
+        global new_l
+        new_l = []
+        print(self.dictionary)
         self.current_k = 0
-        P = PoolTranslate
-        num = 0
         self.main_index =0
+        self.super_index = 0
+        dictLen = len(self.dictionary)
+        i = -1
+        self.vals = ["0"]
+        while i<dictLen:
+            new_l.append("0")
+            self.vals.append("0")
+            i += 1
 
-########################################################################
-    pool_dict = {
-        "01": "UTF_8_string",
-        "03": "integer",
-        "04": "float",
-        "05": "long",
-        "06": "double",
-        "07": "class_reference",
-        "08": "string_reference",
-        "09": "field_reference",
-        "0a": "method_reference",
-        "0b": "interface_method_reference",
-        "0c": "name_and_type_descriptor",
-        "0f": "method_handle",
-        "10": "method_type",
-        "11": "dynamic",
-        "12": "invoke_dynamic",
-        "13": "module",
-        "14": "package",
-    }
-
-
-    def name_tostring (byte_code):
-        try:
-            byte_code2 = PoolTranslate.pool_dict[byte_code]
-        except KeyError:
-            byte_code2 = "Byte code not found!"
-        return byte_code2
 
 #################################################################
 
 
-    def UTF_8_string(self):                 #01
+    def UTF_8_string(self, di,super_index):                 #01
         print("UTF_8_string  2+x bytes (variable)")
+        self.super_index = super_index
 
-    def integer(self, di):                      #03
+        newLen = len(di)
+
+        L = len(di)
+        i = 1
+        dtext =""
+        while i < L :
+            int1 = int(di[i], 16)
+            int2 = (int1).to_bytes(1, byteorder='big')
+            ctext = int2.decode("utf-8", "ignore")
+            dtext += ctext
+            i += 1
+
+        new_l[self.super_index-1] = dtext
+        return dtext
+
+    def integer(self, di, super_index):                      #03
+        self.super_index = super_index
         print("Integer  4 bytes")
-        print (di)
 
     def float(self):                        #04
         print("Float  4 bytes")
@@ -65,18 +61,16 @@ class PoolTranslate:
     def double(self):                       #6
         print("Double    8 bytes")
 
-    def class_reference(self, di):              #7
-        print(di[0])
-        print("class reference    2 bytes")
+    def class_reference(self, di, super_index):              #7
+        self.super_index = super_index
         index = self.main_index
-        print(self.main_index)
 
         self.main_index = int(di[0], 16)
-        print (index)
-        print(self.main_index)
-        print (1)
 
-        PoolTranslate.method_dict(self, self.dictionary, self.main_index)
+
+        r = PoolTranslate.method_dict(self, self.dictionary, self.main_index, self.super_index)
+        new_l[self.super_index-1] = r
+        return r
 
 
     def string_reference(self):             #8
@@ -85,28 +79,71 @@ class PoolTranslate:
     def field_reference(self):              #9
         print("Field Reference    4 bytes")
 
-    def method_reference(self, di):             #10
+    def method_reference(self, di, super_index):             #
+        print("Method Reference    4 bytes")
+        self.super_index = super_index
         di2 = di
         index = 0
         list_len = len(di2)
+
         index = self.main_index
-        print("Method Reference    4 bytes")
-        #jsut testing if its the correct list
-        print(di2[0])
-        print(int(di2[1], 16))
+
+        M = ""
+        C = ""
+        J = 0
 
         while index < list_len :
+
             self.main_index = di2[index]
-            PoolTranslate.method_dict(self, self.dictionary, index)
+
+            if self.main_index != 0:
+                self.main_index = int(self.main_index, 16)
+
+            M = PoolTranslate.method_dict(self, self.dictionary, index, super_index)
             index += 1
+            if J < 1:
+                M = M + "."
+            J += 1
+            C  += M
+        new_l[self.super_index-1] = C
+
+
+
+
 
 
 
     def interface_method_reference(self):   #11
         print("Interface Method Reference    4 bytes")
 
-    def name_and_type_discriptor(self):     #12
+    def name_and_type_discriptor(self, di, super_index):     #12
+        self.super_index = super_index
         print("Name and Type Discriptor    4 bytes")
+
+        di2 = di
+        index = 0
+        list_len = len(di2)
+
+        M = ""
+        C = ""
+        J = 0
+
+        while index < list_len :
+            self.main_index = di2[index]
+            if self.main_index != 0:
+                self.main_index = int(self.main_index, 16)
+            M = PoolTranslate.method_dict(self, self.dictionary, index, self.super_index)
+            index += 1
+            if J < 1:
+                M = M + ":"
+            J += 1
+            C  += M
+            print(C)
+        print(C)
+
+        new_l[self.super_index-1] = C
+        return C
+
 
     def method_handle(self):                #15
         print("Method Handle    3 bytes")
@@ -150,54 +187,46 @@ class PoolTranslate:
 
     }
 
-    def method_dict(self, d, main_index):
+    def method_dict(self, d, main_index, super_index):
+
+        self.super_index = super_index
 
         d_len = len(d.keys())
-        print(self.main_index)
+        if type(main_index) == str :
+            self.main_index = int(main_index)-1
         if self.main_index == 0:
             index = int(self.main_index)
         else:
-            index = int(self.main_index)
-            print (index)
+            index = int(self.main_index)-1  # dont think this is doing anything
 
-        #index = int(self.main_index, 16)
-        index = index-1
-        print(index)
-        print("stuff")
         key_list = list(d.keys())
-        print (key_list)
-        #print (key_list[index-1])
         if self.main_index == 0:
             key_current = key_list[int(self.main_index)]
         else:
             key_current = key_list[int(self.main_index)-1]
-        print(key_current)
         list_current = d[key_current]
         tag_byte = list_current[0]
-        print (tag_byte)
         list_len = len(list_current)
         j = 1
-        new_l = []
-        while int(self.main_index) < d_len :
-            #key_current = key_list[index]
-            #list_current = d[key_current]
-            #tag_byte = list_current[0]
-            #list_len = len(list_current)
-            #j = 1
+        new_li = []
+        while int(index) < d_len :
+
             while j < list_len :
-                new_l.append(list_current[j])
+                new_li.append(list_current[j])
                 j += 1
-            #print(self.new_l)
+
 
             method = PoolTranslate.switcher.get(tag_byte, "invalid")
-            # execute function
-            return method(self,  new_l)
+
+            return method(self,  new_li, self.super_index)
 
 
 
 
 
-    def do_it(self):
+
+
+    def do_it(self ):
 
         H = jvpm_opcodes.HeaderClass()
         T = PoolTranslate()
@@ -205,11 +234,47 @@ class PoolTranslate:
         l = temp[1]
         k = list(temp.keys())
         index = self.main_index
+        L = len(self.dictionary)
+        i = 1
+        self.main_index = 1
 
-        T.method_dict(self.dictionary, self.main_index)
+        while i <= self.byte_list_count :
+
+            self.main_index = str(self.main_index)
+            self.super_index =i
+
+            T.method_dict(self.dictionary, self.main_index, self.super_index)
+            self.main_index = int(self.main_index)
+            i += 1
+            self.main_index = i
+        x = 0
+        new_dict = self.dictionary
+        while x < len(new_l):
+            new_dict[x].append(new_l[x])
+            x += 1
+
+        return new_dict
+
+    def print_pool(dictionary):
+        H = PoolTranslate
+        l = len(dictionary)
+        i = 0
+        i2 =0
+        while i < l :
+            H.name_tostring(dictionary[i][i2])
+            val_len = dictionary[i]
+            #while i2 <
 
 
 if '__main__' == __name__:
     o = PoolTranslate()
-    o.do_it()
-    #print(o.dictionary)
+
+    n = o.do_it()
+    print(n)
+    print(len(n))
+    i = n[0][0]
+    print (i)
+    print(type(i))
+    t = pool_tag_translate
+
+    print( "#1 ", n[0][0], "\t", n[0][1] )
