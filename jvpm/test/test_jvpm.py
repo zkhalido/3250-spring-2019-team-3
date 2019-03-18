@@ -497,12 +497,12 @@ class Test_Op_Methods(unittest.TestCase):
         a.stack.push(5)
         a.i2c()
         b = a.stack.pop()
-        self.assertEqual(b, \x05)
+        self.assertEqual(b, '\x05')
 
         a.stack.push(0)
         a.i2c()
         b = a.stack.pop()
-        self.assertEqual(b, \x00)
+        self.assertEqual(b, 'x00')
 
     def test_i2s(self):
         a = OpCodeMethods()
