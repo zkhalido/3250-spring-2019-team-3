@@ -285,4 +285,4 @@ if '__main__' == __name__:
             print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key][len(n[key])-1])
 
         else:
-            print(key, " ", x.token_dict(n[key][0]), "\t\t\t", "ref", n[key])
+            print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key])
