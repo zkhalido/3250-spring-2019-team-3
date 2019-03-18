@@ -2,6 +2,7 @@
 from collections import defaultdict
 import jvpm_opcodes
 import pool_tag_translate
+import pool_methods
 
 super_index = 0
 class PoolTranslate:
@@ -217,7 +218,7 @@ class PoolTranslate:
 
 
 
-    def do_it(self ):
+    def translate(self ):
 
         H = jvpm_opcodes.HeaderClass()
         T = PoolTranslate()
@@ -259,12 +260,29 @@ class PoolTranslate:
 if '__main__' == __name__:
     o = PoolTranslate()
 
-    n = o.do_it()
+    n = o.translate()
+    x = pool_methods.OpCodeMethods()
+    #j = x.token_dict("0a")
+    #print(n)
+    print()
+    #print(n.key[0])
     print(n)
-    #print(len(n))
-    #i = n[0][0]
-    #print (i)
-    #print(type(i))
-    #t = pool_tag_translate
+    print()
 
-    #print( "#1 ", n[0][0], "\t", n[0][1] )
+    #print(j)
+    i = 1
+
+
+    for key in n:
+        i =1
+        #while i < len(n[key]) :
+            #a = []
+            #a.append(n[key][i])
+            #i += 1
+
+        if (n[key][0]) == "01":
+            #print (" a ", a)
+            print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key][len(n[key])-1])
+
+        else:
+            print(key, " ", x.token_dict(n[key][0]), "\t\t\t", "ref", n[key])
