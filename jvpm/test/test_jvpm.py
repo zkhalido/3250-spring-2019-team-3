@@ -91,7 +91,7 @@ class Test_Op_Methods(unittest.TestCase):
 
     def test_iand(self):
         a = OpCodeMethods()
-        
+
         a.stack.push(5)
         a.stack.push(3)
         a.iand()
@@ -333,40 +333,40 @@ class Test_Op_Methods(unittest.TestCase):
 
     def test_ishl(self):
         a = OpCodeMethods()
-        
+
         a.stack.push(2)
         a.stack.push(1)
         a.ishl()
         b = a.stack.pop()
         self.assertEqual(b, 4)
-    
+
     def test_ishr(self):
         a = OpCodeMethods()
-        
+
         a.stack.push(3)
         a.stack.push(1)
         a.ishr()
         b = a.stack.pop()
         self.assertEqual(b, 1)
-        
+
         a.stack.push(-1)
         a.stack.push(1)
         a.ishr()
         b = a.stack.pop()
         self.assertEqual(b, -1)
-        
+
         a.stack.push(5)
         a.stack.push(0)
         a.ishr()
         b = a.stack.pop()
         self.assertEqual(b, 5)
-        
+
         a.stack.push(0)
         a.stack.push(5)
         a.ishr()
         b = a.stack.pop()
         self.assertEqual(b, 0)
-    
+
     def test_istore_0(self):
         a = OpCodeMethods()
         a.stack.push(3)
@@ -439,16 +439,16 @@ class Test_Op_Methods(unittest.TestCase):
         a.isub()
         b = a.stack.pop()
         self.assertEqual(b, -2)
-    
+
     def test_iushr(self):
         a = OpCodeMethods()
-        
+
         a.stack.push(5)
         a.stack.push(2)
         a.iushr()
         b = a.stack.pop()
         self.assertEqual(b, 1)
-    """    
+    """
         a.stack.push(-1)
         a.stack.push(2)
         a.iushr()
@@ -458,12 +458,66 @@ class Test_Op_Methods(unittest.TestCase):
 
     def test_ixor(self):
         a = OpCodeMethods()
-        
+
         a.stack.push(5)
         a.stack.push(3)
         a.ixor()
         b = a.stack.pop()
         self.assertEqual(b, 6)
+
+    def test_i2f(self):
+        a = OpCodeMethods()
+
+        a.stack.push(5)
+        a.i2f()
+        b = a.stack.pop()
+        self.assertEqual(b, 5.0)
+
+        a.stack.push(0)
+        a.i2f()
+        b = a.stack.pop()
+        self.assertEqual(b, 0.0)
+
+    def test_i2b(self):
+        a = OpCodeMethods()
+
+        a.stack.push(5)
+        a.i2b()
+        b = a.stack.pop()
+        self.assertEqual(b, b'\x00\x00\x00\x00\x00\x00\x00\x05')
+
+        a.stack.push(0)
+        a.i2b()
+        b = a.stack.pop()
+        self.assertEqual(b, b'\x00\x00\x00\x00\x00\x00\x00\x00')
+
+    def test_i2c(self):
+        a = OpCodeMethods()
+
+        a.stack.push(5)
+        a.i2c()
+        b = a.stack.pop()
+        self.assertEqual(b, '\x05')
+
+        a.stack.push(0)
+        a.i2c()
+        b = a.stack.pop()
+        self.assertEqual(b, '\x00')
+
+    def test_i2s(self):
+        a = OpCodeMethods()
+
+        a.stack.push(555555)
+        a.i2s()
+        b = a.stack.pop()
+        self.assertEqual(b, "0x7a23")
+
+        a.stack.push(000000)
+        a.i2s()
+        b = a.stack.pop()
+        self.assertEqual(b, "0x0")
+
+
 
     def test_dict_search(self):
         a = OpCodeMethods()
@@ -498,4 +552,3 @@ class Test_Op_Methods(unittest.TestCase):
             call.write('istore_3'), call.write('\n'),
             call.write('ran istore_3'), call.write('\n'), call.write('\n')]
         )
-

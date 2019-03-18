@@ -1,3 +1,4 @@
+
 from collections import defaultdict
 
 class OpCodeMethods():
@@ -97,3 +98,4 @@ class OpCodeMethods():
         method = OpCodeMethods.switcher.get(argument, "invalid")
         # execute function
         return method(self)
+
