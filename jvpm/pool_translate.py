@@ -48,8 +48,8 @@ class PoolTranslate:
         new_l[self.super_index-1] = dtext
         return dtext
 
-    def integer(self, di, super_index):                      #03
-        self.super_index = super_index
+    def integer(self):                      #03
+        #self.super_index = super_index
         print("Integer  4 bytes")
 
     def float(self):                        #04
@@ -76,7 +76,7 @@ class PoolTranslate:
 
 
     def string_reference(self):             #8
-        print("Double    2 bytes")
+        print("String Reference    2 bytes")
 
     def field_reference(self):              #9
         print("Field Reference    4 bytes")
