@@ -261,7 +261,7 @@ if '__main__' == __name__:
     o = PoolTranslate()
 
     n = o.translate()
-    x = pool_methods.OpCodeMethods()
+    x = pool_methods.TagTranslate()
     #j = x.token_dict("0a")
     #print(n)
     print()
