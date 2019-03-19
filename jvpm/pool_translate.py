@@ -1,15 +1,15 @@
 
 from collections import defaultdict
-import jvpm_opcodes
-import pool_tag_translate
-import pool_methods
+import jvpm.jvpm_opcodes
+import jvpm.pool_tag_translate
+import jvpm.pool_methods
 
 super_index = 0
 class PoolTranslate:
 
     def __init__(self):
         self.dictionary = defaultdict(list)
-        H = jvpm_opcodes.HeaderClass()
+        H = jvpm.jvpm_opcodes.HeaderClass()
         self.dictionary = H.get_const_pool()
         self.byte_list_count = len(self.dictionary.keys())
         global new_l
@@ -220,7 +220,7 @@ class PoolTranslate:
 
     def translate(self ):
 
-        H = jvpm_opcodes.HeaderClass()
+        H = jvpm.jvpm_opcodes.HeaderClass()
         T = PoolTranslate()
         temp = H.get_const_pool()
         l = temp[1]
@@ -261,7 +261,7 @@ if '__main__' == __name__:
     o = PoolTranslate()
 
     n = o.translate()
-    x = pool_methods.TagTranslate()
+    x = jvpm.pool_methods.TagTranslate()
     #j = x.token_dict("0a")
     #print(n)
     print()
