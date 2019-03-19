@@ -40,11 +40,30 @@ class test_get_opcode(unittest.TestCase):
         ####################################################
 class test_const_pool(unittest.TestCase):
     def test_const_pool(self):
-        x= jvpm.jvpm_opcodes.HeaderClass()
+        with open('HelloWorld.class', 'rb') as binary_file:
+            self.data = binary_file.read()
+
+
+        x = jvpm.jvpm_opcodes.HeaderClass()
+        x.data = self.data
+
+        n = x.get_const_pool()
+
+
+
 
 
 
         #################################################
+
+class test_pool_translate1(unittest.TestCase):
+    def test_working_methods(self):
+        x = jvpm.pool_translate.PoolTranslate()
+
+
+
+
+
 
 class test_pool_translate(unittest.TestCase):
     def test_methods_unbuilt_methods(self):
@@ -153,14 +172,6 @@ class test_pool_methods(unittest.TestCase):
         sys.stdout.assert_has_calls(
             [call.write("Package    2 bytes")]
         )
-
-
-
-
-
-
-
-
 
 
         x = jvpm.pool_methods.TagTranslate()

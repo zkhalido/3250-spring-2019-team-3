@@ -20,7 +20,7 @@ class PoolTranslate:
         dictLen = len(self.dictionary)
         i = 0
         self.vals = ["0"]
-        while i<dictLen:
+        while i < dictLen:
             new_l.append("0")
             self.vals.append("0")
             i += 1
