@@ -92,8 +92,20 @@ class test_pool_translate1(unittest.TestCase):
         with open('tester.class', 'rb') as binary_file:
             self.data = binary_file.read()
 
-        y = jvpm.jvpm_opcodes.HeaderClass()
-        x = jvpm.pool_translate.PoolTranslate()
+        x = jvpm.jvpm_opcodes.HeaderClass()
+        z = x.get_const_pool()
+        x.data = self.data
+
+        y = jvpm.pool_translate.PoolTranslate()
+        new_dict = y.translate()
+        n = {
+            1:0
+        }
+
+        self.assertEqual(n, new_dict)
+
+
+
 
 
 
