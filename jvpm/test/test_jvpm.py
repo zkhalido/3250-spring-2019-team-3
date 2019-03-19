@@ -60,10 +60,8 @@ class test_pool_methods(unittest.TestCase):
             "17": "13",
             "18": "14"
         }
-        print(new_dict)
-        ln = ["01", "02"]
-        #self.assertEqual(jvpm.pool_methods.TagTranslate.token_dict("01"), "UTF 8 String")
-        self.assertEqual(jvpm.pool_methods.TagTranslate.token_dict(new_dict["0"][0]), "UTF 8 String")
+        x = jvpm.pool_methods.TagTranslate()
+        self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
 
 
 
