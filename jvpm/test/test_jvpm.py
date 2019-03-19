@@ -50,20 +50,35 @@ class test_pool_methods(unittest.TestCase):
             "6": "07",
             "7": "08",
             "8": "09",
-            "10": "0a",
-            "11": "0b",
-            "12": "0c",
-            "13": "0f",
-            "14": "10",
-            "15": "11",
-            "16": "12",
-            "17": "13",
-            "18": "14"
+            "9": "0a",
+            "10": "0b",
+            "11": "0c",
+            "12": "0f",
+            "13": "10",
+            "14": "11",
+            "15": "12",
+            "16": "13",
+            "17": "14"
         }
+
         x = jvpm.pool_methods.TagTranslate()
         self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
-
-
+        self.assertEqual(x.token_dict(new_dict['2']), "Integer")
+        self.assertEqual(x.token_dict(new_dict['3']), "Float")
+        self.assertEqual(x.token_dict(new_dict['4']), "Long")
+        self.assertEqual(x.token_dict(new_dict['5']), "Double")
+        self.assertEqual(x.token_dict(new_dict['6']), "Class Reference")
+        self.assertEqual(x.token_dict(new_dict['7']), "String Reference")
+        self.assertEqual(x.token_dict(new_dict['8']), "Field Reference")
+        self.assertEqual(x.token_dict(new_dict['9']), "Method Reference")
+        self.assertEqual(x.token_dict(new_dict['10']), "Interface Method Reference")
+        self.assertEqual(x.token_dict(new_dict['11']), "Name and Type Descriptor")
+        self.assertEqual(x.token_dict(new_dict['12']), "Method Handle")
+        self.assertEqual(x.token_dict(new_dict['13']), "Method Type")
+        self.assertEqual(x.token_dict(new_dict['14']), "Dynamic")
+        self.assertEqual(x.token_dict(new_dict['15']), "Invoke Dynamic")
+        self.assertEqual(x.token_dict(new_dict['16']), "Module")
+        self.assertEqual(x.token_dict(new_dict['17']), "Package")
 
 
         ########################################################
