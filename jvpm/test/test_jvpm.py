@@ -6,6 +6,7 @@ from jvpm.jvpm_methods import OpCodeMethods
 from jvpm.jvpm_opcodes import OpCodes
 from jvpm.pool_translate import PoolTranslate
 
+import jvpm.pool_methods
 import jvpm.jvpm_dict
 import jvpm.jvpm_opcodes
 import sys
@@ -35,6 +36,42 @@ class test_get_opcode(unittest.TestCase):
         self.assertEqual(jvpm.jvpm_dict.get_opcode("1c"), "iload_2")
         self.assertEqual(jvpm.jvpm_dict.get_opcode("03"), "iconst_0")
         self.assertEqual(jvpm.jvpm_dict.get_opcode("SQ"), "Byte code not found!")
+
+        ####################################################
+
+class test_pool_methods(unittest.TestCase):
+    def test_tag_translate(self):
+        new_dict = {
+            "1": "01",
+            "2": "03",
+            "3": "04",
+            "4": "05",
+            "5": "06",
+            "6": "07",
+            "7": "08",
+            "8": "09",
+            "10": "0a",
+            "11": "0b",
+            "12": "0c",
+            "13": "0f",
+            "14": "10",
+            "15": "11",
+            "16": "12",
+            "17": "13",
+            "18": "14"
+        }
+        print(new_dict)
+        ln = ["01", "02"]
+        #self.assertEqual(jvpm.pool_methods.TagTranslate.token_dict("01"), "UTF 8 String")
+        self.assertEqual(jvpm.pool_methods.TagTranslate.token_dict(new_dict["0"][0]), "UTF 8 String")
+
+
+
+
+        ########################################################
+
+
+
 
 
 class test_stack(unittest.TestCase):
