@@ -93,6 +93,10 @@ class test_pool_methods(unittest.TestCase):
         }
         x = jvpm.pool_translate.PoolTranslate()
 
+        x.dictionary = {
+            '0':"0"
+        }
+
         x.field_reference()
         sys.stdout.assert_has_calls(
             [call.write("Field Reference    4 bytes")]

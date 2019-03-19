@@ -246,7 +246,7 @@ class PoolTranslate:
             x += 1
 
         return new_dict
-
+    """
     def print_pool(dictionary):
         H = PoolTranslate
         l = len(dictionary)
@@ -255,6 +255,7 @@ class PoolTranslate:
         while i < l :
             H.name_tostring(dictionary[i][i2])
             val_len = dictionary[i]
+    """
 
 
 if '__main__' == __name__:              #pragma: no cover
