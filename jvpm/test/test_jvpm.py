@@ -4,6 +4,7 @@ from unittest.mock import mock_open, patch, Mock, call
 from jvpm.stack import Stack
 from jvpm.jvpm_methods import OpCodeMethods
 from jvpm.jvpm_opcodes import OpCodes
+from jvpm.pool_translate import PoolTranslate
 
 import jvpm.jvpm_dict
 import jvpm.jvpm_opcodes
