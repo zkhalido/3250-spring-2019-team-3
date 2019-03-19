@@ -14,7 +14,8 @@ from collections import defaultdict
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
     def __init__(self):
-        with open('test.class', 'rb') as binary_file:
+        self.file ='test.class'
+        with open(self.file, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
 

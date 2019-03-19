@@ -89,16 +89,42 @@ class test_const_pool(unittest.TestCase):
 
 class test_pool_translate1(unittest.TestCase):
     def test_working_methods(self):
-        with open('tester.class', 'rb') as binary_file:
-            self.data = binary_file.read()
+        #with open('tester.class', 'rb') as binary_file:
+            #self.x = jvpm.jvpm_opcodes.HeaderClass()
+            #self.x.data = binary_file.read()
+
+            #self.data = binary_file.read()
 
         x = jvpm.jvpm_opcodes.HeaderClass()
+        x.file = 'tester.class'
         z = x.get_const_pool()
-        x.data = self.data
 
 
         y = jvpm.pool_translate.PoolTranslate()
-        y.dictionary =z
+        #y.dictionary =z
+        a = {
+            0: ['0a', '03', '13'],
+            1: ['07', '14'],
+            2: ['07', '15'],
+            3: ['01', '06', '3c', '69', '6e', '69', '74', '3e'],
+            4: ['01', '03', '28', '29', '56'], 5: ['01', '04', '43', '6f', '64', '65'],
+            6: ['01', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65'],
+            7: ['01', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61', '62', '6c', '65'],
+            8: ['01', '04', '74', '68', '69', '73'],
+            9: ['01', '08', '4c', '74', '65', '73', '74', '65', '72', '3b'],
+            10: ['01', '04', '6d', '61', '69', '6e'],
+            11: ['01', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '29', '56'],
+            12: ['01', '04', '61', '72', '67', '73'],
+            13: ['01', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b'],
+            14: ['01', '01', '61'],
+            15: ['01', '01', '49'],
+            16: ['01', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c', '65'],
+            17: ['01', '0b', '74', '65', '73', '74', '65', '72', '2e', '6a', '61', '76', '61'],
+            18: ['0c', '04', '05'],
+            19: ['01', '06', '74', '65', '73', '74', '65', '72'],
+            20: ['01', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63', '74']
+        }
+
         new_dict = y.translate()
 
         n = {
@@ -126,7 +152,7 @@ class test_pool_translate1(unittest.TestCase):
 
         }
 
-        self.assertEqual(n, new_dict)
+        self.assertEqual(new_dict, n)
 
 
 
