@@ -9,6 +9,8 @@ class PoolTranslate:
 
     def __init__(self):
         self.dictionary = defaultdict(list)
+        global g_dict
+        g_dict = defaultdict(list)
         H = jvpm.jvpm_opcodes.HeaderClass()
         self.dictionary = H.get_const_pool()
         self.byte_list_count = len(self.dictionary.keys())
@@ -218,11 +220,13 @@ class PoolTranslate:
 
 
 
-    def translate(self ):
+    def translate(self, d ):
 
         H = jvpm.jvpm_opcodes.HeaderClass()
         T = PoolTranslate()
         temp = H.get_const_pool()
+        if d != None:
+            temp = d
         l = temp[1]
         k = list(temp.keys())
         index = self.main_index
