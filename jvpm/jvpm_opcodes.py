@@ -2,7 +2,7 @@
 # import unittest
 """Read bit stream."""
 #from bitstring import ConstBitStream
-import jvpm_dict    # import external opcode dictionary
+import jvpm.jvpm_dict    # import external opcode dictionary
 from collections import defaultdict
 #import jvpm_methods
 #from jvpm_methods import OpCodeMethods # import external method dictionary
@@ -34,7 +34,11 @@ class HeaderClass():
         return self.data[6] + self.data[7]
 
     def get_const_pool_count(self):
-        print("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
+        #c = ("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
+        #print(c)
+
+        #print("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
+
         return self.data[8] + self.data[9]
     
     def get_const_pool(self):
@@ -172,24 +176,24 @@ class OpCodes():
 
 # **************************************************************************************************
 
-if '__main__' == __name__:
+if '__main__' == __name__:                  #pragma: no cover
 
     # **********************************************************************************************
 
-    print('\n1) ___Parse, pull, and assign Header bytecodes:___')
-    H = HeaderClass()
-    H.get_magic()
-    H.get_minor()
-    H.get_major()
-    H.get_const_pool_count()
+    print('\n1) ___Parse, pull, and assign Header bytecodes:___')           #pragma: no cover
+    H = HeaderClass()               #pragma: no cover
+    H.get_magic()                   #pragma: no cover
+    H.get_minor()                   #pragma: no cover
+    H.get_major()                   #pragma: no cover
+    H.get_const_pool_count()        #pragma: no cover
 
     # **********************************************************************************************
 
-    print('\n2) ___Parse, pull, and assign method bytecodes to an array, search imported '
-          '\n  opcode dictionary for bytecode and pull opcode. If found, send opcode to'
-          '\n  imported method dictionary to implement the method:___')
+    print('\n2) ___Parse, pull, and assign method bytecodes to an array, search imported '      #pragma: no cover
+          '\n  opcode dictionary for bytecode and pull opcode. If found, send opcode to'        #pragma: no cover
+          '\n  imported method dictionary to implement the method:___')                         #pragma: no cover
 
-    O = OpCodes()
-    print(H.get_const_pool())
+    O = OpCodes()               #pragma: no cover
+    print(H.get_const_pool())   #pragma: no cover
     #O.dict_search() will need to pass through the oject that holds all the methods
     # also need to have actual constant that are held in the object with the opcall methods

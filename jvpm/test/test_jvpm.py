@@ -4,6 +4,7 @@ from unittest.mock import mock_open, patch, Mock, call
 from jvpm.stack import Stack
 from jvpm.jvpm_methods import OpCodeMethods
 from jvpm.jvpm_opcodes import OpCodes
+from jvpm.pool_translate import PoolTranslate
 
 import jvpm.jvpm_dict
 import jvpm.jvpm_opcodes
@@ -497,12 +498,12 @@ class Test_Op_Methods(unittest.TestCase):
         a.stack.push(5)
         a.i2c()
         b = a.stack.pop()
-        self.assertEqual(b, \x05)
+        self.assertEqual(b, '\x05')
 
         a.stack.push(0)
         a.i2c()
         b = a.stack.pop()
-        self.assertEqual(b, \x00)
+        self.assertEqual(b, '\x00')
 
     def test_i2s(self):
         a = OpCodeMethods()
@@ -510,12 +511,12 @@ class Test_Op_Methods(unittest.TestCase):
         a.stack.push(555555)
         a.i2s()
         b = a.stack.pop()
-        self.assertEqual(b, 0x7a23)
+        self.assertEqual(b, "0x7a23")
 
         a.stack.push(000000)
         a.i2s()
-        b - a.stack.pop()
-        self.assertEqual(b, 0x0)
+        b = a.stack.pop()
+        self.assertEqual(b, "0x0")
 
 
 
