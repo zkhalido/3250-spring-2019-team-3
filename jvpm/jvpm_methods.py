@@ -248,6 +248,12 @@ class OpCodeMethods():
             "isub": isub,  # int subtract
             "iushr": iushr,  # int logical shift right
             "ixor": ixor  # xor
+            "i2b" : i2b # int to byte
+            "i2c" : i2c # int to char
+            "i2d" : i2d # int to double
+            "i2f" : i2f # int to float
+            "i2l" : i2l # int to long
+            "i2s" : i2s # int to short
     }
     def token_dict(self, argument):
         # get function from spinner
