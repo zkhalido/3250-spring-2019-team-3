@@ -215,6 +215,9 @@ class OpCodeMethods():
         self.stack.push(hex(variable1 & 0xffff))
         print("ran i2s")
 
+    def i2d(self):
+        """convert int to double"""
+
 
             # Array of arguments from the main for istore and iload
     switcher = {
@@ -247,13 +250,13 @@ class OpCodeMethods():
             "istore_3": istore_3,  # store int value into VARIABLE[3]
             "isub": isub,  # int subtract
             "iushr": iushr,  # int logical shift right
-            "ixor": ixor  # xor
-            "i2b" : i2b # int to byte
-            "i2c" : i2c # int to char
-            "i2d" : i2d # int to double
-            "i2f" : i2f # int to float
-            "i2l" : i2l # int to long
-            "i2s" : i2s # int to short
+            "ixor": ixor,  # xor
+            "i2b" : i2b, # int to byte
+            "i2c" : i2c, # int to char
+            "i2d" : i2d, # int to double
+            "i2f" : i2f, # int to float
+            "i2l" : i2l, # int to long
+            "i2s" : i2s, # int to short
     }
     def token_dict(self, argument):
         # get function from spinner
