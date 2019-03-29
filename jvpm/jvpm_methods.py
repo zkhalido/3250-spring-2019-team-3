@@ -216,7 +216,7 @@ class OpCodeMethods():
         print("ran i2s")
 
     def i2d(self):
-        """convert int to double"""
+        """convert int to decimal"""
 
 
             # Array of arguments from the main for istore and iload
