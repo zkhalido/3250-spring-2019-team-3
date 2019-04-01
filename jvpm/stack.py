@@ -1,6 +1,6 @@
 class Stack:
     """Class that creates a Stack, with methods to interact with the Stack"""
-    def __init__(self):
+    # def __init__(self):
         self.items = []
 
     def is_empty(self):
