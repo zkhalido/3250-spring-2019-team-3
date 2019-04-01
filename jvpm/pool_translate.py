@@ -9,7 +9,9 @@ class PoolTranslate:
 
     def __init__(self):
         self.dictionary = defaultdict(list)
-        H = jvpm.jvpm_opcodes.HeaderClass()
+        #global g_dict
+        #g_dict = defaultdict(list)
+        H = jvpm.jvpm_opcodes.HeaderClass(name ="tester.class")
         self.dictionary = H.get_const_pool()
         self.byte_list_count = len(self.dictionary.keys())
         global new_l
@@ -20,7 +22,7 @@ class PoolTranslate:
         dictLen = len(self.dictionary)
         i = 0
         self.vals = ["0"]
-        while i<dictLen:
+        while i < dictLen:
             new_l.append("0")
             self.vals.append("0")
             i += 1
@@ -48,8 +50,8 @@ class PoolTranslate:
         new_l[self.super_index-1] = dtext
         return dtext
 
-    def integer(self, di, super_index):                      #03
-        self.super_index = super_index
+    def integer(self):                      #03
+        #self.super_index = super_index
         print("Integer  4 bytes")
 
     def float(self):                        #04
@@ -76,7 +78,7 @@ class PoolTranslate:
 
 
     def string_reference(self):             #8
-        print("Double    2 bytes")
+        print("String Reference    2 bytes")
 
     def field_reference(self):              #9
         print("Field Reference    4 bytes")
@@ -223,12 +225,17 @@ class PoolTranslate:
         H = jvpm.jvpm_opcodes.HeaderClass()
         T = PoolTranslate()
         temp = H.get_const_pool()
+        #if d != None:
+            #temp = d
+            #self.dictionary = temp
         l = temp[1]
         k = list(temp.keys())
         index = self.main_index
+        #self.dictionary = temp
         L = len(self.dictionary)
         i = 1
         self.main_index = 1
+
 
         while i <= self.byte_list_count :
 
@@ -246,7 +253,7 @@ class PoolTranslate:
             x += 1
 
         return new_dict
-
+    """
     def print_pool(dictionary):
         H = PoolTranslate
         l = len(dictionary)
@@ -255,6 +262,7 @@ class PoolTranslate:
         while i < l :
             H.name_tostring(dictionary[i][i2])
             val_len = dictionary[i]
+    """
 
 
 if '__main__' == __name__:              #pragma: no cover

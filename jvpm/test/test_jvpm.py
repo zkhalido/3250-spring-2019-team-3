@@ -6,6 +6,9 @@ from jvpm.jvpm_methods import OpCodeMethods
 from jvpm.jvpm_opcodes import OpCodes
 from jvpm.pool_translate import PoolTranslate
 
+import mock
+
+import jvpm.pool_methods
 import jvpm.jvpm_dict
 import jvpm.jvpm_opcodes
 import sys
@@ -18,6 +21,7 @@ class UnittestHeader(unittest.TestCase):
         m = mock_open(read_data='CAFEBABE00000036000F')
         with patch(__name__ + '.open', m):
             self.cf = jvpm.jvpm_opcodes.HeaderClass()
+
 
     def test_magic(self):
         self.assertEqual(self.cf.get_magic(), 'CAFEBABE')
@@ -35,6 +39,256 @@ class test_get_opcode(unittest.TestCase):
         self.assertEqual(jvpm.jvpm_dict.get_opcode("1c"), "iload_2")
         self.assertEqual(jvpm.jvpm_dict.get_opcode("03"), "iconst_0")
         self.assertEqual(jvpm.jvpm_dict.get_opcode("SQ"), "Byte code not found!")
+
+        ####################################################
+class test_const_pool(unittest.TestCase):
+    def test_const_pool(self):
+        with open('HelloWorld.class', 'rb') as binary_file:
+            self.data = binary_file.read()
+
+        x = jvpm.jvpm_opcodes.HeaderClass()
+        x.data = self.data
+        n = x.get_const_pool()
+
+        new_dict = {
+
+             0: ['0a', '05', '13'],
+             1: ['09', '14', '15'],
+             2: ['0a', '16', '17'],
+             3: ['07', '18'], 4: ['07', '19'],
+             5: ['01', '06', '3c', '69', '6e', '69', '74', '3e'],
+             6: ['01', '03', '28', '29', '56'],
+             7: ['01', '04', '43', '6f', '64', '65'],
+             8: ['01', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65'],
+             9: ['01', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61', '62','6c', '65'],
+             10: ['01', '04', '74', '68', '69', '73'],
+             11: ['01', '0c', '4c','48', '65', '6c', '6c', '6f', '57', '6f', '72','6c', '64', '3b'],
+             12: ['01', '04', '6d', '61', '69', '6e'],
+             13: ['01', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61','6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '29', '56'],
+             14: ['01', '04', '61', '72', '67', '73'],
+             15: ['01', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61','6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b'],
+             16: ['01', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c', '65'],
+             17: ['01', '0f', '48', '65', '6c', '6c', '6f','57', '6f', '72', '6c', '64', '2e', '6a', '61', '76', '61'],
+             18: ['0c', '06', '07'],
+             19: ['07', '1a'],
+             20: ['0c', '1b', '1c'],
+             21: ['07', '1d'],
+             22: ['0c', '1e', '1f'],
+             23: ['01', '0a','48', '65', '6c', '6c', '6f', '57','6f', '72', '6c', '64'],
+             24: ['01', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63','74'],
+             25: ['01','10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '79', '73', '74','65', '6d'],
+             26: ['01', '03', '6f', '75', '74'],
+             27: ['01', '15', '4c', '6a', '61', '76', '61','2f', '69', '6f', '2f', '50', '72', '69', '6e', '74', '53', '74', '72', '65', '61', '6d', '3b'],
+             28: ['01', '13', '6a', '61', '76', '61', '2f', '69', '6f', '2f', '50', '72', '69', '6e','74', '53', '74', '72', '65', '61', '6d'],
+             29: ['01', '07', '70', '72', '69', '6e', '74', '6c', '6e'],
+             30: ['01', '04', '28', '49', '29', '56']
+        }
+
+        self.assertEqual(n, new_dict)
+
+
+
+        #################################################
+
+class test_pool_translate1(unittest.TestCase):
+
+    #def setUp(self):
+    #    f = mock_open(read_data='cafebabe0000003700160a000300130700140700150100063c696e69743e010003282956010004436f646501000f4c696e654e756d6265725461626c650100124c6f63616c5661726961626c655461626c65010004746869730100084c7465737465723b0100046d61696e010016285b4c6a6176612f6c616e672f537472696e673b2956010004617267730100135b4c6a6176612f6c616e672f537472696e673b010001610100014901000a536f7572636546696c6501000b7465737465722e6a6176610c000400050100067465737465720100106a6176612f6c616e672f4f626a656374002000020003000000000002000000040005000100060000002f00010001000000052ab70001b10000000200070000000600010000000100080000000c0001000000050009000a00000008000b000c000100060000003a0001000200000006053c840101b100000002000700000006000100000001000800000016000200000006000d000e000000020004000f0010000100010011000000020012')
+    #    with patch(__name__ + '.open', f):
+    #        self.bf = jvpm.jvpm_opcodes.HeaderClass()
+
+    def test_working_methods(self):
+
+        x = jvpm.jvpm_opcodes.HeaderClass()
+
+        #z = patch.get_const_pool()
+
+        y = jvpm.pool_translate.PoolTranslate()
+        #y.dictionary = x.get_const_pool()
+
+
+        a = {
+            0: ['0a', '03', '13'],
+            1: ['07', '14'],
+            2: ['07', '15'],
+            3: ['01', '06', '3c', '69', '6e', '69', '74', '3e'],
+            4: ['01', '03', '28', '29', '56'], 5: ['01', '04', '43', '6f', '64', '65'],
+            6: ['01', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65'],
+            7: ['01', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61', '62', '6c', '65'],
+            8: ['01', '04', '74', '68', '69', '73'],
+            9: ['01', '08', '4c', '74', '65', '73', '74', '65', '72', '3b'],
+            10: ['01', '04', '6d', '61', '69', '6e'],
+            11: ['01', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '29', '56'],
+            12: ['01', '04', '61', '72', '67', '73'],
+            13: ['01', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b'],
+            14: ['01', '01', '61'],
+            15: ['01', '01', '49'],
+            16: ['01', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c', '65'],
+            17: ['01', '0b', '74', '65', '73', '74', '65', '72', '2e', '6a', '61', '76', '61'],
+            18: ['0c', '04', '05'],
+            19: ['01', '06', '74', '65', '73', '74', '65', '72'],
+            20: ['01', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63', '74']
+        }
+
+        new_dict = y.translate()
+
+        n = {
+            0: ['0a', '03', '13', 'java/lang/Object.<init>:()V'],
+            1: ['07', '14', 'tester'],
+            2: ['07', '15', 'java / lang / Object'],
+            3: ['01', '06', '3c', '69', '6e', '69', '74', '3e', ' < init > '],
+            4: ['01', '03', '28', '29', '56', '()V'],
+            5: ['01','04', '43', '6f','64', '65', 'Code'],
+            6: ['01', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65', 'LineNumberTable'],
+            7: ['01', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61', '62', '6c', '65', 'LocalVariableTable'],
+            8: ['01', '04', '74', '68', '69', '73', 'this'],
+            9: ['01', '08', '4c', '74', '65', '73', '74', '65', '72', '3b', 'Ltester;'],
+            10: ['01', '04', '6d', '61', '69', '6e', 'main'],
+            11: ['01', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '29', '56', '([Ljava / lang / String;)V'],
+            12: ['01', '04', '61', '72', '67', '73', 'args'],
+            13: ['01', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '[Ljava / lang / String;'],
+            14: ['01', '01', '61', 'a'],
+            15: ['01', '01', '49', 'I'],
+            16: ['01', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c','65', 'SourceFile'],
+            17: ['01', '0b', '74', '65', '73', '74', '65', '72', '2e', '6a', '61', '76', '61', 'tester.java'],
+            18: ['0c', '04', '05', '<init >:()V'],
+            19: ['01', '06', '74', '65', '73', '74', '65', '72', 'tester'],
+            20: ['01', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63', '74', 'java / lang / Object']
+
+        }
+
+        self.assertEqual(new_dict[0], n[0])
+
+
+
+class test_pool_translate(unittest.TestCase):
+    def test_methods_unbuilt_methods(self):
+        new_dict = {
+            "1": "01",
+            "2": "03",
+            "3": "04",
+            "4": "05",
+            "5": "06",
+            "6": "07",
+            "7": "08",
+            "8": "09",
+            "9": "0a",
+            "10": "0b",
+            "11": "0c",
+            "12": "0f",
+            "13": "10",
+            "14": "11",
+            "15": "12",
+            "16": "13",
+            "17": "14"
+        }
+
+
+
+class test_pool_methods(unittest.TestCase):
+    def test_tag_translate(self):
+        new_dict = {
+            "1": "01",
+            "2": "03",
+            "3": "04",
+            "4": "05",
+            "5": "06",
+            "6": "07",
+            "7": "08",
+            "8": "09",
+            "9": "0a",
+            "10": "0b",
+            "11": "0c",
+            "12": "0f",
+            "13": "10",
+            "14": "11",
+            "15": "12",
+            "16": "13",
+            "17": "14"
+        }
+        x = jvpm.pool_translate.PoolTranslate()
+
+        x.dictionary = {
+            '0':"0"
+        }
+
+        x.field_reference()
+        sys.stdout.assert_has_calls(
+            [call.write("Field Reference    4 bytes")]
+        )
+        x.integer()
+        sys.stdout.assert_has_calls(
+            [call.write("Integer  4 bytes")]
+        )
+        x.float()
+        sys.stdout.assert_has_calls(
+            [call.write("Float  4 bytes")]
+        )
+        x.long()
+        sys.stdout.assert_has_calls(
+            [call.write("Long    8 bytes")]
+        )
+        x.double()
+        sys.stdout.assert_has_calls(
+            [call.write("Double    8 bytes")]
+        )
+        x.string_reference()
+        sys.stdout.assert_has_calls(
+            [call.write("String Reference    2 bytes")]
+        )
+        x.field_reference()
+        sys.stdout.assert_has_calls(
+            [call.write("Field Reference    4 bytes")]
+        )
+        x.interface_method_reference()
+        sys.stdout.assert_has_calls(
+            [call.write("Interface Method Reference    4 bytes")]
+        )
+        x.method_handle()
+        sys.stdout.assert_has_calls(
+            [call.write("Method Handle    3 bytes")]
+        )
+        x.method_type()
+        sys.stdout.assert_has_calls(
+            [call.write("Method Type    2 bytes")]
+        )
+        x.dynamic()
+        sys.stdout.assert_has_calls(
+            [call.write("Dynamic    4 bytes")]
+        )
+        x.invoke_dynamic()
+        sys.stdout.assert_has_calls(
+            [call.write("Invoke Dynamic    4 bytes")]
+        )
+        x.module()
+        sys.stdout.assert_has_calls(
+            [call.write("Module    2 bytes")]
+        )
+        x.package()
+        sys.stdout.assert_has_calls(
+            [call.write("Package    2 bytes")]
+        )
+
+
+        x = jvpm.pool_methods.TagTranslate()
+        self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
+        self.assertEqual(x.token_dict(new_dict['2']), "Integer")
+        self.assertEqual(x.token_dict(new_dict['3']), "Float")
+        self.assertEqual(x.token_dict(new_dict['4']), "Long")
+        self.assertEqual(x.token_dict(new_dict['5']), "Double")
+        self.assertEqual(x.token_dict(new_dict['6']), "Class Reference")
+        self.assertEqual(x.token_dict(new_dict['7']), "String Reference")
+        self.assertEqual(x.token_dict(new_dict['8']), "Field Reference")
+        self.assertEqual(x.token_dict(new_dict['9']), "Method Reference")
+        self.assertEqual(x.token_dict(new_dict['10']), "Interface Method Reference")
+        self.assertEqual(x.token_dict(new_dict['11']), "Name and Type Descriptor")
+        self.assertEqual(x.token_dict(new_dict['12']), "Method Handle")
+        self.assertEqual(x.token_dict(new_dict['13']), "Method Type")
+        self.assertEqual(x.token_dict(new_dict['14']), "Dynamic")
+        self.assertEqual(x.token_dict(new_dict['15']), "Invoke Dynamic")
+        self.assertEqual(x.token_dict(new_dict['16']), "Module")
+        self.assertEqual(x.token_dict(new_dict['17']), "Package")
+
 
 
 class test_stack(unittest.TestCase):
