@@ -222,7 +222,7 @@ class PoolTranslate:
 
     def translate(self ):
 
-        H = jvpm.jvpm_opcodes.HeaderClass()
+        H = jvpm_opcodes.HeaderClass()
         T = PoolTranslate()
         temp = H.get_const_pool()
         #if d != None:
