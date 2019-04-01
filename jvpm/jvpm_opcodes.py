@@ -3,8 +3,8 @@
 """Read bit stream."""
 #from bitstring import ConstBitStream
 from pip._vendor.distlib.compat import raw_input
-
-import jvpm.jvpm_dict    # import external opcode dictionary
+import packages
+# import jvpm.jvpm_dict    # import external opcode dictionary
 from collections import defaultdict
 #import jvpm_methods
 #from jvpm_methods import OpCodeMethods # import external method dictionary
@@ -44,7 +44,7 @@ class HeaderClass():
         #print("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
 
         return self.data[8] + self.data[9]
-    
+
     def get_const_pool(self):
         temp = defaultdict(list)
         position = 0
@@ -81,29 +81,29 @@ class HeaderClass():
             # Integer
             elif self.data[10 + i + position] == 3:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
             # Float
             elif self.data[10 + i + position] == 4:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
             # Long
             elif self.data[10 + i + position] == 5:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] + 
+                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] +
                     self.data[17 + i + position] + self.data[18 + i + position], '02x'))
                 position += 8
             # Double
             elif self.data[10 + i + position] == 6:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] + 
+                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] +
                     self.data[17 + i + position] + self.data[18 + i + position], '02x'))
                 position += 8
             # Name and Type
@@ -120,7 +120,7 @@ class HeaderClass():
                     temp[i].append(format(self.data[13 + i + position + f], '02x'))
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
                 position += 2
-                
+
             # Method Handle
             elif self.data[10 + i + position] == 15:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
