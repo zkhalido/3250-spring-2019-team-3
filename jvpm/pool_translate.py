@@ -269,7 +269,7 @@ if '__main__' == __name__:              #pragma: no cover
     o = PoolTranslate()                 #pragma: no cover
 
     n = o.translate()                   #pragma: no cover
-    x = jvpm.pool_methods.TagTranslate()#pragma: no cover
+    x = pool_methods.TagTranslate()#pragma: no cover
     #j = x.token_dict("0a")             #pragma: no cover
     #print(n)                           #pragma: no cover
     print()                             #pragma: no cover
