@@ -19,8 +19,8 @@ jvpm_dict = {
     "03": "iconst_0",        # load the int value 0 onto the stack
     "04": "iconst_1",        # load the int value 1 onto the stack
     "05": "iconst_2",        # load the int value 2 onto the stack
-    "06": "iconst_3",       # load the int value 3 onto the stack
-    "07": "iconst_4",       # load the int value 4 onto the stack
+    "06": "iconst_3",        # load the int value 3 onto the stack
+    "07": "iconst_4",        # load the int value 4 onto the stack
     "08": "iconst_5",        # load the int value 5 onto the stack
     "6c": "idiv",            # divide two integers
     "a5": "if_acmpeq",       # if references are equal branch to instruction
