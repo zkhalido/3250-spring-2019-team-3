@@ -2,7 +2,7 @@
 from collections import defaultdict
 import jvpm_opcodes
 #import jvpm.pool_tag_translate
-import jvpm.pool_methods
+import pool_methods
 
 super_index = 0
 class PoolTranslate:
