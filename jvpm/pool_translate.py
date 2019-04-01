@@ -1,6 +1,6 @@
 
 from collections import defaultdict
-import jvpm.jvpm_opcodes
+import jvpm_opcodes
 #import jvpm.pool_tag_translate
 import jvpm.pool_methods
 
