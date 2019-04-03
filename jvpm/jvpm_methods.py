@@ -1,6 +1,7 @@
 #import stack
 from stack import Stack
 S = Stack()
+VARIABLES = [0]
 # import numpy
 
 #S = stack.Stack()
@@ -135,15 +136,15 @@ class OpCodeMethods():
     def istore_1(self):
         """store int value into VARIABLE[1]"""
         popped = S.pop()
-        self.VARIABLES.insert(1, popped)
+        VARIABLES.insert(1, popped)
         print("ran istore_1")
 
     def istore_2(self):
         """store int value into VARIABLE[2]"""
         popped = S.pop()
-        self.VARIABLES.insert(2, popped)
+        VARIABLES.insert(2, popped)
         print("ran istore_2")
-        print(self.VARIABLES)
+        print(VARIABLES)
 
     def istore_3(self):
         """store int value into VARIABLE[3]"""
