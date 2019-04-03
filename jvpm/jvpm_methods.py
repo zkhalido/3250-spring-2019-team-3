@@ -72,18 +72,18 @@ class OpCodeMethods():
     def iload_0(self):
         """load an int value from local array variable[0]"""
         pushing = VARIABLES[0]
-        self.stack.push(pushing)
+        S.push(pushing)
 
     def iload_1(self):
         """load an int value from local array variable[1]"""
         pushing = VARIABLES[1]
-        self.stack.push(pushing)
+        S.push(pushing)
         print("ran iload_1")
 
     def iload_2(self):
         """load an int value from local array variable[2]"""
         pushing2 = VARIABLES[2]
-        self.stack.push(pushing2)
+        S.push(pushing2)
         print("ran iload_2")
 
     def iload_3(self):
