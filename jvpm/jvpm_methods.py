@@ -4,8 +4,6 @@ S = Stack()
 VARIABLES = [0]
 import numpy
 
-#S = stack.Stack()
-
 # ****************************************************************************************
 class OpCodeMethods():
 
@@ -27,11 +25,11 @@ class OpCodeMethods():
 
     def iconst_m1(self):
         """load the int value -1 onto the stack"""
-        self.stack.push(-1)
+        S.push(-1)
 
     def iconst_0(self):
         """load the int value 0 onto the stack"""
-        self.stack.push(0)
+        S.push(0)
 
     def iconst_1(self):
         """load the int value 1 onto the stack"""
@@ -48,16 +46,16 @@ class OpCodeMethods():
 
     def iconst_3(self):
         """load the int value 3 onto the stack"""
-        self.stack.push(3)
+        S.push(3)
         print("ran iconst_3")
 
     def iconst_4(self):
         """load the int value 4 onto the stack"""
-        self.stack.push(4)
+        S.push(4)
 
     def iconst_5(self):
         """load the int value 5 onto the stack"""
-        self.stack.push(5)
+        S.push(5)
 
     def idiv(self):
         """divide two integers"""
