@@ -151,7 +151,7 @@ class OpCodeMethods():
         popped = S.pop()
         VARIABLES.insert(3, popped)
         print("ran istore_3")
-        print(S.peek() + " = final answer.")
+        print(VARIABLES + " = final VARIABLES[] list.")
 
     def isub(self):
         """int subtract"""
