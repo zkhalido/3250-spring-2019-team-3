@@ -44,8 +44,6 @@ class HeaderClass():
     def get_const_pool_count(self):
         return self.data[8] + self.data[9]
     
-    cpcount = get_const_pool_count()
-    
     def get_const_pool(self):
         temp = defaultdict(list)
         position = 0
@@ -194,7 +192,6 @@ if '__main__' == __name__:                  #pragma: no cover
     H.get_minor()                   #pragma: no cover
     H.get_major()                   #pragma: no cover
     H.get_const_pool_count_B()        #pragma: no cover
-    print(cpcount)
 
     # **********************************************************************************************
 
