@@ -1,5 +1,5 @@
 #import stack
-from jvpm.stack import Stack
+from stack import Stack
 import numpy
 
 #S = stack.Stack()
