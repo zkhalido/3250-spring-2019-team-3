@@ -9,7 +9,7 @@ S = Stack()
 class OpCodeMethods():
 
     def __init__(self):
-        self.stack = Stack()
+        # self.stack = Stack()
         self.VARIABLES = []
 
     def iadd(self):
