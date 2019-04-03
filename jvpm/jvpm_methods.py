@@ -1,6 +1,6 @@
 #import stack
 from stack import Stack
-import numpy
+# import numpy
 
 #S = stack.Stack()
 
