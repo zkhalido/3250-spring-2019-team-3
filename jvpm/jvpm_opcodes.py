@@ -19,7 +19,7 @@ class HeaderClass():
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
-            cpcount = (self.data[8] + self.data[9])
+        cpcount = (self.data[8] + self.data[9])
 
     def get_magic(self):
         magic = ""
