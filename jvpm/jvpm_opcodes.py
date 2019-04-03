@@ -161,7 +161,7 @@ class OpCodes():
         """
 
     def dict_search(self, jvMethodsIn):
-
+        print(self.opcodes)
         index = 0
 
         while index < len(self.opcodes):
