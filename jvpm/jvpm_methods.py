@@ -1,6 +1,5 @@
 #import stack
 from stack import Stack
-self.stack = Stack()
 # import numpy
 
 #S = stack.Stack()
@@ -9,6 +8,7 @@ self.stack = Stack()
 class OpCodeMethods():
 
     def __init__(self):
+        self.stack = Stack()
         self.VARIABLES = []
 
     def iadd(self):
