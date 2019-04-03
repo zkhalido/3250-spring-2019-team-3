@@ -3,6 +3,6 @@ public class AddTwo {
         java.util.Scanner reader = new java.util.Scanner(System.in);
         int a = reader.nextInt();
         int b = reader.nextInt();
-        System.out.println (a+b);
+        System.out.println (a + b);
     }
 }
