@@ -13,7 +13,6 @@ class OpCodeMethods():
 
     def iadd(self):
         """iadd: add two ints"""
-
         var2 = numpy.int32(self.stack.pop())
         var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 + var2)
@@ -171,7 +170,6 @@ class OpCodeMethods():
         print("ran ixor")
 
     def i2b(self):
-
         """convert int to byte"""
         variable1 = self.stack.pop()
         # int.to_bytes(length, byteorder, *, signed=False)
