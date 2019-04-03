@@ -221,3 +221,27 @@ https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-d
 coverage run --omit=jvpm/__init__.py,jvpm/test/__init__.py,jvpm/test/test_jvpm.py -m unittest
 
 coverage report -m
+
+04/01/2019
+
+https://realpython.com/python-modules-packages/
+
+-an __init__.py file initiated a folder as a package
+-can initialize imports in the init.py file, when you import the package name
+it will import the initialized modules
+-packages allow for a hierarchical structuring of the module namespace using
+dot notation.
+-modules in python are simple files with .py extension that have executible
+python code in it. When modules are imported, can use the classes and variables
+in the .py file.
+-in many cases modules hold functions that are used by the program, this is
+significant because program can refer to the module at different points without
+having replicated code every-time that function is needed.
+
+04/02/2019
+
+-structure of a python program
+
+-API design is essential for a healthy development cycle.
+-what functions should go into which modules?
+-how data flows through the project?
