@@ -15,9 +15,7 @@ import pool_methods
 class HeaderClass():
     
     """Class that parses the header data from .class file and assigns values to variables."""
-   #name = raw_input('Type the name of the file with class extension --')
     def __init__(self, name = "test.class"):
-        #self.name = "test.class"#raw_input('Type the name of the file with class extension --')
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
