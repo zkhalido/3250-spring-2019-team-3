@@ -162,7 +162,7 @@ class OpCodes():
         
     # I duplicated this method for testing from the commented out method below it
     # because it wouldn't work to find the opcodes, now it works. If you need the 
-    # other one, just comment out this one. Thx.
+    # other one, just comment out this one. Thx. 4-3-19
     def dict_search(self):
       print(self.opcodes)
       index = 0
