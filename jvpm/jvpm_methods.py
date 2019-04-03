@@ -2,7 +2,7 @@
 from stack import Stack
 S = Stack()
 VARIABLES = [0]
-# import numpy
+import numpy
 
 #S = stack.Stack()
 
