@@ -168,7 +168,7 @@ class OpCodes():
           opcall = jvpm_dict.get_opcode(self.opcodes[index])
 
           print (opcall) # just to see what opcall is passed through
-          jvpm_methods.opcode_methods(opcall)
+          jvpm_dict.get_opcode(opcall)
           # jvMethodsIn.token_dict(opcall)
           index += 1
       print()  
