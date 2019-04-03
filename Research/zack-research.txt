@@ -245,3 +245,5 @@ having replicated code every-time that function is needed.
 -API design is essential for a healthy development cycle.
 -what functions should go into which modules?
 -how data flows through the project?
+
+-import from the same folder with from .(module name) import (classname)
