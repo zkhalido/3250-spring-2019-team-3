@@ -144,8 +144,6 @@ class OpCodes():
     def __init__(self):
         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '1c', '68', '1c', '6c', '1c',
                         '64', '3e']
-        self.opcodes = []
-
 
         """
 
@@ -172,7 +170,7 @@ class OpCodes():
     #
     #     while index < len(self.opcodes):
     #         opcall = jvpm_dict.get_opcode(self.opcodes[index])
-    # 
+    #
     #         print (opcall) # just to see what opcall is passed through
     #
     #         jvMethodsIn.token_dict(opcall)
