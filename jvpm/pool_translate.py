@@ -11,7 +11,7 @@ class PoolTranslate:
         self.dictionary = defaultdict(list)
         #global g_dict
         #g_dict = defaultdict(list)
-        H = jvpm_opcodes.HeaderClass(name ="tester.class")
+        H = jvpm_opcodes.HeaderClass(name = "tester.class")
         self.dictionary = H.get_const_pool()
         self.byte_list_count = len(self.dictionary.keys())
         global new_l
