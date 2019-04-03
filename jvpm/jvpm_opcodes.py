@@ -235,7 +235,7 @@ if '__main__' == __name__:                  #pragma: no cover
     i = 1                               #pragma: no cover
 
 
-    for key in n:                       #pragma: no cover
+    for key in N:                       #pragma: no cover
         i = 1                            #pragma: no cover
         #while i < len(n[key]) :        #pragma: no cover
             #a = []                     #pragma: no cover
