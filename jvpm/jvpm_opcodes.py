@@ -1,14 +1,18 @@
 """Read bit stream."""
-
+#from bitstring import ConstBitStream
 from pip._vendor.distlib.compat import raw_input
 
-from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
+import jvpm_dict    # import external opcode dictionary
 from collections import defaultdict
+#import jvpm_methods
+#from jvpm_methods import OpCodeMethods # import external method dictionary
+
+# **************************************************************************************************
 
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
    #name = raw_input('Type the name of the file with class extension --')
-    def __init__(self, name = "jvpm/javafiles/test.class"):
+    def __init__(self, name = "test.class"):
         #self.name = "test.class"#raw_input('Type the name of the file with class extension --')
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
@@ -156,12 +160,40 @@ class OpCodes():
 
         """
 
-    def dict_search(self):
-      print(self.opcodes)
-      index = 0
-      while index < len(self.opcodes):
-          opcall = jvpm_dict.get_opcode(self.opcodes[index])
-          print(opcall) # just to see what opcall is passed through
-          jvpm_methods.OpCodeMethods().token_dict(opcall)
-          index += 1
-      print()
+    def dict_search(self, jvMethodsIn):
+
+        index = 0
+
+        while index < len(self.opcodes):
+            opcall = jvpm.jvpm_dict.get_opcode(self.opcodes[index])
+
+            print (opcall) # just to see what opcall is passed through
+
+            jvMethodsIn.token_dict(opcall)
+            index += 1
+        print()
+
+
+# **************************************************************************************************
+
+if '__main__' == __name__:                  #pragma: no cover
+
+    # **********************************************************************************************
+
+    print('\n1) ___Parse, pull, and assign Header bytecodes:___')           #pragma: no cover
+    H = HeaderClass()               #pragma: no cover
+    H.get_magic()                   #pragma: no cover
+    H.get_minor()                   #pragma: no cover
+    H.get_major()                   #pragma: no cover
+    H.get_const_pool_count()        #pragma: no cover
+
+    # **********************************************************************************************
+
+    print('\n2) ___Parse, pull, and assign method bytecodes to an array, search imported '      #pragma: no cover
+          '\n  opcode dictionary for bytecode and pull opcode. If found, send opcode to'        #pragma: no cover
+          '\n  imported method dictionary to implement the method:___')                         #pragma: no cover
+
+    O = OpCodes()               #pragma: no cover
+    print(H.get_const_pool())   #pragma: no cover
+    #O.dict_search() will need to pass through the oject that holds all the methods
+    # also need to have actual constant that are held in the object with the opcall methods
