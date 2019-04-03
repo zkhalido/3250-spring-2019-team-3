@@ -4,11 +4,6 @@ import numpy
 
 #S = stack.Stack()
 
-# According to the JVPM documentation Zach posted to Slack,
-# we need to use a local arrays'[] index values when using MATH for iload and istore.
-# Therefore, I transitioned the VARIABLES_0-4 to the VARIABLES[] array.
-#VARIABLES = [0]
-
 # ****************************************************************************************
 class OpCodeMethods():
 
