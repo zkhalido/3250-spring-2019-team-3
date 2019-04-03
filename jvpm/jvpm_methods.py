@@ -127,13 +127,11 @@ class OpCodeMethods():
         self.VARIABLES.insert(0, popped)
         print("ran istore_0")
 
-
     def istore_1(self):
         """store int value into VARIABLE[1]"""
         popped = self.stack.pop()
         self.VARIABLES.insert(1, popped)
         print("ran istore_1")
-
 
     def istore_2(self):
         """store int value into VARIABLE[2]"""
@@ -209,7 +207,7 @@ class OpCodeMethods():
         """convert int to decimal"""
 
 
-            # Array of arguments from the main for istore and iload
+    # Array of arguments from the main for istore and iload
     switcher = {
 
             "iadd": iadd,  # add two ints
@@ -248,6 +246,7 @@ class OpCodeMethods():
             "i2l" : i2l, # int to long
             "i2s" : i2s, # int to short
     }
+    
     def token_dict(self, argument):
         # get function from spinner
         method = OpCodeMethods.switcher.get(argument, "invalid")
