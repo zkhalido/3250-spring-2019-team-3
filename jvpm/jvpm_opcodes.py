@@ -216,7 +216,7 @@ if '__main__' == __name__:                  #pragma: no cover
     
     # **********************************************************************************************
     
-    print('\n3) ___Retrieve the Constant Pool from the .class file and print to console:___')                       
+    print('\n3) ___Retrieve Constant Pool from .class, translate, and print to console:___')                       
 
     # print(H.get_const_pool())
     
