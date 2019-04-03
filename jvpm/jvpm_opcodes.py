@@ -40,9 +40,7 @@ class HeaderClass():
     def get_const_pool_count(self):
         #c = ("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
         #print(c)
-
         #print("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
-
         return self.data[8] + self.data[9]
     
     def get_const_pool(self):
@@ -119,8 +117,7 @@ class HeaderClass():
                 for f in range (self.data[11 + i + position] + self.data[12 + i + position]):
                     temp[i].append(format(self.data[13 + i + position + f], '02x'))
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
-                position += 2
-                
+                position += 2    
             # Method Handle
             elif self.data[10 + i + position] == 15:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
@@ -139,8 +136,6 @@ class HeaderClass():
                 temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
         self.temp_2 = temp
-        # print(self.temp_2)
-        # print(self.temp_2[0])
         return temp
 
 # **************************************************************************************************
@@ -152,15 +147,9 @@ class OpCodes():
     def __init__(self):
         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '1c', '68', '1c', '6c', '1c',
                         '64', '3e']
-        # self.opcodes = []
-
-
         """
 
-
         METHOD GOES HERE TO FIND OPCODES FROM ANY .CLASS FILE AND SAVE TO self.opcodes LIST.
-
-
 
         """
         
@@ -170,7 +159,6 @@ class OpCodes():
     def dict_search(self):
       print(self.opcodes)
       index = 0
-
       while index < len(self.opcodes):
           opcall = jvpm_dict.get_opcode(self.opcodes[index])
           print(opcall) # just to see what opcall is passed through
