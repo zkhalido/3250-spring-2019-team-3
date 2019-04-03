@@ -192,7 +192,6 @@ if '__main__' == __name__:                  #pragma: no cover
     H.get_minor()                   #pragma: no cover
     H.get_major()                   #pragma: no cover
     H.get_const_pool_count_B()        #pragma: no cover
-    print(self.cpcount)
 
     # **********************************************************************************************
 
