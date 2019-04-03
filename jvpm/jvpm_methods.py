@@ -1,7 +1,4 @@
 #import stack
-# These 63 methods will eventually Implement all the opcode commands.
-# ONLY BUILD THE METHODS NOT COMMENTED OUT.
-# pylint: disable = W0603, C0330
 from jvpm.stack import Stack
 import numpy
 
