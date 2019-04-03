@@ -208,12 +208,11 @@ if '__main__' == __name__:                  #pragma: no cover
     print()                             #pragma: no cover
     print(N)                            #pragma: no cover
     print()                             #pragma: no cover
-    # i = 1                               #pragma: no cover
     for key in N:                       #pragma: no cover
         i = 1                            #pragma: no cover
         if (N[key][0]) == "01":         #pragma: no cover
             print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key][len(N[key])-1]) 
-        else:       #pragma: no cover
+        else:      
             print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key])
     
     # **********************************************************************************************
