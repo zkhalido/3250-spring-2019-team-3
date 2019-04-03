@@ -208,7 +208,7 @@ if '__main__' == __name__:                  #pragma: no cover
     print()                             #pragma: no cover
     print(N)                            #pragma: no cover
     print()                             #pragma: no cover
-    i = 1                               #pragma: no cover
+    # i = 1                               #pragma: no cover
     for key in N:                       #pragma: no cover
         i = 1                            #pragma: no cover
         if (N[key][0]) == "01":         #pragma: no cover
