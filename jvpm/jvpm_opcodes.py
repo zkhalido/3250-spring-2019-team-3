@@ -35,12 +35,6 @@ class HeaderClass():
         print("Major: ", self.data[6] + self.data[7])
         return self.data[6] + self.data[7]
     
-    # method used to print to the header section.
-    def get_const_pool_count_B(self):
-        print("Contant Pool Count: ", self.data[8] + self.data[9] - 1)
-        return self.data[8] + self.data[9]
-    
-    # method used to get data for the get_const_pool() method.
     def get_const_pool_count(self):
         return self.data[8] + self.data[9]
     
