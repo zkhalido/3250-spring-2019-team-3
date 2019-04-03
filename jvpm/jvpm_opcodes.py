@@ -44,7 +44,7 @@ class HeaderClass():
     def get_const_pool_count(self):
         return self.data[8] + self.data[9]
     
-    cpcount = get_const_pool_count(self)
+    cpcount = get_const_pool_count()
     
     def get_const_pool(self):
         temp = defaultdict(list)
