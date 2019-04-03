@@ -42,7 +42,7 @@ class HeaderClass():
     
     # method used to get data for the get_const_pool() method.
     def get_const_pool_count(self):
-        return self.data[8] + self.data[9] - 1
+        return self.data[8] + self.data[9]
     
     def get_const_pool(self):
         temp = defaultdict(list)
@@ -192,7 +192,7 @@ if '__main__' == __name__:                  #pragma: no cover
     H.get_minor()                   #pragma: no cover
     H.get_major()                   #pragma: no cover
     H.get_const_pool_count_B()        #pragma: no cover
-    print(H.get_const_pool_count())
+    print("Constant Pool Count: " + H.get_const_pool_count())
 
     # **********************************************************************************************
 
