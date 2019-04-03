@@ -8,6 +8,8 @@ import jvpm_methods
 from stack import Stack
 #from jvpm_methods import OpCodeMethods # import external method dictionary
 
+import pool_translate
+
 # **************************************************************************************************
 
 class HeaderClass():
