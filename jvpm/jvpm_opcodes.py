@@ -1,22 +1,18 @@
-# """import the unittest"""
-# import unittest
 """Read bit stream."""
 #from bitstring import ConstBitStream
 from pip._vendor.distlib.compat import raw_input
 
-import jvpm.jvpm_dict    # import external opcode dictionary
+import jvpm_dict    # import external opcode dictionary
 from collections import defaultdict
 #import jvpm_methods
 #from jvpm_methods import OpCodeMethods # import external method dictionary
-
-# pylint: disable = W0105, C0122, R0903
 
 # **************************************************************************************************
 
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
    #name = raw_input('Type the name of the file with class extension --')
-    def __init__(self, name="test.class"):
+    def __init__(self, name = "test.class"):
         #self.name = "test.class"#raw_input('Type the name of the file with class extension --')
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()

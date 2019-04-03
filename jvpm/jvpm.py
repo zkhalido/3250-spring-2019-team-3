@@ -129,7 +129,7 @@ class HeaderClass():
         return temp
 
     def get_const_pool_length(self):
-        temp = defaultdict(list)
+    #    temp = defaultdict(list)
         position = 0
         count = self.get_const_pool_count() - 1
         for i in range(count):
@@ -201,10 +201,10 @@ class HeaderClass():
 
     def get_interfaces_count(self):
         holder = self.get_const_pool_length() + 25
-        joined = ''.join([format(self.data[holder + 6], '02X'), format(self.data[holder + 7], '02X')])
+        #joined = ''.join([format(self.data[holder + 6], '02X'), format(self.data[holder + 7], '02X')])
         #print(joined)
-        intj = int(joined)
-        hexi = hex(intj)
+        #intj = int(joined)
+        #hexi = hex(intj)
         # print(hexi)
         #print("Interfaces Count: " + hexi)
         #print(format(self.data[holder + 6], '02X'))

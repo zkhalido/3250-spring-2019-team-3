@@ -1,7 +1,4 @@
 #import stack
-# These 63 methods will eventually Implement all the opcode commands.
-# ONLY BUILD THE METHODS NOT COMMENTED OUT.
-# pylint: disable = W0603, C0330
 from jvpm.stack import Stack
 import numpy
 
@@ -205,7 +202,7 @@ class OpCodeMethods():
         """convert int to long"""
         variable1 = self.stack.pop()
         # long(x, base=10)
-        self.stack.push(long(variable1, base=10))
+        self.stack.push(int(variable1))
         print("ran i2l")
 
     def i2s(self):
