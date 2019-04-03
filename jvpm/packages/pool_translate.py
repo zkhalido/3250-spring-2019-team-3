@@ -8,7 +8,7 @@ class PoolTranslate:
         self.dictionary = defaultdict(list)
         #global g_dict
         #g_dict = defaultdict(list)
-        H = jvpm_opcodes.HeaderClass(name ="jvpm/javafiles/tester.class")
+        H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/tester.class")
         self.dictionary = H.get_const_pool()
         self.byte_list_count = len(self.dictionary.keys())
         global new_l
@@ -29,7 +29,7 @@ class PoolTranslate:
 
 
     def UTF_8_string(self, di,super_index):                 #01
-        print("UTF_8_string  2+x bytes (variable)")
+        # print("UTF_8_string  2+x bytes (variable)")
         self.super_index = super_index
 
         newLen = len(di)
@@ -61,7 +61,7 @@ class PoolTranslate:
         print("Double    8 bytes")
 
     def class_reference(self, di, super_index):              #7
-        print("class reference           4 bytes")
+        # print("class reference           4 bytes")
 
         self.super_index = super_index
         index = self.main_index
@@ -81,7 +81,7 @@ class PoolTranslate:
         print("Field Reference    4 bytes")
 
     def method_reference(self, di, super_index):             #
-        print("Method Reference    4 bytes")
+        # print("Method Reference    4 bytes")
         self.super_index = super_index
         di2 = di
         index = 0
@@ -111,7 +111,7 @@ class PoolTranslate:
 
     def name_and_type_discriptor(self, di, super_index):     #12
         self.super_index = super_index
-        print("Name and Type Discriptor    4 bytes")
+        # print("Name and Type Discriptor    4 bytes")
 
         di2 = di
         index = 0
@@ -260,34 +260,3 @@ class PoolTranslate:
             H.name_tostring(dictionary[i][i2])
             val_len = dictionary[i]
     """
-
-
-if '__main__' == __name__:              #pragma: no cover
-    o = PoolTranslate()                 #pragma: no cover
-
-    n = o.translate()                   #pragma: no cover
-    x = packages.pool_methods.TagTranslate()#pragma: no cover
-    #j = x.token_dict("0a")             #pragma: no cover
-    #print(n)                           #pragma: no cover
-    print()                             #pragma: no cover
-    #print(n.key[0])                    #pragma: no cover
-    print(n)                            #pragma: no cover
-    print()                             #pragma: no cover
-
-    #print(j)                           #pragma: no cover
-    i = 1                               #pragma: no cover
-
-
-    for key in n:                       #pragma: no cover
-        i =1                            #pragma: no cover
-        #while i < len(n[key]) :        #pragma: no cover
-            #a = []                     #pragma: no cover
-            #a.append(n[key][i])        #pragma: no cover
-            #i += 1                     #pragma: no cover
-
-        if (n[key][0]) == "01":         #pragma: no cover
-            #print (" a ", a)           #pragma: no cover
-            print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key][len(n[key])-1])   #pragma: no cover
-
-        else:       #pragma: no cover
-            print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key])  #pragma: no cover

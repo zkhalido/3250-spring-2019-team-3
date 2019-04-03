@@ -13,18 +13,21 @@ import numpy
 #VARIABLES = [0]
 
 # ****************************************************************************************
+S = Stack()
+VARIABLES = [0]
+import numpy
+
 class OpCodeMethods():
 
     def __init__(self):
-        self.stack = Stack()
+        # self.stack = Stack()
         self.VARIABLES = []
 
     def iadd(self):
         """iadd: add two ints"""
-
-        var2 = numpy.int32(self.stack.pop())
-        var1 = numpy.int32(self.stack.pop())
-        self.stack.push(var1 + var2)
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
+        S.push(var1 + var2)
 
     def iand(self):
         """perform a bitwise AND on two integers"""
@@ -34,39 +37,43 @@ class OpCodeMethods():
 
     def iconst_m1(self):
         """load the int value -1 onto the stack"""
-        self.stack.push(-1)
+        S.push(-1)
 
     def iconst_0(self):
         """load the int value 0 onto the stack"""
-        self.stack.push(0)
+        S.push(0)
 
     def iconst_1(self):
         """load the int value 1 onto the stack"""
-        self.stack.push(1)
+        S.push(1)
         print("ran iconst_1")
+        print(S.peek())
+
 
     def iconst_2(self):
         """load the int value 2 onto the stack"""
-        self.stack.push(2)
+        S.push(2)
+        print("ran iconst_2")
+        print(S.peek())
 
     def iconst_3(self):
         """load the int value 3 onto the stack"""
-        self.stack.push(3)
+        S.push(3)
         print("ran iconst_3")
 
     def iconst_4(self):
         """load the int value 4 onto the stack"""
-        self.stack.push(4)
+        S.push(4)
 
     def iconst_5(self):
         """load the int value 5 onto the stack"""
-        self.stack.push(5)
+        S.push(5)
 
     def idiv(self):
         """divide two integers"""
-        var2 = numpy.int32(self.stack.pop())
-        var1 = numpy.int32(self.stack.pop())
-        self.stack.push(var1 / var2)
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
+        S.push(var1 / var2)
 
     def iinc(self):
         """increment local variable"""
@@ -74,31 +81,31 @@ class OpCodeMethods():
 
     def iload_0(self):
         """load an int value from local array variable[0]"""
-        pushing = self.VARIABLES[0]
-        self.stack.push(pushing)
+        pushing = VARIABLES[0]
+        S.push(pushing)
 
     def iload_1(self):
         """load an int value from local array variable[1]"""
-        pushing = self.VARIABLES[1]
-        self.stack.push(pushing)
+        pushing = VARIABLES[1]
+        S.push(pushing)
         print("ran iload_1")
 
     def iload_2(self):
         """load an int value from local array variable[2]"""
-        pushing2 = self.VARIABLES[2]
-        self.stack.push(pushing2)
+        pushing2 = VARIABLES[2]
+        S.push(pushing2)
         print("ran iload_2")
 
     def iload_3(self):
         """load an int value from local array variable[3]"""
-        pushing3 = self.VARIABLES[3]
-        self.stack.push(pushing3)
+        pushing3 = VARIABLES[3]
+        S.push(pushing3)
 
     def imul(self):
         """multiply two integers"""
-        var2 = numpy.int32(self.stack.pop())
-        var1 = numpy.int32(self.stack.pop())
-        self.stack.push(var1 * var2)
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
+        S.push(var1 * var2)
 
     def ineg(self):
         """negate int"""
@@ -131,36 +138,36 @@ class OpCodeMethods():
 
     def istore_0(self):
         """store int value into VARIABLE[0]"""
-        popped = self.stack.pop()
-        #self.VARIABLES.pop(0) # remove the assigned 0 from the [0]position
-        self.VARIABLES.insert(0, popped)
+        popped = S.pop()
+        VARIABLES.pop(0) # remove the assigned 0 from the [0]position
+        VARIABLES.insert(0, popped)
         print("ran istore_0")
-
 
     def istore_1(self):
         """store int value into VARIABLE[1]"""
-        popped = self.stack.pop()
-        self.VARIABLES.insert(1, popped)
+        popped = S.pop()
+        VARIABLES.insert(1, popped)
         print("ran istore_1")
-
 
     def istore_2(self):
         """store int value into VARIABLE[2]"""
-        popped = self.stack.pop()
-        self.VARIABLES.insert(2, popped)
+        popped = S.pop()
+        VARIABLES.insert(2, popped)
         print("ran istore_2")
+        print(VARIABLES)
 
     def istore_3(self):
         """store int value into VARIABLE[3]"""
-        popped = self.stack.pop()
-        self.VARIABLES.insert(3, popped)
+        popped = S.pop()
+        VARIABLES.insert(3, popped)
         print("ran istore_3")
+        print(str(VARIABLES) + " = final VARIABLES[] list.")
 
     def isub(self):
         """int subtract"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
-        self.stack.push(var1 - var2)
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 - var2)
 
     def iushr(self):
         """int logical shift right"""
@@ -179,7 +186,6 @@ class OpCodeMethods():
         print("ran ixor")
 
     def i2b(self):
-
         """convert int to byte"""
         variable1 = self.stack.pop()
         # int.to_bytes(length, byteorder, *, signed=False)
@@ -205,7 +211,7 @@ class OpCodeMethods():
         """convert int to long"""
         variable1 = self.stack.pop()
         # long(x, base=10)
-        self.stack.push(long(variable1, base=10))
+        self.stack.push(int(variable1))
         print("ran i2l")
 
     def i2s(self):
@@ -219,7 +225,7 @@ class OpCodeMethods():
         """convert int to decimal"""
 
 
-            # Array of arguments from the main for istore and iload
+    # Array of arguments from the main for istore and iload
     switcher = {
 
             "iadd": iadd,  # add two ints
@@ -258,6 +264,7 @@ class OpCodeMethods():
             "i2l" : i2l, # int to long
             "i2s" : i2s, # int to short
     }
+
     def token_dict(self, argument):
         # get function from spinner
         method = OpCodeMethods.switcher.get(argument, "invalid")
