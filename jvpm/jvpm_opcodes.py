@@ -9,6 +9,7 @@ from stack import Stack
 #from jvpm_methods import OpCodeMethods # import external method dictionary
 
 import pool_translate
+import pool_methods
 
 # **************************************************************************************************
 
@@ -213,6 +214,12 @@ if '__main__' == __name__:                  #pragma: no cover
     O = OpCodes()         
     O.dict_search()
     
+    # **********************************************************************************************
+    
+    print('\n3) ___Retrieve the Constant Pool from the .class file and print to console:___\n')                       
+
+    print(H.get_const_pool())
+    
     P = pool_translate.PoolTranslate()                 #pragma: no cover
 
     N = P.translate()                   #pragma: no cover
@@ -241,12 +248,6 @@ if '__main__' == __name__:                  #pragma: no cover
 
         else:       #pragma: no cover
             print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key])  #pragma: no cover
-    
-    # **********************************************************************************************
-    
-    print('\n3) ___Retrieve the Constant Pool from the .class file and print to console:___\n')                       
-
-    print(H.get_const_pool())
     
     # **********************************************************************************************
     
