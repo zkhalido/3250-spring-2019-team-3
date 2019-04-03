@@ -1,18 +1,5 @@
 import unittest
-from unittest.mock import mock_open, patch, Mock, call
-
-import packages
-
-#from jvpm.stack import Stack
-#from jvpm.jvpm_methods import OpCodeMethods
-#from jvpm.jvpm_opcodes import OpCodes
-#from jvpm.pool_translate import PoolTranslate
-
-import mock
-
-#import jvpm.pool_methods
-#import jvpm.jvpm_dict
-#import jvpm.jvpm_opcodes
+from jvpm import packages
 import sys
 
 
@@ -295,7 +282,7 @@ class test_pool_methods(unittest.TestCase):
 
 class test_stack(unittest.TestCase):
     def test_is_empty(self):
-        s = Stack()
+        s = stack.Stack()
         s.push(1)
         s.pop()
         self.assertTrue(s.is_empty())

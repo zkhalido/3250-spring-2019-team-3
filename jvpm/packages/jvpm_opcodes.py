@@ -4,7 +4,7 @@
 #from bitstring import ConstBitStream
 from pip._vendor.distlib.compat import raw_input
 
-import packages.jvpm_dict  # import external opcode dictionary
+from . import jvpm_dict  # import external opcode dictionary
 from collections import defaultdict
 #import jvpm_methods
 #from jvpm_methods import OpCodeMethods # import external method dictionary

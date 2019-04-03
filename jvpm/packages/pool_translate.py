@@ -1,8 +1,5 @@
-
 from collections import defaultdict
-import packages.jvpm_opcodes
-#import jvpm.pool_tag_translate
-import packages.pool_methods
+from . import jvpm_opcodes, pool_methods
 
 super_index = 0
 class PoolTranslate:
