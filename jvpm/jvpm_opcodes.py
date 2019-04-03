@@ -1,5 +1,3 @@
-# """import the unittest"""
-# import unittest
 """Read bit stream."""
 #from bitstring import ConstBitStream
 from pip._vendor.distlib.compat import raw_input
@@ -8,8 +6,6 @@ import jvpm_dict    # import external opcode dictionary
 from collections import defaultdict
 #import jvpm_methods
 #from jvpm_methods import OpCodeMethods # import external method dictionary
-
-# pylint: disable = W0105, C0122, R0903
 
 # **************************************************************************************************
 
