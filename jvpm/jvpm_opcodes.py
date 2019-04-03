@@ -218,7 +218,7 @@ if '__main__' == __name__:                  #pragma: no cover
     
     print('\n3) ___Retrieve the Constant Pool from the .class file and print to console:___\n')                       
 
-    print(H.get_const_pool())
+    # print(H.get_const_pool())
     
     P = pool_translate.PoolTranslate()                 #pragma: no cover
 
