@@ -61,9 +61,9 @@ class OpCodeMethods():
 
     def idiv(self):
         """divide two integers"""
-        var2 = numpy.int32(self.stack.pop())
-        var1 = numpy.int32(self.stack.pop())
-        self.stack.push(var1 / var2)
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
+        S.push(var1 / var2)
 
     def iinc(self):
         """increment local variable"""
