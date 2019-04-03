@@ -248,7 +248,7 @@ class PoolTranslate:
             self.main_index = i
         x = 0
         new_dict = self.dictionary
-        while x < len(new_l) - 1:
+        while x < len(new_l):
             new_dict[x].append(new_l[x])
             x += 1
 
