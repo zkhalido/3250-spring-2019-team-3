@@ -1,5 +1,6 @@
 #import stack
 from stack import Stack
+S = Stack()
 # import numpy
 
 #S = stack.Stack()
@@ -33,9 +34,9 @@ class OpCodeMethods():
 
     def iconst_1(self):
         """load the int value 1 onto the stack"""
-        self.stack.push(1)
+        S.push(1)
         print("ran iconst_1")
-        print(self.stack.peek())
+        print(S.peek())
         
 
     def iconst_2(self):
