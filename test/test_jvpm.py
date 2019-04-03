@@ -33,7 +33,7 @@ class test_get_opcode(unittest.TestCase):
         ####################################################
 class test_const_pool(unittest.TestCase):
     def test_const_pool(self):
-        with open('HelloWorld.class', 'rb') as binary_file:
+        with open('jvpm/javafiles/HelloWorld.class', 'rb') as binary_file:
             self.data = binary_file.read()
 
         x = packages.jvpm_opcodes.HeaderClass()
