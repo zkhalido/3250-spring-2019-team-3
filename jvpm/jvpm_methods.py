@@ -41,7 +41,9 @@ class OpCodeMethods():
 
     def iconst_2(self):
         """load the int value 2 onto the stack"""
-        self.stack.push(2)
+        S.push(2)
+        print("ran iconst_2")
+        print(S.peek())
 
     def iconst_3(self):
         """load the int value 3 onto the stack"""
