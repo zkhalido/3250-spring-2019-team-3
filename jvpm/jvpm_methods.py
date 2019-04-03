@@ -94,7 +94,7 @@ class OpCodeMethods():
     def imul(self):
         """multiply two integers"""
         var2 = numpy.int32(S.pop())
-        var1 = numpy.int32(s.pop())
+        var1 = numpy.int32(S.pop())
         S.push(var1 * var2)
 
     def ineg(self):
