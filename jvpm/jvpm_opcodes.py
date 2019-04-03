@@ -14,7 +14,7 @@ import pool_methods
 
 class HeaderClass():
     
-    """Class that parses the header data from .class file and assigns values to variables."""
+    """Class that parses the header and CP data from .class file and assigns values to variables."""
     def __init__(self, name = "test.class"):
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
