@@ -160,14 +160,16 @@ class OpCodes():
 
         """
         
+    # I duplicated this method for testing from the commented out method below it
+    # because it wouldn't work to find the opcodes, now it works. If you need the 
+    # other one, just comment out this one. Thx.
     def dict_search(self):
       print(self.opcodes)
       index = 0
 
       while index < len(self.opcodes):
           opcall = jvpm_dict.get_opcode(self.opcodes[index])
-
-          print (opcall) # just to see what opcall is passed through
+          print(opcall) # just to see what opcall is passed through
           jvpm_dict.get_opcode(opcall)
           # jvMethodsIn.token_dict(opcall)
           index += 1
