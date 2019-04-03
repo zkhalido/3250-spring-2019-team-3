@@ -1,7 +1,6 @@
 """Read bit stream."""
 #from bitstring import ConstBitStream
 from pip._vendor.distlib.compat import raw_input
-
 import jvpm_dict    # import external opcode dictionary
 from collections import defaultdict
 import jvpm_methods
@@ -14,6 +13,7 @@ import pool_methods
 # **************************************************************************************************
 
 class HeaderClass():
+    
     """Class that parses the header data from .class file and assigns values to variables."""
    #name = raw_input('Type the name of the file with class extension --')
     def __init__(self, name = "test.class"):
@@ -178,7 +178,6 @@ class OpCodes():
 #             jvMethodsIn.token_dict(opcall)
 #             index += 1
 #         print()
-
 
 # **************************************************************************************************
 
