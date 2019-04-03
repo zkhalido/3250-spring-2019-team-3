@@ -32,7 +32,7 @@ class PoolTranslate:
 
 
     def UTF_8_string(self, di,super_index):                 #01
-        print("UTF_8_string  2+x bytes (variable)")
+        # print("UTF_8_string  2+x bytes (variable)")
         self.super_index = super_index
 
         newLen = len(di)
@@ -64,7 +64,7 @@ class PoolTranslate:
         print("Double    8 bytes")
 
     def class_reference(self, di, super_index):              #7
-        print("class reference           4 bytes")
+        # print("class reference           4 bytes")
 
         self.super_index = super_index
         index = self.main_index
@@ -84,7 +84,7 @@ class PoolTranslate:
         print("Field Reference    4 bytes")
 
     def method_reference(self, di, super_index):             #
-        print("Method Reference    4 bytes")
+        # print("Method Reference    4 bytes")
         self.super_index = super_index
         di2 = di
         index = 0
@@ -114,7 +114,7 @@ class PoolTranslate:
 
     def name_and_type_discriptor(self, di, super_index):     #12
         self.super_index = super_index
-        print("Name and Type Discriptor    4 bytes")
+        # print("Name and Type Discriptor    4 bytes")
 
         di2 = di
         index = 0
