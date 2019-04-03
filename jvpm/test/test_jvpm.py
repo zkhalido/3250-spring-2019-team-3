@@ -1,5 +1,5 @@
 import unittest
-from mock import mock_open
+from unittest.mock import mock_open, patch, call
 from jvpm import packages
 import sys
 
@@ -10,7 +10,7 @@ class UnittestHeader(unittest.TestCase):
     def setUp(self):
         m = mock_open(read_data='CAFEBABE00000036000F')
         with patch(__name__ + '.open', m):
-            self.cf = jvpm.jvpm_opcodes.HeaderClass()
+            self.cf = packages.jvpm_opcodes.HeaderClass()
 
 
     def test_magic(self):
@@ -260,7 +260,7 @@ class test_pool_methods(unittest.TestCase):
         )
 
 
-        x = jvpm.pool_methods.TagTranslate()
+        x = packages.pool_methods.TagTranslate()
         self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
         self.assertEqual(x.token_dict(new_dict['2']), "Integer")
         self.assertEqual(x.token_dict(new_dict['3']), "Float")
@@ -620,7 +620,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 3)
 
     def test_istore_1(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
         a.stack.push(2)
         a.stack.push(4)
         a.istore_0()

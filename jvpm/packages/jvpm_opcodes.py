@@ -169,7 +169,7 @@ class OpCodes():
         index = 0
 
         while index < len(self.opcodes):
-            opcall = packages.jvpm_dict.get_opcode(self.opcodes[index])
+            opcall = jvpm_dict.get_opcode(self.opcodes[index])
 
             print (opcall) # just to see what opcall is passed through
 
