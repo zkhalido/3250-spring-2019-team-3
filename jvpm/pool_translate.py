@@ -265,32 +265,32 @@ class PoolTranslate:
     """
 
 
-if '__main__' == __name__:              #pragma: no cover
-    o = PoolTranslate()                 #pragma: no cover
+# if '__main__' == __name__:              #pragma: no cover
+#     o = PoolTranslate()                 #pragma: no cover
 
-    n = o.translate()                   #pragma: no cover
-    x = pool_methods.TagTranslate()#pragma: no cover
-    #j = x.token_dict("0a")             #pragma: no cover
-    #print(n)                           #pragma: no cover
-    print()                             #pragma: no cover
-    #print(n.key[0])                    #pragma: no cover
-    print(n)                            #pragma: no cover
-    print()                             #pragma: no cover
+#     n = o.translate()                   #pragma: no cover
+#     x = pool_methods.TagTranslate()#pragma: no cover
+#     #j = x.token_dict("0a")             #pragma: no cover
+#     #print(n)                           #pragma: no cover
+#     print()                             #pragma: no cover
+#     #print(n.key[0])                    #pragma: no cover
+#     print(n)                            #pragma: no cover
+#     print()                             #pragma: no cover
 
-    #print(j)                           #pragma: no cover
-    i = 1                               #pragma: no cover
+#     #print(j)                           #pragma: no cover
+#     i = 1                               #pragma: no cover
 
 
-    for key in n:                       #pragma: no cover
-        i =1                            #pragma: no cover
-        #while i < len(n[key]) :        #pragma: no cover
-            #a = []                     #pragma: no cover
-            #a.append(n[key][i])        #pragma: no cover
-            #i += 1                     #pragma: no cover
+#     for key in n:                       #pragma: no cover
+#         i =1                            #pragma: no cover
+#         #while i < len(n[key]) :        #pragma: no cover
+#             #a = []                     #pragma: no cover
+#             #a.append(n[key][i])        #pragma: no cover
+#             #i += 1                     #pragma: no cover
 
-        if (n[key][0]) == "01":         #pragma: no cover
-            #print (" a ", a)           #pragma: no cover
-            print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key][len(n[key])-1])   #pragma: no cover
+#         if (n[key][0]) == "01":         #pragma: no cover
+#             #print (" a ", a)           #pragma: no cover
+#             print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key][len(n[key])-1])   #pragma: no cover
 
-        else:       #pragma: no cover
-            print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key])  #pragma: no cover
+#         else:       #pragma: no cover
+#             print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key])  #pragma: no cover
