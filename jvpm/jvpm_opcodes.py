@@ -42,7 +42,7 @@ class HeaderClass():
     
     # method used to get data for the get_const_pool() method.
     def get_const_pool_count(self):
-        return self.data[8] + self.data[9]
+        return self.data[8] + self.data[9] - 1
     
     def get_const_pool(self):
         temp = defaultdict(list)
