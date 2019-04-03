@@ -5,6 +5,7 @@ from pip._vendor.distlib.compat import raw_input
 import jvpm_dict    # import external opcode dictionary
 from collections import defaultdict
 import jvpm_methods
+from stack import Stack
 #from jvpm_methods import OpCodeMethods # import external method dictionary
 
 # **************************************************************************************************
@@ -172,6 +173,7 @@ class OpCodes():
           print(opcall) # just to see what opcall is passed through
           jvpm_methods.OpCodeMethods().token_dict(opcall)
           index += 1
+          print(self.stack.peek())
       print()  
 
 #     def dict_search(self, jvMethodsIn):
