@@ -173,7 +173,7 @@ class OpCodes():
           print(opcall) # just to see what opcall is passed through
           jvpm_methods.OpCodeMethods().token_dict(opcall)
           index += 1
-          print(self.stack.peek())
+          print(stack.peek())
       print()  
 
 #     def dict_search(self, jvMethodsIn):
