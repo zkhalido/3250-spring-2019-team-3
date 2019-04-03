@@ -206,13 +206,13 @@ if '__main__' == __name__:                  #pragma: no cover
 
     print('\n2) ___Parse, pull, and assign method bytecodes to an array, search imported '      
           '\n  opcode dictionary for bytecode and pull opcode. If found, send opcode to'        
-          '\n  imported method dictionary to implement the method:___')                         
+          '\n  imported method dictionary to implement the method:___\n')                         
 
     O = OpCodes()         
     O.dict_search()
     
     # **********************************************************************************************
     
-    print('\n3) ___Retrieve the Constant Pool from the .class file and print to console. ')                       
+    print('\n3) ___Retrieve the Constant Pool from the .class file and print to console:___\n')                       
 
     print(H.get_const_pool()) 
