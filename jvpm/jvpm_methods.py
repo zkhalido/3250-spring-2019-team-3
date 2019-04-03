@@ -132,7 +132,7 @@ class OpCodeMethods():
 
     def istore_1(self):
         """store int value into VARIABLE[1]"""
-        popped = self.stack.pop()
+        popped = S.pop()
         self.VARIABLES.insert(1, popped)
         print("ran istore_1")
 
