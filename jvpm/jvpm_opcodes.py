@@ -19,6 +19,7 @@ class HeaderClass():
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
+            cpcount = 0
 
     def get_magic(self):
         magic = ""
@@ -192,6 +193,7 @@ if '__main__' == __name__:                  #pragma: no cover
     H.get_minor()                   #pragma: no cover
     H.get_major()                   #pragma: no cover
     H.get_const_pool_count_B()        #pragma: no cover
+    print(H.cpcount)
 
     # **********************************************************************************************
 
