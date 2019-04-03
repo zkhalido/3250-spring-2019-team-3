@@ -148,7 +148,7 @@ class OpCodes():
     def __init__(self):
         self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '1c', '68', '1c', '6c', '1c',
                         '64', '3e']
-        self.opcodes = []
+        # self.opcodes = []
 
 
         """
