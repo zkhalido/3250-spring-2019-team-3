@@ -15,9 +15,9 @@ class OpCodeMethods():
 
     def iadd(self):
         """iadd: add two ints"""
-        var2 = numpy.int32(self.stack.pop())
-        var1 = numpy.int32(self.stack.pop())
-        self.stack.push(var1 + var2)
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
+        S.push(var1 + var2)
 
     def iand(self):
         """perform a bitwise AND on two integers"""
