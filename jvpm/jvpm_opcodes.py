@@ -195,7 +195,7 @@ if '__main__' == __name__:                  #pragma: no cover
 
     # **********************************************************************************************
 
-    print('\n1) ___Parse, pull, and assign Header bytecodes:___')           #pragma: no cover
+    print('\n1) ___Parse, pull, and assign Header bytecodes:___')
     H = HeaderClass()               #pragma: no cover
     H.get_magic()                   #pragma: no cover
     H.get_minor()                   #pragma: no cover
