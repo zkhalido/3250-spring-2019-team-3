@@ -213,7 +213,7 @@ if '__main__' == __name__:                  #pragma: no cover
     O = OpCodes()         
     O.dict_search()
     
-    P = PoolTranslate()                 #pragma: no cover
+    P = pool_translate.PoolTranslate()                 #pragma: no cover
 
     N = P.translate()                   #pragma: no cover
     X = pool_methods.TagTranslate()#pragma: no cover
