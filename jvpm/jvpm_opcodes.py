@@ -211,6 +211,35 @@ if '__main__' == __name__:                  #pragma: no cover
     O = OpCodes()         
     O.dict_search()
     
+    P = PoolTranslate()                 #pragma: no cover
+
+    N = P.translate()                   #pragma: no cover
+    X = pool_methods.TagTranslate()#pragma: no cover
+    #j = x.token_dict("0a")             #pragma: no cover
+    #print(n)                           #pragma: no cover
+    print()                             #pragma: no cover
+    #print(n.key[0])                    #pragma: no cover
+    print(N)                            #pragma: no cover
+    print()                             #pragma: no cover
+
+    #print(j)                           #pragma: no cover
+    i = 1                               #pragma: no cover
+
+
+    for key in n:                       #pragma: no cover
+        i = 1                            #pragma: no cover
+        #while i < len(n[key]) :        #pragma: no cover
+            #a = []                     #pragma: no cover
+            #a.append(n[key][i])        #pragma: no cover
+            #i += 1                     #pragma: no cover
+
+        if (N[key][0]) == "01":         #pragma: no cover
+            #print (" a ", a)           #pragma: no cover
+            print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key][len(N[key])-1])   #pragma: no cover
+
+        else:       #pragma: no cover
+            print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key])  #pragma: no cover
+    
     # **********************************************************************************************
     
     print('\n3) ___Retrieve the Constant Pool from the .class file and print to console:___\n')                       
