@@ -88,8 +88,8 @@ class OpCodeMethods():
 
     def iload_3(self):
         """load an int value from local array variable[3]"""
-        pushing3 = self.VARIABLES[3]
-        self.stack.push(pushing3)
+        pushing3 = VARIABLES[3]
+        S.push(pushing3)
 
     def imul(self):
         """multiply two integers"""
@@ -128,9 +128,9 @@ class OpCodeMethods():
 
     def istore_0(self):
         """store int value into VARIABLE[0]"""
-        popped = self.stack.pop()
+        popped = S.pop()
         #self.VARIABLES.pop(0) # remove the assigned 0 from the [0]position
-        self.VARIABLES.insert(0, popped)
+        VARIABLES.insert(0, popped)
         print("ran istore_0")
 
     def istore_1(self):
@@ -148,8 +148,8 @@ class OpCodeMethods():
 
     def istore_3(self):
         """store int value into VARIABLE[3]"""
-        popped = self.stack.pop()
-        self.VARIABLES.insert(3, popped)
+        popped = S.pop()
+        VARIABLES.insert(3, popped)
         print("ran istore_3")
 
     def isub(self):
