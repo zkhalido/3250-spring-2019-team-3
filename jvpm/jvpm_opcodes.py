@@ -144,11 +144,11 @@ class OpCodes():
                         '64', '3e']
         """
 
-        METHOD GOES HERE TO FIND OPCODES FROM ANY .CLASS FILE AND SAVE TO self.opcodes LIST.
+        METHOD GOES HERE TO FIND METHOD-OPCODES FROM A .CLASS FILE AND SAVE TO self.opcodes LIST.
 
         """
         
-    # I duplicated this method for testing from the commented out method below it
+    # I duplicated this method from the commented out method below it
     # because it wouldn't work to find the opcodes, now it works. If you need the 
     # other one, just comment out this one. Thx. 4-3-19
     def dict_search(self):
