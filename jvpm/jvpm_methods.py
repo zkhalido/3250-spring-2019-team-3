@@ -154,9 +154,9 @@ class OpCodeMethods():
 
     def isub(self):
         """int subtract"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
-        self.stack.push(var1 - var2)
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 - var2)
 
     def iushr(self):
         """int logical shift right"""
