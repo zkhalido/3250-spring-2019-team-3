@@ -525,131 +525,131 @@ class Test_Op_Methods(unittest.TestCase):
     def test_ior(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        S.push(2)
-        S.push(5)
+        packages.jvpm_methods.S.push(2)
+        packages.jvpm_methods.S.push(5)
         a.ior()
-        b = S.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 7)
 
-        S.push(8)
-        S.push(2)
+        packages.jvpm_methods.S.push(8)
+        packages.jvpm_methods.S.push(2)
         a.ior()
-        b = S.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 10)
 
-        S.push(10)
-        S.push(-3)
+        packages.jvpm_methods.S.push(10)
+        packages.jvpm_methods.S.push(-3)
         a.ior()
-        b = S.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, -1)
 
-        S.push(-5)
-        S.push(-6)
+        packages.jvpm_methods.S.push(-5)
+        packages.jvpm_methods.S.push(-6)
         a.ior()
-        b = S.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, -5)
 
     def test_irem(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        S.push(5)
-        S.push(2)
+        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.S.push(2)
         a.irem()
-        b = S.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 1)
 
-        S.push(10)
-        S.push(5)
+        packages.jvpm_methods.S.push(10)
+        packages.jvpm_methods.S.push(5)
         a.irem()
-        b = S.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 0)
 
-        S.push(-6)
-        S.push(5)
+        packages.jvpm_methods.S.push(-6)
+        packages.jvpm_methods.S.push(5)
         a.irem()
-        b = S.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 4)
 
-        S.push(6)
-        S.push(-6)
+        packages.jvpm_methods.S.push(6)
+        packages.jvpm_methods.S.push(-6)
         a.irem()
-        b = S.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 0)
 
     def test_ishl(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        a.stack.push(2)
-        a.stack.push(1)
+        packages.jvpm_methods.S.stack.push(2)
+        packages.jvpm_methods.S.stack.push(1)
         a.ishl()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.stack.pop()
         self.assertEqual(b, 4)
 
     def test_ishr(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        a.stack.push(3)
-        a.stack.push(1)
+        packages.jvpm_methods.S.stack.push(3)
+        packages.jvpm_methods.S.stack.push(1)
         a.ishr()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.stack.pop()
         self.assertEqual(b, 1)
 
-        a.stack.push(-1)
-        a.stack.push(1)
+        packages.jvpm_methods.S.stack.push(-1)
+        packages.jvpm_methods.S.stack.push(1)
         a.ishr()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.stack.pop()
         self.assertEqual(b, -1)
 
-        a.stack.push(5)
-        a.stack.push(0)
+        packages.jvpm_methods.S.stack.push(5)
+        packages.jvpm_methods.S.stack.push(0)
         a.ishr()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.stack.pop()
         self.assertEqual(b, 5)
 
-        a.stack.push(0)
-        a.stack.push(5)
+        packages.jvpm_methods.S.stack.push(0)
+        packages.jvpm_methods.S.stack.push(5)
         a.ishr()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.stack.pop()
         self.assertEqual(b, 0)
 
     def test_istore_0(self):
         a = packages.jvpm_methods.OpCodeMethods()
-        a.stack.push(3)
+        packages.jvpm_methods.S.stack.push(3)
         a.istore_0()
-        b = a.VARIABLES[0]
+        b = packages.jvpm_methods.VARIABLES[0]
         self.assertEqual(b, 3)
 
     def test_istore_1(self):
         a = packages.jvpm_methods.OpCodeMethods()
-        a.stack.push(2)
-        a.stack.push(4)
+        packages.jvpm_methods.S.push(2)
+        packages.jvpm_methods.S.push(4)
         a.istore_0()
         a.istore_1()
-        b = a.VARIABLES[1]
+        b = packages.jvpm_methods.VARIABLES[1]
         self.assertEqual(b, 2)
 
     def test_istore_2(self):
         a = packages.jvpm_methods.OpCodeMethods()
-        a.stack.push(8)
-        a.stack.push(7)
-        a.stack.push(9)
+        packages.jvpm_methods.S.push(8)
+        packages.jvpm_methods.S.push(7)
+        packages.jvpm_methods.S.push(9)
         a.istore_0()
         a.istore_1()
         a.istore_2()
-        b = a.VARIABLES[2]
+        b = packages.jvpm_methods.VARIABLES[2]
         self.assertEqual(b, 8)
 
     def test_istore_3(self):
         a = packages.jvpm_methods.OpCodeMethods()
-        a.stack.push(9)
-        a.stack.push(10)
-        a.stack.push(3)
-        a.stack.push(4)
+        packages.jvpm_methods.S.push(9)
+        packages.jvpm_methods.S.push(10)
+        packages.jvpm_methods.S.push(3)
+        packages.jvpm_methods.S.push(4)
         a.istore_0()
         a.istore_1()
         a.istore_2()
         a.istore_3()
-        b = a.VARIABLES[3]
+        b = packages.jvpm_methods.VARIABLES[3]
         self.assertEqual(b, 9)
 
     def test_isub(self):
