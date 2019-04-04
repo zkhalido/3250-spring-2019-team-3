@@ -75,7 +75,7 @@ class OpCodeMethods():
 
     def iload_1(self):
         """load an int value from local array variable[1]"""
-        pushing = self.VARIABLES[1]
+        pushing = VARIABLES[1]
         S.push(pushing)
         print("ran iload_1")
 
