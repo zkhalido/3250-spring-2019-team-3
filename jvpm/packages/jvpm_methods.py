@@ -98,32 +98,32 @@ class OpCodeMethods():
 
     def ineg(self):
         """negate int"""
-        var1 = self.stack.pop()
-        self.stack.push(0 - var1)
+        var1 = S.pop()
+        S.push(0 - var1)
 
     def ior(self):
         """bitwise int OR"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
-        self.stack.push(var1 | var2)
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 | var2)
 
     def irem(self):
         """logical in remainder"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
-        self.stack.push(var1 % var2)
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 % var2)
 
     def ishl(self):
         """int shift left"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
-        self.stack.push(var1 << var2)
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 << var2)
 
     def ishr(self):
         """int arithmetic shift right"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
-        self.stack.push(var1 >> var2)
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 >> var2)
 
     def istore_0(self):
         """store int value into VARIABLE[0]"""
