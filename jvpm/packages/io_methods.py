@@ -19,9 +19,9 @@ class IoMethods():
         sign = sign_dict.get(argument, "invalid")
         
         print("We will " + math + " your two inputs from the keyboard.")
-        var1 = int(input("What's your first variable? "))
+        var1 = int(input("What's your first operand? "))
         jvpm_methods.S.push(var1)
-        var2 = int(input("What's your second variable? "))
+        var2 = int(input("What's your second operand? "))
         jvpm_methods.S.push(var2)
         method()
         print(str(var1) + " " + sign + " " + str(var2) + " = " + str(jvpm_methods.S.peek()))
