@@ -44,7 +44,7 @@ if '__main__' == __name__:                  #pragma: no cover
     print('\n4) ___Print Hello World!:___\n')
     
     packages.jvpm_methods.S.push(1)
-    print(packages.jvpm_methods.S.peek())
+    print("printed " + str(packages.jvpm_methods.S.peek()) + " from the stack")
 
 
 
