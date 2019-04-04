@@ -17,11 +17,11 @@ class IoMethods():
         print("Your second variable is: " + str(var2))
         
         io_dict = {"iadd": iadd}
-        method = io_dict.get(argument, "invalid")
+        #method = io_dict.get(argument, "invalid")
         
         print("Stand back, I will now add " + str(var1) + " + " + str(var2) + ".")
         A.iadd()
         print(str(var1) + " + " + str(var2) + " = " + str(jvpm_methods.S.peek()))
         
-        A.method()
+        # A.method()
         print()
