@@ -327,11 +327,11 @@ class Test_Op_Methods(unittest.TestCase):
 
     def test_iadd(self):
         a = packages.jvpm_methods.OpCodeMethods()
-
-        a.stack.push(2)
-        a.stack.push(1)
+        # packages.jvpm_methods.S.push(1) EXAMPLE THAT I USED IN THE MAIN AND IT WORKS
+        packages.jvpm_methods.S.push(2)
+        packages.jvpm_methods.S.push(1)
         a.iadd()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 3)
 
     def test_iand(self):
