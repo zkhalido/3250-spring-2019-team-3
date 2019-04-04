@@ -5,6 +5,7 @@ super_index = 0
 class PoolTranslate:
 
     def __init__(self):
+        methodrefs = {}
         self.dictionary = defaultdict(list)
         #global g_dict
         #g_dict = defaultdict(list)
