@@ -161,12 +161,12 @@ class OpCodeMethods():
 
     def iushr(self):
         """int logical shift right"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
+        var2 = S.pop()
+        var1 = S.pop()
         if var1 >= 0:
-            self.stack.push(var1 >> var2)
+            S.push(var1 >> var2)
         else:
-            self.stack.push((var1 + 0x10000000) >> var2)
+            S.push((var1 + 0x10000000) >> var2)
 
     def ixor(self):
         """xor"""
