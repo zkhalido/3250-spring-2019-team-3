@@ -1,6 +1,5 @@
 class IoMethods():
   def __init__(self):
-        # self.stack = Stack()
       
   def keyboard_in(self):
     """input from your keyboard"""
