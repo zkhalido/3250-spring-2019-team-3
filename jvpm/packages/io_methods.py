@@ -4,6 +4,7 @@ from . import jvpm_methods
 class IoMethods():
     def __init__(self):
         """input-output"""
+        io_dict = {}
       
     def keyboard_add(self, argument):
         """input from your keyboard"""
@@ -16,7 +17,7 @@ class IoMethods():
         jvpm_methods.S.push(var2)
         print("Your second variable is: " + str(var2))
         
-        io_dict = {"iadd": iadd}
+        io_dict = {"iadd": A.iadd}
         #method = io_dict.get(argument, "invalid")
         
         print("Stand back, I will now add " + str(var1) + " + " + str(var2) + ".")
