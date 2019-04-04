@@ -214,8 +214,6 @@ class OpCodeMethods():
     def i2d(self):
         """convert int to decimal"""
 
-
-    # Array of arguments from the main for istore and iload
     switcher = {
 
             "iadd": iadd,  # add two ints
