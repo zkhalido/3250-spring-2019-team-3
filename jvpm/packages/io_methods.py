@@ -12,4 +12,4 @@ class IoMethods():
         print("Stand back, I will now add " + str(var1) + " + " + str(var2) + ".")
         sum = var1 + var2
         print(str(var1) + " + " + str(var2) + " = ",str(sum))
-    
+        print()
