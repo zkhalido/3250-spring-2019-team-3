@@ -440,16 +440,6 @@ class Test_Op_Methods(unittest.TestCase):
         a.idiv()
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 3)
-        
-#     def test_iadd(self):
-#         a = packages.jvpm_methods.OpCodeMethods()
-#         # packages.jvpm_methods.S.push(1) EXAMPLE THAT I USED IN THE MAIN AND IT WORKS
-#         packages.jvpm_methods.S.push(2)
-#         packages.jvpm_methods.S.push(1)
-#         a.iadd()
-#         b = packages.jvpm_methods.S.pop()
-#         self.assertEqual(b, 3) 
-# a.stack
 
     def test_iload_0(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -665,35 +655,44 @@ class Test_Op_Methods(unittest.TestCase):
     def test_isub(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        a.stack.push(5)
-        a.stack.push(2)
+        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.S.push(2)
         a.isub()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 3)
 
-        a.stack.push(5)
-        a.stack.push(5)
+        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.S.push(5)
         a.isub()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 0)
 
-        a.stack.push(5)
-        a.stack.push(0)
+        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.S.push(0)
         a.isub()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 5)
 
-        a.stack.push(0)
-        a.stack.push(0)
+        packages.jvpm_methods.S.push(0)
+        packages.jvpm_methods.S.push(0)
         a.isub()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 0)
 
-        a.stack.push(3)
-        a.stack.push(5)
+        packages.jvpm_methods.S.push(3)
+        packages.jvpm_methods.S.push(5)
         a.isub()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, -2)
+        
+#     def test_iadd(self):
+#         a = packages.jvpm_methods.OpCodeMethods()
+#         # packages.jvpm_methods.S.push(1) EXAMPLE THAT I USED IN THE MAIN AND IT WORKS
+#         packages.jvpm_methods.S.push(2)
+#         packages.jvpm_methods.S.push(1)
+#         a.iadd()
+#         b = packages.jvpm_methods.S.pop()
+#         self.assertEqual(b, 3)    
 
     def test_iushr(self):
         a = packages.jvpm_methods.OpCodeMethods()
