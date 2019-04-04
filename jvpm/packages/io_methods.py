@@ -6,9 +6,9 @@ class IoMethods():
     def keyboard_in(self):
         """input from your keyboard"""
         var1 = int(input("What's your first variable? "))
-        print("Your first variable is: " + var1)
+        print("Your first variable is: " + str(var1))
         var2 = int(input("What's your second variable? "))
-        print("So, you are ready to add " + var1 + " + " + var2)
+        print("So, you are ready to add " + str(var1) + " + " + str(var2))
         sum = var1 + var2
-        print(var1 + " + " + var2 + " = ",sum)
+        print(str(var1) + " + " + str(var2) + " = ",str(sum))
     
