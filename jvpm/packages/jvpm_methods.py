@@ -18,6 +18,15 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
 
+    def nextInt(self):
+        """receive input from the keyboard"""
+        var1 = int(input("Enter the operand: "))
+        S.push(var1)
+
+    def println(self):
+        """print from the stack"""
+        print(S.peek())
+
     def iand(self):
         """perform a bitwise AND on two integers"""
         var2 = S.pop()
@@ -70,13 +79,13 @@ class OpCodeMethods():
 
     def iload_0(self):
         """load an int value from local array variable[0]"""
-        pushing = VARIABLES[0]
-        S.push(pushing)
+        pushing0 = VARIABLES[0]
+        S.push(pushing0)
 
     def iload_1(self):
         """load an int value from local array variable[1]"""
-        pushing = VARIABLES[1]
-        S.push(pushing)
+        pushing1 = VARIABLES[1]
+        S.push(pushing1)
         print("ran iload_1")
 
     def iload_2(self):
