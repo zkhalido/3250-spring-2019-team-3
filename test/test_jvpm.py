@@ -443,11 +443,11 @@ class Test_Op_Methods(unittest.TestCase):
 
     def test_iload_0(self):
         a = packages.jvpm_methods.OpCodeMethods()
-        a.VARIABLES.append(7)
-        a.VARIABLES.append(5)
-        a.VARIABLES.append(6)
-        a.VARIABLES.append(1)
-        a.VARIABLES[0] = 2
+        packages.jvpm_methods.VARIABLES.append(7)
+        packages.jvpm_methods.VARIABLES.append(5)
+        packages.jvpm_methods.VARIABLES.append(6)
+        packages.jvpm_methods.VARIABLES.append(1)
+        packages.jvpm_methods.VARIABLES[0] = 2
         a.iload_0()
         b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 2)
