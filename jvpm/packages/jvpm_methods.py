@@ -24,7 +24,7 @@ class OpCodeMethods():
         S.push(var1)
 
     def println(self):
-        """print from the stack"""
+        """print top item from the stack"""
         print(S.peek())    
 
     def iand(self):
