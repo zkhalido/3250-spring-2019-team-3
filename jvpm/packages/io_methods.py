@@ -28,7 +28,7 @@ class IoMethods():
         
         print("Stand back, I will now " + math + " " + str(var1) + " + " + str(var2) + ".")
         method()
-        print(str(var1) + " + " + str(var2) + " = " + str(jvpm_methods.S.peek()))
+        print(str(var1) + " " + sign + " " + str(var2) + " = " + str(jvpm_methods.S.peek()))
         
         # A.method()
         print()
