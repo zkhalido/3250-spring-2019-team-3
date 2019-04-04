@@ -455,10 +455,10 @@ class Test_Op_Methods(unittest.TestCase):
     def test_iload_1(self):
         a = packages.jvpm_methods.OpCodeMethods()
 #         a.VARIABLES.append(7)
-#         a.VARIABLES.append(5)
+        a.VARIABLES.push(5)
 #         a.VARIABLES.append(6)
 #         a.VARIABLES.append(1)
-        a.VARIABLES[1] = 5
+#        a.VARIABLES[1] = 5
         a.iload_1()
         b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 5)
