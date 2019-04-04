@@ -337,10 +337,10 @@ class Test_Op_Methods(unittest.TestCase):
     def test_iand(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        a.stack.push(5)
-        a.stack.push(3)
+        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.S.push(3)
         a.iand()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b,1)
 
     def test_iconst_m1(self):
@@ -358,7 +358,7 @@ class Test_Op_Methods(unittest.TestCase):
         a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_0()
-        b = a.stack.peek()
+        b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 0)
 
         a.stack.push(5)
@@ -718,9 +718,9 @@ class Test_Op_Methods(unittest.TestCase):
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 5.0)
 
-        a.stack.push(0)
+        packages.jvpm_methods.S.push(0)
         a.i2f()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 0.0)
 
     def test_i2b(self):
