@@ -744,9 +744,9 @@ class Test_Op_Methods(unittest.TestCase):
     def test_i2b(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        a.stack.push(5)
+        packages.jvpm_methods.S.push(5)
         a.i2b()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, b'\x00\x00\x00\x00\x00\x00\x00\x05')
 
         a.stack.push(0)
