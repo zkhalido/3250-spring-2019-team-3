@@ -491,35 +491,35 @@ class Test_Op_Methods(unittest.TestCase):
     def test_imul(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        a.stack.push(3)
-        a.stack.push(4)
+        packages.jvpm_methods.S.push(3)
+        packages.jvpm_methods.S.push(4)
         a.imul()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 12)
 
-        a.stack.push(-2)
-        a.stack.push(3)
+        packages.jvpm_methods.S.push(-2)
+        packages.jvpm_methods.S.push(3)
         a.imul()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, -6)
 
-        a.stack.push(-5)
-        a.stack.push(-4)
+        packages.jvpm_methods.S.push(-5)
+        packages.jvpm_methods.S.push(-4)
         a.imul()
-        b = a.stack.pop()
-        self.assertEqual(b, 20)
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, 20)   
 
     def test_ineg(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        a.stack.push(3)
+        packages.jvpm_methods.S.push(3)
         a.ineg()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, -3)
 
-        a.stack.push(-5)
+        packages.jvpm_methods.S.push(-5)
         a.ineg()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 5)
 
     def test_ior(self):
