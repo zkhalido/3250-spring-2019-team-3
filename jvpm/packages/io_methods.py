@@ -18,7 +18,6 @@ class IoMethods():
         
         print("Stand back, I will now add " + str(var1) + " + " + str(var2) + ".")
         A.iadd()
-        sum = var1 + var2
-        print(str(var1) + " + " + str(var2) + " = ",str(sum))
-        print(jvpm_methods.S.peek())
+        print(str(var1) + " + " + str(var2) + " = " + str(jvpm_methods.S.peek()))
+#         print(jvpm_methods.S.peek())
         print()
