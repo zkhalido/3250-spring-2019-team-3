@@ -6,7 +6,7 @@ class IoMethods():
         """input-output"""
         io_dict = {}
       
-    def keyboard_add(self, argument):
+    def keyboard_math(self, argument):
         """input from your keyboard"""
         A = jvpm_methods.OpCodeMethods()
         # 3 dictionaries based on the opcode passed from the main. 
