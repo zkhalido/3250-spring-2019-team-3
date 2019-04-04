@@ -5,7 +5,7 @@ class IoMethods():
     def __init__(self):
         """input-output"""
       
-    def keyboard_in(self):
+    def keyboard_add(self):
         """input from your keyboard"""
         A = jvpm_methods.OpCodeMethods()
         var1 = int(input("What's your first variable? "))
