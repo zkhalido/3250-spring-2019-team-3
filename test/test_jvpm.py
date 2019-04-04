@@ -472,7 +472,7 @@ class Test_Op_Methods(unittest.TestCase):
         del packages.jvpm_methods.VARIABLES[2]
         packages.jvpm_methods.VARIABLES[2] = 7
         a.iload_2()
-        b = packages.jvpm_methods.peek()
+        b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 7)
 
     def test_iload_3(self):
@@ -485,7 +485,7 @@ class Test_Op_Methods(unittest.TestCase):
         del packages.jvpm_methods.VARIABLES[3]
         packages.jvpm_methods.VARIABLES[3] = 9
         a.iload_3()
-        b = packages.jvpm_methods.peek()
+        b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 9)
 
     def test_imul(self):
