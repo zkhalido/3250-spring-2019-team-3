@@ -32,100 +32,71 @@ class HeaderClass():
     def get_const_pool_count(self):
         # print("Contant Pool Count: ", self.data[8] + self.data[9])
         return self.data[8] + self.data[9]
+    
 
+    
     def get_const_pool(self):
+        
+        def temp_append(self, extra_offset, current_offset):
+            to_append = 0
+            if type(extra_offset) == list:
+                for offset in extra_offset:
+                    to_append += self.data[current_offset + offset]
+                to_append = format(to_append, '02x')
+            else:
+                to_append = format(self.data[current_offset + extra_offset], '02x')
+            return to_append
+        
+        START_OF_CONSTANT_POOL = 10
+        
+        CLASS_REFERENCE = 7
+        FIELD_REFERENCE = 9
+        METHOD_REFERENCE = 10
+        INTERFACE_METHOD_REFERENCE = 11
+        STRING_REFERENCE = 8
+        INTEGER = 3
+        FLOAT = 4
+        LONG = 5
+        DOUBLE = 6
+        NAME_AND_TYPE = 12
+        UTF8_STRING = 1
+        METHOD_HANDLE = 15
+        METHOD_TYPE = 16
+        INVOKE_DYNAMIC = 18
+        
+        constant_dict = {
+               CLASS_REFERENCE: [[0, [1, 2]], 2],
+               FIELD_REFERENCE: [[0, [1, 2], [13, 14]], 4],
+               METHOD_REFERENCE: [[0, [1, 2], [3,14]], 4],
+               INTERFACE_METHOD_REFERENCE: [[0, [1, 12], [3, 4]], 4],
+               STRING_REFERENCE: [[0, [1, 2]], 4],
+               INTEGER: [[0, [1, 2, 3, 4]], 4],
+               FLOAT: [[0, [1, 2, 3, 4]], 4],
+               LONG: [[0, [1, 2, 3, 4], [5, 6, 7, 8]], 8],
+               DOUBLE: [[0, [1, 2, 3, 4], [5, 6, 7, 8]], 8],
+               NAME_AND_TYPE: [[0, [1, 2], [3, 4]], 4],
+               UTF8_STRING: [0, 2],  ####### SPECIAL CASE
+               METHOD_HANDLE: [[0, 1, [2, 3]], 3],
+               METHOD_TYPE: [[0, [1, 2]], 2],
+               INVOKE_DYNAMIC: [[0,[1, 2], [3, 4]], 4]
+                }
+        
         temp = defaultdict(list)
         position = 0
         count = self.get_const_pool_count() - 1
         for i in range(count):
-            # Pulling class info
-            if self.data[10 + i + position] == 7:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                position += 2
-            # Field Ref
-            elif self.data[10 + i + position] == 9:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # Method Ref
-            elif self.data[10 + i + position] == 10:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # Interface Method Ref
-            elif self.data[10 + i + position] == 11:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # String
-            elif self.data[10 + i + position] == 8:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                position += 4
-            # Integer
-            elif self.data[10 + i + position] == 3:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # Float
-            elif self.data[10 + i + position] == 4:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # Long
-            elif self.data[10 + i + position] == 5:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] +
-                    self.data[17 + i + position] + self.data[18 + i + position], '02x'))
-                position += 8
-            # Double
-            elif self.data[10 + i + position] == 6:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] +
-                    self.data[17 + i + position] + self.data[18 + i + position], '02x'))
-                position += 8
-            # Name and Type
-            elif self.data[10 + i + position] == 12:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # Utf_8
-            elif self.data[10 + i + position] == 1:
+            DATA_OFFSET = START_OF_CONSTANT_POOL + position + i
+            if self.data[DATA_OFFSET] == UTF8_STRING:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
                 for f in range (self.data[11 + i + position] + self.data[12 + i + position]):
                     temp[i].append(format(self.data[13 + i + position + f], '02x'))
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
                 position += 2
-
-            # Method Handle
-            elif self.data[10 + i + position] == 15:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position], '02x'))
-                temp[i].append(format(self.data[12 + i + position] + self.data[13 + i + position], '02x'))
-                position += 3
-            # Method Type
-            elif self.data[10 + i + position] == 16:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                position += 2
-            # Invoke Dynamic
-            elif self.data[10 + i + position] == 18:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
+            else:
+                for extra_offset in constant_dict[self.data[DATA_OFFSET]][0]:
+                    temp[i].append(temp_append(self, extra_offset, DATA_OFFSET))
+                position += constant_dict[self.data[DATA_OFFSET]][1]
         return temp
 
     def get_const_pool_length(self):
