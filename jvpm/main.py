@@ -53,7 +53,8 @@ if '__main__' == __name__:                  #pragma: no cover
 
     print('\n5) ___Take input from the keyboard and add 2 numbers:___\n')
 
-    packages.io_methods.IoMethods().keyboard_in()
+    K = packages.io_methods.IoMethods()
+    K.keyboard_in()
 
 
     # **********************************************************************************************
