@@ -17,6 +17,15 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
+        
+    def nextInt(self):
+        """receive input from the keyboard"""
+        var1 = int(input("Enter the operand: "))
+        S.push(var1)
+
+    def println(self):
+        """print from the stack"""
+        print(S.peek())    
 
     def nextInt(self):
         """receive input from the keyboard"""
