@@ -169,4 +169,81 @@ https://www.youtube.com/watch?v=hvPYuqzTPIk&t=1732s
 -Create local wrappers!
 -Searches for duplicate code.
 -Unittests can be used as documentation.
-- 
+
+02/26/2019 (in class)
+
+-TDD (test driver development)
+  -write the test first
+  -make sure it fails
+  -write enough code to make it pass
+-SE (software engineering) focuses on req. design and processes
+-Design Patters:
+  -creational patterns
+  -structural patterns
+  -behavioral patterns
+    -how does any one class behaves
+-Object Oriented Programming
+  -Encapsulation (private - data hiding)
+  -Abstraction (don't need to know what is inside the method)
+  -Inheritance (inherit objects from other classes)
+  -Polymorphism (methods working on multiple types)
+
+02/27/2019
+
+https://docs.python.org/3/library/unittest.html#unittest.TestCase.tearDown
+
+-There are 12 methods in the Unittest module you can use to test code.
+-The purpose of Unittesting is to give a method (normally) an input and the
+compare the return result with an expected variable that is provided. If ever
+a method is broken the return result will not satisfy the test and will fail.
+Allowing the programmer to easily find the source of a problem.
+-Unittests should be written before the operation code.
+-This way you can figure out what you want that method to do, give it an input
+and write code that will make the Unittest pass. Insuring the code is working
+properly.
+-Short comings of Unittesting is that they are only as good as the programmer
+makes them. There is hundreds of ways to test a method and there is hundreds
+of ways the method can fail. Example: a method that subtracts 2 ints, receives
+a string as an input. If you do not write a Unittest for this case it does no
+good having the Unittest in that bug scenario.
+
+03/01/2019
+
+https://www.youtube.com/watch?v=CqvZ3vGoGs0&t=836s
+https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure
+
+03/03/2019
+
+-Working on the presentation slides.
+
+03/04/2019 Presentation commands.
+
+coverage run --omit=jvpm/__init__.py,jvpm/test/__init__.py,jvpm/test/test_jvpm.py -m unittest
+
+coverage report -m
+
+04/01/2019
+
+https://realpython.com/python-modules-packages/
+
+-an __init__.py file initiated a folder as a package
+-can initialize imports in the init.py file, when you import the package name
+it will import the initialized modules
+-packages allow for a hierarchical structuring of the module namespace using
+dot notation.
+-modules in python are simple files with .py extension that have executible
+python code in it. When modules are imported, can use the classes and variables
+in the .py file.
+-in many cases modules hold functions that are used by the program, this is
+significant because program can refer to the module at different points without
+having replicated code every-time that function is needed.
+
+04/02/2019
+
+-structure of a python program
+
+-API design is essential for a healthy development cycle.
+-what functions should go into which modules?
+-how data flows through the project?
+
+-import from the same folder with from .(module name) import (classname)

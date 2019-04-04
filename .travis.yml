@@ -5,18 +5,19 @@ python:
 addons:
   sonarcloud:
     organization: git-confused-team3 # the key of the org you chose at step #3
-    token:
-      secure: Hxeh3rABixlWEV7ySDjDpx1TGEWnCOcMnYazGf8FKb0EshgkNsDSJv2A0/y5XaXf5E24DUsEm9f/xFRL8CtXPhrcPqDbzvZyTyKjw3Xg07TtbNVK+a+ypr9AE9z+Fv6oVlIjR8Wjgb6dwEjj01cqjQWaHUbRnpcl++OqY1J4abXtIKbO4qptKINZE/sFSuwVz4kwPkldvKGnDOyCe8qRs9x4DCUCJHxJRBFKoWU6AnSLZJ0HksKLmkoJsDUN92pXzxQuclNDfNUn5BIlmd3QDJtD/t3nSc0JLb23pm2Q9UdhdD5Jqo0w6vXL/9c3G6C6H/3+CAzHHv4k93DFmK96O3/l7G1W6KCpRU51v3ISmPMCzRkXShy9cTRcCc/MOPhaMTiUGy2OgldSS6JqVSjWMLdOBTK8P6OgbpM0xOgScxqIsWjfetRlVfyLK1DdK/bkkkpx0lXG4APtu4cbFFshmEpwBbxrJfvFi6QcBOQBZCjA0IpMq+Cv3uGuUfSuIZlvOdStCLBJ2afHuPRi6Z4fMoWill3ptJY4i7IMmUtfIc6fASVi/S2jN23hHjQfXCww0P0TAhzRGV8fR9GwZeJnyzTimggjL2TjYLwEuLzZlVcpt56jBXyaa5FZ/+ZkTm4/mZllqWRxjtS8tCW4tBOAwbwrLRWZE4fLxJWo0EccnOU=
-
+    token: ${SONAR_TOKEN}
+    
+dist: trusty
+language: python
+python:
+  - "3.6"
 
 install:
   - pip install codecov
 
 script:
-  # - coverage run --omit=*test* -m unittest
-  - coverage run --omit=*test* -m unittest
-  - sonar-scanner
-
+  - coverage run -m unittest
+  - coverage xml -i
 
 after_success:
   - codecov
