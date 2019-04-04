@@ -465,27 +465,27 @@ class Test_Op_Methods(unittest.TestCase):
 
     def test_iload_2(self):
         a = packages.jvpm_methods.OpCodeMethods()
-        a.VARIABLES.append(7)
-        a.VARIABLES.append(5)
-        a.VARIABLES.append(6)
-        a.VARIABLES.append(1)
-        del a.VARIABLES[2]
-        a.VARIABLES[2] = 7
+        packages.jvpm_methods.VARIABLES.append(7)
+        packages.jvpm_methods.VARIABLES.append(5)
+        packages.jvpm_methods.VARIABLES.append(6)
+        packages.jvpm_methods.VARIABLES.append(1)
+        del packages.jvpm_methods.VARIABLES[2]
+        packages.jvpm_methods.VARIABLES[2] = 7
         a.iload_2()
-        b = a.stack.peek()
+        b = packages.jvpm_methods.peek()
         self.assertEqual(b, 7)
 
     def test_iload_3(self):
         a = packages.jvpm_methods.OpCodeMethods()
-        a.VARIABLES.append(7)
-        a.VARIABLES.append(5)
-        a.VARIABLES.append(6)
-        a.VARIABLES.append(1)
-        a.VARIABLES.append(10)
-        del a.VARIABLES[3]
-        a.VARIABLES[3] = 9
+        packages.jvpm_methods.VARIABLES.append(7)
+        packages.jvpm_methods.VARIABLES.append(5)
+        packages.jvpm_methods.VARIABLES.append(6)
+        packages.jvpm_methods.VARIABLES.append(1)
+        packages.jvpm_methods.VARIABLES.append(10)
+        del packages.jvpm_methods.VARIABLES[3]
+        packages.jvpm_methods.VARIABLES[3] = 9
         a.iload_3()
-        b = a.stack.peek()
+        b = packages.jvpm_methods.peek()
         self.assertEqual(b, 9)
 
     def test_imul(self):
