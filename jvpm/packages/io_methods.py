@@ -8,6 +8,7 @@ class IoMethods():
       
     def keyboard_add(self, argument):
         """input from your keyboard"""
+        A = jvpm_methods.OpCodeMethods()
         # 3 dictionaries based on the opcode passed from the main. 
         # 1 dict for the method, 1 for the operation, 1 for the sign.
         io_dict = {"iadd": A.iadd, "isub": A.isub, "imul": A.imul, "idiv": A.idiv}
@@ -20,7 +21,7 @@ class IoMethods():
         print("We will " + math + " your two inputs from the keyboard.")
               
         #use A to call the math method.
-        A = jvpm_methods.OpCodeMethods()
+        # A = jvpm_methods.OpCodeMethods()
         var1 = int(input("What's your first variable? "))
         jvpm_methods.S.push(var1)
         print("Your first variable is: " + str(var1))
