@@ -769,12 +769,12 @@ class Test_Op_Methods(unittest.TestCase):
         l = packages.jvpm_opcodes.OpCodes()
 
         l.opcodes =['06', '3c', '04', '3d', '1b', '1c', '82', '3e'] # Testing some op codes
-        a.VARIABLES.append(0) # adding random constants to test methods \/
-        a.VARIABLES.append(1)
-        a.VARIABLES.append(2)
-        a.VARIABLES.append(3)
-        a.VARIABLES.append(4)
-        a.VARIABLES.append(5)
+        packages.jvpm_methods.VARIABLES.append(0) # adding random constants to test methods \/
+        packages.jvpm_methods.VARIABLES.append(1)
+        packages.jvpm_methods.VARIABLES.append(2)
+        packages.jvpm_methods.VARIABLES.append(3)
+        packages.jvpm_methods.VARIABLES.append(4)
+        packages.jvpm_methods.VARIABLES.append(5)
 
         sys.stdout = unittest.mock.Mock()
         l.dict_search()
