@@ -20,9 +20,9 @@ class OpCodeMethods():
 
     def iand(self):
         """perform a bitwise AND on two integers"""
-        var2 = self.stack.pop()
-        var1 = self.stack.pop()
-        self.stack.push(var1 & var2)
+        var2 = S.pop()
+        var1 = S.pop()
+        S.push(var1 & var2)
 
     def iconst_m1(self):
         """load the int value -1 onto the stack"""
