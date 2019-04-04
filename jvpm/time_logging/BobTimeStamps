@@ -12,3 +12,168 @@ working on pulling constant pool from test.class file. 8:36 to 12:08. 3.5 hours
 
 3/2/18:
 working on pulling test.class files byte codes and research into how the file is laid out. 8:46 to 1:38 5 hours ish
+
+3/3/18:
+building out methods to pull method bytes for opcodes. 10:49 to 11:17 .5 hours
+Meeting with Gil and Chris on skype. 12:00 to 1:15
+	discussed current issues with stories.
+	Game plan made for completing the current sprint.
+	Need to meet up as a team and really disect the projects at hand.
+	Getting help from Gil in pulling method information.
+
+4/3/2019:
+refactoring jvpm.py file
+
+-----------------------------------------------------------------------------------------------------
+Research:
+-----------------------------------------------------------------------------------------------------
+
+ClassFile {
+    u4             magic;
+    u2             minor_version;
+    u2             major_version;
+    u2             constant_pool_count;
+    cp_info        constant_pool[constant_pool_count-1];
+    u2             access_flags;
+    u2             this_class;
+    u2             super_class;
+    u2             interfaces_count;
+    u2             interfaces[interfaces_count];
+    u2             fields_count;
+    field_info     fields[fields_count];
+    u2             methods_count;
+    method_info    methods[methods_count];
+    u2             attributes_count;
+    attribute_info attributes[attributes_count];
+}
+
+Bytes being pulled for a particular field:
+
+u4 = 4 bytes
+u2 = 2 bytes
+u1 = 1 byte
+
+Constant Type 					Value
+CONSTANT_Class 					7
+CONSTANT_Fieldref 				9
+CONSTANT_Methodref 				10
+CONSTANT_InterfaceMethodref 	11
+CONSTANT_String 				8
+CONSTANT_Integer 				3
+CONSTANT_Float 					4
+CONSTANT_Long 					5
+CONSTANT_Double 				6
+CONSTANT_NameAndType 			12
+CONSTANT_Utf8 					1
+CONSTANT_MethodHandle 			15
+CONSTANT_MethodType 			16
+CONSTANT_InvokeDynamic 			18
+
+These are the values in integer format that need to be looked for when parsing out the
+constant pool. These are used to identify the next set of bytes being pulled out for opcode
+in the constant pool. These are varying in how the bytes are pulled as listed below.
+
+CONSTANT_Class_info {
+    u1 tag;
+    u2 name_index;
+}
+
+CONSTANT_Fieldref_info {
+    u1 tag;
+    u2 class_index;
+    u2 name_and_type_index;
+}
+
+CONSTANT_Methodref_info {
+    u1 tag;
+    u2 class_index;
+    u2 name_and_type_index;
+}
+
+CONSTANT_InterfaceMethodref_info {
+    u1 tag;
+    u2 class_index;
+    u2 name_and_type_index;
+}
+
+CONSTANT_String_info {
+    u1 tag;
+    u2 string_index;
+}
+
+CONSTANT_Integer_info {
+    u1 tag;
+    u4 bytes;
+}
+
+CONSTANT_Float_info {
+    u1 tag;
+    u4 bytes;
+}
+
+CONSTANT_Long_info {
+    u1 tag;
+    u4 high_bytes;
+    u4 low_bytes;
+}
+
+CONSTANT_Double_info {
+    u1 tag;
+    u4 high_bytes;
+    u4 low_bytes;
+}
+
+CONSTANT_NameAndType_info {
+    u1 tag;
+    u2 name_index;
+    u2 descriptor_index;
+}
+
+CONSTANT_Utf8_info {
+    u1 tag;
+    u2 length;
+    u1 bytes[length];
+}
+
+CONSTANT_MethodHandle_info {
+    u1 tag;
+    u1 reference_kind;
+    u2 reference_index;
+}
+
+CONSTANT_MethodHandle_info {
+    u1 tag;
+    u1 reference_kind;
+    u2 reference_index;
+}
+
+CONSTANT_InvokeDynamic_info {
+    u1 tag;
+    u2 bootstrap_method_attr_index;
+    u2 name_and_type_index;
+}
+
+Below is the field_info structure: 
+
+field_info {
+    u2             access_flags;
+    u2             name_index;
+    u2             descriptor_index;
+    u2             attributes_count;
+    attribute_info attributes[attributes_count];
+}
+
+Flag names for the first field value:
+
+Flag Name 		Value 	Interpretation
+ACC_PUBLIC 		0x0001 	Declared public; may be accessed from outside its package.
+ACC_PRIVATE 	0x0002 	Declared private; usable only within the defining class.
+ACC_PROTECTED 	0x0004 	Declared protected; may be accessed within subclasses.
+ACC_STATIC 		0x0008 	Declared static.
+ACC_FINAL 		0x0010 	Declared final; never directly assigned to after object construction (JLS §17.5).
+ACC_VOLATILE 	0x0040 	Declared volatile; cannot be cached.
+ACC_TRANSIENT 	0x0080 	Declared transient; not written or read by a persistent object manager.
+ACC_SYNTHETIC 	0x1000 	Declared synthetic; not present in the source code.
+ACC_ENUM 		0x4000 	Declared as an element of an enum.
+
+cd
