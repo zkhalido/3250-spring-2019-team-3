@@ -579,42 +579,42 @@ class Test_Op_Methods(unittest.TestCase):
     def test_ishl(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        packages.jvpm_methods.S.stack.push(2)
-        packages.jvpm_methods.S.stack.push(1)
+        packages.jvpm_methods.S.push(2)
+        packages.jvpm_methods.S.push(1)
         a.ishl()
-        b = packages.jvpm_methods.S.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 4)
 
     def test_ishr(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        packages.jvpm_methods.S.stack.push(3)
-        packages.jvpm_methods.S.stack.push(1)
+        packages.jvpm_methods.S.push(3)
+        packages.jvpm_methods.S.push(1)
         a.ishr()
-        b = packages.jvpm_methods.S.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 1)
 
-        packages.jvpm_methods.S.stack.push(-1)
-        packages.jvpm_methods.S.stack.push(1)
+        packages.jvpm_methods.S.push(-1)
+        packages.jvpm_methods.S.push(1)
         a.ishr()
-        b = packages.jvpm_methods.S.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, -1)
 
-        packages.jvpm_methods.S.stack.push(5)
-        packages.jvpm_methods.S.stack.push(0)
+        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.S.push(0)
         a.ishr()
-        b = packages.jvpm_methods.S.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 5)
 
-        packages.jvpm_methods.S.stack.push(0)
-        packages.jvpm_methods.S.stack.push(5)
+        packages.jvpm_methods.S.push(0)
+        packages.jvpm_methods.S.push(5)
         a.ishr()
-        b = packages.jvpm_methods.S.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 0)
 
     def test_istore_0(self):
         a = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.stack.push(3)
+        packages.jvpm_methods.S.push(3)
         a.istore_0()
         b = packages.jvpm_methods.VARIABLES[0]
         self.assertEqual(b, 3)
