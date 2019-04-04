@@ -25,7 +25,6 @@ class IoMethods():
         var2 = int(input("What's your second variable? "))
         jvpm_methods.S.push(var2)
         print("Your second variable is pushed to the stack: " + str(var2))
-        print("Stand back, I will now " + math + " " + str(var1) + " " + sign + " " + str(var2) + ".")
         method()
         print(str(var1) + " " + sign + " " + str(var2) + " = " + str(jvpm_methods.S.peek()))
         print()
