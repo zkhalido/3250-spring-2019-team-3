@@ -7,6 +7,7 @@ class IoMethods():
       
     def keyboard_add(self):
         """input from your keyboard"""
+        #use A to call the iadd method.
         A = jvpm_methods.OpCodeMethods()
         var1 = int(input("What's your first variable? "))
         jvpm_methods.S.push(var1)
