@@ -714,11 +714,20 @@ class Test_Op_Methods(unittest.TestCase):
     def test_ixor(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        a.stack.push(5)
-        a.stack.push(3)
+        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.S.push(3)
         a.ixor()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 6)
+        
+#     def test_iadd(self):
+#         a = packages.jvpm_methods.OpCodeMethods()
+#         # packages.jvpm_methods.S.push(1) EXAMPLE THAT I USED IN THE MAIN AND IT WORKS
+#         packages.jvpm_methods.S.push(2)
+#         packages.jvpm_methods.S.push(1)
+#         a.iadd()
+#         b = packages.jvpm_methods.S.pop()
+#         self.assertEqual(b, 3)    
 
     def test_i2f(self):
         a = packages.jvpm_methods.OpCodeMethods()
