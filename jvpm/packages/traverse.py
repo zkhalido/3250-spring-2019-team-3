@@ -11,7 +11,7 @@ from collections import defaultdict
 class HeaderClass():
 
     def __init__(self):
-        with open('../javafiles/test.class', 'rb') as binary_file:
+        with open('../javafiles/testPrintLine.class', 'rb') as binary_file:
             self.data = binary_file.read()
 
     def get_magic(self):
@@ -63,6 +63,8 @@ class HeaderClass():
         METHOD_HANDLE = 15
         METHOD_TYPE = 16
         INVOKE_DYNAMIC = 18
+        MODULE = 19
+        
         
         some_array = []
         
@@ -80,7 +82,8 @@ class HeaderClass():
                UTF8_STRING: [[0, [1, 2], some_array], 2],  ####### SPECIAL CASE
                METHOD_HANDLE: [[0, 1, [2, 3]], 3],
                METHOD_TYPE: [[0, [1, 2]], 2],
-               INVOKE_DYNAMIC: [[0,[1, 2], [3, 4]], 4]
+               INVOKE_DYNAMIC: [[0,[1, 2], [3, 4]], 4],
+               MODULE: [[],2]
                 }
         
         temp = defaultdict(list)
