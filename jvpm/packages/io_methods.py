@@ -13,12 +13,12 @@ class IoMethods():
         # 1 dict for the method, 1 for the operation, 1 for the sign.
 #         io_dict = {"iadd": A.iadd, "isub": A.isub, "imul": A.imul, "idiv": A.idiv}
 #         method = io_dict.get(argument, "invalid")
-#         math_dict = {"iadd": "add", "isub": "subtract", "imul": "multiply", "idiv": "divide"}
-#         math = math_dict.get(argument, "invalid")
+        math_dict = {"iadd": "add", "isub": "subtract", "imul": "multiply", "idiv": "divide"}
+        math = math_dict.get(argument, "invalid")
 #         sign_dict = {"iadd": "+", "isub": "-", "imul": "*", "idiv": "/"}
 #         sign = sign_dict.get(argument, "invalid")
         
-#         print("We will " + " " + math + " " + " your two inputs."
+        print("We will " + " " + math + " " + " your two inputs.")
               
         #use A to call the math method.
         A = jvpm_methods.OpCodeMethods()
@@ -33,8 +33,8 @@ class IoMethods():
         # 1 dict for the method, 1 for the operation, 1 for the sign.
         io_dict = {"iadd": A.iadd, "isub": A.isub, "imul": A.imul, "idiv": A.idiv}
         method = io_dict.get(argument, "invalid")
-        math_dict = {"iadd": "add", "isub": "subtract", "imul": "multiply", "idiv": "divide"}
-        math = math_dict.get(argument, "invalid")
+#         math_dict = {"iadd": "add", "isub": "subtract", "imul": "multiply", "idiv": "divide"}
+#         math = math_dict.get(argument, "invalid")
         sign_dict = {"iadd": "+", "isub": "-", "imul": "*", "idiv": "/"}
         sign = sign_dict.get(argument, "invalid")
         
