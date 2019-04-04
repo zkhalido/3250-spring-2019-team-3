@@ -19,11 +19,14 @@ class IoMethods():
         
         io_dict = {"iadd": A.iadd, "isub": A.isub, "imul": A.imul, "idiv": A.idiv}
         method = io_dict.get(argument, "invalid")
-        math_dict = {"iadd": "add"}
+        math_dict = {"iadd": "add", "isub": "subtract", "imul": "multiply", "idiv": "divide"}
         math = math_dict.get(argument, "invalid")
         print(math)
+        sign_dict = {"iadd": "+", "isub": "-", "imul": "*", "idiv": "/"}
+        sign = sign_dict.get(argument, "invalid")
+        print(sign)
         
-        print("Stand back, I will now add " + str(var1) + " + " + str(var2) + ".")
+        print("Stand back, I will now " + math + " " + str(var1) + " + " + str(var2) + ".")
         method()
         print(str(var1) + " + " + str(var2) + " = " + str(jvpm_methods.S.peek()))
         
