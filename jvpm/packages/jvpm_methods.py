@@ -89,6 +89,7 @@ class OpCodeMethods():
         """load an int value from local array variable[3]"""
         pushing3 = VARIABLES[3]
         S.push(pushing3)
+        print("ran iload_3")
 
     def imul(self):
         """multiply two integers"""
