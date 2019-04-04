@@ -66,9 +66,9 @@ class HeaderClass():
         
         constant_dict = {
                CLASS_REFERENCE: [[0, [1, 2]], 2],
-               FIELD_REFERENCE: [[0, [1, 2], [13, 14]], 4],
-               METHOD_REFERENCE: [[0, [1, 2], [3,14]], 4],
-               INTERFACE_METHOD_REFERENCE: [[0, [1, 12], [3, 4]], 4],
+               FIELD_REFERENCE: [[0, [1, 2], [3, 4]], 4],
+               METHOD_REFERENCE: [[0, [1, 2], [3,4]], 4],
+               INTERFACE_METHOD_REFERENCE: [[0, [1, 2], [3, 4]], 4],
                STRING_REFERENCE: [[0, [1, 2]], 4],
                INTEGER: [[0, [1, 2, 3, 4]], 4],
                FLOAT: [[0, [1, 2, 3, 4]], 4],
