@@ -5,8 +5,8 @@ class IoMethods():
       
     def keyboard_in(self):
         """input from your keyboard"""
-        name = input("What's your name? ")
-        print("Nice to meet you " + name + "!")
-        age = input("Your age? ")
-        print("So, you are already " + age + " years old, " + name + "!")
+        var1 = input("What's your first variable? ")
+        print("Your first variable is: " + var1 + "!")
+        var2 = input("What's your second variable? ")
+        print("So, you are ready to add " + var1 + " + " + var2 + "!")
     
