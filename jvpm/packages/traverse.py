@@ -64,6 +64,8 @@ class HeaderClass():
         METHOD_TYPE = 16
         INVOKE_DYNAMIC = 18
         
+        some_array = []
+        
         constant_dict = {
                CLASS_REFERENCE: [[0, [1, 2]], 2],
                FIELD_REFERENCE: [[0, [1, 2], [3, 4]], 4],
@@ -75,7 +77,7 @@ class HeaderClass():
                LONG: [[0, [1, 2, 3, 4], [5, 6, 7, 8]], 8],
                DOUBLE: [[0, [1, 2, 3, 4], [5, 6, 7, 8]], 8],
                NAME_AND_TYPE: [[0, [1, 2], [3, 4]], 4],
-               UTF8_STRING: [0, 2],  ####### SPECIAL CASE
+               UTF8_STRING: [[0, [1, 2], some_array], 2],  ####### SPECIAL CASE
                METHOD_HANDLE: [[0, 1, [2, 3]], 3],
                METHOD_TYPE: [[0, [1, 2]], 2],
                INVOKE_DYNAMIC: [[0,[1, 2], [3, 4]], 4]
@@ -181,7 +183,8 @@ class HeaderClass():
         #print(format(self.data[holder + 6], '02X'))
         #print(format(self.data[holder + 7], '02X'))
         return self.data[holder + 6] + self.data[holder + 7]
-
+    
+    
     def get_interfaces(self):
         temp = []
         count = self.get_interfaces_count()
@@ -202,7 +205,7 @@ class HeaderClass():
         temp = []
         count = self.get_fields_count()
         index = self.get_const_pool_length() + self.get_interfaces_count() + 18
-        if(count<0):
+        if(count > 0):
             for i in range(count):
                  temp.append(format(self.data[index + i], '02X'))
             print("Fields Length: ", len(temp))
@@ -222,7 +225,7 @@ class HeaderClass():
         count = self.get_methods_count()
         index = self.get_const_pool_length() + self.get_interfaces_count() + self.get_fields_count() + 16
         print("index = " + str(index))
-        if(count < 0):
+        if(count > 0):
             for i in range(count):
                 temp.append(format(self.data[index + i], '02X'))
             print("Methods Length: ", len(temp))
