@@ -23,5 +23,5 @@ class IoMethods():
         A.iadd()
         print(str(var1) + " + " + str(var2) + " = " + str(jvpm_methods.S.peek()))
         
-        return A.method(self)
+        A.method(self)
         print()
