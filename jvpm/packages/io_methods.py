@@ -20,7 +20,8 @@ class IoMethods():
         io_dict = {"iadd": A.iadd, "isub": A.isub, "imul": A.imul, "idiv": A.idiv}
         method = io_dict.get(argument, "invalid")
         math_dict = {"iadd": "add"}
-        print(math_dict)
+        math = math_dict.get(argument, "invalid")
+        print(math)
         
         print("Stand back, I will now add " + str(var1) + " + " + str(var2) + ".")
         method()
