@@ -169,9 +169,9 @@ class OpCodeMethods():
 
     def ixor(self):
         """xor"""
-        variable2 = self.stack.pop()
-        variable1 = self.stack.pop()
-        self.stack.push(variable1 ^ variable2)
+        variable2 = S.pop()
+        variable1 = S.pop()
+        S.push(variable1 ^ variable2)
         print("ran ixor")
 
     def i2b(self):
