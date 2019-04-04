@@ -15,9 +15,7 @@ class IoMethods():
         var2 = int(input("What's your second variable? "))
         jvpm_methods.S.push(var2)
         print("Your second variable is: " + str(var2))
-        
         print("Stand back, I will now add " + str(var1) + " + " + str(var2) + ".")
         A.iadd()
         print(str(var1) + " + " + str(var2) + " = " + str(jvpm_methods.S.peek()))
-#         print(jvpm_methods.S.peek())
         print()
