@@ -369,56 +369,56 @@ class Test_Op_Methods(unittest.TestCase):
         a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_1()
-        b = a.stack.peek()
+        b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 1)
 
-        a.stack.push(5)
-        self.assertEqual(a.stack.peek(), 5)
-        self.assertNotEqual(a.stack.peek(), 1)
+        packages.jvpm_methods.S.push(5)
+        self.assertEqual(packages.jvpm_methods.S.peek(), 5)
+        self.assertNotEqual(packages.jvpm_methods.S.peek(), 1)
 
     def test_iconst_2(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_2()
-        b = a.stack.peek()
+        b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 2)
 
-        a.stack.push(5)
-        self.assertEqual(a.stack.peek(), 5)
-        self.assertNotEqual(a.stack.peek(), 2)
+        packages.jvpm_methods.S.push(5)
+        self.assertEqual(packages.jvpm_methods.S.peek(), 5)
+        self.assertNotEqual(packages.jvpm_methods.S.peek(), 2)
 
     def test_iconst_3(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_3()
-        b = a.stack.peek()
+        b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 3)
 
-        a.stack.push(5)
-        self.assertEqual(a.stack.peek(), 5)
-        self.assertNotEqual(a.stack.peek(), 3)
+        packages.jvpm_methods.S.push(5)
+        self.assertEqual(packages.jvpm_methods.S.peek(), 5)
+        self.assertNotEqual(packages.jvpm_methods.S.peek(), 3)
 
     def test_iconst_4(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_4()
-        b = a.stack.peek()
+        b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 4)
 
-        a.stack.push(5)
-        self.assertEqual(a.stack.peek(), 5)
-        self.assertNotEqual(a.stack.peek(), 4)
+        packages.jvpm_methods.S.push(5)
+        self.assertEqual(packages.jvpm_methods.S.peek(), 5)
+        self.assertNotEqual(packages.jvpm_methods.S.peek(), 4)
 
     def test_iconst_5(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_5()
-        b = a.stack.peek()
+        b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 5)
 
-        a.stack.push(2)
-        self.assertEqual(a.stack.peek(), 2)
-        self.assertNotEqual(a.stack.peek(), 5)
+        packages.jvpm_methods.S.push(2)
+        self.assertEqual(packages.jvpm_methods.S.peek(), 2)
+        self.assertNotEqual(packages.jvpm_methods.S.peek(), 5)
 
     def test_idiv(self):
         a = packages.jvpm_methods.OpCodeMethods()
