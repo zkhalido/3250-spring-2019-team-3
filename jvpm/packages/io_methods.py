@@ -21,7 +21,8 @@ class IoMethods():
         method = io_dict.get(argument, "invalid")
         
         print("Stand back, I will now add " + str(var1) + " + " + str(var2) + ".")
-        A.iadd()
+        # A.iadd()
+        method()
         print(str(var1) + " + " + str(var2) + " = " + str(jvpm_methods.S.peek()))
         
         # A.method()
