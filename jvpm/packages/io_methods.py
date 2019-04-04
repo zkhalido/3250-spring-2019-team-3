@@ -10,5 +10,5 @@ class IoMethods():
         var2 = input("What's your second variable? ")
         print("So, you are ready to add " + var1 + " + " + var2)
         sum = var1 + var2
-        print(var1 + " + " + var2 + " = ",sum))
+        print(var1 + " + " + var2 + " = ",sum)
     
