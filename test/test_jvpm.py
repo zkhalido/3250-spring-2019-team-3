@@ -454,8 +454,8 @@ class Test_Op_Methods(unittest.TestCase):
 
     def test_iload_1(self):
         a = packages.jvpm_methods.OpCodeMethods()
-        a.VARIABLES.insert(0, 7)
-        a.VARIABLES.insert(1, 5)
+        packages.jvpm_methods.VARIABLES.insert(0, 7)
+        packages.jvpm_methods.VARIABLES.insert(1, 5)
 #         a.VARIABLES.append(6)
 #         a.VARIABLES.append(1)
 #        a.VARIABLES[1] = 5
