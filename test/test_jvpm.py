@@ -683,16 +683,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(5)
         a.isub()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, -2)
-        
-#     def test_iadd(self):
-#         a = packages.jvpm_methods.OpCodeMethods()
-#         # packages.jvpm_methods.S.push(1) EXAMPLE THAT I USED IN THE MAIN AND IT WORKS
-#         packages.jvpm_methods.S.push(2)
-#         packages.jvpm_methods.S.push(1)
-#         a.iadd()
-#         b = packages.jvpm_methods.S.pop()
-#         self.assertEqual(b, 3)    
+        self.assertEqual(b, -2)  
 
     def test_iushr(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -717,23 +708,14 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(3)
         a.ixor()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 6)
-        
-#     def test_iadd(self):
-#         a = packages.jvpm_methods.OpCodeMethods()
-#         # packages.jvpm_methods.S.push(1) EXAMPLE THAT I USED IN THE MAIN AND IT WORKS
-#         packages.jvpm_methods.S.push(2)
-#         packages.jvpm_methods.S.push(1)
-#         a.iadd()
-#         b = packages.jvpm_methods.S.pop()
-#         self.assertEqual(b, 3)    
+        self.assertEqual(b, 6)    
 
     def test_i2f(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        a.stack.push(5)
+        packages.jvpm_methods.S.push(5)
         a.i2f()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 5.0)
 
         a.stack.push(0)
@@ -749,35 +731,35 @@ class Test_Op_Methods(unittest.TestCase):
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, b'\x00\x00\x00\x00\x00\x00\x00\x05')
 
-        a.stack.push(0)
+        packages.jvpm_methods.S.push(0)
         a.i2b()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, b'\x00\x00\x00\x00\x00\x00\x00\x00')
 
     def test_i2c(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        a.stack.push(5)
+        packages.jvpm_methods.S.push(5)
         a.i2c()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, '\x05')
 
-        a.stack.push(0)
+        packages.jvpm_methods.S.push(0)
         a.i2c()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, '\x00')
 
     def test_i2s(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
-        a.stack.push(555555)
+        packages.jvpm_methods.S.push(555555)
         a.i2s()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, "0x7a23")
 
-        a.stack.push(000000)
+        packages.jvpm_methods.S.push(000000)
         a.i2s()
-        b = a.stack.pop()
+        b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, "0x0")
 
 
