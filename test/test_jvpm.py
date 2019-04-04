@@ -449,7 +449,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.VARIABLES.append(1)
         a.VARIABLES[0] = 2
         a.iload_0()
-        b = a.stack.peek()
+        b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 2)
 
     def test_iload_1(self):
@@ -460,7 +460,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.VARIABLES.append(1)
         a.VARIABLES[1] = 5
         a.iload_1()
-        b = a.stack.peek()
+        b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 5)
 
     def test_iload_2(self):
