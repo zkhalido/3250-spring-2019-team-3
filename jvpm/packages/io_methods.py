@@ -8,7 +8,7 @@ class IoMethods():
         var1 = int(input("What's your first variable? "))
         print("Your first variable is: " + str(var1))
         var2 = int(input("What's your second variable? "))
-        print("You are now ready to add " + str(var1) + " + " + str(var2) + ".")
+        print("Stand back, I will now add " + str(var1) + " + " + str(var2) + ".")
         sum = var1 + var2
         print(str(var1) + " + " + str(var2) + " = ",str(sum))
     
