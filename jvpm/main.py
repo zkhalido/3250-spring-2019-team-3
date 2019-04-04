@@ -45,7 +45,7 @@ if '__main__' == __name__:                  #pragma: no cover
     
     packages.jvpm_methods.S.push(1)
     print("TESTING: Using the main to push then print " + str(packages.jvpm_methods.S.peek()) +
-          " from the stack.")
+          " from the stack... yay it works.")
 
 
 
