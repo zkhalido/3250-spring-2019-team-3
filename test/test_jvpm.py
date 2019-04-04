@@ -777,7 +777,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.VARIABLES.append(5)
 
         sys.stdout = unittest.mock.Mock()
-        l.dict_search(a)
+        l.dict_search()
         sys.stdout.assert_has_calls(
 
             [call.write('iconst_3'), call.write('\n'),
