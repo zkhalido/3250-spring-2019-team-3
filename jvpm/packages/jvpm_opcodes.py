@@ -8,7 +8,7 @@ from collections import defaultdict
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
    #name = raw_input('Type the name of the file with class extension --')
-    def __init__(self, name = "jvpm/javafiles/test.class"):
+    def __init__(self, name = "jvpm/javafiles/AddTwo.class"):
         #self.name = "test.class"#raw_input('Type the name of the file with class extension --')
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
