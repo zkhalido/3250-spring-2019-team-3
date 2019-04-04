@@ -176,38 +176,38 @@ class OpCodeMethods():
 
     def i2b(self):
         """convert int to byte"""
-        variable1 = self.stack.pop()
+        variable1 = S.pop()
         # int.to_bytes(length, byteorder, *, signed=False)
-        self.stack.push(variable1.to_bytes(8, byteorder='big'))
+        S.push(variable1.to_bytes(8, byteorder='big'))
         print("ran i2b")
 
     def i2c(self):
         """convert int to character"""
-        variable1 = self.stack.pop()
+        variable1 = S.pop()
         # chr = Return a string of one character whose ASCII code is the integer i
         # chr(i)
-        self.stack.push(chr(variable1))
+        S.push(chr(variable1))
         print("ran i2c")
 
     def i2f(self):
         """convert int to float"""
-        variable1 = self.stack.pop()
+        variable1 = S.pop()
         # float([x])
-        self.stack.push(float(variable1))
+        S.push(float(variable1))
         print("ran i2f")
 
     def i2l(self):
         """convert int to long"""
-        variable1 = self.stack.pop()
+        variable1 = S.pop()
         # long(x, base=10)
-        self.stack.push(int(variable1))
+        S.push(int(variable1))
         print("ran i2l")
 
     def i2s(self):
         """convert int to short"""
-        variable1 = self.stack.pop()
+        variable1 = S.pop()
         # hex(x & mask)
-        self.stack.push(hex(variable1 & 0xffff))
+        S.push(hex(variable1 & 0xffff))
         print("ran i2s")
 
     def i2d(self):
