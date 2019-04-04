@@ -3,8 +3,7 @@ from . import jvpm_methods
 
 class IoMethods():
     def __init__(self):
-        # self.stack = Stack()
-        self.VARIABLES = []
+        """input-output"""
       
     def keyboard_in(self):
         """input from your keyboard"""
