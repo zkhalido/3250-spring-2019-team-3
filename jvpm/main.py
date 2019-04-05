@@ -32,7 +32,7 @@ if '__main__' == __name__:                  #pragma: no cover
 
     # **********************************************************************************************
     
-    print('\n___Parse, pull, and implement method Opcodes from .class file.'
+    print('\n___Implement translated method Opcodes from .class file.'
           ' Take input from the keybaord:___')
 
     packages_opcodes = packages.jvpm_opcodes.OpCodes()
