@@ -233,7 +233,7 @@ class OpCodeMethods():
     def i2d(self):
         """convert int to decimal"""
 
-    switcher = {
+    dictionary = {
 
             "iadd": iadd,  # add two ints
             "iand": iand,  # perform a bitwise AND on two integers
@@ -274,7 +274,5 @@ class OpCodeMethods():
     }
 
     def token_dict(self, argument):
-        # get function from spinner
-        method = OpCodeMethods.switcher.get(argument, "invalid")
-        # execute function
+        method = OpCodeMethods.dictionary.get(argument, "invalid")
         return method(self)
