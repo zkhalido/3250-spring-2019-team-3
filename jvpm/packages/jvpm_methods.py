@@ -25,7 +25,7 @@ class OpCodeMethods():
 
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
-        self.next_Int()
+        self.next_int()
 
 #         # traverse the CP to find the method.
 #         iv_methods = {"println", "nextInt", "iadd", "isub", "imul", "idiv"}
@@ -33,7 +33,7 @@ class OpCodeMethods():
 #         method = io_methods.get(argument, "invalid")
 #         method()
 
-    def next_Int(self):
+    def next_int(self):
         """receive input from the keyboard"""
         var1 = int(input("Enter number: "))
         S.push(var1)
