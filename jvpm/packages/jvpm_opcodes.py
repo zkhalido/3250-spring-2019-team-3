@@ -80,30 +80,27 @@ class HeaderClass():
             elif self.data[10 + i + position] == 3:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                                      self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
             # Float
             elif self.data[10 + i + position] == 4:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                                      self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
             # Long
             elif self.data[10 + i + position] == 5:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                temp[i].append(format(self.data[15 + i + position] +
-                                      self.data[16 + i + position] +
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
+                                      self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] +
                     self.data[17 + i + position] + self.data[18 + i + position], '02x'))
                 position += 8
             # Double
             elif self.data[10 + i + position] == 6:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
+                                      self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 temp[i].append(format(self.data[15 + i + position] +
                                       self.data[16 + i + position] +
                     self.data[17 + i + position] + self.data[18 + i + position], '02x'))
@@ -111,16 +108,13 @@ class HeaderClass():
             # Name and Type
             elif self.data[10 + i + position] == 12:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] +
-                                      self.data[14 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
             # Utf_8
             elif self.data[10 + i + position] == 1:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
                 for f in range (self.data[11 + i + position] + self.data[12 + i + position]):
                     temp[i].append(format(self.data[13 + i + position + f], '02x'))
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
