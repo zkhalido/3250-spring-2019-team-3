@@ -14,9 +14,9 @@ class OpCodeMethods():
 
     def iadd(self):
         """iadd: add two ints"""
+        print("Method called: iadd")
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
-        print("Method called: iadd")
         S.push(var1 + var2)
         self.println()
         
@@ -25,7 +25,7 @@ class OpCodeMethods():
         self.nextInt()
         
 #         # traverse the CP to find the method.
-#         iv_methods = {"println", "nextInt"}
+#         iv_methods = {"println", "nextInt", "iadd", "isub", "imul", "idiv"}
 #         """argument = searck the CP for the method name"""
 #         method = io_methods.get(argument, "invalid")
 #         method()
