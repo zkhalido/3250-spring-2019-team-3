@@ -129,8 +129,8 @@ class HeaderClass():
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
-                for f in range(self.data[11 + i + position] + self.data[12 + i + position]):
-                    temp[i].append(format(self.data[13 + i + position + f], '02x'))
+                for F in range(self.data[11 + i + position] + self.data[12 + i + position]):
+                    temp[i].append(format(self.data[13 + i + position + F], '02x'))
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
                 position += 2
 
