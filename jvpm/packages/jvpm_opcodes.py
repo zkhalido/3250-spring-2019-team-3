@@ -168,11 +168,11 @@ class OpCodes():
         """
 
     def dict_search(self):
-      print("Opcodes from .class file: " + str(self.opcodes))
-      index = 0
-      while index < len(self.opcodes):
-          opcall = jvpm_dict.get_opcode(self.opcodes[index])
-          # print(opcall) # just to see what opcall is passed through
-          jvpm_methods.OpCodeMethods().token_dict(opcall)
-          index += 1
-      print()
+        print("Opcodes from .class file: " + str(self.opcodes))
+        index = 0
+        while index < len(self.opcodes):
+            opcall = jvpm_dict.get_opcode(self.opcodes[index])
+            # print(opcall) # just to see what opcall is passed through
+            jvpm_methods.OpCodeMethods().token_dict(opcall)
+            index += 1
+        print()
