@@ -41,7 +41,7 @@ class OpCodeMethods():
     def println(self):
         """print from the stack"""
         print("The result is: " + str(S.peek()))
-        print(self.operation)
+        print(self.operation[0])
 
     def iand(self):
         """perform a bitwise AND on two integers"""
