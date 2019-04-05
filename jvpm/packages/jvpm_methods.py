@@ -96,8 +96,9 @@ class OpCodeMethods():
     def iinc(self):
         """increment local variable"""
         # print("iinc: not needed for this sprint")
-        
-    def iload_0(self):
+
+    @classmethod
+    def iload_0(cls):
         """load an int value from local array variable[0]"""
         pushing0 = VARIABLES[0]
         S.push(pushing0)
@@ -119,7 +120,7 @@ class OpCodeMethods():
         pushing3 = VARIABLES[3]
         S.push(pushing3)
         # print("ran iload_3")
-        
+
     def imul(self):
         """multiply two integers"""
         var2 = numpy.int32(S.pop())
