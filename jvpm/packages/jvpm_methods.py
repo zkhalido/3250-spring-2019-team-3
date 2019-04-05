@@ -96,43 +96,37 @@ class OpCodeMethods():
     def iinc(self):
         """increment local variable"""
         # print("iinc: not needed for this sprint")
-
-    @classmethod
-    def iload_0(cls):
+        
+    def iload_0(self):
         """load an int value from local array variable[0]"""
         pushing0 = VARIABLES[0]
         S.push(pushing0)
 
-    @classmethod
-    def iload_1(cls):
+    def iload_1(self):
         """load an int value from local array variable[1]"""
         pushing1 = VARIABLES[1]
         S.push(pushing1)
         # print("ran iload_1")
 
-    @classmethod
-    def iload_2(cls):
+    def iload_2(self):
         """load an int value from local array variable[2]"""
         pushing2 = VARIABLES[2]
         S.push(pushing2)
         # print("ran iload_2")
 
-    @classmethod
-    def iload_3(cls):
+    def iload_3(self):
         """load an int value from local array variable[3]"""
         pushing3 = VARIABLES[3]
         S.push(pushing3)
         # print("ran iload_3")
-
-    @classmethod
-    def imul(cls):
+        
+    def imul(self):
         """multiply two integers"""
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 * var2)
 
-    @classmethod
-    def ineg(cls):
+    def ineg(self):
         """negate int"""
         var1 = S.pop()
         S.push(0 - var1)
