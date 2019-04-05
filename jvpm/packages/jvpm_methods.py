@@ -4,7 +4,7 @@ import numpy
 # ****************************************************************************************
 
 S = Stack()
-VARIABLES = ['0']
+VARIABLES = [0]
 
 class OpCodeMethods():
 
