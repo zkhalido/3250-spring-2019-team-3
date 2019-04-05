@@ -150,13 +150,13 @@ class OpCodeMethods():
         popped = S.pop()
         VARIABLES.pop(0) # remove the assigned 0 from the [0]position
         VARIABLES.insert(0, popped)
-        # print("ran istore_0")
+        print(VARIABLES)
 
     def istore_1(self):
         """store int value into VARIABLE[1]"""
         popped = S.pop()
         VARIABLES.insert(1, popped)
-        # print("ran istore_1")
+        print(VARIABLES)
 
     def istore_2(self):
         """store int value into VARIABLE[2]"""
