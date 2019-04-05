@@ -16,6 +16,7 @@ class OpCodeMethods():
         """iadd: add two ints"""
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
+        print("iadd")
         S.push(var1 + var2)
         self.println()
         
