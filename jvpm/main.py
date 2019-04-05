@@ -4,7 +4,7 @@ if '__main__' == __name__:                  #pragma: no cover
 
     # **********************************************************************************************
 
-    print('\n1) ___Parse, pull, and assign Header bytecodes:___')
+    print('\n___Parse, pull, and assign Header bytecodes:___')
     H = packages.jvpm_opcodes.HeaderClass()               #pragma: no cover
     H.get_magic()                   #pragma: no cover
     H.get_minor()                   #pragma: no cover
@@ -13,14 +13,7 @@ if '__main__' == __name__:                  #pragma: no cover
 
     # **********************************************************************************************
 
-    print('\n2) ___Parse, pull, and Implement method bytecodes. Take input from the keybaord:___\n')
-
-    O = packages.jvpm_opcodes.OpCodes()
-    O.dict_search()
-
-    # **********************************************************************************************
-
-    print('\n3) ___Retrieve Constant Pool from .class, translate, and print to console:___')
+    print('\n___Retrieve Constant Pool from .class, translate, and print to console:___')
 
     # print(H.get_const_pool())
 
@@ -36,6 +29,13 @@ if '__main__' == __name__:                  #pragma: no cover
             print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key][len(N[key]) - 1])
         else:
             print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key])
+
+    # **********************************************************************************************
+    
+    print('\n ___Parse, pull, and Implement method bytecodes. Take input from the keybaord:___\n')
+
+    O = packages.jvpm_opcodes.OpCodes()
+    O.dict_search()
 
     # **********************************************************************************************
 
