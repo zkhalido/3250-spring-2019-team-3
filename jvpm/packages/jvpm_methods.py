@@ -86,6 +86,7 @@ class OpCodeMethods():
         """load the int value 5 onto the stack"""
         S.push(5)
 
+    @classmethod
     def idiv(cls):
         """divide two integers"""
         var2 = numpy.int32(S.pop())
@@ -123,18 +124,21 @@ class OpCodeMethods():
         S.push(pushing3)
         # print("ran iload_3")
 
-    def imul(self):
+    @classmethod
+    def imul(cls):
         """multiply two integers"""
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 * var2)
 
-    def ineg(self):
+    @classmethod
+    def ineg(cls):
         """negate int"""
         var1 = S.pop()
         S.push(0 - var1)
 
-    def ior(self):
+    @classmethod
+    def ior(cls):
         """bitwise int OR"""
         var2 = S.pop()
         var1 = S.pop()
