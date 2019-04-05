@@ -1,7 +1,5 @@
 """Read bit stream."""
-
 from pip._vendor.distlib.compat import raw_input
-
 from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 from collections import defaultdict
 
@@ -153,20 +151,7 @@ class OpCodes():
       index = 0
       while index < len(self.opcodes):
           opcall = jvpm_dict.get_opcode(self.opcodes[index])
-          print(opcall) # just to see what opcall is passed through
+          # print(opcall) # just to see what opcall is passed through
           jvpm_methods.OpCodeMethods().token_dict(opcall)
           index += 1
       print()
-
-    # def dict_search(self, jvMethodsIn):
-    #     print(self.opcodes)
-    #     index = 0
-    #
-    #     while index < len(self.opcodes):
-    #         opcall = jvpm_dict.get_opcode(self.opcodes[index])
-    #
-    #         print (opcall) # just to see what opcall is passed through
-    #
-    #         jvMethodsIn.token_dict(opcall)
-    #         index += 1
-    #     print()
