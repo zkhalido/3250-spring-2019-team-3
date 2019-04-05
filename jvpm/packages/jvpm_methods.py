@@ -30,7 +30,7 @@ class OpCodeMethods():
 #         """argument = searck the CP for the method name"""
 #         method = io_methods.get(argument, "invalid")
 #         method()
-        
+
     def nextInt(self):
         """receive input from the keyboard"""
         var1 = int(input("Enter number: "))
@@ -232,42 +232,42 @@ class OpCodeMethods():
 
     dictionary = {
 
-            "iadd": iadd,  # add two ints
-            "iand": iand,  # perform a bitwise AND on two integers
-            "iconst_m1": iconst_m1,  # load the int value -1 onto the stack
-            "iconst_0": iconst_0,  # load the int value 0 onto the stack
-            "iconst_1": iconst_1,  # load the int value 1 onto the stack
-            "iconst_2": iconst_2,  # load the int value 2 onto the stack
-            "iconst_3": iconst_3,  # load the int value 3 onto the stack
-            "iconst_4": iconst_4,  # load the int value 4 onto the stack
-            "iconst_5": iconst_5,  # load the int value 5 onto the stack
-            "idiv": idiv,  # divide two integers
-            "iinc": iinc,  # increment local variable #index by signed byte const
-            "iload_0": iload_0,  # load an int value from local array variable[0]
-            "iload_1": iload_1,  # load an int value from local array variable[1]
-            "iload_2": iload_2,  # load an int value from local variable[2]
-            "iload_3": iload_3,  # load an int value from local variable[3]
-            "imul": imul,  # multiply two integers
-            "ineg": ineg,  # negate int
-            "invokevirtual": invokevirtual, # gets method from constant pool and calls it.
-            "ior": ior,  # bitwise int OR
-            "irem": irem,  # logical in remainder
-            "ishl": ishl,  # int shift left
-            "ishr": ishr,  # int arithmetic shift right
-            "istore": istore_3,  # store int value into variable #index
-            "istore_0": istore_0,  # store int value into VARIABLE[0]
-            "istore_1": istore_1,  # store int value into VARIABLE[1]
-            "istore_2": istore_2,  # store int value into VARIABLE[2]
-            "istore_3": istore_3,  # store int value into VARIABLE[3]
-            "isub": isub,  # int subtract
-            "iushr": iushr,  # int logical shift right
-            "ixor": ixor,  # xor
-            "i2b" : i2b, # int to byte
-            "i2c" : i2c, # int to char
-            "i2d" : i2d, # int to double
-            "i2f" : i2f, # int to float
-            "i2l" : i2l, # int to long
-            "i2s" : i2s, # int to short
+        "iadd": iadd,  # add two ints
+        "iand": iand,  # perform a bitwise AND on two integers
+        "iconst_m1": iconst_m1,  # load the int value -1 onto the stack
+        "iconst_0": iconst_0,  # load the int value 0 onto the stack
+        "iconst_1": iconst_1,  # load the int value 1 onto the stack
+        "iconst_2": iconst_2,  # load the int value 2 onto the stack
+        "iconst_3": iconst_3,  # load the int value 3 onto the stack
+        "iconst_4": iconst_4,  # load the int value 4 onto the stack
+        "iconst_5": iconst_5,  # load the int value 5 onto the stack
+        "idiv": idiv,  # divide two integers
+        "iinc": iinc,  # increment local variable #index by signed byte const
+        "iload_0": iload_0,  # load an int value from local array variable[0]
+        "iload_1": iload_1,  # load an int value from local array variable[1]
+        "iload_2": iload_2,  # load an int value from local variable[2]
+        "iload_3": iload_3,  # load an int value from local variable[3]
+        "imul": imul,  # multiply two integers
+        "ineg": ineg,  # negate int
+        "invokevirtual": invokevirtual, # gets method from constant pool and calls it.
+        "ior": ior,  # bitwise int OR
+        "irem": irem,  # logical in remainder
+        "ishl": ishl,  # int shift left
+        "ishr": ishr,  # int arithmetic shift right
+        "istore": istore_3,  # store int value into variable #index
+        "istore_0": istore_0,  # store int value into VARIABLE[0]
+        "istore_1": istore_1,  # store int value into VARIABLE[1]
+        "istore_2": istore_2,  # store int value into VARIABLE[2]
+        "istore_3": istore_3,  # store int value into VARIABLE[3]
+        "isub": isub,  # int subtract
+        "iushr": iushr,  # int logical shift right
+        "ixor": ixor,  # xor
+        "i2b" : i2b, # int to byte
+        "i2c" : i2c, # int to char
+        "i2d" : i2d, # int to double
+        "i2f" : i2f, # int to float
+        "i2l" : i2l, # int to long
+        "i2s" : i2s, # int to short
     }
 
     def token_dict(self, argument):
