@@ -34,7 +34,7 @@ class OpCodeMethods():
 #         method()
 
     @classmethod
-    def next_int(self):
+    def next_int(cls):
         """receive input from the keyboard"""
         var1 = int(input("Enter number: "))
         S.push(var1)
