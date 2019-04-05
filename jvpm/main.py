@@ -4,7 +4,7 @@ if '__main__' == __name__:                  #pragma: no cover
 
     # **********************************************************************************************
 
-    print('\n___Parse, pull, and assign Header bytecodes:___')
+    print('\n___Parse, pull, and assign header Bytecodes:___')
     H = packages.jvpm_opcodes.HeaderClass()               #pragma: no cover
     H.get_magic()                   #pragma: no cover
     H.get_minor()                   #pragma: no cover
@@ -32,7 +32,7 @@ if '__main__' == __name__:                  #pragma: no cover
 
     # **********************************************************************************************
     
-    print('\n___Parse, pull, and Implement method opcodes from .class file.'
+    print('\n___Parse, pull, and implement method Opcodes from .class file.'
           ' Take input from the keybaord:___')
 
     packages_opcodes = packages.jvpm_opcodes.OpCodes()
