@@ -101,7 +101,8 @@ class HeaderClass():
                                       self.data[14 + i + position], '02x'))
                 temp[i].append(format(self.data[15 + i + position] +
                                       self.data[16 + i + position] +
-                    self.data[17 + i + position] + self.data[18 + i + position], '02x'))
+                                      self.data[17 + i + position] + 
+                                      self.data[18 + i + position], '02x'))
                 position += 8
             # Double
             elif self.data[10 + i + position] == 6:
@@ -112,7 +113,8 @@ class HeaderClass():
                                       self.data[14 + i + position], '02x'))
                 temp[i].append(format(self.data[15 + i + position] +
                                       self.data[16 + i + position] +
-                    self.data[17 + i + position] + self.data[18 + i + position], '02x'))
+                                      self.data[17 + i + position] + 
+                                      self.data[18 + i + position], '02x'))
                 position += 8
             # Name and Type
             elif self.data[10 + i + position] == 12:
@@ -127,7 +129,7 @@ class HeaderClass():
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
-                for f in range (self.data[11 + i + position] + self.data[12 + i + position]):
+                for f in range(self.data[11 + i + position] + self.data[12 + i + position]):
                     temp[i].append(format(self.data[13 + i + position + f], '02x'))
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
                 position += 2
@@ -165,7 +167,7 @@ class OpCodes():
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods"""
     def __init__(self):
-        self.opcodes = ['1a', '3b','b6', '3c', 'b6', '3d', '1b', '1c', '60']
+        self.opcodes = ['1a', '3b', 'b6', '3c', 'b6', '3d', '1b', '1c', '60']
 
         """
 
