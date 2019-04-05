@@ -18,6 +18,7 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
+        S.push("add")
         self.println()
         
     def invokevirtual(self):
@@ -37,7 +38,7 @@ class OpCodeMethods():
 
     def println(self):
         """print from the stack"""
-        print("The result is: " + str(S.peek()))
+        print("After " + S.pop + "The result is: " + str(S.peek()))
 
     def iand(self):
         """perform a bitwise AND on two integers"""
