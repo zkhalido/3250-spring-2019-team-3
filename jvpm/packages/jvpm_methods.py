@@ -18,6 +18,13 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
         
+    def invokevirtual(self, argument):
+        """gets method from constant pool and calls it"""
+        iv_dict = {"nextInt", "println"}
+        method = iv_dict.get(argument, "invalid")
+        self.nextInt()
+        method()
+        
     def nextInt(self):
         """receive input from the keyboard"""
         var1 = int(input("Enter the operand: "))
@@ -119,10 +126,6 @@ class OpCodeMethods():
         """negate int"""
         var1 = S.pop()
         S.push(0 - var1)
-        
-    def invokevirtual(self, argument):
-        """gets method from constant pool and calls it"""
-        self.nextInt()
 
     def ior(self):
         """bitwise int OR"""
