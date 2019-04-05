@@ -11,12 +11,16 @@ class OpCodeMethods():
     def __init__(self):
         # self.stack = Stack()
         """opcode_methods"""# self.VARIABLES = []
+        operation = {}
+        variable1 = {}
+        variable2 = {}
 
     def iadd(self):
         """iadd: add two ints"""
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
+        self.operation = {"add"}
         self.println()
         
     def invokevirtual(self):
@@ -37,6 +41,7 @@ class OpCodeMethods():
     def println(self):
         """print from the stack"""
         print("The result is: " + str(S.peek()))
+        print(operation)
 
     def iand(self):
         """perform a bitwise AND on two integers"""
