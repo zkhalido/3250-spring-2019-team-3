@@ -101,7 +101,7 @@ class HeaderClass():
                                       self.data[14 + i + position], '02x'))
                 temp[i].append(format(self.data[15 + i + position] +
                                       self.data[16 + i + position] +
-                                      self.data[17 + i + position] + 
+                                      self.data[17 + i + position] +
                                       self.data[18 + i + position], '02x'))
                 position += 8
             # Double
@@ -113,7 +113,7 @@ class HeaderClass():
                                       self.data[14 + i + position], '02x'))
                 temp[i].append(format(self.data[15 + i + position] +
                                       self.data[16 + i + position] +
-                                      self.data[17 + i + position] + 
+                                      self.data[17 + i + position] +
                                       self.data[18 + i + position], '02x'))
                 position += 8
             # Name and Type
