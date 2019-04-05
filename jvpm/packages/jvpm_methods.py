@@ -7,8 +7,8 @@ from .stack import Stack
 S = Stack()
 VARIABLES = [0]
 
-"""CLass of methods that are called from the CP."""
 class OpCodeMethods():
+    """CLass of methods that are called from the CP."""
 
     def __init__(self):
         # self.stack = Stack()
@@ -33,6 +33,7 @@ class OpCodeMethods():
 #         method = io_methods.get(argument, "invalid")
 #         method()
 
+    @staticmethod
     def next_int(self):
         """receive input from the keyboard"""
         var1 = int(input("Enter number: "))
