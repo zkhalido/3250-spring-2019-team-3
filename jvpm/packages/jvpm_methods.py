@@ -18,12 +18,9 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
         
-    def invokevirtual(self, argument):
+    def invokevirtual(self):
         """gets method from constant pool and calls it"""
-        iv_dict = {"nextInt", "println"}
-        method = iv_dict.get(argument, "invalid")
         self.nextInt()
-        method()
         
     def nextInt(self):
         """receive input from the keyboard"""
