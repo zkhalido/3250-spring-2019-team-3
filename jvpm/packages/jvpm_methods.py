@@ -17,7 +17,7 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
-        # self.println()
+        self.println()
         
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
