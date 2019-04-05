@@ -147,9 +147,9 @@ class OpCodeMethods():
 
     def istore_0(self):
         """store int value into VARIABLE[0]"""
-#         popped = S.pop()
-#         VARIABLES.pop(0) # remove the assigned 0 from the [0]position
-        VARIABLES.insert(0, 0)
+        popped = S.pop()
+        VARIABLES.pop(0) # remove the assigned 0 from the [0]position
+        VARIABLES.insert(0, popped)
         # print("ran istore_0")
 
     def istore_1(self):
