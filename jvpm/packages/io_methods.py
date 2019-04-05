@@ -7,10 +7,11 @@ class IoMethods():
       
     def keyboard_math(self, argument):
         """input from your keyboard"""
-        A = jvpm_methods.OpCodeMethods()
+        opcode_methods = jvpm_methods.OpCodeMethods()
         # 3 dictionaries based on the opcode passed from the main. 
         # 1 dict for the method, 1 for the operation, 1 for the sign.
-        io_dict = {"iadd": A.iadd, "isub": A.isub, "imul": A.imul, "idiv": A.idiv}
+        io_dict = {"iadd": opcode_methods.iadd, "isub": opcode_methods.isub,
+                   "imul": opcode_methods.imul, "idiv": opcode_methods.idiv}
         method = io_dict.get(argument, "invalid")
         math_dict = {"iadd": "add", "isub": "subtract", "imul": "multiply", "idiv": "divide"}
         math = math_dict.get(argument, "invalid")
