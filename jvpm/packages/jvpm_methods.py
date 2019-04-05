@@ -39,17 +39,20 @@ class OpCodeMethods():
         var1 = int(input("Enter number: "))
         S.push(var1)
 
-    def println(self):
+    @classmethod
+    def println(cls):
         """print from the stack"""
         print("The numbers are " + str(S.pop()) + " and the result is: " + str(S.peek()))
 
-    def iand(self):
+    @classmethod
+    def iand(cls):
         """perform a bitwise AND on two integers"""
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 & var2)
 
-    def iconst_m1(self):
+    @classmethod
+    def iconst_m1(cls):
         """load the int value -1 onto the stack"""
         S.push(-1)
 
