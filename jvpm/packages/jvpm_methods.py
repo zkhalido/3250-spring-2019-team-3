@@ -33,7 +33,7 @@ class OpCodeMethods():
 #         method = io_methods.get(argument, "invalid")
 #         method()
 
-    @staticmethod
+    @classmethod
     def next_int(self):
         """receive input from the keyboard"""
         var1 = int(input("Enter number: "))
