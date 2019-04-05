@@ -34,8 +34,8 @@ if '__main__' == __name__:                  #pragma: no cover
     
     print('\n___Parse, pull, and Implement method bytecodes. Take input from the keybaord:___\n')
 
-    O = packages.jvpm_opcodes.OpCodes()
-    O.dict_search()
+    packages_opcodes = packages.jvpm_opcodes.OpCodes()
+    packages_opcodes.dict_search()
 
     # **********************************************************************************************
 
@@ -50,14 +50,5 @@ if '__main__' == __name__:                  #pragma: no cover
     
     
     print("_____________________________ ") 
-
-    # **********************************************************************************************
-
-#     print('\n5) ___Take input from the keyboard and perform math on 2 numbers based on the opcode:___\n')
-
-    
-#     K = packages.io_methods.IoMethods()
-#     K.keyboard_math("iadd")
-
 
     # **********************************************************************************************
