@@ -56,23 +56,27 @@ class OpCodeMethods():
         """load the int value -1 onto the stack"""
         S.push(-1)
 
-    def iconst_0(self):
+    @classmethod
+    def iconst_0(cls):
         """load the int value 0 onto the stack"""
         S.push(0)
 
-    def iconst_1(self):
+    @classmethod
+    def iconst_1(cls):
         """load the int value 1 onto the stack"""
         S.push(1)
 
-    def iconst_2(self):
+    @classmethod
+    def iconst_2(cls):
         """load the int value 2 onto the stack"""
         S.push(2)
 
-    def iconst_3(self):
+    @classmethod
+    def iconst_3(cls):
         """load the int value 3 onto the stack"""
         S.push(3)
 
-    def iconst_4(self):
+    def iconst_4():
         """load the int value 4 onto the stack"""
         S.push(4)
 
