@@ -17,6 +17,7 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
+        self.println()
         
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
@@ -35,7 +36,7 @@ class OpCodeMethods():
 
     def println(self):
         """print top item from the stack"""
-        print(S.peek())    
+        print("The result is: " + str(S.peek()))    
 
     def nextInt(self):
         """receive input from the keyboard"""
