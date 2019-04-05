@@ -102,13 +102,13 @@ class OpCodeMethods():
         """load an int value from local array variable[2]"""
         pushing2 = VARIABLES[2]
         S.push(pushing2)
-        print("ran iload_2")
+        # print("ran iload_2")
 
     def iload_3(self):
         """load an int value from local array variable[3]"""
         pushing3 = VARIABLES[3]
         S.push(pushing3)
-        print("ran iload_3")
+        # print("ran iload_3")
 
     def imul(self):
         """multiply two integers"""
@@ -150,26 +150,26 @@ class OpCodeMethods():
 #         popped = S.pop()
 #         VARIABLES.pop(0) # remove the assigned 0 from the [0]position
         VARIABLES.insert(0, 0)
-        print("ran istore_0")
+        # print("ran istore_0")
 
     def istore_1(self):
         """store int value into VARIABLE[1]"""
         popped = S.pop()
         VARIABLES.insert(1, popped)
-        print("ran istore_1")
+        # print("ran istore_1")
 
     def istore_2(self):
         """store int value into VARIABLE[2]"""
         popped = S.pop()
         VARIABLES.insert(2, popped)
-        print("ran istore_2")
+        # print("ran istore_2")
         print(VARIABLES)
 
     def istore_3(self):
         """store int value into VARIABLE[3]"""
         popped = S.pop()
         VARIABLES.insert(3, popped)
-        print("ran istore_3")
+        # print("ran istore_3")
         print(str(VARIABLES) + " = final VARIABLES[] list.")
 
     def isub(self):
