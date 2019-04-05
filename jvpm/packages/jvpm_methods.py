@@ -120,7 +120,7 @@ class OpCodeMethods():
         var1 = S.pop()
         S.push(0 - var1)
         
-    def invokevirtual(self):
+    def invokevirtual(self, argument):
         """gets method from constant pool and calls it"""
         self.nextInt()
 
