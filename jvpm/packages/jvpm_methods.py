@@ -22,6 +22,12 @@ class OpCodeMethods():
         """gets method from constant pool and calls it"""
         self.nextInt()
         
+        # traverse the CP to find the method.
+        iv_methods = {"println", "nextInt"}
+        """argument = searck the CP for the method name"""
+        method = io_methods.get(argument, "invalid")
+        method()
+        
     def nextInt(self):
         """receive input from the keyboard"""
         var1 = int(input("Enter the operand: "))
