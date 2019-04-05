@@ -33,61 +33,50 @@ class OpCodeMethods():
 #         method = io_methods.get(argument, "invalid")
 #         method()
 
-    @classmethod
-    def next_int(cls):
+    def next_int(self):
         """receive input from the keyboard"""
         var1 = int(input("Enter number: "))
         S.push(var1)
 
-    @classmethod
-    def println(cls):
+    def println(self):
         """print from the stack"""
         print("The numbers are " + str(S.pop()) + " and the result is: " + str(S.peek()))
 
-    @classmethod
-    def iand(cls):
+    def iand(self):
         """perform a bitwise AND on two integers"""
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 & var2)
 
-    @classmethod
-    def iconst_m1(cls):
+    def iconst_m1(self):
         """load the int value -1 onto the stack"""
         S.push(-1)
 
-    @classmethod
-    def iconst_0(cls):
+    def iconst_0(self):
         """load the int value 0 onto the stack"""
         S.push(0)
 
-    @classmethod
-    def iconst_1(cls):
+    def iconst_1(self):
         """load the int value 1 onto the stack"""
         S.push(1)
 
-    @classmethod
-    def iconst_2(cls):
+    def iconst_2(self):
         """load the int value 2 onto the stack"""
         S.push(2)
 
-    @classmethod
-    def iconst_3(cls):
+    def iconst_3(self):
         """load the int value 3 onto the stack"""
         S.push(3)
 
-    @classmethod
-    def iconst_4(cls):
+    def iconst_4(self):
         """load the int value 4 onto the stack"""
         S.push(4)
 
-    @classmethod
-    def iconst_5(cls):
+    def iconst_5(self):
         """load the int value 5 onto the stack"""
         S.push(5)
 
-    @classmethod
-    def idiv(cls):
+    def idiv(self):
         """divide two integers"""
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
@@ -97,8 +86,7 @@ class OpCodeMethods():
         """increment local variable"""
         # print("iinc: not needed for this sprint")
 
-    @classmethod
-    def iload_0(cls):
+    def iload_0(self):
         """load an int value from local array variable[0]"""
         pushing0 = VARIABLES[0]
         S.push(pushing0)
