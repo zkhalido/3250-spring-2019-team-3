@@ -1,6 +1,6 @@
 """Read bit stream."""
 from collections import defaultdict
-from pip._vendor.distlib.compat import raw_input
+# from pip._vendor.distlib.compat import raw_input
 from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 
 class HeaderClass():
