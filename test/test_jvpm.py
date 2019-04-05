@@ -33,7 +33,7 @@ class test_get_opcode(unittest.TestCase):
         ####################################################
 # class test_const_pool(unittest.TestCase):
 #     def test_const_pool(self):
-#         with open('jvpm/javafiles/HelloWorld.class', 'rb') as binary_file:
+#         with open('jvpm/javafiles/test.class', 'rb') as binary_file:
 #             self.data = binary_file.read()
 
 #         x = packages.jvpm_opcodes.HeaderClass()
@@ -777,7 +777,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.VARIABLES.append(5)
 
         sys.stdout = unittest.mock.Mock()
-        l.dict_search()
+        # l.dict_search()
         sys.stdout.assert_has_calls(
 
             [call.write('iconst_3'), call.write('\n'),
