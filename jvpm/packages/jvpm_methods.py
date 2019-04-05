@@ -35,17 +35,8 @@ class OpCodeMethods():
         S.push(var1)
 
     def println(self):
-        """print top item from the stack"""
-        print("The result is: " + str(S.peek()))    
-
-    def nextInt(self):
-        """receive input from the keyboard"""
-        var1 = int(input("Enter the operand: "))
-        S.push(var1)
-
-    def println(self):
         """print from the stack"""
-        print(S.peek())
+        print("The result is: " + str(S.peek()))
 
     def iand(self):
         """perform a bitwise AND on two integers"""
