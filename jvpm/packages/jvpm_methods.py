@@ -12,6 +12,7 @@ class OpCodeMethods():
         # self.stack = Stack()
         """opcode_methods"""# self.VARIABLES = []
         operation = []
+        mathop = operation[0]
         variable1 = []
         variable2 = []
 
@@ -41,7 +42,7 @@ class OpCodeMethods():
     def println(self):
         """print from the stack"""
         print("The result is: " + str(S.peek()))
-        print(self.operation)
+        print(self.mathop)
 
     def iand(self):
         """perform a bitwise AND on two integers"""
