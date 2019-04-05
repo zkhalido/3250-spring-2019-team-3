@@ -119,6 +119,10 @@ class OpCodeMethods():
         """negate int"""
         var1 = S.pop()
         S.push(0 - var1)
+        
+    def invokevirtual(self)
+        """gets method from constant pool and calls it"""
+        nextInt()
 
     def ior(self):
         """bitwise int OR"""
@@ -251,6 +255,7 @@ class OpCodeMethods():
             "iload_3": iload_3,  # load an int value from local variable[3]
             "imul": imul,  # multiply two integers
             "ineg": ineg,  # negate int
+            "invokevirtual": invokevirtual, # gets method from constant pool and calls it.
             "ior": ior,  # bitwise int OR
             "irem": irem,  # logical in remainder
             "ishl": ishl,  # int shift left
