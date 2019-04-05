@@ -122,7 +122,7 @@ class OpCodeMethods():
         
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
-        nextInt()
+        self.nextInt()
         print("invokevitual")
 
     def ior(self):
