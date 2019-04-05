@@ -1,4 +1,3 @@
-# from .stack import Stack
 from . import jvpm_methods
 
 class IoMethods():
