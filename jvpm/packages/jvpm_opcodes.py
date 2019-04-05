@@ -79,15 +79,13 @@ class HeaderClass():
             # Integer
             elif self.data[10 + i + position] == 3:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position] +
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
             # Float
             elif self.data[10 + i + position] == 4:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position] +
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
             # Long
