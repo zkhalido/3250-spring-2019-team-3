@@ -1,11 +1,13 @@
-from .stack import Stack
+"""Inports"""
 import numpy
+from .stack import Stack
 
 # ****************************************************************************************
 
 S = Stack()
 VARIABLES = [0]
 
+"""CLass of methods that are called from the CP."""
 class OpCodeMethods():
 
     def __init__(self):
@@ -20,18 +22,18 @@ class OpCodeMethods():
         S.push(var1 + var2)
         S.push("added")
         self.println()
-        
+
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
-        self.nextInt()
-        
+        self.next_Int()
+
 #         # traverse the CP to find the method.
 #         iv_methods = {"println", "nextInt", "iadd", "isub", "imul", "idiv"}
 #         """argument = searck the CP for the method name"""
 #         method = io_methods.get(argument, "invalid")
 #         method()
 
-    def nextInt(self):
+    def next_Int(self):
         """receive input from the keyboard"""
         var1 = int(input("Enter number: "))
         S.push(var1)
@@ -271,5 +273,6 @@ class OpCodeMethods():
     }
 
     def token_dict(self, argument):
+        """dictionary search"""
         method = OpCodeMethods.dictionary.get(argument, "invalid")
         return method(self)
