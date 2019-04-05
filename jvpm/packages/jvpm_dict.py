@@ -31,7 +31,7 @@ jvpm_dict = {
     "a4": "if_icmple",       # if value1 <= value 2, branch
     "a1": "if_icmplt",       # if value1 < value2, branch
     "a0": "if_icmpne",       # if value1 != value2, branch
-    "b6": "invokevirtual"    # gets method from constant pool
+    "b6": "invokevirtual",    # gets method from constant pool
     "99": "ifeq",            # if value is 0, branch
     "9c": "ifge",            # if value >= 0, branch
     "9d": "ifgt",            # if value > 0, branch
