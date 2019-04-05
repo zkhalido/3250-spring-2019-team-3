@@ -86,7 +86,6 @@ class OpCodeMethods():
         """load the int value 5 onto the stack"""
         S.push(5)
 
-    @classmethod
     def idiv(cls):
         """divide two integers"""
         var2 = numpy.int32(S.pop())
@@ -97,24 +96,28 @@ class OpCodeMethods():
         """increment local variable"""
         # print("iinc: not needed for this sprint")
 
-    def iload_0(self):
+    @classmethod
+    def iload_0(cls):
         """load an int value from local array variable[0]"""
         pushing0 = VARIABLES[0]
         S.push(pushing0)
 
-    def iload_1(self):
+    @classmethod
+    def iload_1(cls):
         """load an int value from local array variable[1]"""
         pushing1 = VARIABLES[1]
         S.push(pushing1)
         # print("ran iload_1")
 
-    def iload_2(self):
+    @classmethod
+    def iload_2(cls):
         """load an int value from local array variable[2]"""
         pushing2 = VARIABLES[2]
         S.push(pushing2)
         # print("ran iload_2")
 
-    def iload_3(self):
+    @classmethod
+    def iload_3(cls):
         """load an int value from local array variable[3]"""
         pushing3 = VARIABLES[3]
         S.push(pushing3)
