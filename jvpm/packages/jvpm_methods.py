@@ -17,7 +17,7 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
-        self.println()
+        # self.println()
         
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
@@ -56,18 +56,18 @@ class OpCodeMethods():
         """load the int value 1 onto the stack"""
         S.push(1)
         print("ran iconst_1")
-        print(S.peek())
+        # print(S.peek())
 
     def iconst_2(self):
         """load the int value 2 onto the stack"""
         S.push(2)
         print("ran iconst_2")
-        print(S.peek())
+        # print(S.peek())
 
     def iconst_3(self):
         """load the int value 3 onto the stack"""
         S.push(3)
-        print("ran iconst_3")
+        # print("ran iconst_3")
 
     def iconst_4(self):
         """load the int value 4 onto the stack"""
@@ -85,7 +85,7 @@ class OpCodeMethods():
 
     def iinc(self):
         """increment local variable"""
-        print("iinc: not needed for this sprint")
+        # print("iinc: not needed for this sprint")
 
     def iload_0(self):
         """load an int value from local array variable[0]"""
@@ -96,7 +96,7 @@ class OpCodeMethods():
         """load an int value from local array variable[1]"""
         pushing1 = VARIABLES[1]
         S.push(pushing1)
-        print("ran iload_1")
+        # print("ran iload_1")
 
     def iload_2(self):
         """load an int value from local array variable[2]"""
@@ -192,14 +192,14 @@ class OpCodeMethods():
         variable2 = S.pop()
         variable1 = S.pop()
         S.push(variable1 ^ variable2)
-        print("ran ixor")
+        # print("ran ixor")
 
     def i2b(self):
         """convert int to byte"""
         variable1 = S.pop()
         # int.to_bytes(length, byteorder, *, signed=False)
         S.push(variable1.to_bytes(8, byteorder='big'))
-        print("ran i2b")
+        # print("ran i2b")
 
     def i2c(self):
         """convert int to character"""
@@ -207,28 +207,28 @@ class OpCodeMethods():
         # chr = Return a string of one character whose ASCII code is the integer i
         # chr(i)
         S.push(chr(variable1))
-        print("ran i2c")
+        # print("ran i2c")
 
     def i2f(self):
         """convert int to float"""
         variable1 = S.pop()
         # float([x])
         S.push(float(variable1))
-        print("ran i2f")
+        # print("ran i2f")
 
     def i2l(self):
         """convert int to long"""
         variable1 = S.pop()
         # long(x, base=10)
         S.push(int(variable1))
-        print("ran i2l")
+        # print("ran i2l")
 
     def i2s(self):
         """convert int to short"""
         variable1 = S.pop()
         # hex(x & mask)
         S.push(hex(variable1 & 0xffff))
-        print("ran i2s")
+        # print("ran i2s")
 
     def i2d(self):
         """convert int to decimal"""
