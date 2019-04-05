@@ -123,6 +123,7 @@ class OpCodeMethods():
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
         nextInt()
+        print("invokevitual")
 
     def ior(self):
         """bitwise int OR"""
