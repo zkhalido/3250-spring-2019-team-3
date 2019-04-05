@@ -173,6 +173,7 @@ class OpCodes():
         """
 
     def dict_search(self):
+        """dictionary search method"""
         print("Opcodes from .class file: " + str(self.opcodes))
         index = 0
         while index < len(self.opcodes):
