@@ -20,7 +20,7 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
-        self.operation = {"add"}
+        self.operation = ["add"]
         self.println()
         
     def invokevirtual(self):
