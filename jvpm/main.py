@@ -33,9 +33,10 @@ if '__main__' == __name__:                  #pragma: no cover
     # **********************************************************************************************
     
     print('\n___Parse, pull, and Implement method opcodes from .class file.'
-          ' Take input from the keybaord:___\n')
+          ' Take input from the keybaord:___')
 
     packages_opcodes = packages.jvpm_opcodes.OpCodes()
+    print()
     packages_opcodes.dict_search()
 
     # **********************************************************************************************
