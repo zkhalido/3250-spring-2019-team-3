@@ -76,15 +76,18 @@ class OpCodeMethods():
         """load the int value 3 onto the stack"""
         S.push(3)
 
-    def iconst_4():
+    @classmethod
+    def iconst_4(cls):
         """load the int value 4 onto the stack"""
         S.push(4)
 
-    def iconst_5(self):
+    @classmethod
+    def iconst_5(cls):
         """load the int value 5 onto the stack"""
         S.push(5)
 
-    def idiv(self):
+    @classmethod
+    def idiv(cls):
         """divide two integers"""
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
