@@ -13,9 +13,7 @@ if '__main__' == __name__:                  #pragma: no cover
 
     # **********************************************************************************************
 
-    print('\n2) ___Parse, pull, and assign method bytecodes to an array, search imported '
-          '\n  opcode dictionary for bytecode and pull opcode. If found, send opcode to'
-          '\n  imported method dictionary to implement the method:___\n')
+    print('\n2) ___Parse, pull, and Implement method bytecodes. Take input from the keybaord:___\n')
 
     O = packages.jvpm_opcodes.OpCodes()
     O.dict_search()
@@ -46,11 +44,11 @@ if '__main__' == __name__:                  #pragma: no cover
 
     # **********************************************************************************************
 
-    print('\n5) ___Take input from the keyboard and perform math on 2 numbers based on the opcode:___\n')
+#     print('\n5) ___Take input from the keyboard and perform math on 2 numbers based on the opcode:___\n')
 
     
-    K = packages.io_methods.IoMethods()
-    K.keyboard_math("iadd")
+#     K = packages.io_methods.IoMethods()
+#     K.keyboard_math("iadd")
 
 
     # **********************************************************************************************
