@@ -80,6 +80,7 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 / var2)
         OPERATION.insert(0, "divided")
+        self.get_operation()
 
     def iinc(self):
         """increment local variable."""
@@ -114,6 +115,7 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 * var2)
         OPERATION.insert(0, "multiplied")
+        self.get_operation()
 
     def ineg(self):
         """negate int."""
@@ -171,6 +173,7 @@ class OpCodeMethods():
         var1 = S.pop()
         S.push(var1 - var2)
         OPERATION.insert(0, "subtracted")
+        self.get_operation()
 
     def iushr(self):
         """int logical shift right"""
