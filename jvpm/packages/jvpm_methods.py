@@ -31,6 +31,12 @@ class OpCodeMethods():
 #         iv_methods = {"println", "nextInt", "iadd", "isub", "imul", "idiv"}
 #         """argument = searck the CP for the method name"""
 #         method = io_methods.get(argument, "invalid")
+#         try:
+#             method = iv_methods[argument]
+#         except KeyError:
+#             method = "Method not found!"
+    
+#         return method
 #         method()
 
     def next_int(self):
