@@ -1,4 +1,4 @@
-"""Inports"""
+"""Imports"""
 import numpy
 from .stack import Stack
 
