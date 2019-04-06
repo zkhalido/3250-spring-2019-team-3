@@ -45,6 +45,13 @@ class HeaderClass():
                               self.data[13 + i + position] +
                               self.data[14 + i + position], '02x'))
         
+    def ten_to_fourteen_B(self):
+        temp[i].append(format(self.data[10 + i + position], '02x'))
+        temp[i].append(format(self.data[11 + i + position] +
+                              self.data[12 + i + position], '02x'))
+        temp[i].append(format(self.data[13 + i + position] +
+                              self.data[14 + i + position], '02x'))
+        
     def ten_to_eighteen(self):
         temp[i].append(format(self.data[10 + i + position], '02x'))
         temp[i].append(format(self.data[11 + i + position] +
@@ -103,35 +110,19 @@ class HeaderClass():
                 position += 4
             # Field Ref
             elif self.data[data_offset] == 9:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] +
-                                      self.data[14 + i + position], '02x'))
+                self.ten_to_fourteen_B()
                 position += 4
             # Method Ref
             elif self.data[data_offset] == 10:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] +
-                                      self.data[14 + i + position], '02x'))
+                self.ten_to_fourteen_B()
                 position += 4
             # Interface Method Ref
             elif self.data[data_offset] == 11:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] +
-                                      self.data[14 + i + position], '02x'))
+                self.ten_to_fourteen_B()
                 position += 4
             # Name and Type
             elif self.data[data_offset] == 12:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] +
-                                      self.data[14 + i + position], '02x'))
+                self.ten_to_fourteen_B()
                 position += 4
             # Method Handle
             elif self.data[data_offset] == 15:
@@ -148,11 +139,7 @@ class HeaderClass():
                 position += 2
             # Invoke Dynamic
             elif self.data[data_offset] == 18:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] +
-                                      self.data[14 + i + position], '02x'))
+                self.ten_to_fourteen_B()
                 position += 4
         self.temp_2 = temp
         return temp
