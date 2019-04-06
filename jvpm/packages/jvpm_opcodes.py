@@ -155,11 +155,7 @@ class HeaderClass():
                 position += 2
             # Invoke Dynamic
             elif self.data[data_offset] == 18:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] +
-                                      self.data[14 + i + position], '02x'))
+                self.ten_to_fourteen_B()
                 position += 4
         self.temp_2 = temp
         return temp
