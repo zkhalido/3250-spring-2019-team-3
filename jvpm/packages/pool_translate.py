@@ -27,23 +27,24 @@ class PoolTranslate:
 #################################################################
 
 
-    def UTF_8_string(self, di,super_index):                 #01
+    def UTF_8_string(self, di, super_index):                 #01
         # print("UTF_8_string  2+x bytes (variable)")
         self.super_index = super_index
 
         newLen = len(di)
 
-        L = len(di)
-        i = 1
+        length = len(di)
+        count = 1
         dtext =""
-        while i < L :
-            int1 = int(di[i], 16)
+        while count < length :
+            int1 = int(di[count], 16)
             int2 = (int1).to_bytes(1, byteorder='big')
             ctext = int2.decode("utf-8", "ignore")
             dtext += ctext
-            i += 1
+            count += 1
 
         new_l[self.super_index-1] = dtext
+        methodrefs = dtext
         return dtext
 
     def integer(self):                      #03
