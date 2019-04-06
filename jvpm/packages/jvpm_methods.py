@@ -32,7 +32,7 @@ class OpCodeMethods():
         method_call = {"nextInt:()I": "next_int"}
         method_X = method_call.get(method, lambda: "invalid")
         print(method_X)
-        #method_X()
+        method_X(self)
 
 #         # traverse the CP to find the method.
 #         iv_methods = {"println", "nextInt", "iadd", "isub", "imul", "idiv"}
