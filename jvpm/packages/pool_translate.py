@@ -2,7 +2,7 @@ from collections import defaultdict
 from . import jvpm_opcodes, pool_methods
 
 super_index = 0
-methodrefs = ["iadd", "println"]
+methodrefs = []
 class PoolTranslate:
 
     def __init__(self):
