@@ -27,12 +27,13 @@ class OpCodeMethods():
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
         self.next_int()
+        
         method = pool_translate.methodrefs[int(iv_const)]
         #print(method)
-        method_call = {"nextInt:()I": "next_int"}
+        method_call = {"nextInt:()I": "next_int", "println:(I)V": "print_ln"}
         method_X = method_call.get(method, lambda: "invalid")
         print(method_X)
-        # method_X(self)
+        return method_X(self)
 
 #         # traverse the CP to find the method.
 #         iv_methods = {"println", "nextInt", "iadd", "isub", "imul", "idiv"}
@@ -291,8 +292,8 @@ class OpCodeMethods():
         "i2f" : i2f, # int to float
         "i2l" : i2l, # int to long
         "i2s" : i2s, # int to short
-        #"nextInt:()I": next_int,
-        #"println:(I)V": println,
+        "nextInt:()I": next_int,
+        "println:(I)V": println
     }
 
     def token_dict(self, argument):
