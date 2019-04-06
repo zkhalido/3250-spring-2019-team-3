@@ -54,42 +54,6 @@ class HeaderClass():
                     temp[i].append(format(self.data[13 + i + position + j], '02x'))
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
                 position += 2
-            # Pulling class info
-            elif self.data[data_offset] == 7:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                position += 2
-            # Field Ref
-            elif self.data[data_offset] == 9:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] +
-                                      self.data[14 + i + position], '02x'))
-                position += 4
-            # Method Ref
-            elif self.data[data_offset] == 10:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] +
-                                      self.data[14 + i + position], '02x'))
-                position += 4
-            # Interface Method Ref
-            elif self.data[data_offset] == 11:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] +
-                                      self.data[14 + i + position], '02x'))
-                position += 4
-            # String
-            elif self.data[data_offset] == 8:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                position += 4
             # Integer
             elif self.data[data_offset] == 3:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
@@ -130,6 +94,43 @@ class HeaderClass():
                                       self.data[17 + i + position] +
                                       self.data[18 + i + position], '02x'))
                 position += 8
+            # Pulling class info
+            elif self.data[data_offset] == 7:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] +
+                                      self.data[12 + i + position], '02x'))
+                position += 2
+            # String
+            elif self.data[data_offset] == 8:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] +
+                                      self.data[12 + i + position], '02x'))
+                position += 4
+            # Field Ref
+            elif self.data[data_offset] == 9:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] +
+                                      self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[13 + i + position] +
+                                      self.data[14 + i + position], '02x'))
+                position += 4
+            # Method Ref
+            elif self.data[data_offset] == 10:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] +
+                                      self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[13 + i + position] +
+                                      self.data[14 + i + position], '02x'))
+                position += 4
+            # Interface Method Ref
+            elif self.data[data_offset] == 11:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] +
+                                      self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[13 + i + position] +
+                                      self.data[14 + i + position], '02x'))
+                position += 4
+
             # Name and Type
             elif self.data[data_offset] == 12:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
