@@ -27,7 +27,7 @@ class OpCodeMethods():
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
         self.next_int()
-        method = pool_translate.methodrefs[iv_const]
+        method = pool_translate.methodrefs[int(iv_const)]
         print(method)
 
 #         # traverse the CP to find the method.
