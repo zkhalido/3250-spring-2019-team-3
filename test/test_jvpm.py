@@ -439,7 +439,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(-2)
         a.idiv()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 2)
+        self.assertEqual(b, 'divided')
 
     def test_iload_0(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -507,7 +507,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(-4)
         a.imul()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 5)   
+        self.assertEqual(b, 'multiplied')   
 
     def test_ineg(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -671,13 +671,13 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(0)
         a.isub()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 5)
+        self.assertEqual(b, 'subtracted')
 
         packages.jvpm_methods.S.push(0)
         packages.jvpm_methods.S.push(0)
         a.isub()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 4)
+        self.assertEqual(b, 'subtracted')
 
     def test_iushr(self):
         a = packages.jvpm_methods.OpCodeMethods()
