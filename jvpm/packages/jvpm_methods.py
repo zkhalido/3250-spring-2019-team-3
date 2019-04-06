@@ -23,7 +23,7 @@ class OpCodeMethods():
 
     def invokevirtual(self):
         """gets method from constant pool and calls it."""
-        method = pool_translate.methodrefs[int(jvpm_opcodes.inv_virt_const.popleft())]
+        method = pool_translate.methodrefs[int(jvpm_opcodes.INV_VIRT_CONST.popleft())]
         self.token_dict(method)
 
     def next_int(self):
