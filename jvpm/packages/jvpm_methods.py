@@ -29,23 +29,6 @@ class OpCodeMethods():
         # self.next_int()
         method = pool_translate.methodrefs[int(iv_const)]
         self.token_dict(method)
-        #print(method)
-#         method_call = {"nextInt:()I": "next_int", "println:(I)V": "print_ln"}
-#         method_X = method_call.get(method, lambda: "invalid")
-#         print(method_X)
-#         return method_X(self)
-
-#         # traverse the CP to find the method.
-#         iv_methods = {"println", "nextInt", "iadd", "isub", "imul", "idiv"}
-#         """argument = searck the CP for the method name"""
-#         method = io_methods.get(argument, "invalid")
-#         try:
-#             method = iv_methods[argument]
-#         except KeyError:
-#             method = "Method not found!"
-    
-#         return method
-#         method()
 
     def next_int(self):
         """receive input from the keyboard"""
