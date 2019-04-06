@@ -1,4 +1,5 @@
 import unittest
+<<<<<<< HEAD:test/test_jvpm.py
 from unittest.mock import mock_open, patch, Mock, call
 from jvpm.stack import Stack
 from jvpm.jvpm_methods import OpCodeMethods
@@ -8,6 +9,10 @@ import mock
 import jvpm.pool_methods
 import jvpm.jvpm_dict
 import jvpm.jvpm_opcodes
+=======
+from unittest.mock import mock_open, patch, call
+from jvpm import packages
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:test/test_jvpm.py
 import sys
 
 class UnittestHeader(unittest.TestCase):
@@ -15,7 +20,7 @@ class UnittestHeader(unittest.TestCase):
     def setUp(self):
         m = mock_open(read_data='CAFEBABE00000036000F')
         with patch(__name__ + '.open', m):
-            self.cf = jvpm.jvpm_opcodes.HeaderClass()
+            self.cf = packages.jvpm_opcodes.HeaderClass()
 
     def test_magic(self):
         self.assertEqual(self.cf.get_magic(), 'CAFEBABE')
@@ -25,20 +30,20 @@ class UnittestHeader(unittest.TestCase):
 
 class test_get_opcode(unittest.TestCase):
     def test_opcode(self):
-        self.assertEqual(jvpm.jvpm_dict.get_opcode("91"), "i2b")
-        self.assertEqual(jvpm.jvpm_dict.get_opcode("82"), "ixor")
-        self.assertEqual(jvpm.jvpm_dict.get_opcode("1c"), "iload_2")
-        self.assertEqual(jvpm.jvpm_dict.get_opcode("03"), "iconst_0")
-        self.assertEqual(jvpm.jvpm_dict.get_opcode("SQ"), "Byte code not found!")
+        self.assertEqual(packages.jvpm_dict.get_opcode("91"), "i2b")
+        self.assertEqual(packages.jvpm_dict.get_opcode("82"), "ixor")
+        self.assertEqual(packages.jvpm_dict.get_opcode("1c"), "iload_2")
+        self.assertEqual(packages.jvpm_dict.get_opcode("03"), "iconst_0")
+        self.assertEqual(packages.jvpm_dict.get_opcode("SQ"), "Byte code not found!")
 
         ####################################################
         
 class test_const_pool(unittest.TestCase):
     def test_const_pool(self):
-        with open('HelloWorld.class', 'rb') as binary_file:
+        with open('jvpm/javafiles/HelloWorld.class', 'rb') as binary_file:
             self.data = binary_file.read()
 
-        x = jvpm.jvpm_opcodes.HeaderClass()
+        x = packages.jvpm_opcodes.HeaderClass()
         x.data = self.data
         n = x.get_const_pool()
 
@@ -89,11 +94,11 @@ class test_pool_translate1(unittest.TestCase):
 
     def test_working_methods(self):
 
-        x = jvpm.jvpm_opcodes.HeaderClass()
+        x = packages.jvpm_opcodes.HeaderClass()
 
         #z = patch.get_const_pool()
 
-        y = jvpm.pool_translate.PoolTranslate()
+        y = packages.pool_translate.PoolTranslate()
         #y.dictionary = x.get_const_pool()
 
         a = {
@@ -191,7 +196,7 @@ class test_pool_methods(unittest.TestCase):
             "16": "13",
             "17": "14"
         }
-        x = jvpm.pool_translate.PoolTranslate()
+        x = packages.pool_translate.PoolTranslate()
 
         x.dictionary = {
             '0':"0"
@@ -254,7 +259,12 @@ class test_pool_methods(unittest.TestCase):
             [call.write("Package    2 bytes")]
         )
 
+<<<<<<< HEAD:test/test_jvpm.py
         x = jvpm.pool_methods.TagTranslate()
+=======
+
+        x = packages.pool_methods.TagTranslate()
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:test/test_jvpm.py
         self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
         self.assertEqual(x.token_dict(new_dict['2']), "Integer")
         self.assertEqual(x.token_dict(new_dict['3']), "Float")
@@ -275,20 +285,20 @@ class test_pool_methods(unittest.TestCase):
 
 class test_stack(unittest.TestCase):
     def test_is_empty(self):
-        s = Stack()
+        s = packages.stack.Stack()
         s.push(1)
         s.pop()
         self.assertTrue(s.is_empty())
 
     def test_push(self):
-        s = Stack()
+        s = packages.stack.Stack()
         s.push(2)
         s.push(3)
         v = s.pop()
         self.assertEqual(v, 3)
 
     def test_pop(self):
-        s = Stack()
+        s = packages.stack.Stack()
         s.push(3)
         s.push(2)
         s.push(4)
@@ -300,14 +310,14 @@ class test_stack(unittest.TestCase):
         self.assertEqual(b, 4)
 
     def test_peek(self):
-        s = Stack()
+        s = packages.stack.Stack()
         s.push("hello")
         s.push("hi")
         self.assertEqual(s.peek(),"hi")
         s.pop()
 
     def test_size(self):
-        s = Stack()
+        s = packages.stack.Stack()
         s.push("hello")
         s.push(2)
         s.push("hi")
@@ -318,7 +328,7 @@ class test_stack(unittest.TestCase):
 class Test_Op_Methods(unittest.TestCase):
 
     def test_iadd(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(2)
         a.stack.push(1)
@@ -327,7 +337,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 3)
 
     def test_iand(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(5)
         a.stack.push(3)
@@ -336,7 +346,12 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b,1)
 
     def test_iconst_m1(self):
+<<<<<<< HEAD:test/test_jvpm.py
         a = OpCodeMethods()
+=======
+        a = packages.jvpm_methods.OpCodeMethods()
+
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:test/test_jvpm.py
         a.iconst_m1()
         b = a.stack.peek()
         self.assertEqual(b, -1)
@@ -345,7 +360,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertNotEqual(a.stack.peek(), -1)
 
     def test_iconst_0(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_0()
         b = a.stack.peek()
@@ -356,7 +371,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertNotEqual(a.stack.peek(), 0)
 
     def test_iconst_1(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_1()
         b = a.stack.peek()
@@ -367,7 +382,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertNotEqual(a.stack.peek(), 1)
 
     def test_iconst_2(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_2()
         b = a.stack.peek()
@@ -378,7 +393,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertNotEqual(a.stack.peek(), 2)
 
     def test_iconst_3(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_3()
         b = a.stack.peek()
@@ -389,7 +404,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertNotEqual(a.stack.peek(), 3)
 
     def test_iconst_4(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_4()
         b = a.stack.peek()
@@ -400,7 +415,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertNotEqual(a.stack.peek(), 4)
 
     def test_iconst_5(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.iconst_5()
         b = a.stack.peek()
@@ -411,7 +426,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertNotEqual(a.stack.peek(), 5)
 
     def test_idiv(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(4)
         a.stack.push(2)
@@ -432,7 +447,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 3)
 
     def test_iload_0(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
         a.VARIABLES.append(7)
         a.VARIABLES.append(5)
         a.VARIABLES.append(6)
@@ -443,7 +458,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 2)
 
     def test_iload_1(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
         a.VARIABLES.append(7)
         a.VARIABLES.append(5)
         a.VARIABLES.append(6)
@@ -454,7 +469,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 5)
 
     def test_iload_2(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
         a.VARIABLES.append(7)
         a.VARIABLES.append(5)
         a.VARIABLES.append(6)
@@ -466,7 +481,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 7)
 
     def test_iload_3(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
         a.VARIABLES.append(7)
         a.VARIABLES.append(5)
         a.VARIABLES.append(6)
@@ -479,7 +494,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 9)
 
     def test_imul(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(3)
         a.stack.push(4)
@@ -500,7 +515,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 20)
 
     def test_ineg(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(3)
         a.ineg()
@@ -513,7 +528,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 5)
 
     def test_ior(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(2)
         a.stack.push(5)
@@ -540,7 +555,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, -5)
 
     def test_irem(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(5)
         a.stack.push(2)
@@ -567,7 +582,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 0)
 
     def test_ishl(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(2)
         a.stack.push(1)
@@ -576,7 +591,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 4)
 
     def test_ishr(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(3)
         a.stack.push(1)
@@ -603,14 +618,14 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 0)
 
     def test_istore_0(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
         a.stack.push(3)
         a.istore_0()
         b = a.VARIABLES[0]
         self.assertEqual(b, 3)
 
     def test_istore_1(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
         a.stack.push(2)
         a.stack.push(4)
         a.istore_0()
@@ -619,7 +634,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 2)
 
     def test_istore_2(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
         a.stack.push(8)
         a.stack.push(7)
         a.stack.push(9)
@@ -630,7 +645,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 8)
 
     def test_istore_3(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
         a.stack.push(9)
         a.stack.push(10)
         a.stack.push(3)
@@ -643,7 +658,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 9)
 
     def test_isub(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(5)
         a.stack.push(2)
@@ -676,7 +691,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, -2)
 
     def test_iushr(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(5)
         a.stack.push(2)
@@ -692,7 +707,7 @@ class Test_Op_Methods(unittest.TestCase):
     """
 
     def test_ixor(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(5)
         a.stack.push(3)
@@ -701,7 +716,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 6)
 
     def test_i2f(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(5)
         a.i2f()
@@ -714,7 +729,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, 0.0)
 
     def test_i2b(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(5)
         a.i2b()
@@ -727,7 +742,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, b'\x00\x00\x00\x00\x00\x00\x00\x00')
 
     def test_i2c(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(5)
         a.i2c()
@@ -740,7 +755,7 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b, '\x00')
 
     def test_i2s(self):
-        a = OpCodeMethods()
+        a = packages.jvpm_methods.OpCodeMethods()
 
         a.stack.push(555555)
         a.i2s()
@@ -755,8 +770,8 @@ class Test_Op_Methods(unittest.TestCase):
 
 
     def test_dict_search(self):
-        a = OpCodeMethods()
-        l = OpCodes()
+        a = packages.jvpm_methods.OpCodeMethods()
+        l = packages.jvpm_opcodes.OpCodes()
 
         l.opcodes =['06', '3c', '04', '3d', '1b', '1c', '82', '3e'] # Testing some op codes
         a.VARIABLES.append(0) # adding random constants to test methods \/

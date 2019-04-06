@@ -1,7 +1,14 @@
 #import stack
+<<<<<<< HEAD:jvpm/jvpm_methods.py
 from stack import Stack
 S = Stack()
 VARIABLES = [0]
+=======
+# These 63 methods will eventually Implement all the opcode commands.
+# ONLY BUILD THE METHODS NOT COMMENTED OUT.
+# pylint: disable = W0603, C0330
+from .stack import Stack
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/jvpm_methods.py
 import numpy
 
 # ****************************************************************************************

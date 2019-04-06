@@ -1,6 +1,7 @@
 """Read bit stream."""
-#from bitstring import ConstBitStream
+
 from pip._vendor.distlib.compat import raw_input
+<<<<<<< HEAD:jvpm/jvpm_opcodes.py
 import jvpm_dict    # import external opcode dictionary
 from collections import defaultdict
 import jvpm_methods
@@ -16,6 +17,17 @@ class HeaderClass():
     
     """Class that parses the header and CP data from .class file and assigns values to variables."""
     def __init__(self, name = "test.class"):
+=======
+
+from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
+from collections import defaultdict
+
+class HeaderClass():
+    """Class that parses the header data from .class file and assigns values to variables."""
+   #name = raw_input('Type the name of the file with class extension --')
+    def __init__(self, name = "jvpm/javafiles/test.class"):
+        #self.name = "test.class"#raw_input('Type the name of the file with class extension --')
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/jvpm_opcodes.py
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
@@ -37,7 +49,7 @@ class HeaderClass():
     
     def get_const_pool_count(self):
         return self.data[8] + self.data[9]
-    
+
     def get_const_pool(self):
         temp = defaultdict(list)
         position = 0
@@ -74,29 +86,29 @@ class HeaderClass():
             # Integer
             elif self.data[10 + i + position] == 3:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
             # Float
             elif self.data[10 + i + position] == 4:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
                 position += 4
             # Long
             elif self.data[10 + i + position] == 5:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] + 
+                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] +
                     self.data[17 + i + position] + self.data[18 + i + position], '02x'))
                 position += 8
             # Double
             elif self.data[10 + i + position] == 6:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] + 
+                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
                     self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] + 
+                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] +
                     self.data[17 + i + position] + self.data[18 + i + position], '02x'))
                 position += 8
             # Name and Type
@@ -112,7 +124,12 @@ class HeaderClass():
                 for f in range (self.data[11 + i + position] + self.data[12 + i + position]):
                     temp[i].append(format(self.data[13 + i + position + f], '02x'))
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
+<<<<<<< HEAD:jvpm/jvpm_opcodes.py
                 position += 2    
+=======
+                position += 2
+
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/jvpm_opcodes.py
             # Method Handle
             elif self.data[10 + i + position] == 15:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
@@ -147,10 +164,14 @@ class OpCodes():
         METHOD GOES HERE TO FIND METHOD-OPCODES FROM A .CLASS FILE AND SAVE TO self.opcodes LIST.
 
         """
+<<<<<<< HEAD:jvpm/jvpm_opcodes.py
         
     # I duplicated this method from the commented out method below it
     # because it wouldn't work to find the opcodes, now it works. If you need the 
     # other one, just comment out this one. Thx. 4-3-19
+=======
+
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/jvpm_opcodes.py
     def dict_search(self):
       print(self.opcodes)
       index = 0
@@ -159,6 +180,7 @@ class OpCodes():
           print(opcall) # just to see what opcall is passed through
           jvpm_methods.OpCodeMethods().token_dict(opcall)
           index += 1
+<<<<<<< HEAD:jvpm/jvpm_opcodes.py
       print()  
 
 #     def dict_search(self, jvMethodsIn):
@@ -228,3 +250,19 @@ if '__main__' == __name__:                  #pragma: no cover
     
     
     # **********************************************************************************************
+=======
+      print()
+
+    # def dict_search(self, jvMethodsIn):
+    #     print(self.opcodes)
+    #     index = 0
+    #
+    #     while index < len(self.opcodes):
+    #         opcall = jvpm_dict.get_opcode(self.opcodes[index])
+    # 
+    #         print (opcall) # just to see what opcall is passed through
+    #
+    #         jvMethodsIn.token_dict(opcall)
+    #         index += 1
+    #     print()
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/jvpm_opcodes.py

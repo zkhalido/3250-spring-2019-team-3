@@ -1,8 +1,11 @@
-
 from collections import defaultdict
+<<<<<<< HEAD:jvpm/pool_translate.py
 import jvpm_opcodes
 #import jvpm.pool_tag_translate
 import pool_methods
+=======
+from . import jvpm_opcodes, pool_methods
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/pool_translate.py
 
 super_index = 0
 class PoolTranslate:
@@ -11,7 +14,11 @@ class PoolTranslate:
         self.dictionary = defaultdict(list)
         #global g_dict
         #g_dict = defaultdict(list)
+<<<<<<< HEAD:jvpm/pool_translate.py
         H = jvpm_opcodes.HeaderClass(name = "tester.class")
+=======
+        H = jvpm_opcodes.HeaderClass(name ="jvpm/javafiles/tester.class")
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/pool_translate.py
         self.dictionary = H.get_const_pool()
         self.byte_list_count = len(self.dictionary.keys())
         global new_l
@@ -268,6 +275,7 @@ class PoolTranslate:
 # if '__main__' == __name__:              #pragma: no cover
 #     o = PoolTranslate()                 #pragma: no cover
 
+<<<<<<< HEAD:jvpm/pool_translate.py
 #     n = o.translate()                   #pragma: no cover
 #     x = pool_methods.TagTranslate()#pragma: no cover
 #     #j = x.token_dict("0a")             #pragma: no cover
@@ -276,6 +284,16 @@ class PoolTranslate:
 #     #print(n.key[0])                    #pragma: no cover
 #     print(n)                            #pragma: no cover
 #     print()                             #pragma: no cover
+=======
+    n = o.translate()                   #pragma: no cover
+    x = packages.pool_methods.TagTranslate()#pragma: no cover
+    #j = x.token_dict("0a")             #pragma: no cover
+    #print(n)                           #pragma: no cover
+    print()                             #pragma: no cover
+    #print(n.key[0])                    #pragma: no cover
+    print(n)                            #pragma: no cover
+    print()                             #pragma: no cover
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/pool_translate.py
 
 #     #print(j)                           #pragma: no cover
 #     i = 1                               #pragma: no cover

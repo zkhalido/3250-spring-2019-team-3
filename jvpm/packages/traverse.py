@@ -11,7 +11,7 @@ from collections import defaultdict
 class HeaderClass():
 
     def __init__(self):
-        with open('test.class', 'rb') as binary_file:
+        with open('../javafiles/test.class', 'rb') as binary_file:
             self.data = binary_file.read()
 
     def get_magic(self):
@@ -173,11 +173,22 @@ class HeaderClass():
     def get_fields(self):
         temp = []
         count = self.get_fields_count()
+<<<<<<< HEAD:jvpm/jvpm.py
         index = position + self.get_interfaces_count() + 33
         for i in range(count):
             temp.append(format(self.data[index + i], '02X'))
         #print("Fields Length: ", len(temp))
         #print(temp)
+=======
+        index = self.get_const_pool_length() + self.get_interfaces_count() + 18
+        if(count<0):
+            for i in range(count):
+                 temp.append(format(self.data[index + i], '02X'))
+            print("Fields Length: ", len(temp))
+            print(temp)
+        else:
+            print("No interface table")
+>>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/traverse.py
         return temp
 
     def get_methods_count(self):
@@ -191,11 +202,14 @@ class HeaderClass():
         count = self.get_methods_count()
         index = position + self.get_interfaces_count() + self.get_fields_count() + 35
         print("index = " + str(index))
-        for i in range(count):
-            temp.append(format(self.data[index + i], '02X'))
-        print("Methods Length: ", len(temp))
-        print(temp)
-        print(temp[151], temp[152], temp[153], temp[154], temp[155]) # 04, 3c, 84, 01, 01
+        if(count < 0):
+            for i in range(count):
+                temp.append(format(self.data[index + i], '02X'))
+            print("Methods Length: ", len(temp))
+            print(temp)
+            print(temp[151], temp[152], temp[153], temp[154], temp[155]) # 04, 3c, 84, 01, 01
+        else:
+            print("No Methods")
         return temp
 
     def get_attributes_count(self):
