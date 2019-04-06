@@ -45,6 +45,15 @@ class HeaderClass():
         count = self.get_const_pool_count() - 1
         for i in range(count):
             data_offset = start_of_cp + i + position
+            # Utf_8
+            elif self.data[data_offset] == 1:
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] +
+                                      self.data[12 + i + position], '02x'))
+                for j in range(self.data[11 + i + position] + self.data[12 + i + position]):
+                    temp[i].append(format(self.data[13 + i + position + j], '02x'))
+                position += (self.data[11 + i + position] + self.data[12 + i + position])
+                position += 2
             # Pulling class info
             if self.data[data_offset] == 7:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
@@ -129,15 +138,6 @@ class HeaderClass():
                 temp[i].append(format(self.data[13 + i + position] +
                                       self.data[14 + i + position], '02x'))
                 position += 4
-            # Utf_8
-            elif self.data[data_offset] == 1:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
-                for j in range(self.data[11 + i + position] + self.data[12 + i + position]):
-                    temp[i].append(format(self.data[13 + i + position + j], '02x'))
-                position += (self.data[11 + i + position] + self.data[12 + i + position])
-                position += 2
 
             # Method Handle
             elif self.data[data_offset] == 15:
