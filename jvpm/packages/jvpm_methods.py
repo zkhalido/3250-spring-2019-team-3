@@ -34,6 +34,7 @@ class OpCodeMethods():
         S.push(var1)
         
     def get_operation(self):
+        """gets the operation from the local stack."""
         print("The numbers are " + str(OPERATION.pop()) + " and the result is:")
 
     def println(self):
