@@ -665,7 +665,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(5)
         a.isub()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 0)
+        self.assertEqual(b, 5)
 
         packages.jvpm_methods.S.push(5)
         packages.jvpm_methods.S.push(0)
