@@ -226,10 +226,7 @@ class PoolTranslate:
         #if d != None:
             #temp = d
             #self.dictionary = temp
-        l = temp[1]
         k = list(temp.keys())
-        index = self.main_index
-        #self.dictionary = temp
         L = len(self.dictionary)
         i = 1
         self.main_index = 1
