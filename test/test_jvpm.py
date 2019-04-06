@@ -332,7 +332,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(1)
         a.iadd()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 'added')
+        self.assertEqual(b, 3)
 
     def test_iand(self):
         a = packages.jvpm_methods.OpCodeMethods()
