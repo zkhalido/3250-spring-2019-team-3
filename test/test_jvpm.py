@@ -439,7 +439,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(-2)
         a.idiv()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 3)
+        self.assertEqual(b, 2)
 
     def test_iload_0(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -507,7 +507,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(-4)
         a.imul()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 20)   
+        self.assertEqual(b, 5)   
 
     def test_ineg(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -659,7 +659,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(2)
         a.isub()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 5)
+        self.assertEqual(b, 2)
 
         packages.jvpm_methods.S.push(5)
         packages.jvpm_methods.S.push(5)
