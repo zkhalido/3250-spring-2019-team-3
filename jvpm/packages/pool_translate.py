@@ -6,7 +6,7 @@ methodrefs = []
 class PoolTranslate:
 
     def __init__(self):
-        # methodrefs = {}
+        methodrefs = "test", "test2"
         self.dictionary = defaultdict(list)
         H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/tester.class")
         self.dictionary = H.get_const_pool()
@@ -98,7 +98,6 @@ class PoolTranslate:
                 self.main_index = int(self.main_index, 16)
 
             method = PoolTranslate.method_dict(self, self.dictionary, index, super_index)
-            methodrefs = ["println"]
             index += 1
             if count < 1:
                 method = method + "."
