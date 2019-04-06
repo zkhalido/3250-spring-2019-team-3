@@ -427,19 +427,19 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(2)
         a.idiv()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 'divided')
+        self.assertEqual(b, 2.0)
 
         packages.jvpm_methods.S.push(6)
         packages.jvpm_methods.S.push(-2)
         a.idiv()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 'divided')
+        self.assertEqual(b, -3)
 
         packages.jvpm_methods.S.push(-6)
         packages.jvpm_methods.S.push(-2)
         a.idiv()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 'divided')
+        self.assertEqual(b, 3)
 
     def test_iload_0(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -495,19 +495,19 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(4)
         a.imul()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 'multiplied')
+        self.assertEqual(b, 12)
 
         packages.jvpm_methods.S.push(-2)
         packages.jvpm_methods.S.push(3)
         a.imul()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 'multiplied')
+        self.assertEqual(b, -6)
 
         packages.jvpm_methods.S.push(-5)
         packages.jvpm_methods.S.push(-4)
         a.imul()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 'multiplied')   
+        self.assertEqual(b, 20)   
 
     def test_ineg(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -659,25 +659,25 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(2)
         a.isub()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 'subtracted')
+        self.assertEqual(b, 3)
 
         packages.jvpm_methods.S.push(5)
         packages.jvpm_methods.S.push(5)
         a.isub()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 'subtracted')
+        self.assertEqual(b, 0)
 
         packages.jvpm_methods.S.push(5)
         packages.jvpm_methods.S.push(0)
         a.isub()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 'subtracted')
+        self.assertEqual(b, 5)
 
         packages.jvpm_methods.S.push(0)
         packages.jvpm_methods.S.push(0)
         a.isub()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 'subtracted')
+        self.assertEqual(b, 0)
 
     def test_iushr(self):
         a = packages.jvpm_methods.OpCodeMethods()
