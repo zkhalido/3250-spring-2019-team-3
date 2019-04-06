@@ -22,22 +22,22 @@ class OpCodeMethods():
         S.push("added")
 
     def invokevirtual(self):
-        """gets method from constant pool and calls it"""
+        """gets method from constant pool and calls it."""
         method = pool_translate.methodrefs[int(jvpm_opcodes.inv_virt_const.popleft())]
         self.token_dict(method)
 
     def next_int(self):
-        """receive input from the keyboard"""
+        """receive input from the keyboard."""
         var1 = int(input("Enter number: "))
         S.push(var1)
 
     def println(self):
-        """print from the stack"""
+        """print from the stack."""
         print("The numbers are " + str(S.pop()) + " and the result is: " + str(S.pop()))
         # print(jvpm_opcodes.inv_virt_const.popleft())
 
     def iand(self):
-        """perform a bitwise AND on two integers"""
+        """perform a bitwise AND on two integers."""
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 & var2)
@@ -76,98 +76,90 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 / var2)
         S.push("divided")
-        self.println()
 
     def iinc(self):
-        """increment local variable"""
+        """increment local variable."""
         # print("iinc: not needed for this sprint")
 
     def iload_0(self):
-        """load an int value from local array variable[0]"""
+        """load an int value from local array variable[0]."""
         pushing0 = VARIABLES[0]
         S.push(pushing0)
 
     def iload_1(self):
-        """load an int value from local array variable[1]"""
+        """load an int value from local array variable[1]."""
         pushing1 = VARIABLES[1]
         S.push(pushing1)
         # print("ran iload_1")
 
     def iload_2(self):
-        """load an int value from local array variable[2]"""
+        """load an int value from local array variable[2]."""
         pushing2 = VARIABLES[2]
         S.push(pushing2)
         # print("ran iload_2")
 
     def iload_3(self):
-        """load an int value from local array variable[3]"""
+        """load an int value from local array variable[3]."""
         pushing3 = VARIABLES[3]
         S.push(pushing3)
         # print("ran iload_3")
 
     def imul(self):
-        """multiply two integers"""
+        """multiply two integers."""
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 * var2)
         S.push("multiplied")
-        self.println()
 
     def ineg(self):
-        """negate int"""
+        """negate int."""
         var1 = S.pop()
         S.push(0 - var1)
 
     def ior(self):
-        """bitwise int OR"""
+        """bitwise int OR."""
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 | var2)
 
     def irem(self):
-        """logical in remainder"""
+        """logical in remainder."""
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 % var2)
 
     def ishl(self):
-        """int shift left"""
+        """int shift left."""
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 << var2)
 
     def ishr(self):
-        """int arithmetic shift right"""
+        """int arithmetic shift right."""
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 >> var2)
 
     def istore_0(self):
-        """store int value into VARIABLE[0]"""
+        """store int value into VARIABLE[0]."""
         popped = S.pop()
         VARIABLES.pop(0) # remove the assigned 0 from the [0]position
         VARIABLES.insert(0, popped)
-        # print(VARIABLES)
 
     def istore_1(self):
-        """store int value into VARIABLE[1]"""
+        """store int value into VARIABLE[1]."""
         popped = S.pop()
         VARIABLES.insert(1, popped)
-        # print(VARIABLES)
 
     def istore_2(self):
-        """store int value into VARIABLE[2]"""
+        """store int value into VARIABLE[2]."""
         popped = S.pop()
         VARIABLES.insert(2, popped)
-        # print("ran istore_2")
-        # print(VARIABLES)
 
     def istore_3(self):
-        """store int value into VARIABLE[3]"""
+        """store int value into VARIABLE[3.]"""
         popped = S.pop()
         VARIABLES.insert(3, popped)
-        # print("ran istore_3")
-        # print(str(VARIABLES) + " = final VARIABLES[] list.")
 
     def isub(self):
         """int subtract"""
@@ -175,7 +167,6 @@ class OpCodeMethods():
         var1 = S.pop()
         S.push(var1 - var2)
         S.push("subtracted")
-        self.println()
 
     def iushr(self):
         """int logical shift right"""
@@ -191,14 +182,12 @@ class OpCodeMethods():
         variable2 = S.pop()
         variable1 = S.pop()
         S.push(variable1 ^ variable2)
-        # print("ran ixor")
 
     def i2b(self):
         """convert int to byte"""
         variable1 = S.pop()
         # int.to_bytes(length, byteorder, *, signed=False)
         S.push(variable1.to_bytes(8, byteorder='big'))
-        # print("ran i2b")
 
     def i2c(self):
         """convert int to character"""
@@ -206,28 +195,21 @@ class OpCodeMethods():
         # chr = Return a string of one character whose ASCII code is the integer i
         # chr(i)
         S.push(chr(variable1))
-        # print("ran i2c")
 
     def i2f(self):
         """convert int to float"""
         variable1 = S.pop()
-        # float([x])
         S.push(float(variable1))
-        # print("ran i2f")
 
     def i2l(self):
         """convert int to long"""
         variable1 = S.pop()
-        # long(x, base=10)
         S.push(int(variable1))
-        # print("ran i2l")
 
     def i2s(self):
         """convert int to short"""
         variable1 = S.pop()
-        # hex(x & mask)
         S.push(hex(variable1 & 0xffff))
-        # print("ran i2s")
 
     def i2d(self):
         """convert int to decimal"""
