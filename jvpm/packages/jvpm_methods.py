@@ -7,6 +7,7 @@ from . import jvpm_opcodes, pool_translate
 
 S = Stack()
 VARIABLES = [0]
+OPERATION = []
 
 class OpCodeMethods():
     """CLass of methods that are called from the CP."""
@@ -20,6 +21,7 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
         S.push("added")
+        OPERATION.insert(0, "added")
 
     def invokevirtual(self):
         """gets method from constant pool and calls it."""
@@ -33,7 +35,7 @@ class OpCodeMethods():
 
     def println(self):
         """print from the stack."""
-        print("The numbers are " + str(S.pop()) + " and the result is: " + str(S.pop()))
+        print("The numbers are " + str(OPERATION.pop()) + " and the result is: " + str(S.pop()))
         # print(jvpm_opcodes.inv_virt_const.popleft())
 
     def iand(self):
