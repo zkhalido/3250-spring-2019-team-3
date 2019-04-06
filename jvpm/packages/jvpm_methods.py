@@ -14,7 +14,7 @@ class OpCodeMethods():
         """opcode_methods"""
 
     def iadd(self):
-        """iadd: add two ints from the stack"""
+        """iadd: add two ints from the stack."""
         print("Method called: iadd")
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
@@ -43,35 +43,35 @@ class OpCodeMethods():
         S.push(var1 & var2)
 
     def iconst_m1(self):
-        """load the int value -1 onto the stack"""
+        """load the int value -1 onto the stack."""
         S.push(-1)
 
     def iconst_0(self):
-        """load the int value 0 onto the stack"""
+        """load the int value 0 onto the stack."""
         S.push(0)
 
     def iconst_1(self):
-        """load the int value 1 onto the stack"""
+        """load the int value 1 onto the stack."""
         S.push(1)
 
     def iconst_2(self):
-        """load the int value 2 onto the stack"""
+        """load the int value 2 onto the stack."""
         S.push(2)
 
     def iconst_3(self):
-        """load the int value 3 onto the stack"""
+        """load the int value 3 onto the stack."""
         S.push(3)
 
     def iconst_4(self):
-        """load the int value 4 onto the stack"""
+        """load the int value 4 onto the stack."""
         S.push(4)
 
     def iconst_5(self):
-        """load the int value 5 onto the stack"""
+        """load the int value 5 onto the stack."""
         S.push(5)
 
     def idiv(self):
-        """divide two integers"""
+        """divide two integers."""
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 / var2)
