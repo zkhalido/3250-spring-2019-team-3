@@ -130,7 +130,6 @@ class HeaderClass():
                 temp[i].append(format(self.data[13 + i + position] +
                                       self.data[14 + i + position], '02x'))
                 position += 4
-
             # Name and Type
             elif self.data[data_offset] == 12:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
@@ -139,7 +138,6 @@ class HeaderClass():
                 temp[i].append(format(self.data[13 + i + position] +
                                       self.data[14 + i + position], '02x'))
                 position += 4
-
             # Method Handle
             elif self.data[data_offset] == 15:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
