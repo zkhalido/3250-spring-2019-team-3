@@ -36,16 +36,16 @@ class PoolTranslate:
 
         length = len(di)
         count = 1
-        dtext =""
+        dtext = ""
         while count < length :
             int1 = int(di[count], 16)
             int2 = (int1).to_bytes(1, byteorder='big')
             ctext = int2.decode("utf-8", "ignore")
             dtext += ctext
             count += 1
+            methodrefs = dtext
 
         new_l[self.super_index-1] = dtext
-        methodrefs = dtext
         return dtext
 
     def integer(self):                      #03
