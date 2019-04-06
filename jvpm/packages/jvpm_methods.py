@@ -7,7 +7,7 @@ from . import jvpm_opcodes, pool_translate
 
 S = Stack()
 VARIABLES = [0]
-iv_const = jvpm_opcodes.inv_virt_const[0]
+# iv_const = jvpm_opcodes.inv_virt_const[0]
 
 class OpCodeMethods():
     """CLass of methods that are called from the CP."""
