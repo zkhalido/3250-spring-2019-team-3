@@ -15,7 +15,7 @@ class OpCodeMethods():
         """opcode_methods"""# self.VARIABLES = []
 
     def iadd(self):
-        """iadd: add two ints"""
+        """iadd: add two ints from the stack"""
         print("Method called: iadd")
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
@@ -87,6 +87,8 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 / var2)
+        S.push("divided")
+        self.println()
 
     def iinc(self):
         """increment local variable"""
@@ -120,6 +122,8 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 * var2)
+        S.push("multiplied")
+        self.println()
 
     def ineg(self):
         """negate int"""
@@ -183,6 +187,8 @@ class OpCodeMethods():
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 - var2)
+        S.push("subtracted")
+        self.println()
 
     def iushr(self):
         """int logical shift right"""
