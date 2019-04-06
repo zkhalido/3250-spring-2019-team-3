@@ -285,7 +285,7 @@ class OpCodeMethods():
         "i2f" : i2f, # int to float
         "i2l" : i2l, # int to long
         "i2s" : i2s, # int to short
-        "nextInt:()I": nextInt,
+        "nextInt:()I": next_int,
         "println:(I)V": println,
     }
 
