@@ -427,7 +427,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(2)
         a.idiv()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 5)
+        self.assertEqual(b, 'divided')
 
         packages.jvpm_methods.S.push(6)
         packages.jvpm_methods.S.push(-2)
@@ -495,7 +495,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(4)
         a.imul()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 9)
+        self.assertEqual(b, 'multiplied')
 
         packages.jvpm_methods.S.push(-2)
         packages.jvpm_methods.S.push(3)
@@ -659,7 +659,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(2)
         a.isub()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 2)
+        self.assertEqual(b, 'subtracted')
 
         packages.jvpm_methods.S.push(5)
         packages.jvpm_methods.S.push(5)
