@@ -1,11 +1,9 @@
 """Read bit stream."""
 from collections import defaultdict
-# from pip._vendor.distlib.compat import raw_input
 from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
-   #name = raw_input('Type the name of the file with class extension --')
     def __init__(self, name="jvpm/javafiles/test.class"):
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
