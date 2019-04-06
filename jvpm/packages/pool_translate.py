@@ -98,6 +98,7 @@ class PoolTranslate:
 
             method = PoolTranslate.method_dict(self, self.dictionary, index, super_index)
             print(method)
+            methodrefs.insert(2, method)
             index += 1
             if count < 1:
                 method = method + "."
