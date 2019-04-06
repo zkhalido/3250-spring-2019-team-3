@@ -38,8 +38,10 @@ class HeaderClass():
         return self.data[8] + self.data[9]
     
     def ten_to_twelve(self):
+        position = 0
+        temp = defaultdict(list)
+        count = self.get_const_pool_count() - 1
         for i in range(count):
-            temp = defaultdict(list)
             temp[i].append(format(self.data[10 + i + position], '02x'))
             temp[i].append(format(self.data[11 + i + position] +
                                   self.data[12 + i + position], '02x'))
