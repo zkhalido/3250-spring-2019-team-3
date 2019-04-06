@@ -1,7 +1,7 @@
 """Read bit stream."""
 from collections import defaultdict
-from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 from collections import deque
+from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 
 # a deque of invokevirtual constants used for method calls.
 inv_virt_const = deque(["5", "5", "7"])
