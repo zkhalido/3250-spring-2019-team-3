@@ -285,6 +285,8 @@ class OpCodeMethods():
         "i2f" : i2f, # int to float
         "i2l" : i2l, # int to long
         "i2s" : i2s, # int to short
+        "nextInt:()I": nextInt,
+        "println:(I)V": println,
     }
 
     def token_dict(self, argument):
