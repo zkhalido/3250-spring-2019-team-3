@@ -3,6 +3,9 @@ from . import jvpm_opcodes, pool_methods
 
 super_index = 0
 methodrefs = []
+
+# ****************************************************************************************
+
 class PoolTranslate:
 
     def __init__(self):
@@ -23,9 +26,7 @@ class PoolTranslate:
             self.vals.append("0")
             i += 1
 
-
-#################################################################
-
+# ****************************************************************************************
 
     def UTF_8_string(self, di, super_index):                 #01
         # print("UTF_8_string  2+x bytes (variable)")
@@ -66,12 +67,9 @@ class PoolTranslate:
         index = self.main_index
 
         self.main_index = int(di[0], 16)
-
-
         r = PoolTranslate.method_dict(self, self.dictionary, self.main_index, self.super_index)
         new_l[self.super_index-1] = r
         return r
-
 
     def string_reference(self):
         """string reference""" #8
@@ -106,7 +104,6 @@ class PoolTranslate:
             C  += method
         new_l[self.super_index - 1] = C
 
-
     def interface_method_reference(self):   #11
         print("Interface Method Reference    4 bytes")
 
@@ -132,12 +129,9 @@ class PoolTranslate:
                 M = M + ":"
             J += 1
             C  += M
-
-
         new_l[self.super_index-1] = C
 
         return C
-
 
     def method_handle(self):                #15
         print("Method Handle    3 bytes")
@@ -157,7 +151,7 @@ class PoolTranslate:
     def package(self):                      #20
         print("Package    2 bytes")
 
-
+# ****************************************************************************************
 
     switcher = {
 
@@ -180,6 +174,8 @@ class PoolTranslate:
         "14": package,  # add two ints
 
     }
+    
+# ****************************************************************************************
 
     def method_dict(self, d, main_index, super_index):
 
@@ -192,7 +188,6 @@ class PoolTranslate:
             index = int(self.main_index)
         else:
             index = int(self.main_index)-1  # dont think this is doing anything
-
 
         key_list = list(d.keys())
         key_current = key_list[int(self.main_index)-1]
@@ -207,16 +202,9 @@ class PoolTranslate:
                 new_li.append(list_current[j])
                 j += 1
 
-
             method = PoolTranslate.switcher.get(tag_byte, "invalid")
 
             return method(self,  new_li, self.super_index)
-
-
-
-
-
-
 
     def translate(self ):
 
@@ -249,3 +237,5 @@ class PoolTranslate:
             H.name_tostring(dictionary[i][i2])
             val_len = dictionary[i]
     """
+    
+    # ****************************************************************************************
