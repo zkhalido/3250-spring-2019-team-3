@@ -97,7 +97,7 @@ class PoolTranslate:
                 self.main_index = int(self.main_index, 16)
 
             method = PoolTranslate.method_dict(self, self.dictionary, index, super_index)
-            print("VVVVVVVVVVVVVVVVVVVVVVVV")
+            print(method)
             index += 1
             if count < 1:
                 method = method + "."
