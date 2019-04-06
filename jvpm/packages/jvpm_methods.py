@@ -1,6 +1,7 @@
 """Imports"""
 import numpy
 from .stack import Stack
+import jvpm_opcodes
 
 # ****************************************************************************************
 
