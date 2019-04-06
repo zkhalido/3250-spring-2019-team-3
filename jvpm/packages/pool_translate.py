@@ -86,9 +86,9 @@ class PoolTranslate:
         index = 0
         list_len = len(di2)
 
-        M = ""
+        method = ""
         C = ""
-        J = 0
+        count = 0
 
         while index < list_len :
             self.main_index = di2[index]
@@ -96,12 +96,12 @@ class PoolTranslate:
             if self.main_index != 0:
                 self.main_index = int(self.main_index, 16)
 
-            M = PoolTranslate.method_dict(self, self.dictionary, index, super_index)
+            method = PoolTranslate.method_dict(self, self.dictionary, index, super_index)
             index += 1
-            if J < 1:
-                M = M + "."
-            J += 1
-            C  += M
+            if count < 1:
+                method = method + "."
+            count += 1
+            C  += method
         new_l[self.super_index - 1] = C
 
 
