@@ -1,7 +1,7 @@
 """Imports"""
 import numpy
 from .stack import Stack
-from . import jvpm_opcodes
+from . import jvpm_opcodes, pool_translate
 
 # ****************************************************************************************
 
