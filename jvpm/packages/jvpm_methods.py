@@ -27,8 +27,6 @@ class OpCodeMethods():
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
         # self.next_int()
-        
-        print(self.get_iv_const())
         method = pool_translate.methodrefs[int(iv_const)]
         self.token_dict(method)
         #print(method)
