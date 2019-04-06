@@ -27,9 +27,10 @@ class OpCodeMethods():
     i = 0
     def get_iv_const(self):
         for i in jvpm_opcodes.inv_virt_const:
-            print(jvpm_opcodes.inv_virt_const[i])
+            constant = jvpm_opcodes.inv_virt_const[i]
+            print(constant)
             i = i + 1;
-        return
+        return constant
 
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
