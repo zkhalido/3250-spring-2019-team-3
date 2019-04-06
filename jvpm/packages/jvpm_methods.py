@@ -194,14 +194,11 @@ class OpCodeMethods():
     def i2b(self):
         """convert int to byte"""
         variable1 = S.pop()
-        # int.to_bytes(length, byteorder, *, signed=False)
         S.push(variable1.to_bytes(8, byteorder='big'))
 
     def i2c(self):
         """convert int to character"""
         variable1 = S.pop()
-        # chr = Return a string of one character whose ASCII code is the integer i
-        # chr(i)
         S.push(chr(variable1))
 
     def i2f(self):
