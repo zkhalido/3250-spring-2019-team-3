@@ -221,6 +221,8 @@ class OpCodeMethods():
     def i2d(self):
         """convert int to decimal"""
 
+# ****************************************************************************************
+
     dictionary = {
 
         "iadd": iadd,  # add two ints
@@ -262,8 +264,12 @@ class OpCodeMethods():
         "nextInt:()I": next_int,
         "println:(I)V": println
     }
+    
+# ****************************************************************************************
 
     def token_dict(self, argument):
         """dictionary search"""
         method = OpCodeMethods.dictionary.get(argument, "invalid")
         return method(self)
+    
+# ****************************************************************************************
