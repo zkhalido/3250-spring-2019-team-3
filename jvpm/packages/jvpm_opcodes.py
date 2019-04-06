@@ -45,11 +45,6 @@ class HeaderClass():
         count = self.get_const_pool_count() - 1
         for i in range(count):
             data_offset = start_of_cp + i + position
-            ten_to_fourteen = temp[i].append(format(self.data[10 + i + position], '02x'))
-            temp[i].append(format(self.data[11 + i + position] +
-                                  self.data[12 + i + position] +
-                                  self.data[13 + i + position] +
-                                  self.data[14 + i + position], '02x'))
             # Utf_8
             if self.data[data_offset] == 1:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
@@ -61,7 +56,11 @@ class HeaderClass():
                 position += 2
             # Integer
             elif self.data[data_offset] == 3:
-                ten_to_fourteen
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] +
+                                      self.data[12 + i + position] +
+                                      self.data[13 + i + position] +
+                                      self.data[14 + i + position], '02x'))
                 position += 4
             # Float
             elif self.data[data_offset] == 4:
