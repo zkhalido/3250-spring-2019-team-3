@@ -203,7 +203,7 @@ class OpCodeMethods():
 
     def i2f(self):
         """convert int to float"""
-        variable1 = S.pop()
+        variable1 = numpy.int32(S.pop())
         S.push(float(variable1))
 
     def i2l(self):
@@ -213,11 +213,13 @@ class OpCodeMethods():
 
     def i2s(self):
         """convert int to short"""
-        variable1 = S.pop()
+        variable1 = numpy.int16(S.pop())
         S.push(hex(variable1 & 0xffff))
 
     def i2d(self):
         """convert int to decimal"""
+        variable1 = numpy.int64(S.pop())
+        S.push(int(variable1))
 
 # ****************************************************************************************
 
