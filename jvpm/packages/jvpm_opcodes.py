@@ -46,7 +46,7 @@ class HeaderClass():
         for i in range(count):
             data_offset = start_of_cp + i + position
             # Utf_8
-            elif self.data[data_offset] == 1:
+            if self.data[data_offset] == 1:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
@@ -55,7 +55,7 @@ class HeaderClass():
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
                 position += 2
             # Pulling class info
-            if self.data[data_offset] == 7:
+            elif self.data[data_offset] == 7:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
