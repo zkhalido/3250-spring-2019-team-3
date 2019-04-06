@@ -221,7 +221,7 @@ class PoolTranslate:
     def translate(self ):
 
         header_class = jvpm_opcodes.HeaderClass()
-        T = PoolTranslate()
+        translate = PoolTranslate()
         temp = header_class.get_const_pool()
         #if d != None:
             #temp = d
@@ -238,17 +238,17 @@ class PoolTranslate:
         while i <= self.byte_list_count :
 
             self.main_index = str(self.main_index)
-            self.super_index =i
+            self.super_index = i
 
-            T.method_dict(self.dictionary, self.main_index, self.super_index)
+            translate.method_dict(self.dictionary, self.main_index, self.super_index)
             self.main_index = int(self.main_index)
             i += 1
             self.main_index = i
-        x = 0
+        counter = 0
         new_dict = self.dictionary
-        while x < len(new_l):
-            new_dict[x].append(new_l[x])
-            x += 1
+        while counter < len(new_l):
+            new_dict[counter].append(new_l[counter])
+            counter += 1
 
         return new_dict
     """
