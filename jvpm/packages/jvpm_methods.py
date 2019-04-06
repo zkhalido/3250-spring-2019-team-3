@@ -34,7 +34,7 @@ class OpCodeMethods():
         S.push(var1)
         
     def get_operation(self):
-        print("The numbers are " + str(OPERATION.pop()) + " and the result is:)
+        print("The numbers are " + str(OPERATION.pop()) + " and the result is:")
 
     def println(self):
         """print from the stack."""
