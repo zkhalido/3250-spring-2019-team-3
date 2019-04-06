@@ -164,7 +164,7 @@ class OpCodes():
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods"""
     def __init__(self):
-        self.opcodes = ['1a', '3b', '3c', 'b6', '3d', 'b6', '3e', '1c', '1d', '60', 'b6']
+        self.opcodes = ['1a', '3b', '1a', '3c', 'b6', '3d', 'b6', '3e', '1c', '1d', '60', 'b6']
 
         """
 
