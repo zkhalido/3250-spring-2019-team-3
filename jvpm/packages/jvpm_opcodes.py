@@ -40,17 +40,19 @@ class HeaderClass():
     def get_const_pool(self):
         """Get CP from .class file."""
         temp = defaultdict(list)
+        start_of_cp = 10
         position = 0
         count = self.get_const_pool_count() - 1
         for i in range(count):
+            data_offset = start_of_cp + i + position
             # Pulling class info
-            if self.data[10 + i + position] == 7:
+            if self.data[data_offset] == 7:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
                 position += 2
             # Field Ref
-            elif self.data[10 + i + position] == 9:
+            elif self.data[data_offset] == 9:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
@@ -58,7 +60,7 @@ class HeaderClass():
                                       self.data[14 + i + position], '02x'))
                 position += 4
             # Method Ref
-            elif self.data[10 + i + position] == 10:
+            elif self.data[data_offset] == 10:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
@@ -66,7 +68,7 @@ class HeaderClass():
                                       self.data[14 + i + position], '02x'))
                 position += 4
             # Interface Method Ref
-            elif self.data[10 + i + position] == 11:
+            elif self.data[data_offset] == 11:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
@@ -74,13 +76,13 @@ class HeaderClass():
                                       self.data[14 + i + position], '02x'))
                 position += 4
             # String
-            elif self.data[10 + i + position] == 8:
+            elif self.data[data_offset] == 8:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
                 position += 4
             # Integer
-            elif self.data[10 + i + position] == 3:
+            elif self.data[data_offset] == 3:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position] +
@@ -88,7 +90,7 @@ class HeaderClass():
                                       self.data[14 + i + position], '02x'))
                 position += 4
             # Float
-            elif self.data[10 + i + position] == 4:
+            elif self.data[data_offset] == 4:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position] +
@@ -96,7 +98,7 @@ class HeaderClass():
                                       self.data[14 + i + position], '02x'))
                 position += 4
             # Long
-            elif self.data[10 + i + position] == 5:
+            elif self.data[data_offset] == 5:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position] +
@@ -108,7 +110,7 @@ class HeaderClass():
                                       self.data[18 + i + position], '02x'))
                 position += 8
             # Double
-            elif self.data[10 + i + position] == 6:
+            elif self.data[data_offset] == 6:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position] +
@@ -120,7 +122,7 @@ class HeaderClass():
                                       self.data[18 + i + position], '02x'))
                 position += 8
             # Name and Type
-            elif self.data[10 + i + position] == 12:
+            elif self.data[data_offset] == 12:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
@@ -128,7 +130,7 @@ class HeaderClass():
                                       self.data[14 + i + position], '02x'))
                 position += 4
             # Utf_8
-            elif self.data[10 + i + position] == 1:
+            elif self.data[data_offset] == 1:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
@@ -138,20 +140,20 @@ class HeaderClass():
                 position += 2
 
             # Method Handle
-            elif self.data[10 + i + position] == 15:
+            elif self.data[data_offset] == 15:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position], '02x'))
                 temp[i].append(format(self.data[12 + i + position] +
                                       self.data[13 + i + position], '02x'))
                 position += 3
             # Method Type
-            elif self.data[10 + i + position] == 16:
+            elif self.data[data_offset] == 16:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
                 position += 2
             # Invoke Dynamic
-            elif self.data[10 + i + position] == 18:
+            elif self.data[data_offset] == 18:
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
