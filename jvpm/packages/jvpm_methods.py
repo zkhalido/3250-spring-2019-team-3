@@ -118,8 +118,7 @@ class OpCodeMethods():
         var1 = S.pop()
         S.push(0 - var1)
 
-    @classmethod
-    def ior(cls):
+    def ior(self):
         """bitwise int OR"""
         var2 = S.pop()
         var1 = S.pop()
