@@ -14,6 +14,7 @@ class HeaderClass():
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
+            temp = defaultdict(list)
 
     def get_magic(self):
         """Get magic from .class file."""
@@ -65,7 +66,7 @@ class HeaderClass():
 
     def get_const_pool(self):
         """Get CP from .class file."""
-        temp = defaultdict(list)
+        # temp = defaultdict(list)
         start_of_cp = 10
         position = 0
         count = self.get_const_pool_count() - 1
