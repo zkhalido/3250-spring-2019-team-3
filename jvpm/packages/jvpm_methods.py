@@ -30,7 +30,7 @@ class OpCodeMethods():
         method = pool_translate.methodrefs[int(iv_const)]
         #print(method)
         method_call = {"nextInt:()I": "next_int"}
-        self.method_call()
+        method_call()
 
 #         # traverse the CP to find the method.
 #         iv_methods = {"println", "nextInt", "iadd", "isub", "imul", "idiv"}
