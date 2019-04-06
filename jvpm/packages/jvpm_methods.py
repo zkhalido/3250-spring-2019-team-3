@@ -7,11 +7,10 @@ from . import jvpm_opcodes
 
 S = Stack()
 VARIABLES = [0]
-iv_const = jvpm_opcodes.inv_virt_const.pop()
+# iv_const = jvpm_opcodes.inv_virt_const.pop()
 
 class OpCodeMethods():
     """CLass of methods that are called from the CP."""
-
     def __init__(self):
         # self.stack = Stack()
         """opcode_methods"""# self.VARIABLES = []
