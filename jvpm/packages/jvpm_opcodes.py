@@ -14,7 +14,6 @@ class HeaderClass():
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
-            temp = defaultdict(list)
 
     def get_magic(self):
         """Get magic from .class file."""
@@ -135,7 +134,11 @@ class HeaderClass():
                 position += 4
             # Name and Type
             elif self.data[data_offset] == 12:
-                self.ten_to_fourteen_B()
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] +
+                                      self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[13 + i + position] +
+                                      self.data[14 + i + position], '02x'))
                 position += 4
             # Method Handle
             elif self.data[data_offset] == 15:
