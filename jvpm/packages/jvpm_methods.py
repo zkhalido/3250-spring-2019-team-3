@@ -26,9 +26,9 @@ class OpCodeMethods():
         
     i = 0
     def get_iv_const(self):
-        for i in jvpm_opcodes.inv_virt_const
-        print(jvpm_opcodes.inv_virt_const[i])
-        i++
+        for i in jvpm_opcodes.inv_virt_const:
+            print(jvpm_opcodes.inv_virt_const[i])
+            i++
         return
 
     def invokevirtual(self):
