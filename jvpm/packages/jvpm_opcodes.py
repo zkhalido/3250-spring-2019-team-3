@@ -4,7 +4,7 @@ from collections import deque
 from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 
 # a deque of invokevirtual constants used for method calls.
-inv_virt_const = deque(["5", "5", "7"])
+INV_VIRT_CONST = deque(["5", "5", "7"])
 
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
