@@ -175,109 +175,109 @@ class test_pool_translate(unittest.TestCase):
 
 
 
-class test_pool_methods(unittest.TestCase):
-    def test_tag_translate(self):
-        new_dict = {
-            "1": "01",
-            "2": "03",
-            "3": "04",
-            "4": "05",
-            "5": "06",
-            "6": "07",
-            "7": "08",
-            "8": "09",
-            "9": "0a",
-            "10": "0b",
-            "11": "0c",
-            "12": "0f",
-            "13": "10",
-            "14": "11",
-            "15": "12",
-            "16": "13",
-            "17": "14"
-        }
-        x = packages.pool_translate.PoolTranslate()
+# class test_pool_methods(unittest.TestCase):
+#     def test_tag_translate(self):
+#         new_dict = {
+#             "1": "01",
+#             "2": "03",
+#             "3": "04",
+#             "4": "05",
+#             "5": "06",
+#             "6": "07",
+#             "7": "08",
+#             "8": "09",
+#             "9": "0a",
+#             "10": "0b",
+#             "11": "0c",
+#             "12": "0f",
+#             "13": "10",
+#             "14": "11",
+#             "15": "12",
+#             "16": "13",
+#             "17": "14"
+#         }
+#         x = packages.pool_translate.PoolTranslate()
 
-        x.dictionary = {
-            '0':"0"
-        }
+#         x.dictionary = {
+#             '0':"0"
+#         }
 
-        x.field_reference()
-        sys.stdout.assert_has_calls(
-            [call.write("Field Reference    4 bytes")]
-        )
-        x.integer()
-        sys.stdout.assert_has_calls(
-            [call.write("Integer  4 bytes")]
-        )
-        x.float()
-        sys.stdout.assert_has_calls(
-            [call.write("Float  4 bytes")]
-        )
-        x.long()
-        sys.stdout.assert_has_calls(
-            [call.write("Long    8 bytes")]
-        )
-        x.double()
-        sys.stdout.assert_has_calls(
-            [call.write("Double    8 bytes")]
-        )
-        x.string_reference()
-        sys.stdout.assert_has_calls(
-            [call.write("String Reference    2 bytes")]
-        )
-        x.field_reference()
-        sys.stdout.assert_has_calls(
-            [call.write("Field Reference    4 bytes")]
-        )
-        x.interface_method_reference()
-        sys.stdout.assert_has_calls(
-            [call.write("Interface Method Reference    4 bytes")]
-        )
-        x.method_handle()
-        sys.stdout.assert_has_calls(
-            [call.write("Method Handle    3 bytes")]
-        )
-        x.method_type()
-        sys.stdout.assert_has_calls(
-            [call.write("Method Type    2 bytes")]
-        )
-        x.dynamic()
-        sys.stdout.assert_has_calls(
-            [call.write("Dynamic    4 bytes")]
-        )
-        x.invoke_dynamic()
-        sys.stdout.assert_has_calls(
-            [call.write("Invoke Dynamic    4 bytes")]
-        )
-        x.module()
-        sys.stdout.assert_has_calls(
-            [call.write("Module    2 bytes")]
-        )
-        x.package()
-        sys.stdout.assert_has_calls(
-            [call.write("Package    2 bytes")]
-        )
+#         x.field_reference()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Field Reference    4 bytes")]
+#         )
+#         x.integer()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Integer  4 bytes")]
+#         )
+#         x.float()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Float  4 bytes")]
+#         )
+#         x.long()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Long    8 bytes")]
+#         )
+#         x.double()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Double    8 bytes")]
+#         )
+#         x.string_reference()
+#         sys.stdout.assert_has_calls(
+#             [call.write("String Reference    2 bytes")]
+#         )
+#         x.field_reference()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Field Reference    4 bytes")]
+#         )
+#         x.interface_method_reference()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Interface Method Reference    4 bytes")]
+#         )
+#         x.method_handle()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Method Handle    3 bytes")]
+#         )
+#         x.method_type()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Method Type    2 bytes")]
+#         )
+#         x.dynamic()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Dynamic    4 bytes")]
+#         )
+#         x.invoke_dynamic()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Invoke Dynamic    4 bytes")]
+#         )
+#         x.module()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Module    2 bytes")]
+#         )
+#         x.package()
+#         sys.stdout.assert_has_calls(
+#             [call.write("Package    2 bytes")]
+#         )
 
 
-        x = packages.pool_methods.TagTranslate()
-        self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
-        self.assertEqual(x.token_dict(new_dict['2']), "Integer")
-        self.assertEqual(x.token_dict(new_dict['3']), "Float")
-        self.assertEqual(x.token_dict(new_dict['4']), "Long")
-        self.assertEqual(x.token_dict(new_dict['5']), "Double")
-        self.assertEqual(x.token_dict(new_dict['6']), "Class Reference")
-        self.assertEqual(x.token_dict(new_dict['7']), "String Reference")
-        self.assertEqual(x.token_dict(new_dict['8']), "Field Reference")
-        self.assertEqual(x.token_dict(new_dict['9']), "Method Reference")
-        self.assertEqual(x.token_dict(new_dict['10']), "Interface Method Reference")
-        self.assertEqual(x.token_dict(new_dict['11']), "Name and Type Descriptor")
-        self.assertEqual(x.token_dict(new_dict['12']), "Method Handle")
-        self.assertEqual(x.token_dict(new_dict['13']), "Method Type")
-        self.assertEqual(x.token_dict(new_dict['14']), "Dynamic")
-        self.assertEqual(x.token_dict(new_dict['15']), "Invoke Dynamic")
-        self.assertEqual(x.token_dict(new_dict['16']), "Module")
-        self.assertEqual(x.token_dict(new_dict['17']), "Package")
+#         x = packages.pool_methods.TagTranslate()
+#         self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
+#         self.assertEqual(x.token_dict(new_dict['2']), "Integer")
+#         self.assertEqual(x.token_dict(new_dict['3']), "Float")
+#         self.assertEqual(x.token_dict(new_dict['4']), "Long")
+#         self.assertEqual(x.token_dict(new_dict['5']), "Double")
+#         self.assertEqual(x.token_dict(new_dict['6']), "Class Reference")
+#         self.assertEqual(x.token_dict(new_dict['7']), "String Reference")
+#         self.assertEqual(x.token_dict(new_dict['8']), "Field Reference")
+#         self.assertEqual(x.token_dict(new_dict['9']), "Method Reference")
+#         self.assertEqual(x.token_dict(new_dict['10']), "Interface Method Reference")
+#         self.assertEqual(x.token_dict(new_dict['11']), "Name and Type Descriptor")
+#         self.assertEqual(x.token_dict(new_dict['12']), "Method Handle")
+#         self.assertEqual(x.token_dict(new_dict['13']), "Method Type")
+#         self.assertEqual(x.token_dict(new_dict['14']), "Dynamic")
+#         self.assertEqual(x.token_dict(new_dict['15']), "Invoke Dynamic")
+#         self.assertEqual(x.token_dict(new_dict['16']), "Module")
+#         self.assertEqual(x.token_dict(new_dict['17']), "Package")
 
 
 
