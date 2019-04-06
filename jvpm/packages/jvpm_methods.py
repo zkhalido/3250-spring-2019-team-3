@@ -12,8 +12,7 @@ iv_const = jvpm_opcodes.inv_virt_const[0]
 class OpCodeMethods():
     """CLass of methods that are called from the CP."""
     def __init__(self):
-        # self.stack = Stack()
-        """opcode_methods"""# self.VARIABLES = []
+        """opcode_methods"""
 
     def iadd(self):
         """iadd: add two ints from the stack"""
@@ -22,11 +21,9 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
         S.push("added")
-        # self.println()
 
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
-        # self.next_int()
         method = pool_translate.methodrefs[int(jvpm_opcodes.inv_virt_const.popleft())]
         self.token_dict(method)
 
