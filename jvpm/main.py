@@ -31,6 +31,8 @@ if '__main__' == __name__:                  #pragma: no cover
             print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key][len(N[key]) - 1])
         else:
             print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key])
+            
+    print(P.methodrefs)
 
     # **********************************************************************************************
     
