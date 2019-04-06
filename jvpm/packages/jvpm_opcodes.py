@@ -14,6 +14,7 @@ class HeaderClass():
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
+            self.temp = defaultdict(list)
 
     def get_magic(self):
         """Get magic from .class file."""
@@ -38,9 +39,8 @@ class HeaderClass():
         return self.data[8] + self.data[9]
     
     def ten_to_twelve(self):
-        temp = defaultdict(list)
-        temp[i].append(format(self.data[10 + i + position], '02x'))
-        temp[i].append(format(self.data[11 + i + position] +
+        self.temp[i].append(format(self.data[10 + i + position], '02x'))
+        self.temp[i].append(format(self.data[11 + i + position] +
                               self.data[12 + i + position], '02x'))
     
     def ten_to_fourteen(self):
@@ -74,7 +74,7 @@ class HeaderClass():
 
     def get_const_pool(self):
         """Get CP from .class file."""
-        temp = defaultdict(list)
+        #temp = defaultdict(list)
         start_of_cp = 10
         position = 0
         count = self.get_const_pool_count() - 1
@@ -107,9 +107,7 @@ class HeaderClass():
                 position += 8
             # Pulling class info
             elif self.data[data_offset] == 7:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
+                self.ten_to_twelve()
                 position += 2
             # String
             elif self.data[data_offset] == 8:
