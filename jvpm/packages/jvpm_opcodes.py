@@ -45,12 +45,12 @@ class HeaderClass():
                               self.data[13 + i + position] +
                               self.data[14 + i + position], '02x'))
         
-#     def ten_to_fourteen_B(self):
-#         temp[i].append(format(self.data[10 + i + position], '02x'))
-#         temp[i].append(format(self.data[11 + i + position] +
-#                               self.data[12 + i + position], '02x'))
-#         temp[i].append(format(self.data[13 + i + position] +
-#                               self.data[14 + i + position], '02x'))
+    def ten_to_fourteen_B(self):
+        temp[i].append(format(self.data[10 + i + position], '02x'))
+        temp[i].append(format(self.data[11 + i + position] +
+                              self.data[12 + i + position], '02x'))
+        temp[i].append(format(self.data[13 + i + position] +
+                              self.data[14 + i + position], '02x'))
         
     def ten_to_eighteen(self):
         temp[i].append(format(self.data[10 + i + position], '02x'))
