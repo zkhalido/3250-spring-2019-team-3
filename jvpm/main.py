@@ -32,7 +32,7 @@ if '__main__' == __name__:                  #pragma: no cover
         else:
             print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key])
             
-    print(P.methodrefs)
+    print(packages.pool_translate.methodrefs)
 
     # **********************************************************************************************
     
