@@ -43,7 +43,6 @@ class PoolTranslate:
             ctext = int2.decode("utf-8", "ignore")
             dtext += ctext
             count += 1
-            methodrefs = dtext
 
         new_l[self.super_index-1] = dtext
         return dtext
@@ -99,6 +98,7 @@ class PoolTranslate:
                 self.main_index = int(self.main_index, 16)
 
             method = PoolTranslate.method_dict(self, self.dictionary, index, super_index)
+            methodrefs = method
             index += 1
             if count < 1:
                 method = method + "."
