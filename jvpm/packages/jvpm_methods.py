@@ -30,7 +30,7 @@ class OpCodeMethods():
 
     def next_int(self):
         """receive input from the keyboard."""
-        var1 = int(input("Enter number: "))
+        var1 = int(input("Enter number:\n"))
         S.push(var1)
         
     def get_operation(self):
