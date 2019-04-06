@@ -1,8 +1,9 @@
 """Read bit stream."""
 from collections import defaultdict
 from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
+from collections import deque
 
-inv_virt_const = ["5", "5", "7"]
+inv_virt_const = deque(["5", "5", "7"])
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
     def __init__(self, name="jvpm/javafiles/test.class"):
