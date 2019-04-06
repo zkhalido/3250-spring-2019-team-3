@@ -20,7 +20,6 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
-        # S.push("added")
         OPERATION.insert(0, "added")
 
     def invokevirtual(self):
@@ -77,7 +76,7 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 / var2)
-        S.push("divided")
+        OPERATION.insert(0, "divided")
 
     def iinc(self):
         """increment local variable."""
@@ -111,7 +110,7 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 * var2)
-        S.push("multiplied")
+        OPERATION.insert(0, "multiplied")
 
     def ineg(self):
         """negate int."""
@@ -168,7 +167,7 @@ class OpCodeMethods():
         var2 = S.pop()
         var1 = S.pop()
         S.push(var1 - var2)
-        S.push("subtracted")
+        OPERATION.insert(0, "subtracted")
 
     def iushr(self):
         """int logical shift right"""
