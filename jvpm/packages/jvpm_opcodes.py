@@ -6,6 +6,8 @@ from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 # a deque of invokevirtual constants used for method calls.
 INV_VIRT_CONST = deque(["5", "5", "7"])
 
+# ****************************************************************************************
+
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
     def __init__(self, name="jvpm/javafiles/test.class"):
@@ -187,3 +189,5 @@ class OpCodes():
             jvpm_methods.OpCodeMethods().token_dict(opcall)
             index += 1
         print()
+        
+# ****************************************************************************************
