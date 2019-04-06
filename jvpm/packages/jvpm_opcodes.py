@@ -68,11 +68,7 @@ class HeaderClass():
                 position += 4
             # Float
             elif self.data[data_offset] == 4:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position] +
-                                      self.data[13 + i + position] +
-                                      self.data[14 + i + position], '02x'))
+                self.ten_to_fourteen()
                 position += 4
             # Long
             elif self.data[data_offset] == 5:
