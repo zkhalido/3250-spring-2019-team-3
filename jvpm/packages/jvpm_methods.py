@@ -7,7 +7,6 @@ from . import jvpm_opcodes, pool_translate
 
 S = Stack()
 VARIABLES = [0]
-# iv_const = jvpm_opcodes.inv_virt_const[0]
 
 class OpCodeMethods():
     """CLass of methods that are called from the CP."""
@@ -34,7 +33,7 @@ class OpCodeMethods():
 
     def println(self):
         """print from the stack"""
-        print("The numbers are " + str(S.pop()) + " and the result is: " + str(S.peek()))
+        print("The numbers are " + str(S.pop()) + " and the result is: " + str(S.pop()))
         # print(jvpm_opcodes.inv_virt_const.popleft())
 
     def iand(self):
