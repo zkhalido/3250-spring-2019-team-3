@@ -13,7 +13,8 @@ class OpCodeMethods():
     def __init__(self):
         """opcode_methods"""
 
-    def iadd(self):
+    @classmethod
+    def iadd(cls):
         """iadd: add two ints from the stack."""
         print("Method called: iadd")
         var2 = numpy.int32(S.pop())
