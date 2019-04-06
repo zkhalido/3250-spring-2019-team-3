@@ -110,7 +110,11 @@ class HeaderClass():
                 position += 4
             # Field Ref
             elif self.data[data_offset] == 9:
-                self.ten_to_fourteen_B()
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] +
+                                      self.data[12 + i + position], '02x'))
+                temp[i].append(format(self.data[13 + i + position] +
+                                      self.data[14 + i + position], '02x'))
                 position += 4
             # Method Ref
             elif self.data[data_offset] == 10:
