@@ -21,6 +21,7 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
         OPERATION.insert(0, "added")
+        self.get_operation(self)
 
     def invokevirtual(self):
         """gets method from constant pool and calls it."""
@@ -31,6 +32,9 @@ class OpCodeMethods():
         """receive input from the keyboard."""
         var1 = int(input("Enter number: "))
         S.push(var1)
+        
+    def get_operation(self):
+        print("The numbers are " + str(OPERATION.pop()) + " and the result is:)
 
     def println(self):
         """print from the stack."""
