@@ -14,7 +14,7 @@ class HeaderClass():
             self.temp_2 = defaultdict(list)
 
     def get_magic(self):
-        """get magic from .class file."""
+        """Get magic from .class file."""
         magic = ""
         for i in range(4):
             magic += format(self.data[i], '02X')
@@ -22,21 +22,21 @@ class HeaderClass():
         return magic
 
     def get_minor(self):
-        """get minor from .class file."""
+        """Get minor from .class file."""
         print("Minor: ", self.data[4] + self.data[5])
         return self.data[4] + self.data[5]
 
     def get_major(self):
-        """get major from .class file."""
+        """Get major from .class file."""
         print("Major: ", self.data[6] + self.data[7])
         return self.data[6] + self.data[7]
 
     def get_const_pool_count(self):
-        """get CP count from .class file."""
+        """Get CP count from .class file."""
         return self.data[8] + self.data[9]
 
     def get_const_pool(self):
-        """get CP from .class file."""
+        """Get CP from .class file."""
         temp = defaultdict(list)
         position = 0
         count = self.get_const_pool_count() - 1
