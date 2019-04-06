@@ -6,6 +6,7 @@ from .stack import Stack
 
 S = Stack()
 VARIABLES = [0]
+iv_const = jvpm_opcodes.inv_virt_const.pop()
 
 class OpCodeMethods():
     """CLass of methods that are called from the CP."""
