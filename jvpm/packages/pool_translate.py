@@ -12,8 +12,8 @@ class PoolTranslate:
         H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/tester.class")
         self.dictionary = H.get_const_pool()
         self.byte_list_count = len(self.dictionary.keys())
-        global new_l
-        new_l = []
+        #global new_l
+        global new_l = []
         self.current_k = 0
         self.main_index =0
         self.super_index = 0
