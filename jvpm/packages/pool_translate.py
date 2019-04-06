@@ -13,7 +13,7 @@ class PoolTranslate:
         global new_l
         new_l = []
         self.current_k = 0
-        self.main_index =0
+        self.main_index = 0
         self.super_index = 0
         dictLen = len(self.dictionary)
         i = 0
@@ -79,10 +79,8 @@ class PoolTranslate:
 
     def field_reference(self,  new_li, super_index):
         """field reference""" #9
-        # print("Field Reference    4 bytes")
 
     def method_reference(self, di, super_index):             #
-        # print("Method Reference    4 bytes")
         self.super_index = super_index
         di2 = di
         index = 0
