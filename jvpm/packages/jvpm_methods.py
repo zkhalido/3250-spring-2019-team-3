@@ -22,12 +22,12 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
         S.push("added")
-        self.println()
+        # self.println()
 
     def invokevirtual(self):
         """gets method from constant pool and calls it"""
         # self.next_int()
-        method = pool_translate.methodrefs[int(iv_const)]
+        method = pool_translate.methodrefs[int(jvpm_opcodes.inv_virt_const.popleft())]
         self.token_dict(method)
 
     def next_int(self):
