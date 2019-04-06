@@ -11,7 +11,7 @@ from collections import defaultdict
 class HeaderClass():
 
     def __init__(self):
-        with open('../javafiles/test.class', 'rb') as binary_file:
+        with open('../javafiles/testPrintLine.class', 'rb') as binary_file:
             self.data = binary_file.read()
 
     def get_magic(self):
@@ -32,11 +32,64 @@ class HeaderClass():
     def get_const_pool_count(self):
         # print("Contant Pool Count: ", self.data[8] + self.data[9])
         return self.data[8] + self.data[9]
+    
 
+    
     def get_const_pool(self):
+        
+        def temp_append(self, extra_offset, current_offset):
+            to_append = 0
+            if type(extra_offset) == list:
+                for offset in extra_offset:
+                    to_append += self.data[current_offset + offset]
+                to_append = format(to_append, '02x')
+            else:
+                to_append = format(self.data[current_offset + extra_offset], '02x')
+            return to_append
+        
+        START_OF_CONSTANT_POOL = 10
+        
+        CLASS_REFERENCE = 7
+        FIELD_REFERENCE = 9
+        METHOD_REFERENCE = 10
+        INTERFACE_METHOD_REFERENCE = 11
+        STRING_REFERENCE = 8
+        INTEGER = 3
+        FLOAT = 4
+        LONG = 5
+        DOUBLE = 6
+        NAME_AND_TYPE = 12
+        UTF8_STRING = 1
+        METHOD_HANDLE = 15
+        METHOD_TYPE = 16
+        INVOKE_DYNAMIC = 18
+        MODULE = 19
+        
+        
+        some_array = []
+        
+        constant_dict = {
+               CLASS_REFERENCE: [[0, [1, 2]], 2],
+               FIELD_REFERENCE: [[0, [1, 2], [3, 4]], 4],
+               METHOD_REFERENCE: [[0, [1, 2], [3,4]], 4],
+               INTERFACE_METHOD_REFERENCE: [[0, [1, 2], [3, 4]], 4],
+               STRING_REFERENCE: [[0, [1, 2]], 4],
+               INTEGER: [[0, [1, 2, 3, 4]], 4],
+               FLOAT: [[0, [1, 2, 3, 4]], 4],
+               LONG: [[0, [1, 2, 3, 4], [5, 6, 7, 8]], 8],
+               DOUBLE: [[0, [1, 2, 3, 4], [5, 6, 7, 8]], 8],
+               NAME_AND_TYPE: [[0, [1, 2], [3, 4]], 4],
+               UTF8_STRING: [[0, [1, 2], some_array], 2],  ####### SPECIAL CASE
+               METHOD_HANDLE: [[0, 1, [2, 3]], 3],
+               METHOD_TYPE: [[0, [1, 2]], 2],
+               INVOKE_DYNAMIC: [[0,[1, 2], [3, 4]], 4],
+               MODULE: [[],2]
+                }
+        
         temp = defaultdict(list)
         count = self.get_const_pool_count() - 1
         for i in range(count):
+<<<<<<< HEAD
             # Pulling class info
             if self.data[10 + i + position] == 7:
                 temp[i] = single_part_tuple(self, 10 + i + position)
@@ -93,30 +146,20 @@ class HeaderClass():
                 position += 4
             # Utf_8
             elif self.data[10 + i + position] == 1:
+=======
+            DATA_OFFSET = START_OF_CONSTANT_POOL + position + i
+            if self.data[DATA_OFFSET] == UTF8_STRING:
+>>>>>>> f98f492b4039b9d349b544f7d9858b3ba1d198a2
                 temp[i].append(format(self.data[10 + i + position], '02x'))
                 temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
                 for f in range (self.data[11 + i + position] + self.data[12 + i + position]):
                     temp[i].append(format(self.data[13 + i + position + f], '02x'))
                 position += (self.data[11 + i + position] + self.data[12 + i + position])
                 position += 2
-
-            # Method Handle
-            elif self.data[10 + i + position] == 15:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position], '02x'))
-                temp[i].append(format(self.data[12 + i + position] + self.data[13 + i + position], '02x'))
-                position += 3
-            # Method Type
-            elif self.data[10 + i + position] == 16:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                position += 2
-            # Invoke Dynamic
-            elif self.data[10 + i + position] == 18:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
+            else:
+                for extra_offset in constant_dict[self.data[DATA_OFFSET]][0]:
+                    temp[i].append(temp_append(self, extra_offset, DATA_OFFSET))
+                position += constant_dict[self.data[DATA_OFFSET]][1]
         return temp
 
     
@@ -153,7 +196,8 @@ class HeaderClass():
         #print(format(self.data[holder + 6], '02X'))
         #print(format(self.data[holder + 7], '02X'))
         return self.data[holder + 6] + self.data[holder + 7]
-
+    
+    
     def get_interfaces(self):
         temp = []
         count = self.get_interfaces_count()
@@ -181,7 +225,7 @@ class HeaderClass():
         #print(temp)
 =======
         index = self.get_const_pool_length() + self.get_interfaces_count() + 18
-        if(count<0):
+        if(count > 0):
             for i in range(count):
                  temp.append(format(self.data[index + i], '02X'))
             print("Fields Length: ", len(temp))
@@ -202,7 +246,7 @@ class HeaderClass():
         count = self.get_methods_count()
         index = position + self.get_interfaces_count() + self.get_fields_count() + 35
         print("index = " + str(index))
-        if(count < 0):
+        if(count > 0):
             for i in range(count):
                 temp.append(format(self.data[index + i], '02X'))
             print("Methods Length: ", len(temp))

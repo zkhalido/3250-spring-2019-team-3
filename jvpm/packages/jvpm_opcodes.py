@@ -1,5 +1,5 @@
 """Read bit stream."""
-
+from collections import defaultdict
 from pip._vendor.distlib.compat import raw_input
 <<<<<<< HEAD:jvpm/jvpm_opcodes.py
 import jvpm_dict    # import external opcode dictionary
@@ -20,7 +20,6 @@ class HeaderClass():
 =======
 
 from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
-from collections import defaultdict
 
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
