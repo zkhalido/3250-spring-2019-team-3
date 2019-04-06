@@ -126,10 +126,10 @@ class HeaderClass():
                 position += 4
             # Method Ref
             elif self.data[data_offset] == 10:
-                self.temp[i].append(format(self.data[10 + i + position], '02x'))
-                self.temp[i].append(format(self.data[11 + i + position] +
+                temp[i].append(format(self.data[10 + i + position], '02x'))
+                temp[i].append(format(self.data[11 + i + position] +
                                       self.data[12 + i + position], '02x'))
-                self.temp[i].append(format(self.data[13 + i + position] +
+                temp[i].append(format(self.data[13 + i + position] +
                                       self.data[14 + i + position], '02x'))
                 position += 4
             # Interface Method Ref
