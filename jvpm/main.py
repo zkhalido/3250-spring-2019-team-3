@@ -41,6 +41,7 @@ if '__main__' == __name__:                  #pragma: no cover
 
     packages.jvpm_opcodes.OpCodes().dict_search()
     print(packages.jvpm_opcodes.inv_virt_const)
+    print(packages.jvpm_opcodes.inv_virt_const.pop())
     
 
     # **********************************************************************************************
