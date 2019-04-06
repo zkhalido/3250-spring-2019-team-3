@@ -4,7 +4,7 @@ from collections import deque
 from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 
 # a deque of invokevirtual constants used for method calls.
-INV_VIRT_CONST = deque(["5", "5", "7"])
+INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 
 # ****************************************************************************************
 
