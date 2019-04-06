@@ -30,7 +30,7 @@ class OpCodeMethods():
 
     def next_int(self):
         """receive input from the keyboard."""
-        var1 = int(input("Enter number:\n"))
+        var1 = numpy.int32(int(input("Enter number:\n")))
         S.push(var1)
         
     def get_operation(self):
@@ -43,8 +43,8 @@ class OpCodeMethods():
 
     def iand(self):
         """perform a bitwise AND on two integers."""
-        var2 = S.pop()
-        var1 = S.pop()
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
         S.push(var1 & var2)
 
     def iconst_m1(self):
@@ -120,31 +120,31 @@ class OpCodeMethods():
 
     def ineg(self):
         """negate int."""
-        var1 = S.pop()
+        var1 = numpy.int32(S.pop())
         S.push(0 - var1)
 
     def ior(self):
         """bitwise int OR."""
-        var2 = S.pop()
-        var1 = S.pop()
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
         S.push(var1 | var2)
 
     def irem(self):
         """logical in remainder."""
-        var2 = S.pop()
-        var1 = S.pop()
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
         S.push(var1 % var2)
 
     def ishl(self):
         """int shift left."""
-        var2 = S.pop()
-        var1 = S.pop()
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
         S.push(var1 << var2)
 
     def ishr(self):
         """int arithmetic shift right."""
-        var2 = S.pop()
-        var1 = S.pop()
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
         S.push(var1 >> var2)
 
     def istore_0(self):
@@ -170,16 +170,16 @@ class OpCodeMethods():
 
     def isub(self):
         """int subtract"""
-        var2 = S.pop()
-        var1 = S.pop()
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
         S.push(var1 - var2)
         OPERATION.insert(0, "subtracted")
         self.get_operation()
 
     def iushr(self):
         """int logical shift right"""
-        var2 = S.pop()
-        var1 = S.pop()
+        var2 = numpy.int32(S.pop())
+        var1 = numpy.int32(S.pop())
         if var1 >= 0:
             S.push(var1 >> var2)
         else:
@@ -187,8 +187,8 @@ class OpCodeMethods():
 
     def ixor(self):
         """xor"""
-        variable2 = S.pop()
-        variable1 = S.pop()
+        variable2 = numpy.int32(S.pop())
+        variable1 = numpy.int32(S.pop())
         S.push(variable1 ^ variable2)
 
     def i2b(self):
@@ -198,7 +198,7 @@ class OpCodeMethods():
 
     def i2c(self):
         """convert int to character"""
-        variable1 = S.pop()
+        variable1 = numpy.int32(S.pop())
         S.push(chr(variable1))
 
     def i2f(self):
@@ -208,7 +208,7 @@ class OpCodeMethods():
 
     def i2l(self):
         """convert int to long"""
-        variable1 = S.pop()
+        variable1 = numpy.int32(S.pop())
         S.push(int(variable1))
 
     def i2s(self):
@@ -220,6 +220,12 @@ class OpCodeMethods():
         """convert int to decimal"""
         variable1 = numpy.int64(S.pop())
         S.push(int(variable1))
+
+    def bipush(self):
+        """byte is sign-extended to an int value"""
+        variable1 = numpy.int32(S.pop())
+        sign_bit = 1 << 32
+
 
 # ****************************************************************************************
 
