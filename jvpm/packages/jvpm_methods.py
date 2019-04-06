@@ -29,10 +29,10 @@ class OpCodeMethods():
         self.next_int()
         method = pool_translate.methodrefs[int(iv_const)]
         #print(method)
-        method_call = {"nextInt:()I": "next_int"}
-        method_X = method_call.get(method, "invalid")
+        method_call = {"nextInt:()I": next_int}
+        method_X = method_call.get(method, lambda: "invalid")
         print(method_X)
-        #method_X()
+        method_X()
 
 #         # traverse the CP to find the method.
 #         iv_methods = {"println", "nextInt", "iadd", "isub", "imul", "idiv"}
