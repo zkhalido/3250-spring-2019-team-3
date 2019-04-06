@@ -3,7 +3,9 @@ from collections import defaultdict
 from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 from collections import deque
 
+# a deque of invokevirtual constants used for method calls.
 inv_virt_const = deque(["5", "5", "7"])
+
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
     def __init__(self, name="jvpm/javafiles/test.class"):
@@ -12,7 +14,7 @@ class HeaderClass():
             self.temp_2 = defaultdict(list)
 
     def get_magic(self):
-        """get magic from .class file"""
+        """get magic from .class file."""
         magic = ""
         for i in range(4):
             magic += format(self.data[i], '02X')
@@ -20,21 +22,21 @@ class HeaderClass():
         return magic
 
     def get_minor(self):
-        """get minor from .class file"""
+        """get minor from .class file."""
         print("Minor: ", self.data[4] + self.data[5])
         return self.data[4] + self.data[5]
 
     def get_major(self):
-        """get major from .class file"""
+        """get major from .class file."""
         print("Major: ", self.data[6] + self.data[7])
         return self.data[6] + self.data[7]
 
     def get_const_pool_count(self):
-        """get CP count from .class file"""
+        """get CP count from .class file."""
         return self.data[8] + self.data[9]
 
     def get_const_pool(self):
-        """get CP from .class file"""
+        """get CP from .class file."""
         temp = defaultdict(list)
         position = 0
         count = self.get_const_pool_count() - 1
@@ -162,7 +164,7 @@ class HeaderClass():
 class OpCodes():
 
     """Parse Opcodes into an array from the .class file, search the external dictionary of
-    opcodes, and implement the methods using the external dictionary of methods"""
+    opcodes, and implement the methods using the external dictionary of methods."""
     def __init__(self):
         self.opcodes = ['1a', '3b', '1a', '3c', 'b6', '3d', 'b6', '3e', '1c', '1d', '60', 'b6']
 
@@ -176,7 +178,7 @@ class OpCodes():
         """
 
     def dict_search(self):
-        """dictionary search method"""
+        """dictionary search method."""
         print("Method Opcodes from the .class file: \n" + str(self.opcodes))
         index = 0
         while index < len(self.opcodes):
