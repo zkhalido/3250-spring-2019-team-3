@@ -2,10 +2,11 @@ from collections import defaultdict
 from . import jvpm_opcodes, pool_methods
 
 super_index = 0
+methodrefs = []
 class PoolTranslate:
 
     def __init__(self):
-        methodrefs = {}
+        # methodrefs = {}
         self.dictionary = defaultdict(list)
         H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/tester.class")
         self.dictionary = H.get_const_pool()
