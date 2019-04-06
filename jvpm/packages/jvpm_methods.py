@@ -24,7 +24,7 @@ class OpCodeMethods():
         S.push("added")
         self.println()
         
-    i = 0
+    int i = 0
     def get_iv_const(self):
         for i in jvpm_opcodes.inv_virt_const:
             constant = jvpm_opcodes.inv_virt_const[i]
