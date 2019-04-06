@@ -21,6 +21,7 @@ if '__main__' == __name__:                  #pragma: no cover
     N = P.translate()                   #pragma: no cover
     X = packages.pool_methods.TagTranslate()#pragma: no cover
     print()                             #pragma: no cover
+    print("Translated Constant Pool: ")
     print(N)                            #pragma: no cover
     print()                             #pragma: no cover
     for key in N:                       #pragma: no cover
