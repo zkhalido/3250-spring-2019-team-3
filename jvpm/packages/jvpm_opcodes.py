@@ -66,7 +66,7 @@ class HeaderClass():
 
     def get_const_pool(self):
         """Get CP from .class file."""
-        #temp = defaultdict(list)
+        temp = defaultdict(list)
         start_of_cp = 10
         position = 0
         count = self.get_const_pool_count() - 1
