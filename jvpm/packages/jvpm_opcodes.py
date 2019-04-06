@@ -107,15 +107,11 @@ class HeaderClass():
                 position += 8
             # Pulling class info
             elif self.data[data_offset] == 7:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
+                self.ten_to_twelve()
                 position += 2
             # String
             elif self.data[data_offset] == 8:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
+                self.ten_to_twelve()
                 position += 4
             # Field Ref
             elif self.data[data_offset] == 9:
@@ -158,9 +154,7 @@ class HeaderClass():
                 position += 3
             # Method Type
             elif self.data[data_offset] == 16:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] +
-                                      self.data[12 + i + position], '02x'))
+                self.ten_to_twelve()
                 position += 2
             # Invoke Dynamic
             elif self.data[data_offset] == 18:
