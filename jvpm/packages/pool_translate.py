@@ -76,7 +76,7 @@ class PoolTranslate:
     def string_reference(self):             #8
         print("String Reference    2 bytes")
 
-    def field_reference(self,  new_li, self.super_index):              #9
+    def field_reference(self,  new_li, super_index):              #9
         print("Field Reference    4 bytes")
 
     def method_reference(self, di, super_index):             #
