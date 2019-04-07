@@ -1,5 +1,6 @@
 from collections import defaultdict
 from . import jvpm_opcodes, pool_methods
+import easygui
 
 super_index = 0
 methodrefs = []
