@@ -13,26 +13,26 @@ class OpCodeMethods():
     """CLass of methods that are called from the CP."""
     def __init__(self):
         """opcode_methods"""
-        
+
     def aload_0(self):
         """(2a)Load a reference to the stack."""
         # forcing it to work.
         self.iconst_0()
-        
+
     def aload_1(self):
         """(2b)Load a reference to stack."""
         # do nothing
-        
+
     def astore_1(self):
         """Store reference to the local array."""
         self.istore_1()
-        
+
     def dup(self):
         """Doubles the stack."""
         # forcing it to work.
         self.iconst_0()
         self.istore_0()
-        
+
 
     def iadd(self):
         """iadd: add two ints from the stack."""
@@ -55,7 +55,7 @@ class OpCodeMethods():
         """receive input from the keyboard."""
         var1 = numpy.int32(int(input("Enter number: ")))
         S.push(var1)
-        
+
     def get_operation(self):
         """gets the operation from the local stack."""
         print(str(OPERATION.pop()) + " and the result is:")
@@ -297,12 +297,12 @@ class OpCodeMethods():
         "nextInt:()I": next_int,
         "println:(I)V": println
     }
-    
+
 # ****************************************************************************************
 
     def token_dict(self, argument):
         """dictionary search"""
         method = OpCodeMethods.dictionary.get(argument, "invalid")
         return method(self)
-    
+
 # ****************************************************************************************
