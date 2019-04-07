@@ -19,7 +19,7 @@ class OpCodeMethods():
         # forcing it to work.
         self.iconst_0()
         
-    def aload_1(self)
+    def aload_1(self):
         """(2b)Load a reference to stack."""
         # do nothing
         
