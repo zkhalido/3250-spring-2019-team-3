@@ -5,6 +5,7 @@ Method finds bytecode in dictionary and returns opcode
 
 
 jvpm_dict = {
+    "2a": "aload_0",
     "91": "i2b",             # convert an int into a byte
     "92": "i2c",             # convert an int into a character
     "87": "i2d",             # convert an int into a double
