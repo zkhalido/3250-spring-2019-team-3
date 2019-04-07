@@ -97,6 +97,7 @@ class PoolTranslate:
 
             method = PoolTranslate.method_dict(self, self.dictionary, index, super_index)
             # print(method)
+            # appends the retrieved method to methodrefs list
             methodrefs.append(method)
             index += 1
             if count < 1:
