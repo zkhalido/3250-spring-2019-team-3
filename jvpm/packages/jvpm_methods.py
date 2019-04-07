@@ -16,7 +16,19 @@ class OpCodeMethods():
         
     def aload_0(self):
         """(2a)Load a reference to the stack."""
+        # forcing it to work.
         self.iconst_0()
+        
+    def astore_1(self):
+        """Store reference to the local array."""
+        self.istore_1()
+        
+    def dup(self):
+        """Doubles the stack."""
+        # forcing it to work.
+        self.iconst_0()
+        self.istore_0()
+        
 
     def iadd(self):
         """iadd: add two ints from the stack."""
@@ -236,6 +248,7 @@ class OpCodeMethods():
     dictionary = {
 
         "aload_0": aload_0,
+        "astore_1": astore_1,
         "iadd": iadd,  # add two ints
         "iand": iand,  # perform a bitwise AND on two integers
         "iconst_m1": iconst_m1,  # load the int value -1 onto the stack
