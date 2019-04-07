@@ -3,7 +3,7 @@ from collections import defaultdict
 from collections import deque
 from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 
-# a deque of invokevirtual constants used for method calls.
+# a deque of invokevirtual constants used for method calls from AddToo.class.
 INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 
 # ****************************************************************************************
