@@ -13,6 +13,10 @@ class OpCodeMethods():
     """CLass of methods that are called from the CP."""
     def __init__(self):
         """opcode_methods"""
+        
+    def aload_0(self):
+        """(2a)Load a reference to the stack."""
+        self.iconst_0()
 
     def iadd(self):
         """iadd: add two ints from the stack."""
@@ -231,6 +235,7 @@ class OpCodeMethods():
 
     dictionary = {
 
+        "aload_0": aload_0,
         "iadd": iadd,  # add two ints
         "iand": iand,  # perform a bitwise AND on two integers
         "iconst_m1": iconst_m1,  # load the int value -1 onto the stack
