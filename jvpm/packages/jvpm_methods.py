@@ -41,8 +41,8 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
         OPERATION.insert(0, "added")
-        print("Method called: iadd(60), the numbers are " + OPERATION[0])
-        self.get_operation()
+        print("Method called: iadd(60), the numbers are " + OPERATION.pop())
+        # self.get_operation()
 
     def invokevirtual(self):
         """gets method from constant pool and calls it."""
