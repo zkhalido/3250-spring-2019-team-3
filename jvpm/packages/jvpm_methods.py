@@ -36,7 +36,7 @@ class OpCodeMethods():
 
     def iadd(self):
         """iadd: add two ints from the stack."""
-        print("Method called: iadd(60), ")
+        print("Method called: iadd(60), the numbers are")
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
@@ -56,7 +56,7 @@ class OpCodeMethods():
         
     def get_operation(self):
         """gets the operation from the local stack."""
-        print("the numbers are " + str(OPERATION.pop()) + " and the result is:")
+        print(str(OPERATION.pop()) + " and the result is:")
 
     def println(self):
         """print from the stack."""
