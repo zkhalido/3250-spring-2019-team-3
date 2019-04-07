@@ -252,6 +252,7 @@ class OpCodeMethods():
     dictionary = {
 
         "aload_0": aload_0,
+        "aload_1": aload_1,
         "astore_1": astore_1,
         "dup": dup,
         "iadd": iadd,  # add two ints
