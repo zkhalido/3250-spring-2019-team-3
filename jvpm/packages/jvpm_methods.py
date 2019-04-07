@@ -36,13 +36,12 @@ class OpCodeMethods():
 
     def iadd(self):
         """iadd: add two ints from the stack."""
-        #print("Method called: iadd(60). " + str(self.get_operation()))
+        print("Method called: iadd(60) ")
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
         OPERATION.insert(0, "added")
-        print("Method called: iadd(60). " + str(self.get_operation()))
-        # self.get_operation()
+        self.get_operation()
 
     def invokevirtual(self):
         """gets method from constant pool and calls it."""
