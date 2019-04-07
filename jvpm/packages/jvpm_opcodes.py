@@ -185,7 +185,7 @@ class OpCodes():
 
     def dict_search(self):
         """dictionary search method."""
-        print("Method Opcodes from the .class file: \n" + str(self.opcodes))
+        print("Method Opcodes called from the .class file: \n" + str(self.opcodes))
         index = 0
         while index < len(self.opcodes):
             opcall = jvpm_dict.get_opcode(self.opcodes[index])
