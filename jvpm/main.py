@@ -41,7 +41,7 @@ if '__main__' == __name__:                  #pragma: no cover
           ' Take input from the keybaord:___\n')
 
     packages.jvpm_opcodes.OpCodes().dict_search()
-    packages.jvpm_opcodes.OpCodes.get_opcode_bytes()
+    print(packages.jvpm_opcodes.OpCodes.get_opcode_bytes())
     
 
     # **********************************************************************************************
