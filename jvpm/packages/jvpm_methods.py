@@ -249,6 +249,7 @@ class OpCodeMethods():
 
         "aload_0": aload_0,
         "astore_1": astore_1,
+        "dup": dup,
         "iadd": iadd,  # add two ints
         "iand": iand,  # perform a bitwise AND on two integers
         "iconst_m1": iconst_m1,  # load the int value -1 onto the stack
