@@ -2,6 +2,7 @@
 import numpy
 from .stack import Stack
 from . import jvpm_opcodes, pool_translate
+# pylint: disable=R0201
 
 # ****************************************************************************************
 
