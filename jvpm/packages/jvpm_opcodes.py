@@ -36,15 +36,15 @@ class HeaderClass():
     def get_const_pool_count(self):
         """Get CP count from .class file."""
         return self.data[8] + self.data[9]
-    
-    def ten_to_fourteen(self):
-        """CP algorithm."""
-        temp = defaultdict(list)
-        temp[i].append(format(self.data[10 + i + position], '02x'))
-        temp[i].append(format(self.data[11 + i + position] +
-                              self.data[12 + i + position] +
-                              self.data[13 + i + position] +
-                              self.data[14 + i + position], '02x'))
+
+#     def ten_to_fourteen(self):
+#         """CP algorithm."""
+#         temp = defaultdict(list)
+#         temp[i].append(format(self.data[10 + i + position], '02x'))
+#         temp[i].append(format(self.data[11 + i + position] +
+#                               self.data[12 + i + position] +
+#                               self.data[13 + i + position] +
+#                               self.data[14 + i + position], '02x'))
 
     def get_const_pool(self):
         """Get CP from .class file."""
@@ -65,11 +65,11 @@ class HeaderClass():
                 position += 2
             # Integer
             elif self.data[data_offset] == 3:
-                self.ten_to_fourteen()
+                # self.ten_to_fourteen()
                 position += 4
             # Float
             elif self.data[data_offset] == 4:
-                self.ten_to_fourteen()
+                # self.ten_to_fourteen()
                 position += 4
             # Long
             elif self.data[data_offset] == 5:
@@ -191,5 +191,5 @@ class OpCodes():
             jvpm_methods.OpCodeMethods().token_dict(opcall)
             index += 1
         print()
-        
+
 # ****************************************************************************************
