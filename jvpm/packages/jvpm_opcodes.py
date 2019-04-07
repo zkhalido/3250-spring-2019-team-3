@@ -193,3 +193,10 @@ class OpCodes():
         print()
 
 # ****************************************************************************************
+    def get_opcode_bytes():
+        input_file = input("Enter class filename")
+        data = []
+        if input_file.upper() == "HELLOWORLD":
+            with open("jvpm/javafiles/HelloWorld.class","rb"):
+        if input_file.upper() == "TESTPRINTLINE":    
+            with open("jvpm/javafiles/testPrintLine.class","rb"):
