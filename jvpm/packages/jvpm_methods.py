@@ -19,6 +19,10 @@ class OpCodeMethods():
         # forcing it to work.
         self.iconst_0()
         
+    def aload_1(self)
+        """(2b)Load a reference to stack."""
+        # do nothing
+        
     def astore_1(self):
         """Store reference to the local array."""
         self.istore_1()
