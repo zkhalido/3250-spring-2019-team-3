@@ -14,7 +14,7 @@ class UnittestHeader(unittest.TestCase):
         self.assertEqual(self.cf.get_magic(), 'CAFEBABE')
         self.assertEqual(self.cf.get_minor(), 0)
         self.assertTrue(53 <= self.cf.get_major() <= 55)
-        self.assertEqual(self.cf.get_const_pool_count(), 15)
+        self.assertEqual(self.cf.get_const_pool_count(), 42)
 
 class test_get_opcode(unittest.TestCase):
     def test_opcode(self):
