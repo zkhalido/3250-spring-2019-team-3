@@ -41,14 +41,13 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
         OPERATION.insert(0, "added")
-        print("Method called: iadd(60), the numbers are " + OPERATION.pop() +
-              " and the result is: ")
+        print("(60)iadd() called, the numbers are added and the result is: ")
         # self.get_operation()
 
     def invokevirtual(self):
         """gets method from constant pool and calls it."""
         method = pool_translate.methodrefs[int(jvpm_opcodes.INVOKEVIRTUAL_CONST.popleft())]
-        print("Invokevirtual(b6) Method called: " + method)
+        print("(b6)Invokevirtual Method called: " + method)
         self.token_dict(method)
 
     def next_int(self):
