@@ -245,11 +245,6 @@ class OpCodeMethods():
         variable1 = numpy.int64(S.pop())
         S.push(int(variable1))
 
-    def bipush(self):
-        """byte is sign-extended to an int value"""
-#         variable1 = numpy.int32(S.pop())
-#         sign_bit = 1 << 32
-
 
 # ****************************************************************************************
 
