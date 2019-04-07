@@ -11,8 +11,8 @@ class PoolTranslate:
     def __init__(self):
         self.dictionary = defaultdict(list)
         # H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/AddTwo.class")
-        H = jvpm_opcodes.HeaderClass(name = input("What file do you want to open?"))
-        self.dictionary = H.get_const_pool()
+        # H = jvpm_opcodes.HeaderClass(name = input("What file do you want to open? "))
+        self.dictionary = jvpm_opcodes.HeaderClass(name = input("What file do you want to open? ")).get_const_pool()
         self.byte_list_count = len(self.dictionary.keys())
         global new_l
         new_l = []
