@@ -35,7 +35,6 @@ class OpCodeMethods():
         self.iconst_0()
         self.istore_0()
 
-
     def iadd(self):
         """iadd: add two ints from the stack."""
         var2 = numpy.int32(S.pop())
