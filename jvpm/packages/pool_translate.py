@@ -1,6 +1,5 @@
 from collections import defaultdict
 from . import jvpm_opcodes, pool_methods
-import easygui
 
 super_index = 0
 methodrefs = []
@@ -11,9 +10,8 @@ class PoolTranslate:
 
     def __init__(self):
         self.dictionary = defaultdict(list)
-        # H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/AddTwo.class")
-        H = jvpm_opcodes.HeaderClass(name = easygui.fileopenbox())
-        # easygui.fileopenbox()
+        H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/AddTwo.class")
+        easygui.fileopenbox()
         # H = jvpm_opcodes.HeaderClass(name = input("What file do you want to open? "))
         self.dictionary = H.get_const_pool()
         self.byte_list_count = len(self.dictionary.keys())
