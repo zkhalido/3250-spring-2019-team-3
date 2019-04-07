@@ -199,6 +199,8 @@ class OpCodes():
         if input_file.upper() == "HELLOWORLD":
             with open("jvpm/javafiles/HelloWorld.class",'rb') as binary_file:
                 opcode_bytes = binary_file[336:343]
+                self.op_bytes = binary_file.read()
+                print(self.op_bytes)
                 return opcode_bytes
         if input_file.upper() == "TESTPRINTLINE":    
             with open("jvpm/javafiles/testPrintLine.class",'rb') as binary_file:
