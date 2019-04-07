@@ -42,7 +42,7 @@ class OpCodeMethods():
         S.push(var1 + var2)
         OPERATION.insert(0, "added")
         print("Method called: iadd(60), the numbers are " + OPERATION.pop() +
-              " and the result is: )
+              " and the result is: ")
         # self.get_operation()
 
     def invokevirtual(self):
