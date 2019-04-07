@@ -194,7 +194,7 @@ class OpCodes():
 
 # ****************************************************************************************
     def get_opcode_bytes():
-        input_file = input("Enter class filename")
+        input_file = input("Enter class filename: ")
         data = []
         if input_file.upper() == "HELLOWORLD":
             with open("jvpm/javafiles/HelloWorld.class",'rb') as binary_file:
