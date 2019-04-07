@@ -17,7 +17,7 @@ class OpCodeMethods():
 
     def aload_0(self):
         """(2a)Load a reference to the stack."""
-        # forcing it to work.
+        # forcing it to work by using iconst_0.
         self.iconst_0()
 
     def aload_1(self):
@@ -26,6 +26,7 @@ class OpCodeMethods():
 
     def astore_1(self):
         """Store reference to the local array."""
+        # forcing it to work by using istore_1 instead.
         self.istore_1()
 
     def dup(self):
@@ -37,13 +38,11 @@ class OpCodeMethods():
 
     def iadd(self):
         """iadd: add two ints from the stack."""
-        # print("Method called: iadd(60), the numbers are")
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
         OPERATION.insert(0, "added")
         print("(60)iadd() called, the numbers are added and the result is: ")
-        # self.get_operation()
 
     def invokevirtual(self):
         """gets method from constant pool and calls it."""
