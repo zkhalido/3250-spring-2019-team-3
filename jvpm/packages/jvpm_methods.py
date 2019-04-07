@@ -53,7 +53,7 @@ class OpCodeMethods():
 
     def next_int(self):
         """receive input from the keyboard."""
-        var1 = numpy.int32(int(input("Enter number: ")))
+        var1 = numpy.int32(int(input("Enter integer: ")))
         S.push(var1)
         
     def get_operation(self):
