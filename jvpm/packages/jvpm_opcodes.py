@@ -4,7 +4,7 @@ from collections import deque
 from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 
 # A deque of invokevirtual constants used for method calls from AddToo.class.
-#     Eventually wee will save these values from the CP, but they are hardcoded for now.
+#     Eventually wee will acquire these values from the CP, but they are hardcoded for now.
 INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 
 # ****************************************************************************************
