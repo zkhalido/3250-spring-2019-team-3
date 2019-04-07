@@ -32,14 +32,16 @@ if '__main__' == __name__:                  #pragma: no cover
         else:
             print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key])
             
-    print("\nInvokevirtual[] stack of translated Methods:\n"
-          + str(packages.pool_translate.methodrefs))
+#     print("\nInvokevirtual[] stack of translated Methods:\n"
+#           + str(packages.pool_translate.methodrefs))
 
     # **********************************************************************************************
     
     print('\n___Implement Method Opcodes from .class file.'
           ' Take input from the keybaord:___\n')
 
+    print("\nInvokevirtual[] stack of translated Methods:\n"
+          + str(packages.pool_translate.methodrefs))
     packages.jvpm_opcodes.OpCodes().dict_search()
 
     # **********************************************************************************************
