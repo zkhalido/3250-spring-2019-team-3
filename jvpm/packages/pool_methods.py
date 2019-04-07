@@ -35,7 +35,7 @@ class TagTranslate():
         return "Interface Method Reference"
 
     def name_and_type_discriptor(self):
-        return "Name and Type Descriptor"
+        return "Name and Type"
 
     def method_handle(self):
         return "Method Handle"
