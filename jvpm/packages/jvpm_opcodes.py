@@ -192,7 +192,6 @@ class OpCodes():
             index += 1
         print()
 
-# ****************************************************************************************
     def get_opcode_bytes():
         input_file = input("Enter class filename - type 'helloworld': ")
         data = []
@@ -207,3 +206,6 @@ class OpCodes():
             with open("jvpm/javafiles/testPrintLine.class",'rb') as binary_file:
                 opcode_bytes = binary_file[362:369]
                 return opcode_bytes
+            
+    # ****************************************************************************************
+
