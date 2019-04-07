@@ -17,8 +17,8 @@ if '__main__' == __name__:                  #pragma: no cover
 
     # print(H.get_const_pool())
 
-    # P = packages.pool_translate.PoolTranslate()                 #pragma: no cover
-    N = packages.pool_translate.PoolTranslate().translate()                   #pragma: no cover
+    P = packages.pool_translate.PoolTranslate()                 #pragma: no cover
+    N = P.translate()                   #pragma: no cover
     X = packages.pool_methods.TagTranslate()#pragma: no cover
     print()                             #pragma: no cover
     print("Constant Pool: ")
