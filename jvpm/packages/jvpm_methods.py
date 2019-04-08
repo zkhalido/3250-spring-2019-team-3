@@ -41,7 +41,7 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
-        print("(60)iadd() called, " + var1 + " + " + var2 + ", and the result is pushed to the Stack. ")
+        print("(60)iadd() called, " + str(var1) + " + " + str(var2) + ", and the result is pushed to the Stack. ")
 
     def invokevirtual(self):
         """gets method from constant pool and calls it."""
