@@ -12,6 +12,7 @@ INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
     def __init__(self, name="jvpm/javafiles/AddTwo.class"):
+        self.name = name
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
@@ -19,10 +20,11 @@ class HeaderClass():
 
     def get_magic(self):
         """Get magic from .class file."""
+        print("\nFile opened: " + self.name)
         magic = ""
         for i in range(4):
             magic += format(self.data[i], '02X')
-        print("\nMagic: ", magic)
+        print("Magic: ", magic)
         return magic
 
     def get_minor(self):
