@@ -283,8 +283,7 @@ class OpCodeMethods():
         "i2l" : i2l, # int to long
         "i2s" : i2s, # int to short
         "nextInt:()I": next_int,
-        "println:(I)V": println,
-        "dup": dup
+        "println:(I)V": println
     }
 
 # ****************************************************************************************
