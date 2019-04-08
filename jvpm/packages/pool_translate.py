@@ -212,7 +212,7 @@ class PoolTranslate:
 
     def translate(self ):
 
-        print("\nFile Opened: " + self.name)
+        print("\nFile opened: " + self.name)
         header_class = jvpm_opcodes.HeaderClass()
         translate = PoolTranslate()
         count = 1
