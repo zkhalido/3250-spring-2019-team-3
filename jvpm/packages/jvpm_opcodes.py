@@ -12,6 +12,7 @@ INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
     def __init__(self, name="jvpm/javafiles/AddTwo.class"):
+        print("\nFile opened: " + name)
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
