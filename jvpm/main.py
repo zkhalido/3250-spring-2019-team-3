@@ -45,7 +45,7 @@ if '__main__' == __name__:                  #pragma: no cover
 
     print('\n___Print Hello World!:___')
     print()
-    print("Hello... Is it me your looking for?")
+    print("🎵  Hello... Is it me your looking for? 🎶")
     # print(packages.jvpm_opcodes.OpCodes.get_opcode_bytes())
     print()
     print("_________________________") 
