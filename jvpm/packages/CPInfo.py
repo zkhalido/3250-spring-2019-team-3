@@ -93,7 +93,7 @@ class ConstInfo:
 
 	def parseUTF8(self, n, position):
 		self.length = Unpacker.two_byte_unpack(n, position)
-		self.string = Unpacker.UTF8_tuple(n, position, self.length)
+		self.string = Unpacker.UTF8_unpack(n, position, self.length)
 
 	def parseMethodHandle(self, n, position):
 		self.reference_kind = Unpacker.single_byte_unpack(n, position)
