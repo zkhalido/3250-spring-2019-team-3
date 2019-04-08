@@ -27,9 +27,9 @@ if '__main__' == __name__:                  #pragma: no cover
     for key in N:                       #pragma: no cover
         i = 1                            #pragma: no cover
         if (N[key][0]) == "01":         #pragma: no cover
-            print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key][len(N[key]) - 1])
+            print(key + 1, " ", X.token_dict(N[key][0]), "\t\t\t", N[key][len(N[key]) - 1])
         else:
-            print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key])
+            print(key + 1, " ", X.token_dict(N[key][0]), "\t\t\t", N[key])
             
     print("\nInvokevirtual[] stack of 'Method References' from .class:\n"
           + str(packages.pool_translate.methodrefs))
