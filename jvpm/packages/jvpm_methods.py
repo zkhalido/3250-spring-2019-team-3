@@ -242,8 +242,8 @@ class OpCodeMethods():
 
     def i2d(self):
         """convert int to decimal"""
-        variable1 = numpy.int64(S.pop())
-        S.push(int(variable1))
+        variable1 = numpy.int32(S.pop())
+        S.push(numpy.int64(variable1))
 
 
 # ****************************************************************************************
