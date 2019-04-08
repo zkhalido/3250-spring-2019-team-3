@@ -9,6 +9,7 @@ from . import jvpm_opcodes, pool_translate
 S = Stack()
 VARIABLES = [0]
 OPERATION = []
+STANDING = deque(["first", "second", "third"])
 
 class OpCodeMethods():
     """CLass of methods that are called from the CP."""
@@ -52,7 +53,7 @@ class OpCodeMethods():
 
     def next_int(self):
         """receive input from the keyboard."""
-        var1 = numpy.int32(int(input("Enter number: ")))
+        var1 = numpy.int32(int(input("Enter " + str(STANDING.popleft()) + " number: ")))
         S.push(var1)
 
     def get_operation(self):
