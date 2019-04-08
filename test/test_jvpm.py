@@ -1,36 +1,27 @@
 import unittest
 from unittest.mock import mock_open, patch, Mock, call
-
 from jvpm.stack import Stack
 from jvpm.jvpm_methods import OpCodeMethods
 from jvpm.jvpm_opcodes import OpCodes
 from jvpm.pool_translate import PoolTranslate
-
 import mock
-
 import jvpm.pool_methods
 import jvpm.jvpm_dict
 import jvpm.jvpm_opcodes
 import sys
 
-
 class UnittestHeader(unittest.TestCase):
-
 
     def setUp(self):
         m = mock_open(read_data='CAFEBABE00000036000F')
         with patch(__name__ + '.open', m):
             self.cf = jvpm.jvpm_opcodes.HeaderClass()
 
-
     def test_magic(self):
         self.assertEqual(self.cf.get_magic(), 'CAFEBABE')
         self.assertEqual(self.cf.get_minor(), 0)
         self.assertTrue(53 <= self.cf.get_major() <= 55)
         self.assertEqual(self.cf.get_const_pool_count(), 15)
-
-
-
 
 class test_get_opcode(unittest.TestCase):
     def test_opcode(self):
@@ -41,6 +32,7 @@ class test_get_opcode(unittest.TestCase):
         self.assertEqual(jvpm.jvpm_dict.get_opcode("SQ"), "Byte code not found!")
 
         ####################################################
+        
 class test_const_pool(unittest.TestCase):
     def test_const_pool(self):
         with open('HelloWorld.class', 'rb') as binary_file:
@@ -86,8 +78,6 @@ class test_const_pool(unittest.TestCase):
 
         self.assertEqual(n, new_dict)
 
-
-
         #################################################
 
 class test_pool_translate1(unittest.TestCase):
@@ -105,7 +95,6 @@ class test_pool_translate1(unittest.TestCase):
 
         y = jvpm.pool_translate.PoolTranslate()
         #y.dictionary = x.get_const_pool()
-
 
         a = {
             0: ['0a', '03', '13'],
@@ -159,8 +148,6 @@ class test_pool_translate1(unittest.TestCase):
 
         self.assertEqual(new_dict[0], n[0])
 
-
-
 class test_pool_translate(unittest.TestCase):
     def test_methods_unbuilt_methods(self):
         new_dict = {
@@ -182,8 +169,6 @@ class test_pool_translate(unittest.TestCase):
             "16": "13",
             "17": "14"
         }
-
-
 
 class test_pool_methods(unittest.TestCase):
     def test_tag_translate(self):
@@ -269,7 +254,6 @@ class test_pool_methods(unittest.TestCase):
             [call.write("Package    2 bytes")]
         )
 
-
         x = jvpm.pool_methods.TagTranslate()
         self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
         self.assertEqual(x.token_dict(new_dict['2']), "Integer")
@@ -288,8 +272,6 @@ class test_pool_methods(unittest.TestCase):
         self.assertEqual(x.token_dict(new_dict['15']), "Invoke Dynamic")
         self.assertEqual(x.token_dict(new_dict['16']), "Module")
         self.assertEqual(x.token_dict(new_dict['17']), "Package")
-
-
 
 class test_stack(unittest.TestCase):
     def test_is_empty(self):
@@ -355,11 +337,9 @@ class Test_Op_Methods(unittest.TestCase):
 
     def test_iconst_m1(self):
         a = OpCodeMethods()
-
         a.iconst_m1()
         b = a.stack.peek()
         self.assertEqual(b, -1)
-
         a.stack.push(5)
         self.assertEqual(a.stack.peek(), 5)
         self.assertNotEqual(a.stack.peek(), -1)
