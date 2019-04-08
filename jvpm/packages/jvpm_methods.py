@@ -43,7 +43,7 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
         OPERATION.insert(0, "added")
-        print("(60)iadd() called, the numbers are added and the result is: ")
+        print("(60)iadd() called, the numbers are added and the result is pushed to the Stack. ")
 
     def invokevirtual(self):
         """gets method from constant pool and calls it."""
