@@ -23,7 +23,7 @@ class HeaderClass():
         magic = ""
         for i in range(4):
             magic += format(self.data[i], '02X')
-        print("Magic: ", magic)
+        print("\nMagic: ", magic)
         return magic
 
     def get_minor(self):
