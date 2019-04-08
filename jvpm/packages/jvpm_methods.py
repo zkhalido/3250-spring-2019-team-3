@@ -31,10 +31,10 @@ class OpCodeMethods():
         self.istore_1()
 
     def dup(self):
-        """Doubles the stack."""
+        """Doubles the top item on the stack."""
         # forcing it to work.
-        self.iconst_0()
-        self.istore_0()
+        var = S.peek()
+        S.push(var)
 
     def iadd(self):
         """iadd: add two ints from the stack."""
@@ -291,7 +291,8 @@ class OpCodeMethods():
         "i2l" : i2l, # int to long
         "i2s" : i2s, # int to short
         "nextInt:()I": next_int,
-        "println:(I)V": println
+        "println:(I)V": println,
+        "dup": dup
     }
 
 # ****************************************************************************************

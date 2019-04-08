@@ -707,7 +707,15 @@ class Test_Op_Methods(unittest.TestCase):
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, "0x0")
 
-
+    def test_dup(self):
+        a = packages.jvpm_methods.OpCodeMethods()
+        
+        packages.jvpm_methods.S.push(5)
+        a.dup()
+        b = packages.jvpm_methods.S.pop()
+        c = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, 5)
+        self.assertEqual(c, 5)
 
     def test_dict_search(self):
         a = packages.jvpm_methods.OpCodeMethods()

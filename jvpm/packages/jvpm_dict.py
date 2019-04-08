@@ -72,7 +72,8 @@ jvpm_dict = {
     "3e": "istore_3",        # store int value into variable 3
     "64": "isub",            # int subtract
     "7c": "iushr",           # int logical shift right
-    "82": "ixor"             # xor
+    "82": "ixor",            # xor
+    "59": "dup"              # duplicates the top of the stack
     }
     
 def get_opcode(byte_code):
