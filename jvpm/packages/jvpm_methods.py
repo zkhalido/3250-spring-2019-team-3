@@ -41,7 +41,7 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
-        print("(60)iadd() called, " + str(var1) + " + " + str(var2) + 
+        print("(60)iadd() called, " + str(var1) + " + " + str(var2) +
               ", and " + str(var1 + var2) + " is pushed to the Stack. ")
 
     def invokevirtual(self):
@@ -55,10 +55,6 @@ class OpCodeMethods():
         """receive input from the keyboard."""
         var1 = numpy.int32(int(input("Enter " + str(STANDING.popleft()) + " number: ")))
         S.push(var1)
-
-    def get_operation(self):
-        """gets the operation from the local stack."""
-        print(str(OPERATION.pop()) + " and the result is:")
 
     def println(self):
         """print from the stack."""
@@ -137,8 +133,6 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 * var2)
-#         OPERATION.insert(0, "multiplied")
-#         self.get_operation()
         print("(68)imul() called, the numbers are multiplied and the result is: ")
 
     def ineg(self):
@@ -196,8 +190,6 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 - var2)
-#         OPERATION.insert(0, "subtracted")
-#         self.get_operation()
         print("(64)isub() called, the numbers are subtracted and the result is: ")
 
     def iushr(self):
