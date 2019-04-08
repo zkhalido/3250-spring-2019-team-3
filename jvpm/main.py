@@ -21,7 +21,7 @@ if '__main__' == __name__:                  #pragma: no cover
     N = P.translate()                   #pragma: no cover
     X = packages.pool_methods.TagTranslate()#pragma: no cover
     print()                             #pragma: no cover
-    print("File Opened: " + packages.pool_translate.PoolTranslate.self.name)
+    # print("File Opened: " + packages.pool_translate.PoolTranslate.self.name)
     print("Constant Pool: ")
     print(N)                            #pragma: no cover
     print()                             #pragma: no cover
