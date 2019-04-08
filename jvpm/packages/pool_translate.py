@@ -11,7 +11,6 @@ class PoolTranslate:
     def __init__(self):
         self.dictionary = defaultdict(list)
         self.name = "jvpm/javafiles/AddTwo.class"
-        print("File Opened: " + self.name)
         H = jvpm_opcodes.HeaderClass(self.name)
         # H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/AddTwo.class")
         # H = jvpm_opcodes.HeaderClass(name = input("What file do you want to open? "))
@@ -213,6 +212,7 @@ class PoolTranslate:
 
     def translate(self ):
 
+        print("File Opened: " + self.name)
         header_class = jvpm_opcodes.HeaderClass()
         translate = PoolTranslate()
         count = 1
