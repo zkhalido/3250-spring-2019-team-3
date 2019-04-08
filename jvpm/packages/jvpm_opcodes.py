@@ -19,7 +19,7 @@ class HeaderClass():
 
     def get_magic(self):
         """Get magic from .class file."""
-        print("\nFile opened: " + self.name)
+        # print("\nFile opened: " + self.name)
         magic = ""
         for i in range(4):
             magic += format(self.data[i], '02X')
