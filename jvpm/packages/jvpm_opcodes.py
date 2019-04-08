@@ -6,14 +6,15 @@ from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
 # A deque of invokevirtual constants used for method calls from AddToo.class.
 #     Eventually wee will acquire these values from the CP, but they are hardcoded for now.
 INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
+NAME="jvpm/javafiles/AddTwo.class"
 
 # ****************************************************************************************
 
 class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
-    def __init__(self, name="jvpm/javafiles/AddTwo.class"):
-        print("\nFile opened: " + name)
-        with open(name, 'rb') as binary_file:
+    # def __init__(self, name="jvpm/javafiles/AddTwo.class"):
+    def __init__(self, NAME):
+        with open(NAME, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
             # print("\nFile opened: " + name)
