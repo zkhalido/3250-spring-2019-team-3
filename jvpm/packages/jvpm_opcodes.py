@@ -15,14 +15,14 @@ class HeaderClass():
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
-            print("File opened: " + name)
+            print("\nFile opened: " + name)
 
     def get_magic(self):
         """Get magic from .class file."""
         magic = ""
         for i in range(4):
             magic += format(self.data[i], '02X')
-        print("\nMagic: ", magic)
+        print("Magic: ", magic)
         return magic
 
     def get_minor(self):
