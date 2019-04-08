@@ -9,7 +9,6 @@ from . import jvpm_opcodes, pool_translate
 
 S = Stack()
 VARIABLES = [0]
-OPERATION = []
 STANDING = deque(["first", "second", "third"]) # used by next_int
 
 class OpCodeMethods():
@@ -42,7 +41,6 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
-        OPERATION.insert(0, "added")
         print("(60)iadd() called, the numbers are added and the result is pushed to the Stack. ")
 
     def invokevirtual(self):
@@ -63,7 +61,7 @@ class OpCodeMethods():
 
     def println(self):
         """print from the stack."""
-        print(str(S.pop()))
+        print(str("println: " + str(S.pop())))
 
     def iand(self):
         """perform a bitwise AND on two integers."""
