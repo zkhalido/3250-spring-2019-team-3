@@ -1,23 +1,37 @@
-
 from collections import defaultdict
+<<<<<<< HEAD:jvpm/pool_translate.py
 import jvpm_opcodes
 #import jvpm.pool_tag_translate
 import pool_methods
+=======
+from . import jvpm_opcodes, pool_methods
+>>>>>>> file_organization:jvpm/packages/pool_translate.py
 
 super_index = 0
+methodrefs = []
+
+# ****************************************************************************************
+
 class PoolTranslate:
 
     def __init__(self):
         self.dictionary = defaultdict(list)
+<<<<<<< HEAD:jvpm/pool_translate.py
         #global g_dict
         #g_dict = defaultdict(list)
         H = jvpm_opcodes.HeaderClass(name = "tester.class")
+=======
+        self.name = "jvpm/javafiles/AddTwo.class"
+        H = jvpm_opcodes.HeaderClass(self.name)
+        # H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/AddTwo.class")
+        # H = jvpm_opcodes.HeaderClass(name = input("What file do you want to open? "))
+>>>>>>> file_organization:jvpm/packages/pool_translate.py
         self.dictionary = H.get_const_pool()
         self.byte_list_count = len(self.dictionary.keys())
         global new_l
         new_l = []
         self.current_k = 0
-        self.main_index =0
+        self.main_index = 0
         self.super_index = 0
         dictLen = len(self.dictionary)
         i = 0
@@ -27,25 +41,30 @@ class PoolTranslate:
             self.vals.append("0")
             i += 1
 
+# ****************************************************************************************
 
+<<<<<<< HEAD:jvpm/pool_translate.py
 #################################################################
 
 
     def UTF_8_string(self, di,super_index):                 #01
+=======
+    def UTF_8_string(self, di, super_index):                 #01
+>>>>>>> file_organization:jvpm/packages/pool_translate.py
         # print("UTF_8_string  2+x bytes (variable)")
         self.super_index = super_index
 
         newLen = len(di)
 
-        L = len(di)
-        i = 1
-        dtext =""
-        while i < L :
-            int1 = int(di[i], 16)
+        length = len(di)
+        count = 1
+        dtext = ""
+        while count < length :
+            int1 = int(di[count], 16)
             int2 = (int1).to_bytes(1, byteorder='big')
             ctext = int2.decode("utf-8", "ignore")
             dtext += ctext
-            i += 1
+            count += 1
 
         new_l[self.super_index-1] = dtext
         return dtext
@@ -70,29 +89,30 @@ class PoolTranslate:
         index = self.main_index
 
         self.main_index = int(di[0], 16)
-
-
         r = PoolTranslate.method_dict(self, self.dictionary, self.main_index, self.super_index)
         new_l[self.super_index-1] = r
         return r
 
+    def string_reference(self):
+        """string reference""" #8
+        # print("String Reference    2 bytes")
 
-    def string_reference(self):             #8
-        print("String Reference    2 bytes")
-
-    def field_reference(self):              #9
-        print("Field Reference    4 bytes")
+    def field_reference(self,  new_li, super_index):
+        """field reference""" #9
 
     def method_reference(self, di, super_index):             #
+<<<<<<< HEAD:jvpm/pool_translate.py
         # print("Method Reference    4 bytes")
+=======
+>>>>>>> file_organization:jvpm/packages/pool_translate.py
         self.super_index = super_index
         di2 = di
         index = 0
         list_len = len(di2)
 
-        M = ""
+        method = ""
         C = ""
-        J = 0
+        count = 0
 
         while index < list_len :
             self.main_index = di2[index]
@@ -100,14 +120,16 @@ class PoolTranslate:
             if self.main_index != 0:
                 self.main_index = int(self.main_index, 16)
 
-            M = PoolTranslate.method_dict(self, self.dictionary, index, super_index)
+            method = PoolTranslate.method_dict(self, self.dictionary, index, super_index)
+            # print(method)
+            # appends the retrieved method to methodrefs list
+            methodrefs.append(method)
             index += 1
-            if J < 1:
-                M = M + "."
-            J += 1
-            C  += M
+            if count < 1:
+                method = method + "."
+            count += 1
+            C  += method
         new_l[self.super_index - 1] = C
-
 
     def interface_method_reference(self):   #11
         print("Interface Method Reference    4 bytes")
@@ -134,12 +156,9 @@ class PoolTranslate:
                 M = M + ":"
             J += 1
             C  += M
-
-
         new_l[self.super_index-1] = C
 
         return C
-
 
     def method_handle(self):                #15
         print("Method Handle    3 bytes")
@@ -159,7 +178,7 @@ class PoolTranslate:
     def package(self):                      #20
         print("Package    2 bytes")
 
-
+# ****************************************************************************************
 
     switcher = {
 
@@ -182,6 +201,8 @@ class PoolTranslate:
         "14": package,  # add two ints
 
     }
+    
+# ****************************************************************************************
 
     def method_dict(self, d, main_index, super_index):
 
@@ -194,7 +215,6 @@ class PoolTranslate:
             index = int(self.main_index)
         else:
             index = int(self.main_index)-1  # dont think this is doing anything
-
 
         key_list = list(d.keys())
         key_current = key_list[int(self.main_index)-1]
@@ -209,19 +229,13 @@ class PoolTranslate:
                 new_li.append(list_current[j])
                 j += 1
 
-
             method = PoolTranslate.switcher.get(tag_byte, "invalid")
 
             return method(self,  new_li, self.super_index)
 
-
-
-
-
-
-
     def translate(self ):
 
+<<<<<<< HEAD:jvpm/pool_translate.py
         H = jvpm_opcodes.HeaderClass()
         T = PoolTranslate()
         temp = H.get_const_pool()
@@ -234,23 +248,26 @@ class PoolTranslate:
         #self.dictionary = temp
         L = len(self.dictionary)
         i = 1
+=======
+        print("\nFile opened: " + self.name)
+        header_class = jvpm_opcodes.HeaderClass()
+        translate = PoolTranslate()
+        count = 1
+>>>>>>> file_organization:jvpm/packages/pool_translate.py
         self.main_index = 1
-
-
-        while i <= self.byte_list_count :
+        while count <= self.byte_list_count :
 
             self.main_index = str(self.main_index)
-            self.super_index =i
-
-            T.method_dict(self.dictionary, self.main_index, self.super_index)
+            self.super_index = count
+            translate.method_dict(self.dictionary, self.main_index, self.super_index)
             self.main_index = int(self.main_index)
-            i += 1
-            self.main_index = i
-        x = 0
+            count += 1
+            self.main_index = count
         new_dict = self.dictionary
-        while x < len(new_l):
-            new_dict[x].append(new_l[x])
-            x += 1
+        counter = 0
+        while counter < len(new_l):
+            new_dict[counter].append(new_l[counter])
+            counter += 1
 
         return new_dict
     """
@@ -263,6 +280,7 @@ class PoolTranslate:
             H.name_tostring(dictionary[i][i2])
             val_len = dictionary[i]
     """
+<<<<<<< HEAD:jvpm/pool_translate.py
 
 
 # if '__main__' == __name__:              #pragma: no cover
@@ -294,3 +312,7 @@ class PoolTranslate:
 
 #         else:       #pragma: no cover
 #             print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key])  #pragma: no cover
+=======
+    
+    # ****************************************************************************************
+>>>>>>> file_organization:jvpm/packages/pool_translate.py
