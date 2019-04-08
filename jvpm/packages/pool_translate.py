@@ -1,11 +1,5 @@
 from collections import defaultdict
-<<<<<<< HEAD:jvpm/pool_translate.py
-import jvpm_opcodes
-#import jvpm.pool_tag_translate
-import pool_methods
-=======
 from . import jvpm_opcodes, pool_methods
->>>>>>> file_organization:jvpm/packages/pool_translate.py
 
 super_index = 0
 methodrefs = []
@@ -16,16 +10,10 @@ class PoolTranslate:
 
     def __init__(self):
         self.dictionary = defaultdict(list)
-<<<<<<< HEAD:jvpm/pool_translate.py
-        #global g_dict
-        #g_dict = defaultdict(list)
-        H = jvpm_opcodes.HeaderClass(name = "tester.class")
-=======
         self.name = "jvpm/javafiles/AddTwo.class"
         H = jvpm_opcodes.HeaderClass(self.name)
         # H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/AddTwo.class")
         # H = jvpm_opcodes.HeaderClass(name = input("What file do you want to open? "))
->>>>>>> file_organization:jvpm/packages/pool_translate.py
         self.dictionary = H.get_const_pool()
         self.byte_list_count = len(self.dictionary.keys())
         global new_l
@@ -43,14 +31,7 @@ class PoolTranslate:
 
 # ****************************************************************************************
 
-<<<<<<< HEAD:jvpm/pool_translate.py
-#################################################################
-
-
-    def UTF_8_string(self, di,super_index):                 #01
-=======
     def UTF_8_string(self, di, super_index):                 #01
->>>>>>> file_organization:jvpm/packages/pool_translate.py
         # print("UTF_8_string  2+x bytes (variable)")
         self.super_index = super_index
 
@@ -101,10 +82,6 @@ class PoolTranslate:
         """field reference""" #9
 
     def method_reference(self, di, super_index):             #
-<<<<<<< HEAD:jvpm/pool_translate.py
-        # print("Method Reference    4 bytes")
-=======
->>>>>>> file_organization:jvpm/packages/pool_translate.py
         self.super_index = super_index
         di2 = di
         index = 0
@@ -201,7 +178,7 @@ class PoolTranslate:
         "14": package,  # add two ints
 
     }
-    
+
 # ****************************************************************************************
 
     def method_dict(self, d, main_index, super_index):
@@ -235,25 +212,10 @@ class PoolTranslate:
 
     def translate(self ):
 
-<<<<<<< HEAD:jvpm/pool_translate.py
-        H = jvpm_opcodes.HeaderClass()
-        T = PoolTranslate()
-        temp = H.get_const_pool()
-        #if d != None:
-            #temp = d
-            #self.dictionary = temp
-        l = temp[1]
-        k = list(temp.keys())
-        index = self.main_index
-        #self.dictionary = temp
-        L = len(self.dictionary)
-        i = 1
-=======
         print("\nFile opened: " + self.name)
         header_class = jvpm_opcodes.HeaderClass()
         translate = PoolTranslate()
         count = 1
->>>>>>> file_organization:jvpm/packages/pool_translate.py
         self.main_index = 1
         while count <= self.byte_list_count :
 
@@ -280,39 +242,5 @@ class PoolTranslate:
             H.name_tostring(dictionary[i][i2])
             val_len = dictionary[i]
     """
-<<<<<<< HEAD:jvpm/pool_translate.py
 
-
-# if '__main__' == __name__:              #pragma: no cover
-#     o = PoolTranslate()                 #pragma: no cover
-
-#     n = o.translate()                   #pragma: no cover
-#     x = pool_methods.TagTranslate()#pragma: no cover
-#     #j = x.token_dict("0a")             #pragma: no cover
-#     #print(n)                           #pragma: no cover
-#     print()                             #pragma: no cover
-#     #print(n.key[0])                    #pragma: no cover
-#     print(n)                            #pragma: no cover
-#     print()                             #pragma: no cover
-
-#     #print(j)                           #pragma: no cover
-#     i = 1                               #pragma: no cover
-
-
-#     for key in n:                       #pragma: no cover
-#         i =1                            #pragma: no cover
-#         #while i < len(n[key]) :        #pragma: no cover
-#             #a = []                     #pragma: no cover
-#             #a.append(n[key][i])        #pragma: no cover
-#             #i += 1                     #pragma: no cover
-
-#         if (n[key][0]) == "01":         #pragma: no cover
-#             #print (" a ", a)           #pragma: no cover
-#             print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key][len(n[key])-1])   #pragma: no cover
-
-#         else:       #pragma: no cover
-#             print(key, " ", x.token_dict(n[key][0]), "\t\t\t", n[key])  #pragma: no cover
-=======
-    
     # ****************************************************************************************
->>>>>>> file_organization:jvpm/packages/pool_translate.py
