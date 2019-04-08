@@ -36,7 +36,7 @@ class ConstInfo:
 		if self.tag == ConstTag.INTERFACE
 			self.parseInterface(n, position)
 		if self.tag == ConstTag.STRING
-			self.parseSting(n, position)
+			self.parseString(n, position)
 		if self.tag == ConstTag.INTEGER
 			self.parseInteger(n, position)
 		if self.tag == ConstTag.FLOAT
@@ -53,8 +53,60 @@ class ConstInfo:
 			self.parseMethodType(n, position)
 		if self.tag == ConstTag.INVOKE_DYNAMIC
 			self.parseInvokeDynamic(n, position)
-		if self.tag == ConstTag.MODULE
-			self.parseModule(n, position)
+
+	def parseClass(self, n, position):
+		self.name_index = single_part_tuple(n, position)
+
+	def parseField(n, position):
+
+	def parseMethod(n, position):
+
+	def parseInterface(n, position):
+
+	def parseString(n, position):
+
+	def parseInteger(n, position):
+
+	def parseFloat(n, position):
+
+	def parseLong(n, position):
+
+	def parseDouble(n, position):
+
+	def parseNameAndType(n, position):
+
+	def parseMethodHandle(n, position):
+
+	def parseMethodType(n, position):
+
+	def parseInvokeDynamic(n, position):
+
+	def single_part_tuple(n, current):
+        info = format(n.data[current + 1] + n.data[current + 2], '02x')
+        return info
+n
+    def single_part_long_tuple(n, current):
+        idNum = format(n.data[current], '02x')
+        info = n.data[11 + i + position] + n.data[12 + i + position] +
+                    n.data[13 + i + position] + n.data[14 + i + position], '02x')
+        temp = (idNum, info)
+        return temp
+
+    def double_part_tuple(n, current):
+        idNum = format(n.data[current], '02x')
+        info = format(n.data[current + 1] + n.data[current + 2], '02x')
+        info2 = format(n.data[current + 3] + n.data[current + 4], '02x')
+        temp = (idNum, info, info2)
+        return temp
+
+    def UTF8_tuple(n, current):
+    	temp[i].append(format(n.data[10 + i + position], '02x'))
+        temp[i].append(format(n.data[11 + i + position] + n.data[12 + i + position], '02x'))
+        for f in range (n.data[11 + i + position] + n.data[12 + i + position]):
+            temp[i].append(format(n.data[13 + i + position + f], '02x'))
+        position += (n.data[11 + i + position] + n.data[12 + i + position])
+        position += 2
+
 
 
 
