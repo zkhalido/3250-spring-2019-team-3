@@ -240,6 +240,8 @@ having replicated code every-time that function is needed.
 
 04/02/2019
 
+https://docs.python-guide.org/writing/structure/
+
 -structure of a python program
 
 -API design is essential for a healthy development cycle.
@@ -247,3 +249,9 @@ having replicated code every-time that function is needed.
 -how data flows through the project?
 
 -import from the same folder with from .(module name) import (classname)
+
+04/05/2019
+
+-dictionaries
+
+https://www.youtube.com/watch?v=ZEZdys-fHDw
