@@ -195,7 +195,7 @@ class OpCodes():
             jvpm_methods.OpCodeMethods().token_dict(opcall)
             index += 1
         # print()
-
+"""
     def get_opcode_bytes():
         input_file = input("Enter class filename - type 'helloworld': ")
         data = []
@@ -210,6 +210,6 @@ class OpCodes():
                 return opcode_bytes
         else:
             print("File not found")
-            
+"""            
     # ****************************************************************************************
 
