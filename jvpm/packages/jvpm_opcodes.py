@@ -1,5 +1,4 @@
 """Read bit stream."""
-import sys, os
 from collections import defaultdict
 from collections import deque
 from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
@@ -20,7 +19,6 @@ class HeaderClass():
 
     def get_magic(self):
         """Get magic from .class file."""
-        print(sys.argv[0])
         magic = ""
         for i in range(4):
             magic += format(self.data[i], '02X')
