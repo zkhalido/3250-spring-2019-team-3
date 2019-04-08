@@ -104,8 +104,7 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 / var2)
-        OPERATION.insert(0, "divided")
-        self.get_operation()
+        print("(6c)idiv() called, the numbers are divided and the result is: ")
 
     def iinc(self):
         """increment local variable."""
@@ -139,8 +138,9 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 * var2)
-        OPERATION.insert(0, "multiplied")
-        self.get_operation()
+#         OPERATION.insert(0, "multiplied")
+#         self.get_operation()
+        print("(68)imul() called, the numbers are multiplied and the result is: ")
 
     def ineg(self):
         """negate int."""
@@ -197,8 +197,9 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 - var2)
-        OPERATION.insert(0, "subtracted")
-        self.get_operation()
+#         OPERATION.insert(0, "subtracted")
+#         self.get_operation()
+        print("(64)isub() called, the numbers are subtracted and the result is: ")
 
     def iushr(self):
         """int logical shift right"""
