@@ -49,7 +49,7 @@ class PoolTranslate:
             count += 1
 
         new_l[self.super_index-1] = dtext
-        cp_strings.append(dtext)
+        # cp_strings.append(dtext)
         return dtext
 
     def integer(self):                      #03
@@ -79,6 +79,7 @@ class PoolTranslate:
     def string_reference(self):
         """string reference""" #8
         # print("String Reference    2 bytes")
+        cp_strings.append(dtext)
 
     def field_reference(self,  new_li, super_index):
         """field reference""" #9
@@ -137,6 +138,7 @@ class PoolTranslate:
             C  += M
         new_l[self.super_index-1] = C
 
+        cp_strings.append(C)
         return C
 
     def method_handle(self):                #15
