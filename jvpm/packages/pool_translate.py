@@ -1,5 +1,7 @@
 from collections import defaultdict
 from . import jvpm_opcodes, pool_methods
+from collections import deque
+
 
 super_index = 0
 methodrefs = []
@@ -9,10 +11,12 @@ cp_strings = []
 
 class PoolTranslate:
 
-    def __init__(self):
+    def __init__(self, name = ""):
         self.dictionary = defaultdict(list)
-        self.name = "jvpm/javafiles/AddTwo.class"
-        H = jvpm_opcodes.HeaderClass(self.name)
+        #self.name = "jvpm/javafiles/AddTwo.class"
+        self.name = name
+
+        H = jvpm_opcodes.HeaderClass(name)
         # H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/AddTwo.class")
         # H = jvpm_opcodes.HeaderClass(name = input("What file do you want to open? "))
         self.dictionary = H.get_const_pool()
@@ -218,7 +222,7 @@ class PoolTranslate:
 
         print("\nFile opened: " + self.name)
         header_class = jvpm_opcodes.HeaderClass()
-        translate = PoolTranslate()
+        translate = PoolTranslate(self.name)
         count = 1
         self.main_index = 1
         while count <= self.byte_list_count :

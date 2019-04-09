@@ -8,7 +8,7 @@ class PoolTranslater:
 
     def __init__(self):
 
-        jvpm_opcodes_obj = jvpm_opcodes.HeaderClass(name = "testSaveVar.class")
+        jvpm_opcodes_obj = jvpm_opcodes.HeaderClass(name = "tester.class")
         self.pulled_constant_pool = defaultdict(list)
         self.pulled_constant_pool = jvpm_opcodes_obj.get_const_pool()
         self.byte_list_length = len(self.pulled_constant_pool.keys())
