@@ -5,7 +5,7 @@ python:
 addons:
   sonarcloud:
     organization: git-confused-team3 # the key of the org you chose at step #3
-    token: ${SONAR_TOKEN}
+    token: ${newToken}  
     
 dist: trusty
 language: python
@@ -21,3 +21,4 @@ script:
 
 after_success:
   - codecov
+  - sonar-scanner
