@@ -18,7 +18,7 @@ if '__main__' == __name__:                  #pragma: no cover
 
     # print(H.get_const_pool())
 
-    P = packages.pool_translate.PoolTranslate()                 #pragma: no cover
+    P = packages.pool_translate.PoolTranslate("jvpm/javafiles/AddTwo.class")                 #pragma: no cover
     N = P.translate()                   #pragma: no cover
     X = packages.pool_methods.TagTranslate()#pragma: no cover
     print("Constant Pool: ")
@@ -45,12 +45,5 @@ if '__main__' == __name__:                  #pragma: no cover
     # print(packages.pool_translate.cp_strings)
 
     # **********************************************************************************************
-
-    print('\n___Print Hello World!:___')
-    print()
-    print("🎵🎶 Hello... Is it me your looking for? 🎶🎵")
-    # webbrowser.open('https://www.youtube.com/watch?v=62XB9IbMnxQ')
-    print()
-    print("_________________________") 
 
     # **********************************************************************************************
