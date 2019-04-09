@@ -49,6 +49,7 @@ class PoolTranslate:
             count += 1
 
         new_l[self.super_index-1] = dtext
+        cp_strings.append(dtext)
         return dtext
 
     def integer(self):                      #03
