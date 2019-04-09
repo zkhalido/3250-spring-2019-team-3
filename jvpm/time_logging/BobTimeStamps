@@ -22,7 +22,20 @@ Meeting with Gil and Chris on skype. 12:00 to 1:15
 	Getting help from Gil in pulling method information.
 
 4/3/2019:
-refactoring jvpm.py file
+refactoring jvpm.py file 8:29 - 9:30
+meeting with team 9:31 - 10:35
+2 hours
+
+4/7/2019:
+refactoring constant pool 10am-12am
+meeting with team 12pm -1pm
+refactoring constant pool 6:20 - 8:40
+5 hours
+
+4/8/2019:
+refactoring constant pool 4:15 - 
+
+
 
 -----------------------------------------------------------------------------------------------------
 Research:
@@ -177,3 +190,22 @@ ACC_SYNTHETIC 	0x1000 	Declared synthetic; not present in the source code.
 ACC_ENUM 		0x4000 	Declared as an element of an enum.
 
 cd
+
+cool way to read bytes
+
+
+
+Read the binary file content like this:
+
+with open(fileName, mode='rb') as file: # b is important -> binary
+    fileContent = file.read()
+
+then "unpack" binary data using struct.unpack:
+
+The start bytes: struct.unpack("iiiii", fileContent[:20])
+
+The body: ignore the heading bytes and the trailing byte (= 24); The remaining part forms the body, to know the number of bytes in the body do an integer division by 4; The obtained quotient is multiplied by the string 'i' to create the correct format for the unpack method:
+
+struct.unpack("i" * ((len(fileContent) -24) // 4), fileContent[20:-4])
+
+The end byte: struct.unpack("i", fileContent[-4:])

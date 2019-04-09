@@ -1,5 +1,6 @@
 from enum import Enum
 from .Unpacker import Unpacker
+import struct
 
 class ConstTag(enum):
 	CLASS = 7
@@ -24,84 +25,84 @@ class ConstInfo:
 		self.tag = null
 
 	def read(self, n, position):
-		tag = n[position]
+		tag = struct.unpack('!B', r.read(1))
 
 		self.tag = ConstTag(tag)
 
 		if self.tag == ConstTag.CLASS
-			self.parseClass(n, position)
+			self.parseClass(n)
 		if self.tag == ConstTag.FIELD
-			self.parseField(n, position)
+			self.parseField(n)
 		if self.tag == ConstTag.METHOD
-			self.parseMethod(n, position)
+			self.parseMethod(n)
 		if self.tag == ConstTag.INTERFACE
-			self.parseInterface(n, position)
+			self.parseInterface(n)
 		if self.tag == ConstTag.STRING
-			self.parseString(n, position)
+			self.parseString(n)
 		if self.tag == ConstTag.INTEGER
-			self.parseInteger(n, position)
+			self.parseInteger(n)
 		if self.tag == ConstTag.FLOAT
-			self.parseFloat(n, position)
+			self.parseFloat(n)
 		if self.tag == ConstTag.LONG
-			self.parseLong(n, position)
+			self.parseLong(n)
 		if self.tag == ConstTag.NAME_AND_TYPE
-			self.parseNameAndType(n, position)
+			self.parseNameAndType(n)
 		if self.tag == ConstTag.UTF8
-			self.parseUTF8(n, position)
+			self.parseUTF8(n)
 		if self.tag == ConstTag.METHOD_HANDLE
-			self.parseMethodHandle(n, position)
+			self.parseMethodHandle(n)
 		if self.tag == ConstTag.METHOD_TYPE
-			self.parseMethodType(n, position)
+			self.parseMethodType(n)
 		if self.tag == ConstTag.INVOKE_DYNAMIC
-			self.parseInvokeDynamic(n, position)
+			self.parseInvokeDynamic(n)
 
-	def parseClass(self, n, position):
-		self.name_index = Unpacker.single_part_tuple(n, position)
+	def parseClass(self, n):
+		self.name_index = struct.unpack('!H', self.data.read(2))
 
-	def parseField(self, n, position):
-		self.class_index = Unpacker.single_part_tuple(n, position)
-		self.name_and_type_index = Unpacker.single_part_tuple(n, position)
+	def parseField(self, n):
+		self.class_index = struct.unpack('!H', self.data.read(2))
+		self.name_and_type_index = struct.unpack('!H', self.data.read(2))
 
-	def parseMethod(self, n, position):
-		self.class_index = Unpacker.two_byte_unpack(n, position)
-		self.name_and_type_index = Unpacker.two_byte_unpack(n, position)
+	def parseMethod(self, n):
+		self.class_index = struct.unpack('!H', self.data.read(2))
+		self.name_and_type_index = struct.unpack('!H', self.data.read(2))
 
-	def parseInterface(self, n, position):
-		self.class_index = Unpacker.two_byte_unpack(n, position)
-		self.name_and_type_index = Unpacker.two_byte_unpack(n, position)
+	def parseInterface(self, n):
+		self.class_index = struct.unpack('!H', self.data.read(2))
+		self.name_and_type_index = struct.unpack('!H', self.data.read(2))
 
-	def parseString(self, n, position):
-		self.string_index = Unpacker.two_byte_unpack(n, position)
+	def parseString(self, n):
+		self.string_index = struct.unpack('!H', self.data.read(2))
 
-	def parseInteger(self, n, position):
-		self.bytes = Unpacker.four_byte_unpack(n, position)
+	def parseInteger(self, n):
+		self.bytes = struct.unpack('!I', self.data.read(4))
 
-	def parseFloat(self, n, position):
-		self.bytes = Unpacker.four_byte_unpack(n, position)
+	def parseFloat(self, n):
+		self.bytes = struct.unpack('!I', self.data.read(4))
 
-	def parseLong(self, n, position):
-		self.high_bytes = Unpacker.four_byte_unpack(n, position)
-		self.low_bytes = Unpacker.four_byte_unpack(n, position)
+	def parseLong(self, n):
+		self.high_bytes = struct.unpack('!I', self.data.read(4))
+		self.low_bytes = struct.unpack('!I', self.data.read(4))
 
-	def parseDouble(self, n, position):
-		self.high_bytes = Unpacker.four_byte_unpack(n, position)
-		self.low_bytes = Unpacker.four_byte_unpack(n, position)
+	def parseDouble(self, n):
+		self.high_bytes = struct.unpack('!I', self.data.read(4))
+		self.low_bytes = struct.unpack('!I', self.data.read(4))
 
-	def parseNameAndType(self, n, position):
-		self.name_index = Unpacker.two_byte_unpack(n, position)
-		self.descriptor_index = Unpacker.two_byte_unpack(n, position)
+	def parseNameAndType(self, n):
+		self.name_index = struct.unpack('!H', self.data.read(2))
+		self.descriptor_index = struct.unpack('!H', self.data.read(2))
 
-	def parseUTF8(self, n, position):
-		self.length = Unpacker.two_byte_unpack(n, position)
-		self.string = Unpacker.UTF8_unpack(n, position, self.length)
+	def parseUTF8(self, n):
+		self.length = struct.unpack('!H', self.data.read(2))
+		self.string = struct.unpack('!s'.format(self.length), self.data.read(self.length))
 
-	def parseMethodHandle(self, n, position):
-		self.reference_kind = Unpacker.single_byte_unpack(n, position)
-		self.reference_index = Unpacker.two_byte_unpack(n, position)
+	def parseMethodHandle(self, n):
+		self.reference_kind = struct.unpack('!B', r.read(1))
+		self.reference_index = struct.unpack('!H', self.data.read(2))
 
-	def parseMethodType(self, n, position):
-		self.descriptor_index = Unpacker.two_byte_unpack(n, position)
+	def parseMethodType(self, n):
+		self.descriptor_index = struct.unpack('!H', self.data.read(2))
 
-	def parseInvokeDynamic(self, n, position):
-		self.bootstrap_method_attr_index = Unpacker.two_byte_unpack(n, position)
-		self.name_and_type_index = Unpacker.two_byte_unpack(n, position)
+	def parseInvokeDynamic(self, n):
+		self.bootstrap_method_attr_index = struct.unpack('!H', self.data.read(2)).decode('utf-8')
+		self.name_and_type_index = struct.unpack('!H', self.data.read(2))
