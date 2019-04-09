@@ -205,6 +205,7 @@ class test_pool_methods(unittest.TestCase):
          sys.stdout.assert_has_calls(
              [call.write("Field Reference    4 bytes")]
          )
+         """
          x.integer()
          sys.stdout.assert_has_calls(
              [call.write("Integer  4 bytes")]
@@ -221,19 +222,11 @@ class test_pool_methods(unittest.TestCase):
          sys.stdout.assert_has_calls(
              [call.write("Double    8 bytes")]
          )
-         x.string_reference()
-         sys.stdout.assert_has_calls(
-             [call.write("String Reference    2 bytes")]
-         )
-         x.field_reference()
-         sys.stdout.assert_has_calls(
-             [call.write("Field Reference    4 bytes")]
-         )
          x.interface_method_reference()
          sys.stdout.assert_has_calls(
              [call.write("Interface Method Reference    4 bytes")]
          )
-         """
+
          x.method_handle()
          sys.stdout.assert_has_calls(
              [call.write("Method Handle    3 bytes")]
