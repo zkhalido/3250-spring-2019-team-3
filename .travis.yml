@@ -21,4 +21,4 @@ script:
 
 after_success:
   - codecov
-  - sonar-scanner
+  #- sonar-scanner
