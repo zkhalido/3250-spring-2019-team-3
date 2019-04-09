@@ -141,12 +141,11 @@ class test_pool_translate1(unittest.TestCase):
              20: ['01', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63', '74', 'java/lang/Object']
 
          }
+         self.assertEqual(new_dict, n)
 
          self.assertEqual(new_dict[0], n[0])
          self.assertEqual(new_dict[1], n[1])
          self.assertEqual(new_dict[2], n[2])
-         #self.assertEqual(new_dict, n)
-
          self.assertEqual(new_dict[3], n[3])
          self.assertEqual(new_dict[4], n[4])
          self.assertEqual(new_dict[5], n[5])
@@ -166,29 +165,15 @@ class test_pool_translate1(unittest.TestCase):
          self.assertEqual(new_dict[19], n[19])
          self.assertEqual(new_dict[20], n[20])
 
-"""  not sure why thsi is here
-class test_pool_translate(unittest.TestCase):
-    def test_methods_unbuilt_methods(self):
-        new_dict = {
-            "1": "01",
-            "2": "03",
-            "3": "04",
-            "4": "05",
-            "5": "06",
-            "6": "07",
-            "7": "08",
-            "8": "09",
-            "9": "0a",
-            "10": "0b",
-            "11": "0c",
-            "12": "0f",
-            "13": "10",
-            "14": "11",
-            "15": "12",
-            "16": "13",
-            "17": "14"
-        }
-        """
+
+         #self.assertEqual(y.method_handle(), "Method Handle    3 bytes")
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
 
 class test_pool_methods(unittest.TestCase):
     def test_tag_translate(self):
@@ -211,7 +196,7 @@ class test_pool_methods(unittest.TestCase):
              "16": "13",
              "17": "14"
          }
-         #x = packages.pool_translate.PoolTranslate(name ="tester.class")
+         x = packages.pool_translate.PoolTranslate(name ="jvpm/javafiles/tester.class")
          #x.dictionary = {
          #    '0':"0"
          #}
@@ -248,14 +233,17 @@ class test_pool_methods(unittest.TestCase):
          sys.stdout.assert_has_calls(
              [call.write("Interface Method Reference    4 bytes")]
          )
+         """
          x.method_handle()
          sys.stdout.assert_has_calls(
              [call.write("Method Handle    3 bytes")]
          )
+
          x.method_type()
          sys.stdout.assert_has_calls(
              [call.write("Method Type    2 bytes")]
          )
+
          x.dynamic()
          sys.stdout.assert_has_calls(
              [call.write("Dynamic    4 bytes")]
@@ -272,7 +260,7 @@ class test_pool_methods(unittest.TestCase):
          sys.stdout.assert_has_calls(
              [call.write("Package    2 bytes")]
          )
-         """
+
 
          x = packages.pool_methods.TagTranslate()
          self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
