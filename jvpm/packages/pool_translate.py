@@ -3,6 +3,7 @@ from . import jvpm_opcodes, pool_methods
 
 super_index = 0
 methodrefs = []
+cp_strings = []
 
 # ****************************************************************************************
 
