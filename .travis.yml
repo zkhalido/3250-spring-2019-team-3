@@ -3,15 +3,12 @@ python:
   - "3.6"
   - "3.5"
 
-addons:
-  sonarcloud:
-    organization: git-confused-team3 # the key of the org you chose at step #3
-    token: ${newToken}  
+#addons:
+  #sonarcloud:
+   # organization: git-confused-team3 # the key of the org you chose at step #3
+   # token: ${newToken}  
     
 dist: trusty
-language: python
-python:
-  - "3.6"
 
 install:
   - pip install codecov
@@ -20,6 +17,12 @@ script:
   - coverage run -m unittest
   - coverage xml -i
   - sonar-scanner
+  
+addons:
+ sonarcloud:
+   organization: git-confused-team3 # the key of the org you chose at step #3
+   token: ${newToken}  
+    
   
 
 after_success:
