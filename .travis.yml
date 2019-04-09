@@ -5,7 +5,7 @@ python:
 addons:
   sonarcloud:
     organization: git-confused-team3 # the key of the org you chose at step #3
-    token: 0b09dcaae1f21ac4f797ecf1e4b75cadd9fee945  #${SONAR_TOKEN}
+    token: ${newToken}  
     
 dist: trusty
 language: python
