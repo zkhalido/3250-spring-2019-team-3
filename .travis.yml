@@ -18,7 +18,8 @@ install:
 script:
   - coverage run -m unittest
   - coverage xml -i
+  - sonar-scanner
+  
 
 after_success:
   - codecov
-  - sonar-scanner
