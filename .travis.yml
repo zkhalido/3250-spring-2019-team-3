@@ -16,8 +16,9 @@ install:
   - pip install coverage
 
 script:
-  - coverage run -m unittest
-  #- coverage xml -i
+  #- coverage run -m unittest
+  - coverage run --omit=*test* -m unittest
+  - coverage xml -i
   - sonar-scanner
 after_success:
   - codecov
