@@ -41,24 +41,21 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
-        print("(60)iadd() called, " + str(var1) + " + " + str(var2) +
-              ", and " + str(var1 + var2) + " is pushed to the Stack. ")
 
     def invokevirtual(self):
         """gets method from constant pool and calls it."""
         constant = jvpm_opcodes.INVOKEVIRTUAL_CONST[0]
         method = pool_translate.methodrefs[int(jvpm_opcodes.INVOKEVIRTUAL_CONST.popleft())]
-        print("(b6)invokevirtual #" + constant + " call >>> " + method)
         self.token_dict(method)
 
     def next_int(self):
         """receive input from the keyboard."""
-        var1 = numpy.int32(int(input("Enter " + str(STANDING.popleft()) + " number: ")))
+        var1 = numpy.int32(int(input()))
         S.push(var1)
 
     def println(self):
         """print from the stack."""
-        print(str("println: " + str(S.pop())))
+        print(str(S.pop()))
 
     def iand(self):
         """perform a bitwise AND on two integers."""
@@ -99,7 +96,6 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 / var2)
-        print("(6c)idiv() called, the numbers are divided and the result is: ")
 
     def iinc(self):
         """increment local variable."""
@@ -133,7 +129,6 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 * var2)
-        print("(68)imul() called, the numbers are multiplied and the result is: ")
 
     def ineg(self):
         """negate int."""
@@ -190,7 +185,6 @@ class OpCodeMethods():
         var2 = numpy.int32(S.pop())
         var1 = numpy.int32(S.pop())
         S.push(var1 - var2)
-        print("(64)isub() called, the numbers are subtracted and the result is: ")
 
     def iushr(self):
         """int logical shift right"""
@@ -289,10 +283,8 @@ class OpCodeMethods():
 # ****************************************************************************************
 
     def token_dict(self, argument):
-        print(argument, "   argument")
         """dictionary search"""
         method = OpCodeMethods.dictionary.get(argument, "invalid")
-        print (method, "       method")
         return method(self)
 
 # ****************************************************************************************

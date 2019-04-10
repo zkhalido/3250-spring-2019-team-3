@@ -220,7 +220,6 @@ class PoolTranslate:
 
     def translate(self ):
 
-        print("\nFile opened: " + self.name)
         header_class = jvpm_opcodes.HeaderClass()
         translate = PoolTranslate(self.name)
         count = 1
@@ -240,15 +239,3 @@ class PoolTranslate:
             counter += 1
 
         return new_dict
-    """
-    def print_pool(dictionary):
-        H = PoolTranslate
-        l = len(dictionary)
-        i = 0
-        i2 =0
-        while i < l :
-            H.name_tostring(dictionary[i][i2])
-            val_len = dictionary[i]
-    """
-
-    # ****************************************************************************************
