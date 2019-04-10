@@ -19,13 +19,13 @@ script:
   - coverage run -m unittest
   - coverage xml -i
   - sonar-scanner
+after_success:
+  - codecov
+
   
 addons:
  sonarcloud:
    organization: git-confused-team3 # the key of the org you chose at step #3
-   token: ${newToken}  
+   token: 
+     secure: ${newToken}  
     
-  
-
-after_success:
-  - codecov
