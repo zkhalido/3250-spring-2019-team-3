@@ -12,6 +12,8 @@ dist: trusty
 
 install:
   - pip install codecov
+  - pip install numpy
+  - pip install coverage
 
 script:
   - coverage run -m unittest
