@@ -289,8 +289,10 @@ class OpCodeMethods():
 # ****************************************************************************************
 
     def token_dict(self, argument):
+        print(argument, "   argument")
         """dictionary search"""
         method = OpCodeMethods.dictionary.get(argument, "invalid")
+        print (method, "       method")
         return method(self)
 
 # ****************************************************************************************

@@ -16,6 +16,11 @@ class HeaderClass():
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
+            self.constant_pool = defaultdict(list)
+            self.constant_pool_size = 0
+            self.constant_pool_total_size = 0
+            self.constant_pool_indexes = []
+
 
     def get_magic(self):
         """Get magic from .class file."""
@@ -49,8 +54,74 @@ class HeaderClass():
 #                               self.data[13 + i + position] +
 #                               self.data[14 + i + position], '02x'))
 
+
     def get_const_pool(self):
-        """Get CP from .class file."""
+
+       self.constant_pool_size = self.get_const_pool_count()
+
+       index = 0
+       #index = 1
+
+       bytes_to_read = 0
+       total_bytes = 0
+       start_of_pool = 10
+
+       const_pool_var_dict = {
+           "1": 2,  # 2+x bytes
+           "3": 4,  # 4 bytes
+           "4": 4,  # 4 bytes
+           "5": 8,  # 8 bytes
+           "6": 8,  # 8 bytes
+           "7": 2,  # 2 bytes
+           "8": 2,  # 2 bytes
+           "9": 4,  # 4 bytes
+           "10": 4,  # 4 bytes
+           "11": 4,  # 4 bytes
+           "12": 4,  # 4 bytes
+           "15": 3,  # 3 bytes
+           "16": 2,  # 2 bytes
+           "17": 4,  # 4 bytes
+           "18": 4,  # 4 bytes
+           "19": 2,  # 2 bytes
+           "20": 2,  # 2 bytes
+       }
+       #while index < self.constant_pool_size:
+       while index < self.constant_pool_size-1:
+           skip_index = str(self.data[start_of_pool])
+           if (skip_index == "5" or skip_index == "6"):
+               index += 1
+           self.constant_pool[index].append(format(self.data[start_of_pool], '02x'))
+           if self.data[start_of_pool] == 1:
+               bytes_to_read = int(self.data[start_of_pool+1] + self.data[start_of_pool+2]) +2
+               byte_index = 1
+               while byte_index <= bytes_to_read:
+                   self.constant_pool[index].append(format(self.data[start_of_pool + byte_index],'02x'))
+                   byte_index += 1
+               total_bytes += 1
+               index += 1
+               start_of_pool += bytes_to_read + 1
+
+           else:
+               bytes_to_read = const_pool_var_dict[str(self.data[start_of_pool])]
+               byte_index = 1
+               while byte_index < bytes_to_read:
+                   self.constant_pool[index].append(format(self.data[start_of_pool+byte_index] + self.data[start_of_pool+byte_index +1], '02x'))
+                   byte_index += 2
+               total_bytes += 1
+               index += 1
+               start_of_pool += bytes_to_read + 1
+       self.temp_2 = self.constant_pool
+       print(self.constant_pool, "temp")
+       print(type(self.constant_pool[0][0]))
+
+       return self.constant_pool
+
+
+
+
+    """
+    def get_const_pool(self):
+        "Get CP from .class file."
         temp = defaultdict(list)
         start_of_cp = 10
         position = 0
@@ -164,7 +235,13 @@ class HeaderClass():
                                       self.data[14 + i + position], '02x'))
                 position += 4
         self.temp_2 = temp
+        print (temp, "temp")
+        print(type(temp[0][0]))
+
         return temp
+        """
+
+
 
 # **************************************************************************************************
 

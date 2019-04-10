@@ -43,7 +43,7 @@ class PoolTranslate:
         newLen = len(di)
 
         length = len(di)
-        count = 1
+        count = 2
         dtext = ""
         while count < length :
             int1 = int(di[count], 16)
