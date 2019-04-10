@@ -62,6 +62,32 @@ but am getting an extra string for some reason in slot 1
 stopped -5:16
 
 
+4/6/19 3:15 pm start-
+- starting to refactor cool translator
+- learned the difference between global variables and instance variables 3:39
+- hit a block and had to draw out my problem
+- end 7:30 pm
+
+
+4/7/19 11:30 start-
+- continuing to refactor 11:30
+- team meeting
+- 12:55 refactoring working but need rest of methods and getting
+hex bit in front of utf8 conversion
+- removed funky character in utf8 translation, so refactoring done need to build other methods 1:21
+- 1:40 call ended
+- added field reference and seems to be working with add two
+4/7/19 1:48 end
+
+
+4/7/19 6:45 pm trying to build more methods but I dont think im getting the correct constant pool for other class
+aside from add two and test
+4/7/19 7:05 pm
+
+
+
+
+
 
 
 
