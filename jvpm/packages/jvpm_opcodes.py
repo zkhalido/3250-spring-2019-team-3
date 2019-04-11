@@ -20,7 +20,7 @@ class HeaderClass():
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
             self.constant_pool = defaultdict(list)
-            self.constant_pool_size = 0
+            self.constant_pool_byte_size = 0
             self.constant_pool_total_size = 0
             self.constant_pool_indexes = []
             self.skips_in_constant_pool = 0
@@ -99,7 +99,7 @@ class HeaderClass():
             if (skip_index == "5" or skip_index == "6"):
                 index += 1
                 self.skips_in_constant_pool += 1
-        self.constant_pool_size = current_byte_location
+        self.constant_pool_byte_size = current_byte_location
         self.temp_2 = self.constant_pool
 
         return self.constant_pool
@@ -123,7 +123,7 @@ class HeaderClass():
 
     def get_super_class(self):
 
-        super_class_position = self.constant_pool_size + 14
+        super_class_position = self.constant_pool_byte_size + 14
 
         super_class = ((self.data[super_class_position]) +
                       ((self.data[super_class_position + self.add_one_byte])))
@@ -132,7 +132,7 @@ class HeaderClass():
 
     def get_interfaces_count(self):
 
-        interface_count_position = self.constant_pool_size + 16
+        interface_count_position = self.constant_pool_byte_size + 16
 
         interface_count = ((self.data[interface_count_position]) +
                           ((self.data[interface_count_position + self.add_one_byte])))
