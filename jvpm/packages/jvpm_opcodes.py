@@ -12,7 +12,7 @@ INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 class HeaderClass():
 
     """Class that parses the header data from .class file and assigns values to variables."""
-    def __init__(self, name="jvpm/javafiles/AddTwo.class"):
+    def __init__(self, name="jvpm/javafiles/Test.class"):
         self.name = name
         add_one_byte = 1
         constant_pool_byte_size = 0
