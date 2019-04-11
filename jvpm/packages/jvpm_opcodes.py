@@ -183,6 +183,26 @@ class HeaderClass():
             attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
             print(attribute_count, "  attribute count")
             self.reader_location += 2
+            attribute_table = []
+            attribute_table.append(format((self.data[self.reader_location]), "02x"))
+            attribute_table.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            attribute_table.append(format((self.data[self.reader_location + 2]), "02x"))
+            attribute_table.append(format((self.data[self.reader_location + 3]), "02x"))
+            attribute_table.append(format((self.data[self.reader_location + 4]), "02x"))
+            attribute_table.append(format((self.data[self.reader_location + 5]), "02x"))
+            #attribute_table.append(format((self.data[self.reader_location + 6]), "02x"))
+            self.methods_table[i].append(attribute_table)
+
+            self.reader_location += 6
+
+
+
+
+
+
+
+
+
 
 
             i += 1
