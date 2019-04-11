@@ -18,7 +18,7 @@ class UnittestHeader(unittest.TestCase):
 #         self.assertTrue(53 <= self.cf.get_major() <= 55)
 #         self.assertEqual(self.cf.get_const_pool_count(), 42)
 
-class test_get_opcode(unittest.TestCase):
+class TestGetOpcode(unittest.TestCase):
     def test_opcode(self):
         self.assertEqual(packages.jvpm_dict.get_opcode("91"), "i2b")
         self.assertEqual(packages.jvpm_dict.get_opcode("82"), "ixor")
@@ -26,8 +26,8 @@ class test_get_opcode(unittest.TestCase):
         self.assertEqual(packages.jvpm_dict.get_opcode("03"), "iconst_0")
         self.assertEqual(packages.jvpm_dict.get_opcode("SQ"), "Byte code not found!")
 
-        ####################################################
-class test_const_pool(unittest.TestCase):
+
+class TestConstPool(unittest.TestCase):
     def test_const_pool(self):
 
         x = packages.jvpm_opcodes.HeaderClass(name= "jvpm/javafiles/tester.class")
@@ -80,7 +80,7 @@ class test_const_pool(unittest.TestCase):
 
         #################################################
 
-class test_pool_translate1(unittest.TestCase):
+class TestPoolTranslate1(unittest.TestCase):
 
      def test_working_methods(self):
          jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/tester.class")
@@ -96,7 +96,8 @@ class test_pool_translate1(unittest.TestCase):
              1: ['07', '14'],
              2: ['07', '15'],
              3: ['01', '06', '3c', '69', '6e', '69', '74', '3e'],
-             4: ['01', '03', '28', '29', '56'], 5: ['01', '04', '43', '6f', '64', '65'],
+             4: ['01', '03', '28', '29', '56'],
+             5: ['01', '04', '43', '6f', '64', '65'],
              6: ['01', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65'],
              7: ['01', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61', '62', '6c', '65'],
              8: ['01', '04', '74', '68', '69', '73'],
@@ -140,7 +141,6 @@ class test_pool_translate1(unittest.TestCase):
              20: ['01', '00', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63', '74', 'java/lang/Object']
 
          }
-         #self.assertEqual(new_dict, n)
 
          self.assertEqual(new_dict[0], n[0])
          self.assertEqual(new_dict[1], n[1])
@@ -173,7 +173,7 @@ class test_pool_translate1(unittest.TestCase):
          self.assertEqual(new_dict[20], n[20])
          self.assertEqual(new_dict[20], n[20])
 
-class test_pool_methods(unittest.TestCase):
+class TestPoolMethods(unittest.TestCase):
     def test_tag_translate(self):
          new_dict = {
              "1": "01",
@@ -249,7 +249,6 @@ class test_pool_methods(unittest.TestCase):
              [call.write("Package    2 bytes")]
          )
 
-
          x = packages.pool_methods.TagTranslate()
          self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
          self.assertEqual(x.token_dict(new_dict['2']), "Integer")
@@ -269,7 +268,7 @@ class test_pool_methods(unittest.TestCase):
          self.assertEqual(x.token_dict(new_dict['16']), "Module")
          self.assertEqual(x.token_dict(new_dict['17']), "Package")
 
-class test_stack(unittest.TestCase):
+class TestStack(unittest.TestCase):
     def test_is_empty(self):
         s = packages.stack.Stack()
         s.push(1)
@@ -310,7 +309,7 @@ class test_stack(unittest.TestCase):
         s.pop()
         self.assertEqual(s.size(), 2)
 
-class Test_Op_Methods(unittest.TestCase):
+class TestOpMethods(unittest.TestCase):
 
     def test_iadd(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -425,9 +424,6 @@ class Test_Op_Methods(unittest.TestCase):
         a = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.VARIABLES.insert(0, 7)
         packages.jvpm_methods.VARIABLES.insert(1, 5)
-#         a.VARIABLES.append(6)
-#         a.VARIABLES.append(1)
-#        a.VARIABLES[1] = 5
         a.iload_1()
         b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 5)
@@ -473,7 +469,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(-4)
         a.imul()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 20)   
+        self.assertEqual(b, 20)
 
     def test_ineg(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -647,13 +643,6 @@ class Test_Op_Methods(unittest.TestCase):
         a.iushr()
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 1)
-    """
-        a.stack.push(-1)
-        a.stack.push(2)
-        a.iushr()
-        b = a.stack.pop()
-        self.assertEqual(b, 3)
-    """
 
     def test_ixor(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -662,7 +651,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(3)
         a.ixor()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 6)    
+        self.assertEqual(b, 6)
 
     def test_i2f(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -732,7 +721,7 @@ class Test_Op_Methods(unittest.TestCase):
 
     def test_dup(self):
         a = packages.jvpm_methods.OpCodeMethods()
-        
+
         packages.jvpm_methods.S.push(5)
         a.dup()
         b = packages.jvpm_methods.S.pop()
@@ -753,23 +742,3 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.VARIABLES.append(5)
 
         sys.stdout = unittest.mock.Mock()
-        # l.dict_search()
-#         sys.stdout.assert_has_calls(
-
-#             [call.write('iconst_3'), call.write('\n'),
-#             call.write('ran iconst_3'), call.write('\n'),
-#             call.write('istore_1'), call.write('\n'),
-#             call.write('ran istore_1'), call.write('\n'),
-#             call.write('iconst_1'), call.write('\n'),
-#             call.write('ran iconst_1'), call.write('\n'),
-#             call.write('istore_2'), call.write('\n'),
-#             call.write('ran istore_2'), call.write('\n'),
-#             call.write('iload_1'), call.write('\n'),
-#             call.write('ran iload_1'), call.write('\n'),
-#             call.write('iload_2'), call.write('\n'),
-#             call.write('ran iload_2'), call.write('\n'),
-#             call.write('ixor'), call.write('\n'),
-#             call.write('ran ixor'), call.write('\n'),
-#             call.write('istore_3'), call.write('\n'),
-#             call.write('ran istore_3'), call.write('\n'), call.write('\n')]
-#         )
