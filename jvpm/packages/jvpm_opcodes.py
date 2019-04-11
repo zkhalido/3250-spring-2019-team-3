@@ -105,26 +105,20 @@ class HeaderClass():
         return self.constant_pool
 
     def get_access_flags(self):
-
         access_flag_position = self.constant_pool_byte_size + 10
-
         access_flag = (self.data[access_flag_position]) + (self.data[access_flag_position + self.add_one_byte])
 
         return access_flag
 
     def get_this_class(self):
-
         this_class_position = self.constant_pool_byte_size + 12
-
         this_class = ((self.data[this_class_position]) +
                      ((self.data[this_class_position + self.add_one_byte])))
 
         return this_class
 
     def get_super_class(self):
-
         super_class_position = self.constant_pool_size + 14
-
         super_class = ((self.data[super_class_position]) +
                       ((self.data[super_class_position + self.add_one_byte])))
 
