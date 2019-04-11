@@ -1,5 +1,4 @@
 import packages
-import webbrowser
 
 if '__main__' == __name__:                  #pragma: no cover
 
