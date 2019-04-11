@@ -31,6 +31,10 @@ if '__main__' == __name__:                  #pragma: no cover
     f = H.get_methods_count()
     print(f, "   methods count", H.integer_method_count, "   int meth count")
 
+    H.get_methods()
+
+    f = H.get_methods()
+    print(f, "   methods table")
 
 
 

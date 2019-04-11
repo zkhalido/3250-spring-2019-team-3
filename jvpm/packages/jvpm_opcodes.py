@@ -29,6 +29,7 @@ class HeaderClass():
             self.integer_interface_count = 0
             self.integer_field_count = 0
             self.integer_method_count = 0
+            self.methods_table =defaultdict(list)
 
     def get_magic(self):
         magic = ""
@@ -166,6 +167,26 @@ class HeaderClass():
     def get_methods(self):
         if (self.integer_method_count == 0):
             print("method table empty")
+        i = 0
+        while i <  self.integer_method_count:
+            self.methods_table[i].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[i].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.reader_location += 2
+            self.methods_table[i].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[i].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.reader_location += 2
+            self.methods_table[i].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[i].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.reader_location += 2
+            self.methods_table[i].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[i].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+            print(attribute_count, "  attribute count")
+            self.reader_location += 2
+
+
+            i += 1
+        return self.methods_table
 
 
     def get_attributes_count(self):
