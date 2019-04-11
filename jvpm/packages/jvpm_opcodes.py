@@ -115,7 +115,7 @@ class HeaderClass():
 
         this_class = ((self.data[this_class_position]) +
                      ((self.data[this_class_position + self.add_one_byte])))
-        print(this_class)
+
         return this_class
 
     def get_super_class(self):
