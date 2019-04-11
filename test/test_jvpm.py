@@ -18,7 +18,7 @@ class UnittestHeader(unittest.TestCase):
 #         self.assertTrue(53 <= self.cf.get_major() <= 55)
 #         self.assertEqual(self.cf.get_const_pool_count(), 42)
 
-class TestGetOpcode(unittest.TestCase):
+class test_get_opcode(unittest.TestCase):
     def test_opcode(self):
         self.assertEqual(packages.jvpm_dict.get_opcode("91"), "i2b")
         self.assertEqual(packages.jvpm_dict.get_opcode("82"), "ixor")
@@ -26,65 +26,66 @@ class TestGetOpcode(unittest.TestCase):
         self.assertEqual(packages.jvpm_dict.get_opcode("03"), "iconst_0")
         self.assertEqual(packages.jvpm_dict.get_opcode("SQ"), "Byte code not found!")
 
+        ####################################################
+# class test_const_pool(unittest.TestCase):
+#     def test_const_pool(self):
+#         with open('jvpm/javafiles/test.class', 'rb') as binary_file:
+#             self.data = binary_file.read()
 
-class TestConstPool(unittest.TestCase):
-    def test_const_pool(self):
+#         x = packages.jvpm_opcodes.HeaderClass()
+#         x.data = self.data
+#         n = x.get_const_pool()
 
-        x = packages.jvpm_opcodes.HeaderClass(name= "jvpm/javafiles/tester.class")
-        #x.data = self.data
-        n = x.get_const_pool()
+#         new_dict = {
 
-        a = {
-            0: ['0a', '03', '13'],
-            1: ['07', '14'],
-            2: ['07', '15'],
-            3: ['01', '00', '06', '3c', '69', '6e', '69', '74', '3e'],
-            4: ['01', '00', '03', '28', '29', '56'],
-            5: ['01', '00', '04', '43', '6f', '64', '65'],
-            6: ['01', '00', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65'],
-            7: ['01', '00', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61','62', '6c', '65'],
-            8: ['01', '00', '04', '74', '68', '69', '73'],
-            9: ['01', '00', '08', '4c', '74', '65', '73', '74', '65', '72', '3b'],
-            10: ['01', '00', '04', '6d', '61', '69', '6e'],
-            11: ['01', '00', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74','72', '69', '6e', '67', '3b', '29', '56'],
-            12: ['01', '00', '04', '61', '72', '67', '73'],
-            13: ['01', '00', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72','69', '6e', '67', '3b'],
-            14: ['01', '00', '01', '61'],
-            15: ['01', '00', '01', '49'],
-            16: ['01', '00', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c', '65'],
-            17: ['01', '00', '0b', '74', '65', '73', '74', '65', '72', '2e', '6a', '61', '76', '61'],
-            18: ['0c', '04', '05'],
-            19: ['01', '00', '06', '74', '65', '73', '74', '65', '72'],
-            20: ['01', '00', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63','74']
-        }
+#              0: ['0a', '05', '13'],
+#              1: ['09', '14', '15'],
+#              2: ['0a', '16', '17'],
+#              3: ['07', '18'], 4: ['07', '19'],
+#              5: ['01', '06', '3c', '69', '6e', '69', '74', '3e'],
+#              6: ['01', '03', '28', '29', '56'],
+#              7: ['01', '04', '43', '6f', '64', '65'],
+#              8: ['01', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65'],
+#              9: ['01', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61', '62','6c', '65'],
+#              10: ['01', '04', '74', '68', '69', '73'],
+#              11: ['01', '0c', '4c','48', '65', '6c', '6c', '6f', '57', '6f', '72','6c', '64', '3b'],
+#              12: ['01', '04', '6d', '61', '69', '6e'],
+#              13: ['01', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61','6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '29', '56'],
+#              14: ['01', '04', '61', '72', '67', '73'],
+#              15: ['01', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61','6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b'],
+#              16: ['01', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c', '65'],
+#              17: ['01', '0f', '48', '65', '6c', '6c', '6f','57', '6f', '72', '6c', '64', '2e', '6a', '61', '76', '61'],
+#              18: ['0c', '06', '07'],
+#              19: ['07', '1a'],
+#              20: ['0c', '1b', '1c'],
+#              21: ['07', '1d'],
+#              22: ['0c', '1e', '1f'],
+#              23: ['01', '0a','48', '65', '6c', '6c', '6f', '57','6f', '72', '6c', '64'],
+#              24: ['01', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63','74'],
+#              25: ['01','10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '79', '73', '74','65', '6d'],
+#              26: ['01', '03', '6f', '75', '74'],
+#              27: ['01', '15', '4c', '6a', '61', '76', '61','2f', '69', '6f', '2f', '50', '72', '69', '6e', '74', '53', '74', '72', '65', '61', '6d', '3b'],
+#              28: ['01', '13', '6a', '61', '76', '61', '2f', '69', '6f', '2f', '50', '72', '69', '6e','74', '53', '74', '72', '65', '61', '6d'],
+#              29: ['01', '07', '70', '72', '69', '6e', '74', '6c', '6e'],
+#              30: ['01', '04', '28', '49', '29', '56']
+#         }
 
-        self.assertEqual(n[0], a[0])
-        self.assertEqual(n[1], a[1])
-        self.assertEqual(n[2], a[2])
-        self.assertEqual(n[3], a[3])
-        self.assertEqual(n[4], a[4])
-        self.assertEqual(n[5], a[5])
-        self.assertEqual(n[6], a[6])
-        self.assertEqual(n[7], a[7])
-        self.assertEqual(n[8], a[8])
-        self.assertEqual(n[9], a[9])
-        self.assertEqual(n[10], a[10])
-        self.assertEqual(n[11], a[11])
-        self.assertEqual(n[12], a[12])
-        self.assertEqual(n[13], a[13])
-        self.assertEqual(n[14], a[14])
-        self.assertEqual(n[15], a[15])
-
-
-        self.assertEqual(n, a)
+#         self.assertEqual(n, new_dict)
 
         #################################################
 
-class TestPoolTranslate1(unittest.TestCase):
+class test_pool_translate1(unittest.TestCase):
+    #def setUp(self):
+        #f = mock_open(read_data='cafebabe0000003700160a000300130700140700150100063c696e69743e010003282956010004436f646501000f4c696e654e756d6265725461626c650100124c6f63616c5661726961626c655461626c65010004746869730100084c7465737465723b0100046d61696e010016285b4c6a6176612f6c616e672f537472696e673b2956010004617267730100135b4c6a6176612f6c616e672f537472696e673b010001610100014901000a536f7572636546696c6501000b7465737465722e6a6176610c000400050100067465737465720100106a6176612f6c616e672f4f626a656374002000020003000000000002000000040005000100060000002f00010001000000052ab70001b10000000200070000000600010000000100080000000c0001000000050009000a00000008000b000c000100060000003a0001000200000006053c840101b100000002000700000006000100000001000800000016000200000006000d000e000000020004000f0010000100010011000000020012')
+        #with patch(__name__ + '.open', f):
+        #    self.bf = jvpm.jvpm_opcodes.HeaderClass()
 
      def test_working_methods(self):
          jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/tester.class")
 
+         #x = packages.jvpm_opcodes.HeaderClass()
+         #z = patch.get_const_pool()
+         #y = packages.pool_translate.PoolTranslate()
          y = packages.pool_translate.PoolTranslate(name ="jvpm/javafiles/tester.class")
 
          #y.dictionary = x.get_const_pool()
@@ -96,8 +97,7 @@ class TestPoolTranslate1(unittest.TestCase):
              1: ['07', '14'],
              2: ['07', '15'],
              3: ['01', '06', '3c', '69', '6e', '69', '74', '3e'],
-             4: ['01', '03', '28', '29', '56'],
-             5: ['01', '04', '43', '6f', '64', '65'],
+             4: ['01', '03', '28', '29', '56'], 5: ['01', '04', '43', '6f', '64', '65'],
              6: ['01', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65'],
              7: ['01', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61', '62', '6c', '65'],
              8: ['01', '04', '74', '68', '69', '73'],
@@ -121,58 +121,61 @@ class TestPoolTranslate1(unittest.TestCase):
              0: ['0a', '03', '13', 'java/lang/Object.<init>:()V'],
              1: ['07', '14', 'tester'],
              2: ['07', '15', 'java/lang/Object'],
-             3: ['01', '00', '06', '3c', '69', '6e', '69', '74', '3e', '<init>'],
-             4: ['01', '00', '03', '28', '29', '56', '()V'],
-             5: ['01', '00', '04', '43', '6f','64', '65', 'Code'],
-             6: ['01', '00', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65', 'LineNumberTable'],
-             7: ['01', '00', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61', '62', '6c', '65', 'LocalVariableTable'],
-             8: ['01', '00', '04', '74', '68', '69', '73', 'this'],
-             9: ['01', '00', '08', '4c', '74', '65', '73', '74', '65', '72', '3b', 'Ltester;'],
-             10: ['01', '00', '04', '6d', '61', '69', '6e', 'main'],
-             11: ['01', '00', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '29', '56', '([Ljava/lang/String;)V'],
-             12: ['01', '00', '04', '61', '72', '67', '73', 'args'],
-             13: ['01', '00', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '[Ljava/lang/String;'],
-             14: ['01', '00', '01', '61', 'a'],
-             15: ['01', '00', '01', '49', 'I'],
-             16: ['01', '00', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c','65', 'SourceFile'],
-             17: ['01', '00', '0b', '74', '65', '73', '74', '65', '72', '2e', '6a', '61', '76', '61', 'tester.java'],
+             3: ['01', '06', '3c', '69', '6e', '69', '74', '3e', '<init>'],
+             4: ['01', '03', '28', '29', '56', '()V'],
+             5: ['01','04', '43', '6f','64', '65', 'Code'],
+             6: ['01', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65', 'LineNumberTable'],
+             7: ['01', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61', '62', '6c', '65', 'LocalVariableTable'],
+             8: ['01', '04', '74', '68', '69', '73', 'this'],
+             9: ['01', '08', '4c', '74', '65', '73', '74', '65', '72', '3b', 'Ltester;'],
+             10: ['01', '04', '6d', '61', '69', '6e', 'main'],
+             11: ['01', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '29', '56', '([Ljava/lang/String;)V'],
+             12: ['01', '04', '61', '72', '67', '73', 'args'],
+             13: ['01', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '[Ljava/lang/String;'],
+             14: ['01', '01', '61', 'a'],
+             15: ['01', '01', '49', 'I'],
+             16: ['01', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c','65', 'SourceFile'],
+             17: ['01', '0b', '74', '65', '73', '74', '65', '72', '2e', '6a', '61', '76', '61', 'tester.java'],
              18: ['0c', '04', '05', '<init>:()V'],
-             19: ['01', '00', '06', '74', '65', '73', '74', '65', '72', 'tester'],
-             20: ['01', '00', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63', '74', 'java/lang/Object']
+             19: ['01', '06', '74', '65', '73', '74', '65', '72', 'tester'],
+             20: ['01', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63', '74', 'java/lang/Object']
+
+         }
+         self.assertEqual(new_dict, n)
+
+         self.assertEqual(new_dict[0], n[0])
+         self.assertEqual(new_dict[1], n[1])
+         self.assertEqual(new_dict[2], n[2])
+         self.assertEqual(new_dict[3], n[3])
+         self.assertEqual(new_dict[4], n[4])
+         self.assertEqual(new_dict[5], n[5])
+         self.assertEqual(new_dict[6], n[6])
+         self.assertEqual(new_dict[7], n[7])
+         self.assertEqual(new_dict[8], n[8])
+         self.assertEqual(new_dict[9], n[9])
+         self.assertEqual(new_dict[10], n[10])
+         self.assertEqual(new_dict[11], n[11])
+         self.assertEqual(new_dict[12], n[12])
+         self.assertEqual(new_dict[13], n[13])
+         self.assertEqual(new_dict[14], n[14])
+         self.assertEqual(new_dict[15], n[15])
+         self.assertEqual(new_dict[16], n[16])
+         self.assertEqual(new_dict[17], n[17])
+         self.assertEqual(new_dict[18], n[18])
+         self.assertEqual(new_dict[19], n[19])
+         self.assertEqual(new_dict[20], n[20])
 
 
-        self.assertEqual(new_dict[0], n[0])
-        self.assertEqual(new_dict[1], n[1])
-        self.assertEqual(new_dict[2], n[2])
-        self.assertEqual(new_dict[3], n[3])
-        self.assertEqual(new_dict[4], n[4])
-        self.assertEqual(new_dict[5], n[5])
-        self.assertEqual(new_dict[6], n[6])
-        self.assertEqual(new_dict[7], n[7])
-        self.assertEqual(new_dict[8], n[8])
-        self.assertEqual(new_dict[9], n[9])
-        self.assertEqual(new_dict[10], n[10])
-        self.assertEqual(new_dict[11], n[11])
-        self.assertEqual(new_dict[12], n[12])
-        self.assertEqual(new_dict[13], n[13])
-        self.assertEqual(new_dict[14], n[14])
-        self.assertEqual(new_dict[15], n[15])
-        self.assertEqual(new_dict[16], n[16])
-        self.assertEqual(new_dict[17], n[17])
-        self.assertEqual(new_dict[18], n[18])
-        self.assertEqual(new_dict[19], n[19])
-        self.assertEqual(new_dict[20], n[20])
-    
-    
-        self.assertEqual(new_dict[20], n[20])
-        self.assertEqual(new_dict[20], n[20])
-        self.assertEqual(new_dict[20], n[20])
-        self.assertEqual(new_dict[20], n[20])
-        self.assertEqual(new_dict[20], n[20])
-        self.assertEqual(new_dict[20], n[20])
-        self.assertEqual(new_dict[20], n[20])
+         #self.assertEqual(y.method_handle(), "Method Handle    3 bytes")
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
+         self.assertEqual(new_dict[20], n[20])
 
-class TestPoolMethods(unittest.TestCase):
+class test_pool_methods(unittest.TestCase):
     def test_tag_translate(self):
          new_dict = {
              "1": "01",
@@ -194,6 +197,9 @@ class TestPoolMethods(unittest.TestCase):
              "17": "14"
          }
          x = packages.pool_translate.PoolTranslate(name ="jvpm/javafiles/tester.class")
+         #x.dictionary = {
+         #    '0':"0"
+         #}
          """
          x.field_reference()
          sys.stdout.assert_has_calls(
@@ -248,6 +254,7 @@ class TestPoolMethods(unittest.TestCase):
              [call.write("Package    2 bytes")]
          )
 
+
          x = packages.pool_methods.TagTranslate()
          self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
          self.assertEqual(x.token_dict(new_dict['2']), "Integer")
@@ -267,7 +274,7 @@ class TestPoolMethods(unittest.TestCase):
          self.assertEqual(x.token_dict(new_dict['16']), "Module")
          self.assertEqual(x.token_dict(new_dict['17']), "Package")
 
-class TestStack(unittest.TestCase):
+class test_stack(unittest.TestCase):
     def test_is_empty(self):
         s = packages.stack.Stack()
         s.push(1)
@@ -308,7 +315,7 @@ class TestStack(unittest.TestCase):
         s.pop()
         self.assertEqual(s.size(), 2)
 
-class TestOpMethods(unittest.TestCase):
+class Test_Op_Methods(unittest.TestCase):
 
     def test_iadd(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -423,6 +430,9 @@ class TestOpMethods(unittest.TestCase):
         a = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.VARIABLES.insert(0, 7)
         packages.jvpm_methods.VARIABLES.insert(1, 5)
+#         a.VARIABLES.append(6)
+#         a.VARIABLES.append(1)
+#        a.VARIABLES[1] = 5
         a.iload_1()
         b = packages.jvpm_methods.S.peek()
         self.assertEqual(b, 5)
@@ -468,7 +478,7 @@ class TestOpMethods(unittest.TestCase):
         packages.jvpm_methods.S.push(-4)
         a.imul()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 20)
+        self.assertEqual(b, 20)   
 
     def test_ineg(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -642,6 +652,13 @@ class TestOpMethods(unittest.TestCase):
         a.iushr()
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 1)
+    """
+        a.stack.push(-1)
+        a.stack.push(2)
+        a.iushr()
+        b = a.stack.pop()
+        self.assertEqual(b, 3)
+    """
 
     def test_ixor(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -650,7 +667,7 @@ class TestOpMethods(unittest.TestCase):
         packages.jvpm_methods.S.push(3)
         a.ixor()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 6)
+        self.assertEqual(b, 6)    
 
     def test_i2f(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -720,7 +737,7 @@ class TestOpMethods(unittest.TestCase):
 
     def test_dup(self):
         a = packages.jvpm_methods.OpCodeMethods()
-
+        
         packages.jvpm_methods.S.push(5)
         a.dup()
         b = packages.jvpm_methods.S.pop()
@@ -741,3 +758,23 @@ class TestOpMethods(unittest.TestCase):
         packages.jvpm_methods.VARIABLES.append(5)
 
         sys.stdout = unittest.mock.Mock()
+        # l.dict_search()
+#         sys.stdout.assert_has_calls(
+
+#             [call.write('iconst_3'), call.write('\n'),
+#             call.write('ran iconst_3'), call.write('\n'),
+#             call.write('istore_1'), call.write('\n'),
+#             call.write('ran istore_1'), call.write('\n'),
+#             call.write('iconst_1'), call.write('\n'),
+#             call.write('ran iconst_1'), call.write('\n'),
+#             call.write('istore_2'), call.write('\n'),
+#             call.write('ran istore_2'), call.write('\n'),
+#             call.write('iload_1'), call.write('\n'),
+#             call.write('ran iload_1'), call.write('\n'),
+#             call.write('iload_2'), call.write('\n'),
+#             call.write('ran iload_2'), call.write('\n'),
+#             call.write('ixor'), call.write('\n'),
+#             call.write('ran ixor'), call.write('\n'),
+#             call.write('istore_3'), call.write('\n'),
+#             call.write('ran istore_3'), call.write('\n'), call.write('\n')]
+#         )
