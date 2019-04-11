@@ -58,25 +58,22 @@ class TestConstPool(unittest.TestCase):
             20: ['01', '00', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63','74']
         }
 
-        self.assertEqual(n[0], a[0])
-        self.assertEqual(n[1], a[1])
-        self.assertEqual(n[2], a[2])
-        self.assertEqual(n[3], a[3])
-        self.assertEqual(n[4], a[4])
-        self.assertEqual(n[5], a[5])
-        self.assertEqual(n[6], a[6])
-        self.assertEqual(n[7], a[7])
-        self.assertEqual(n[8], a[8])
-        self.assertEqual(n[9], a[9])
-        self.assertEqual(n[10], a[10])
-        self.assertEqual(n[11], a[11])
-        self.assertEqual(n[12], a[12])
-        self.assertEqual(n[13], a[13])
-        self.assertEqual(n[14], a[14])
-        self.assertEqual(n[15], a[15])
-
-
-        self.assertEqual(n, a)
+        self.assertEqual(n[1], a[0])
+        self.assertEqual(n[2], a[1])
+        self.assertEqual(n[3], a[2])
+        self.assertEqual(n[4], a[3])
+        self.assertEqual(n[5], a[4])
+        self.assertEqual(n[6], a[5])
+        self.assertEqual(n[7], a[6])
+        self.assertEqual(n[8], a[7])
+        self.assertEqual(n[9], a[8])
+        self.assertEqual(n[10], a[9])
+        self.assertEqual(n[11], a[10])
+        self.assertEqual(n[12], a[11])
+        self.assertEqual(n[13], a[12])
+        self.assertEqual(n[14], a[13])
+        self.assertEqual(n[15], a[14])
+        self.assertEqual(n[16], a[15])
 
         #################################################
 
@@ -115,30 +112,178 @@ class TestPoolTranslate1(unittest.TestCase):
              20: ['01', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63', '74']
          }
 
-         new_dict = y.translate()
+class test_pool_translate1(unittest.TestCase):
 
-         n = {
-             0: ['0a', '03', '13', 'java/lang/Object.<init>:()V'],
-             1: ['07', '14', 'tester'],
-             2: ['07', '15', 'java/lang/Object'],
-             3: ['01', '00', '06', '3c', '69', '6e', '69', '74', '3e', '<init>'],
-             4: ['01', '00', '03', '28', '29', '56', '()V'],
-             5: ['01', '00', '04', '43', '6f','64', '65', 'Code'],
-             6: ['01', '00', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65', 'LineNumberTable'],
-             7: ['01', '00', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61', '62', '6c', '65', 'LocalVariableTable'],
-             8: ['01', '00', '04', '74', '68', '69', '73', 'this'],
-             9: ['01', '00', '08', '4c', '74', '65', '73', '74', '65', '72', '3b', 'Ltester;'],
-             10: ['01', '00', '04', '6d', '61', '69', '6e', 'main'],
-             11: ['01', '00', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '29', '56', '([Ljava/lang/String;)V'],
-             12: ['01', '00', '04', '61', '72', '67', '73', 'args'],
-             13: ['01', '00', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '[Ljava/lang/String;'],
-             14: ['01', '00', '01', '61', 'a'],
-             15: ['01', '00', '01', '49', 'I'],
-             16: ['01', '00', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c','65', 'SourceFile'],
-             17: ['01', '00', '0b', '74', '65', '73', '74', '65', '72', '2e', '6a', '61', '76', '61', 'tester.java'],
-             18: ['0c', '04', '05', '<init>:()V'],
-             19: ['01', '00', '06', '74', '65', '73', '74', '65', '72', 'tester'],
-             20: ['01', '00', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63', '74', 'java/lang/Object']
+    def test_working_methods(self):
+        jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/tester.class")
+
+        y = packages.pool_translate.PoolTranslate(name="jvpm/javafiles/testSaveVar.class")
+
+        # y.dictionary = x.get_const_pool()
+        b = defaultdict(list)
+        b = jvpm_opcodes_obj.get_const_pool()
+        new_array = ["0",
+                     "java/lang/Object.<init>:()V",
+                     "hello",
+                     None,
+                     "0",
+                     None,
+                     "0",
+                     "java/lang/System.out:Ljava/io/PrintStream;",
+                     None,
+                     "java/io/PrintStream.println:(Ljava/lang/String;)V",
+                     "testSaveVar",
+                     "java/lang/Object",
+                     "<init>",
+                     "()V",
+                     "Code",
+                     "LineNumberTable",
+                     "LocalVariableTable",
+                     "this",
+                     "LtestSaveVar;",
+                     "main",
+                     "([Ljava/lang/String;)V",
+                     "args",
+                     "[Ljava/lang/String;",
+                     "myInt",
+                     "I",
+                     "myString",
+                     "Ljava/lang/String;",
+                     "myLong",
+                     "J",
+                     "myDouble",
+                     "D",
+                     "SourceFile",
+                     "testSaveVar.java",
+                     "<init>:()V",
+                     "hello",
+                     "java/lang/System",
+                     "out:Ljava/io/PrintStream;",
+                     "BootstrapMethods",
+                     None,
+                     "\x01 \x01 \x01 \x01",
+                     "makeConcatWithConstants:(ILjava/lang/String;JD)Ljava/lang/String;",
+                     "java/io/PrintStream",
+                     "println:(Ljava/lang/String;)V",
+                     "testSaveVar",
+                     "java/lang/Object",
+                     "java/lang/System",
+                     "out",
+                     "Ljava/io/PrintStream;",
+                     "java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;",
+                     "\x01 \x01 \x01 \x01",
+                     "makeConcatWithConstants",
+                     "(ILjava/lang/String;JD)Ljava/lang/String;",
+                     "java/io/PrintStream",
+                     "println",
+                     "(Ljava/lang/String;)V",
+                     "java/lang/invoke/StringConcatFactory",
+                     "makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;",
+                     "java/lang/invoke/StringConcatFactory",
+                     "java/lang/invoke/MethodHandles$Lookup",
+                     "Lookup",
+                     "InnerClasses",
+                     "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;",
+                     "java/lang/invoke/MethodHandles",
+                     "java/lang/invoke/MethodHandles$Lookup",
+                     "java/lang/invoke/MethodHandles"]
+
+        a = {
+            0: "0",
+            1: "java/lang/Object.<init>:()V",
+            2: "hello",
+            3: None,
+            4: "0",
+            5: None,
+            6: "0",
+            7: "java/lang/System.out:Ljava/io/PrintStream;",
+            8: None,
+            9: "java/io/PrintStream.println:(Ljava/lang/String;)V",
+            10: "testSaveVar",
+            11: "java/lang/Object",
+            12: "<init>",
+            13: "()V",
+            14: "Code",
+            15: "LineNumberTable",
+            16: "LocalVariableTable",
+            17: "this",
+            18: "LtestSaveVar;",
+            19: "main",
+            20: "([Ljava/lang/String;)V",
+            21: "args",
+            22: "[Ljava/lang/String;",
+            23: "myInt",
+            24: "I",
+            25: "myString",
+            26: "Ljava/lang/String;",
+            27: "myLong",
+            28: "J",
+            29: "myDouble",
+            30: "D",
+            31: "SourceFile",
+            32: "testSaveVar.java",
+            33: "<init>:()V",
+            34: "hello",
+            35: "java/lang/System",
+            36: "out:Ljava/io/PrintStream;",
+            37: "BootstrapMethods",
+            38: None,
+            39: "\x01 \x01 \x01 \x01",
+            40: "makeConcatWithConstants:(ILjava/lang/String;JD)Ljava/lang/String;",
+            41: "java/io/PrintStream",
+            42: "println:(Ljava/lang/String;)V",
+            43: "testSaveVar",
+            44: "java/lang/Object",
+            45: "java/lang/System",
+            46: "out",
+            47: "Ljava/io/PrintStream;",
+            48: "java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;",
+            49: "\x01 \x01 \x01 \x01",
+            50: "makeConcatWithConstants",
+            51: "(ILjava/lang/String;JD)Ljava/lang/String;",
+            52: "java/io/PrintStream",
+            53: "println",
+            54: "(Ljava/lang/String;)V",
+            55: "java/lang/invoke/StringConcatFactory",
+            56: "makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;",
+            57: "java/lang/invoke/StringConcatFactory",
+            58: "java/lang/invoke/MethodHandles$Lookup",
+            59: "Lookup",
+            60: "InnerClasses",
+            61: "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;",
+            62: "java/lang/invoke/MethodHandles",
+            63: "java/lang/invoke/MethodHandles$Lookup",
+            64: "java/lang/invoke/MethodHandles"
+        }
+
+        new_dict = y.translate_pool()
+
+        n = {
+            0: 'java/lang/Object.<init>:()V',
+            1: 'tester',
+            2: 'java/lang/Object',
+            3: '<init>',
+            4: '()V',
+            5: 'Code',
+            6: 'LineNumberTable',
+            7: 'LocalVariableTable',
+            8: 'this',
+            9: 'Ltester;',
+            10: 'main',
+            11: '([Ljava/lang/String;)V',
+            12: 'args',
+            13: '[Ljava/lang/String;',
+            14: 'a',
+            15: 'I',
+            16: 'SourceFile',
+            17: 'tester.java',
+            18: '<init>:()V',
+            19: 'tester',
+            20: 'java/lang/Object'
+
+        }
+
+        self.assertEqual(new_dict, new_array)
 
          }
 
@@ -201,50 +346,51 @@ class TestPoolMethods(unittest.TestCase):
              [call.write("Field Reference    4 bytes")]
          )
          """
-         x.integer()
+         x_list = [0]
+         x.integer(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Integer  4 bytes")]
          )
-         x.float()
+         x.float(x_list)
          sys.stdout.assert_has_calls(
             [call.write("Float  4 bytes")]
          )
-         x.long()
+         x.long(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Long    8 bytes")]
          )
-         x.double()
+         x.double(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Double    8 bytes")]
          )
-         x.interface_method_reference()
+         x.interface_method_reference(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Interface Method Reference    4 bytes")]
          )
 
-         x.method_handle()
+         x.method_handle(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Method Handle    3 bytes")]
          )
 
-         x.method_type()
+         x.method_type(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Method Type    2 bytes")]
          )
 
-         x.dynamic()
+         x.dynamic(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Dynamic    4 bytes")]
          )
-         x.invoke_dynamic()
+         x.invoke_dynamic(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Invoke Dynamic    4 bytes")]
          )
-         x.module()
+         x.module(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Module    2 bytes")]
          )
-         x.package()
+         x.package(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Package    2 bytes")]
          )
