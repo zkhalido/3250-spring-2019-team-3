@@ -100,6 +100,70 @@ class HeaderClass():
 
        return self.constant_pool
 
+    def get_access_flags(self):
+
+        access_flag_position = self.const_pool_size + 10
+
+        access_flag = (format(self.data[access_flag_position], "02X")) +
+                      (format(self.data[access_flag_position + self.add_one_byte], "02X"))
+
+        return access_flag
+
+    def get_this_class(self):
+
+
+        this_class_position = self.const_pool_size + 12
+
+        this_class = (format(self.data[this_class_position], "02X")) +
+                     (format(self.data[this_class_position + self.add_one_byte], "02X"))
+
+        return this_class
+
+    def get_super_class(self):
+
+        super_class_position = self.const_pool_size + 14
+
+        super_class = (format(self.data[super_class_position], "02X")) +
+                      (format(self.data[super_class_position + self.add_one_byte], "02X"))
+
+        return super_class
+
+    def get_interfaces_count(self):
+
+        interface_count_position = self.const_pool_size + 16
+
+        interface_count = int((format(self.data[interface_count_position], "02X")) +
+                          (format(self.data[interface_count_position + self.add_one_byte], "02X")))
+
+        return interface_count
+
+    def get_interface(self):
+        print("temp")
+
+    def get_field_count(self):
+        print("temp")
+
+    def get_field(self):
+        print("temp")
+
+    def get_methods_count(self):
+        print("temp")
+
+    def get_methods(self):
+        print("temp")
+
+    def get_attributes_count(self):
+        print("temp")
+
+    def get_attributes(self):
+        print("temp")
+
+    def PrintHeader(self): # pragma: no cover
+        print("Magic: " + self.get_magic())
+        print("Major:", self.get_major())
+        print("Minor:", self.get_minor())
+        print("Constant_pool_count:", self.get_const_pool_count())
+
 class OpCodes():
 
     """Parse Opcodes into an array from the .class file, search the external dictionary of
@@ -116,7 +180,7 @@ class OpCodes():
 
 
         """
-        
+
     def dict_search(self):
         """dictionary search method."""
         for opcode in self.opcodes:
