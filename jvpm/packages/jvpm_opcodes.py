@@ -13,6 +13,8 @@ class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
     def __init__(self, name="jvpm/javafiles/AddTwo.class"):
         self.name = name
+        add_one_byte = 1
+        constant_pool_byte_size = 0
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
@@ -20,9 +22,7 @@ class HeaderClass():
             self.constant_pool_size = 0
             self.constant_pool_total_size = 0
             self.constant_pool_indexes = []
-            self.add_one_byte = 1
-
-
+            
     def get_magic(self):
         """Get magic from .class file."""
         magic = ""
@@ -102,8 +102,8 @@ class HeaderClass():
        return self.constant_pool
 
     def get_access_flags(self):
-        print(self.constant_pool_size)
-        access_flag_position = self.constant_pool_size + 10
+
+        access_flag_position = self.constant_pool_byte_size + 10
 
         access_flag = (self.data[access_flag_position]) + (self.data[access_flag_position + self.add_one_byte])
 
@@ -111,10 +111,10 @@ class HeaderClass():
 
     def get_this_class(self):
 
-        this_class_position = self.constant_pool_size + 12
+        this_class_position = self.constant_pool_byte_size + 12
 
         this_class = ((self.data[this_class_position]) +
-                     ((self.data[this_class_position + self.add_one_byte])))
+                     ((self.data[this_class_position + add_one_byte])))
 
         return this_class
 
@@ -123,7 +123,7 @@ class HeaderClass():
         super_class_position = self.constant_pool_size + 14
 
         super_class = ((self.data[super_class_position]) +
-                      ((self.data[super_class_position + self.add_one_byte])))
+                      ((self.data[super_class_position + add_one_byte])))
 
         return super_class
 
@@ -132,7 +132,7 @@ class HeaderClass():
         interface_count_position = self.constant_pool_size + 16
 
         interface_count = ((self.data[interface_count_position]) +
-                          ((self.data[interface_count_position + self.add_one_byte])))
+                          ((self.data[interface_count_position + add_one_byte])))
 
         return interface_count
 
