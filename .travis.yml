@@ -2,12 +2,7 @@ language: python
 python:
   - "3.6"
   #- "3.5"
-
-#addons:
-  #sonarcloud:
-   # organization: git-confused-team3 # the key of the org you chose at step #3
-   # token: ${newToken}  
-    
+ 
 dist: trusty
 
 install:
@@ -19,9 +14,10 @@ script:
   #- coverage run -m unittest
   - coverage run --omit=*test* -m unittest
   - coverage xml -i
-  - sonar-scanner
+  #- sonar-scanner
 after_success:
-  #- codecov
+  - codecov
+  - sonar-scanner
   #- coverage xml -i
 
   
