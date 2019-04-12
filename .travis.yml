@@ -22,7 +22,7 @@ script:
   - sonar-scanner
 after_success:
   - codecov
-  - coverage xml -i
+  #- coverage xml -i
 
   
 addons:
