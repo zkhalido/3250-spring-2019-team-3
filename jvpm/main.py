@@ -8,6 +8,9 @@ if '__main__' == __name__:                  #pragma: no cover
     #H.get_major()                   #pragma: no cover
     n = H.get_const_pool()
     print(n)
+    p_translator = packages.pool_translate.PoolTranslate(name = "jvpm/javafiles/test.class")
+    pool = p_translator.translate_pool()
+    print(pool)
 
     a = H.get_access_flags()
     print(a, "   access flags")
@@ -31,9 +34,9 @@ if '__main__' == __name__:                  #pragma: no cover
     f = H.get_methods_count()
     print(f, "   methods count", H.integer_method_count, "   int meth count")
 
-    H.get_methods()
+    #H.get_methods(pool)
 
-    f = H.get_methods()
+    f = H.get_methods(pool)
     print(f, "   methods table")
 
 

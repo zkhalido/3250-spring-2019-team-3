@@ -1,7 +1,7 @@
 """Read bit stream."""
 from collections import defaultdict
 from collections import deque
-from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
+from . import jvpm_dict, jvpm_methods, read_attribute  # import external opcode dictionary
 
 # A deque of invokevirtual constants used for method calls from AddToo.class.
 #     Eventually wee will acquire these values from the CP, but they are hardcoded for now.
@@ -30,6 +30,7 @@ class HeaderClass():
             self.integer_field_count = 0
             self.integer_method_count = 0
             self.methods_table =defaultdict(list)
+            self.op_codes = []
 
     def get_magic(self):
         magic = ""
@@ -164,62 +165,54 @@ class HeaderClass():
         self.reader_location += 2
         return method_count
 
-    def get_methods(self):
+    def get_methods(self, pool):
         if (self.integer_method_count == 0):
             print("method table empty")
-        i = 0
-        while i <  self.integer_method_count:
-            self.methods_table[i].append(format((self.data[self.reader_location]), "02x"))
-            self.methods_table[i].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+        method_index = 0
+        while method_index <  self.integer_method_count:
+            print(method_index,   "                method index", self.reader_location,  "            reader location")
+            print((format((self.data[self.reader_location]), "02x")), (format((self.data[self.reader_location+1]), "02x")), "         ")
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             self.reader_location += 2
-            self.methods_table[i].append(format((self.data[self.reader_location]), "02x"))
-            self.methods_table[i].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             self.reader_location += 2
-            self.methods_table[i].append(format((self.data[self.reader_location]), "02x"))
-            self.methods_table[i].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             self.reader_location += 2
-            self.methods_table[i].append(format((self.data[self.reader_location]), "02x"))
-            self.methods_table[i].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
             print(attribute_count, "  attribute count")
+            print(self.methods_table,  "            mathods table")
+            print(self.reader_location, '             reader loc')
             self.reader_location += 2
-            attribute_table = []
-            attribute_table.append(format((self.data[self.reader_location]), "02x"))
-            attribute_table.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
-            attribute_table.append(format((self.data[self.reader_location + 2]), "02x"))
-            attribute_table.append(format((self.data[self.reader_location + 3]), "02x"))
-            attribute_table.append(format((self.data[self.reader_location + 4]), "02x"))
-            attribute_table.append(format((self.data[self.reader_location + 5]), "02x"))
-            #attribute_table.append(format((self.data[self.reader_location + 6]), "02x"))
-            self.methods_table[i].append(attribute_table)
+            attribute_index = 0
+            while attribute_index < attribute_count:
+                print(attribute_index , " att index/////", attribute_count, " count")
+                tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+                print (tag_location, " *********************************tag L")
+                tag = pool[tag_location]
+                print (tag, "              tag###@@@@@!!!")
+                print(self.reader_location, "      reader_location before  ")
+                atribute_reader = read_attribute.ReadAttribute()
+                self.reader_location = atribute_reader.get_attribute(tag, self.methods_table, self.reader_location, self.data, self.op_codes, method_index)
+                print(self.reader_location, "      reader_location after  ")
 
-            self.reader_location += 6
+                next_attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + 1])
+                self.reader_location += 2
+                print(next_attribute_count, "                #################next attribute count")
+                if next_attribute_count != 0:
+                    #attribute_count += 1
+                    print("in if")
+                attribute_index += 1
+                print(self.methods_table, "            &&&&&&&&&&&& methods table after method call")
 
 
-
-
-
-
-
-
-
-
-
-            i += 1
+            method_index +=1
         return self.methods_table
 
-
-    def get_attributes_count(self):
-        print("temp")
-
-    def get_attributes(self):
-        print("temp")
-
-    def PrintHeader(self): # pragma: no cover
-        print("Magic: " + self.get_magic())
-        print("Major:", self.get_major())
-        print("Minor:", self.get_minor())
-        print("Constant_pool_count:", self.get_const_pool_count())
 
 class OpCodes():
 
