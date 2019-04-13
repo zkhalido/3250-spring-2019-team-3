@@ -219,7 +219,7 @@ class OpCodeMethods():
     def i2l(self):
         """convert int to long"""
         variable1 = numpy.int32(S.pop())
-        S.push(int(variable1))
+        S.push(numpy.int64(variable1))
 
     def i2s(self):
         """convert int to short"""
