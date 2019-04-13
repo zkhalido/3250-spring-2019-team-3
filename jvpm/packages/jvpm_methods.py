@@ -223,8 +223,8 @@ class OpCodeMethods():
 
     def i2s(self):
         """convert int to short"""
-        variable1 = numpy.int16(S.pop())
-        S.push(hex(variable1 & 0xffff))
+        variable1 = numpy.int32(S.pop())
+        S.push(numpy.int16(variable1))
 
     def i2d(self):
         """convert int to decimal"""

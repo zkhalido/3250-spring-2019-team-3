@@ -804,16 +804,22 @@ class Test_Op_Methods(unittest.TestCase):
 
     def test_i2s(self):
         a = packages.jvpm_methods.OpCodeMethods()
-
-        packages.jvpm_methods.S.push(555555)
-        a.i2s()
+        packages.jvpm_methods.S.push(5)
+        a.i2d()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, "0x7a23")
+        self.assertEqual(b, 5)
 
-        packages.jvpm_methods.S.push(000000)
-        a.i2s()
+        a = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.S.push(0)
+        a.i2d()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, "0x0")
+        self.assertEqual(b, 0)
+
+        a = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.S.push(-1)
+        a.i2d()
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, -1)
 
     def test_i2d(self):
         a = packages.jvpm_methods.OpCodeMethods()
