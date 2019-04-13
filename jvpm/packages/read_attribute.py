@@ -187,11 +187,56 @@ class ReadAttribute():
     def get_source_file(self, methods_table, reader_location, data, op_codes, method_index, pool):
         x=0
 
+    def get_exceptions(self, methods_table, reader_location, data, op_codes, method_index, pool):
+        x= 0
+        exception_table = []
+        ##################    name index
+        exception_table.append(format((data[reader_location]), "02x"))
+        exception_table.append(format((data[reader_location + 1]), "02x"))
+
+        ##################### attribute length
+        exception_table.append(format((data[reader_location + 2]), "02x"))
+        exception_table.append(format((data[reader_location + 3]), "02x"))
+        exception_table.append(format((data[reader_location + 4]), "02x"))
+        exception_table.append(format((data[reader_location + 5]), "02x"))
+        attribute_length = (data[reader_location + 2]) + (data[reader_location + 3]) \
+                           + (data[reader_location + 4]) + (data[reader_location + 5])
+        reader_location += 6
+        print(reader_location, "               reader location exceptions")
+        #################### number of exceptions
+        exception_table.append(format((data[reader_location]), "02x"))
+        exception_table.append(format((data[reader_location + 1]), "02x"))
+
+        number_of_exceptions = (data[reader_location ]) + (data[reader_location + 1])
+        print(number_of_exceptions, "######$$$$$$$$$$$$ num exceptions  %%^^^^^^^^^^^^^^^^^^")
+        reader_location += 2
+
+
+        for x in range(number_of_exceptions):
+            exception_table.append(format((data[reader_location]), "02x"))
+            exception_table.append(format((data[reader_location + 1]), "02x"))
+            reader_location += 2
+
+        print(exception_table, "            %^^^^^^^^^^^exceptions table^^^^^^^^^^^^^^^%")
+
+        methods_table[method_index].append(exception_table)
+        print(reader_location, "         reader Exc")
+
+        return reader_location
+
+
+
+
+
+
+
+
 
     switcher = {
         "Code": get_code_attribute,  # 2+x bytes
         "LineNumberTable": get_line_number_table,  # 4 bytes
         "SourceFile": get_source_file,
+        "Exceptions": get_exceptions,
     }
 
 
