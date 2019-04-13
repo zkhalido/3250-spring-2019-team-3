@@ -183,7 +183,7 @@ i2f: int to float
 https://docs.python.org/2/library/functions.html#float
 
 i2l: int to long
-https://docs.python.org/2/library/functions.html#float
+https://docs.python.org/2/library/functions.html#long
 
 More info on int, float, long
 https://docs.python.org/2/library/stdtypes.html#typesnumeric
@@ -191,6 +191,7 @@ https://docs.python.org/2/library/stdtypes.html#typesnumeric
 Difference between a decimal, double, and float
 http://net-informations.com/q/faq/float.html
 decimal - 128 bit
+long - 64 bit twos compliment
 double - 64 bit
 float - 32 bit
 
@@ -210,3 +211,24 @@ a Java double in Jython). If you need more precision, get NumPy and use its nump
 
 This raises the question of how float() saves its values.
 Does this mean that i2f and i2d are the same when read in python?
+
+*******************************************************************************
+3/31/19
+
+Plans for Monday meeting
+- Try to get down to just two branches (develop and master)
+- Remove extra files that are no longer being used
+- Consolidate methods
+
+Merged branches and are now down to just develop and master.  Discussed that 
+it was most efficient to start a sprint fresh so that we don't have people working
+on older branches that are not up to date with develop.  Branching after the start
+of the branch is still ok and encouraged so that people can test their changes
+safely before merging back into develop.
+
+Numpy was added to account for overflow.  What Numpy does is it converts a given
+integer and converts it into a two's compliment signed bit.  Doing this removed the
+need to run a mask on floats and shorts.  Within Numpy I ran the int function with its
+corresponding number of bits to convert the given int into a specific word length.
+16 for short, left as 32 for float, and 64 for double.
+
