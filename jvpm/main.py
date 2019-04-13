@@ -37,7 +37,7 @@ if '__main__' == __name__:                  #pragma: no cover
     #H.get_methods(pool)
 
     f = H.get_methods(pool)
-    print(f, "   methods table")
+    print(f, "   ** op codes **")
 
 
 

@@ -109,7 +109,6 @@ class HeaderClass():
         self.reader_location = current_byte_location
         self.constant_pool_byte_size = current_byte_location -10
         self.temp_2 = self.constant_pool
-        #print(self.constant_pool)
 
         return self.constant_pool
 
@@ -143,7 +142,6 @@ class HeaderClass():
     def get_interface(self):
         if (self.integer_interface_count == 0):
             print ("interface table empty")
-            #self.reader_location += 2
 
 
     def get_field_count(self):
@@ -169,10 +167,9 @@ class HeaderClass():
     def get_methods(self, pool):
         if (self.integer_method_count == 0):
             print("method table empty")
+
         method_index = 0
         while method_index <  self.integer_method_count:
-            print(method_index,   "                method index", self.reader_location,  "            reader location")
-            print((format((self.data[self.reader_location]), "02x")), (format((self.data[self.reader_location+1]), "02x")), "         ")
             ################# access flags
             self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
             self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
@@ -189,30 +186,27 @@ class HeaderClass():
             self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
             self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
-            print(attribute_count, "  attribute count")
-            print(self.methods_table,  "            mathods table")
-            print(self.reader_location, '             reader loc')
+
             self.reader_location += 2
-
             attribute_index = 0
+
             while attribute_index < attribute_count:
-                print(attribute_index , " att index/////", attribute_count, " count")
                 tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
-                print (tag_location, " *********************************tag L")
                 tag = pool[tag_location]
-                print (tag, "              tag###@@@@@!!!")
-                print(self.reader_location, "      reader_location before  ")
-
                 atribute_reader = read_attribute.ReadAttribute()
-                self.reader_location = atribute_reader.get_attribute(tag, self.methods_table, self.reader_location, self.data, self.op_codes, method_index, pool)
+                returned_vals = atribute_reader.get_attribute(tag, self.methods_table, self.reader_location, self.data, self.op_codes, method_index, pool)
 
-                print(self.reader_location, "      reader_location after  ")
+                if (isinstance(returned_vals, int)):
+                    self.reader_location = returned_vals
+                else:
+                    self.reader_location = int(returned_vals[0])
+                    self.op_codes = returned_vals[1]
+
                 attribute_index += 1
-                print(self.methods_table, "            &&&&&&&&&&&& methods table after method call")
 
 
             method_index +=1
-        return self.methods_table
+        return self.op_codes
 
     def get_attribute_count(self):
         attribute_count = [format((self.data[self.reader_location]) , "02x")]
