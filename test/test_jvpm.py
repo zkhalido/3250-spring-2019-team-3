@@ -823,6 +823,12 @@ class Test_Op_Methods(unittest.TestCase):
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 0)
 
+        a = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.S.push(-1)
+        a.i2d()
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, -1)
+
     def test_i2l(self):
         a = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.S.push(5)
@@ -835,6 +841,12 @@ class Test_Op_Methods(unittest.TestCase):
         a.i2l()
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 0)
+
+        a = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.S.push(-1)
+        a.i2d()
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, -1)
 
     def test_dup(self):
         a = packages.jvpm_methods.OpCodeMethods()
