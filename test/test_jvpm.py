@@ -771,6 +771,11 @@ class Test_Op_Methods(unittest.TestCase):
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 0.0)
 
+        packages.jvpm_methods.S.push(-1)
+        a.i2f()
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, -1.0)
+
     def test_i2b(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
