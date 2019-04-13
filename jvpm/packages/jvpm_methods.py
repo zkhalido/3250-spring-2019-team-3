@@ -208,7 +208,7 @@ class OpCodeMethods():
 
     def i2c(self):
         """convert int to character"""
-        variable1 = numpy.int32(S.pop())
+        variable1 = numpy.uint32(S.pop())
         S.push(chr(variable1))
 
     def i2f(self):
