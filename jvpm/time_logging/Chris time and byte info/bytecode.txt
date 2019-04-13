@@ -17,7 +17,7 @@ Classfile /C:/Users/chris/PycharmProjects/GitConfused/jvpm/test.class
 0000-00b0:  02#00 00_00-04_00 05_00-01_00 06@00-00 00 1d(00  //code attribute//         176
             MS_ ML. _   C len.  _    Op Code.  _ eL. _ At l_
 0000-00c0:  01 00 01 00-00 00 05 2a-b7 00 01 b1-00 00 00 01  // code attribute//        192
-
+  LNtabl     ANI _   At L    _ lnTl_
 0000-00d0:  00 07 00 00-00 06 00 01-00 00 00 01).               // code attribute//     208 
                                                -00 08 00 08N  ........ ........         208
 0000-00e0:  00 09D 00 01C-A00 06N00 00-00 1eL( 00 01-00 02 00 00  ........ ........
@@ -25,6 +25,10 @@ Classfile /C:/Users/chris/PycharmProjects/GitConfused/jvpm/test.class
 0000-0100:  00 06 00 01-00 00 00 01)-00 01C00 0aN-00 00 00 02L  ........ ........
 0000-0102:  00 0b
 
+defaultdict(<class 'list'>, {0: ['00', '00', '00', '04', '00', '05', '00', '01',
+['00', '06', '00', '00', '00', '1d', '00', '01', '00', '01', '00', '00', '00', '05', '2a', 'b7', '00', '01', 'b1', '00', '00'],
+ 65t'00', '01', ['00', '07', '00', '00', '00', '06', '00', '
+01', '00', '00', '00', '01']]})
 class test
   minor version: 0
   major version: 54

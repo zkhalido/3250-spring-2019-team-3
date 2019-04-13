@@ -201,10 +201,11 @@ class HeaderClass():
                 print(self.reader_location, "      reader_location after  ")
 
                 next_attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + 1])
+                print(next_attribute_count, "                  next*** atr count")
                 self.reader_location += 2
                 print(next_attribute_count, "                #################next attribute count")
                 if next_attribute_count != 0:
-                    #attribute_count += 1
+                    attribute_count += 1
                     print("in if")
                 attribute_index += 1
                 print(self.methods_table, "            &&&&&&&&&&&& methods table after method call")
