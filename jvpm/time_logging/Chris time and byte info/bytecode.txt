@@ -24,11 +24,18 @@ Classfile /C:/Users/chris/PycharmProjects/GitConfused/jvpm/test.class
 0000-00f0:  00 06 04 3c-84 01 01 b1-00 00 00 01-00 07 00 00  ...<.... ........
 0000-0100:  00 06 00 01-00 00 00 01)-00 01C00 0aN-00 00 00 02L  ........ ........
 0000-0102:  00 0b
+ 0                       1              2             3              4       5      6
+['0', 'java/lang/Object.<init>:()V', 'test', 'java/lang/Object', '<init>', '()V', 'Code',
+       7              8                 9                  10          11            12         13           14
+'LineNumberTable', 'main', '([Ljava/lang/String;)V', 'SourceFile', 'test.java', '<init>:()V', 'test', 'java/lang/Object']
+
 
 defaultdict(<class 'list'>, {0: ['00', '00', '00', '04', '00', '05', '00', '01',
 ['00', '06', '00', '00', '00', '1d', '00', '01', '00', '01', '00', '00', '00', '05', '2a', 'b7', '00', '01', 'b1', '00', '00'],
- 65t'00', '01', ['00', '07', '00', '00', '00', '06', '00', '
-01', '00', '00', '00', '01']]})
+'00', '01', ['00', '07', '00', '00', '00', '06', '00', '01', '00', '00', '00', '01']]})             &&&&&&&&&&&& methods table after method call
+
+['00', '07', '00', '00', '00', '06', '00', '01', '00', '00', '00', '01']    line number  table
+
 class test
   minor version: 0
   major version: 54
