@@ -817,6 +817,12 @@ class Test_Op_Methods(unittest.TestCase):
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 5)
 
+        a = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.S.push(0)
+        a.i2d()
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, 0)
+
     def test_i2l(self):
         a = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.S.push(5)
