@@ -31,6 +31,7 @@ class HeaderClass():
             self.integer_method_count = 0
             self.methods_table =defaultdict(list)
             self.op_codes = []
+            self.integer_attribute_count = 0
 
     def get_magic(self):
         magic = ""
@@ -172,15 +173,19 @@ class HeaderClass():
         while method_index <  self.integer_method_count:
             print(method_index,   "                method index", self.reader_location,  "            reader location")
             print((format((self.data[self.reader_location]), "02x")), (format((self.data[self.reader_location+1]), "02x")), "         ")
+            ################# access flags
             self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
             self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             self.reader_location += 2
+            ################### name index
             self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
             self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             self.reader_location += 2
+            ################# discriptor index
             self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
             self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             self.reader_location += 2
+            ################## attribute count
             self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
             self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
@@ -188,6 +193,7 @@ class HeaderClass():
             print(self.methods_table,  "            mathods table")
             print(self.reader_location, '             reader loc')
             self.reader_location += 2
+
             attribute_index = 0
             while attribute_index < attribute_count:
                 print(attribute_index , " att index/////", attribute_count, " count")
@@ -196,23 +202,31 @@ class HeaderClass():
                 tag = pool[tag_location]
                 print (tag, "              tag###@@@@@!!!")
                 print(self.reader_location, "      reader_location before  ")
-                atribute_reader = read_attribute.ReadAttribute()
-                self.reader_location = atribute_reader.get_attribute(tag, self.methods_table, self.reader_location, self.data, self.op_codes, method_index)
-                print(self.reader_location, "      reader_location after  ")
 
-                next_attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + 1])
-                print(next_attribute_count, "                  next*** atr count")
-                self.reader_location += 2
-                print(next_attribute_count, "                #################next attribute count")
-                if next_attribute_count != 0:
-                    attribute_count += 1
-                    print("in if")
+                atribute_reader = read_attribute.ReadAttribute()
+                self.reader_location = atribute_reader.get_attribute(tag, self.methods_table, self.reader_location, self.data, self.op_codes, method_index, pool)
+
+                print(self.reader_location, "      reader_location after  ")
                 attribute_index += 1
                 print(self.methods_table, "            &&&&&&&&&&&& methods table after method call")
 
 
             method_index +=1
         return self.methods_table
+
+    def get_attribute_count(self):
+        attribute_count = [format((self.data[self.reader_location]) , "02x")]
+        attribute_count.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+        self.integer_attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+        self.reader_location += 2
+        return attribute_count
+
+    def get_attribute_table(self):
+        x= 3
+        atribute_reader = read_attribute.ReadAttribute()
+        #self.reader_location = atribute_reader.get_attribute(tag, self.methods_table, self.reader_location, self.data, self.op_codes, method_index, pool)
+
+
 
 
 class OpCodes():
