@@ -40,11 +40,49 @@ class test_get_opcode(unittest.TestCase):
         
 class test_const_pool(unittest.TestCase):
     def setUp(self):
-        m = mock_open(read_data='CAFEBABE00000036000F')
-        with patch(__name__ + '.open', m):
-            self.cf = packages.jvpm_opcodes.HeaderClass()
+        self.m = ConstBitStream(mock_open(read_data='07010901010A01010B010108010301020401020501020304050607080601020304050607080C010201032829560F4011003120102'))
+            self.cp = packages.CPInfo.ConstInfo()
 
     def test_CPInfo(self)
+        for i in range(14):
+                constant = self.cp.read(self.m)
+                if constant.tag == 7
+                    self.assertEqual(constant.name_index, 1)
+                elif constant.tag == 9
+                    self.assertEqual(constant.class_index, 1)
+                    self.assertEqual(constant.name_and_type_index, 1)
+                elif constant.tag == 10
+                    self.assertEqual(constant.class_index, 1)
+                    self.assertEqual(constant.name_and_type_index, 1)
+                elif constant.tag == 11
+                    self.assertEqual(constant.class_index, 1)
+                    self.assertEqual(constant.name_and_type_index, 1)
+                elif constant.tag == 8
+                    self.assertEqual(constant.string_index, 1)
+                elif constant.tag == 3
+                    self.assertEqual(constant.bytes, 1)
+                elif constant.tag == 4
+                    self.assertEqual(constant.bytes, 1)
+                elif constant.tag == 5
+                    self.assertEqual(constant.high_bytes, 1)
+                    self.assertEqual(constant.low_bytes, 1)
+                elif constant.tag == 6
+                    self.assertEqual(constant.high_bytes, 1)
+                    self.assertEqual(constant.low_bytes, 1)
+                elif constant.tag == 12
+                    self.assertEqual(constant.name_index, 1)
+                    self.assertEqual(constant.descriptor_index, 1)
+                elif constant.tag == 1
+                    self.assertEqual(constant.length, 1)
+                    self.assertEqual(constant.string, 1)
+                elif constant.tag == 18
+                    self.assertEqual(constant.reference_kind, 1)
+                    self.assertEqual(constant.reference_index, 1)
+                elif constant.tag == 18
+                    self.assertEqual(constant.descriptor_index, 1)
+                elif constant.tag == 18
+                    self.assertEqual(constant.bootstrap_method_attr_index, 1)
+                    self.assertEqual(constant.name_and_type_index, 1)
 
         #################################################
 
