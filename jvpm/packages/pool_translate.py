@@ -43,19 +43,19 @@ class PoolTranslate:
         self.translated_pool[self.current_pool_index] = complete_string
         return complete_string
 
-    def integer(self, sub_list):  # 03
+    def tag_integer(self, sub_list):  # 03
         print("Integer  4 bytes")
         # print(sub_list)
 
-    def float(self, sub_list):  # 04
+    def tag_float(self, sub_list):  # 04
         print("Float  4 bytes")
         # print(sub_list)
 
-    def long(self, sub_list):  # 5
+    def tag_long(self, sub_list):  # 5
         print("Long    8 bytes")
         # print(sub_list)
 
-    def double(self, sub_list):  # 6
+    def tag_double(self, sub_list):  # 6
         print("Double    8 bytes")
         # print(sub_list)
 
@@ -204,10 +204,10 @@ class PoolTranslate:
     switcher = {
 
         "01": UTF_8_string,  # 2+x bytes
-        "03": integer,  # 4 bytes
-        "04": float,  # 4 bytes
-        "05": long,  # 8 bytes
-        "06": double,  # 8 bytes
+        "03": tag_integer,  # 4 bytes
+        "04": tag_float,  # 4 bytes
+        "05": tag_long,  # 8 bytes
+        "06": tag_double,  # 8 bytes
         "07": class_reference,  # 2 bytes
         "08": string_reference,  # 2 bytes
         "09": field_reference,  # 4 bytes
