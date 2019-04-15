@@ -82,7 +82,7 @@ class test_pool_translate1(unittest.TestCase):
         new_array = ["0",
                      "java/lang/Object.<init>:()V",
                      "hello",
-                     None,
+                     1002,
                      "0",
                      None,
                      "0",
@@ -295,18 +295,18 @@ class test_pool_methods(unittest.TestCase):
          )
          """
          x_list = [0]
-         x.tag_integer(x_list)
+         """x.tag_integer(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Integer  4 bytes")]
-         )
+         )"""
          x.tag_float(x_list)
          sys.stdout.assert_has_calls(
             [call.write("Float  4 bytes")]
          )
-         x.tag_long(x_list)
+         """x.tag_long(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Long    8 bytes")]
-         )
+         )"""
          x.tag_double(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Double    8 bytes")]
@@ -867,3 +867,13 @@ class Test_Op_Methods(unittest.TestCase):
 #             call.write('istore_3'), call.write('\n'),
 #             call.write('ran istore_3'), call.write('\n'), call.write('\n')]
 #         )
+
+
+
+class test_long(unittest.TestCase):
+    def test_tag_long(self):
+        sub_list = ["00", "00", "00", "00", "00", "00", "03", "ea"]
+        pool_translate_object = packages.pool_translate.PoolTranslate(
+            name="jvpm/javafiles/testSaveVar.class")
+        long_result = pool_translate_object.tag_long(sub_list)
+        self.assertEqual(long_result, 1002)

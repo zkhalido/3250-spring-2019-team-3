@@ -2,13 +2,13 @@ import packages
 
 if '__main__' == __name__:                  #pragma: no cover
 
-    H = packages.jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/AddTwo.class")               #pragma: no cover
+    H = packages.jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/testSaveVar.class")               #pragma: no cover
     #H.get_magic()                   #pragma: no cover
     #H.get_minor()                   #pragma: no cover
     #H.get_major()                   #pragma: no cover
     n = H.get_const_pool()
     print(n)
-    p_translator = packages.pool_translate.PoolTranslate(name = "jvpm/javafiles/AddTwo.class")
+    p_translator = packages.pool_translate.PoolTranslate(name = "jvpm/javafiles/testSaveVar.class")
     pool = p_translator.translate_pool()
     print(pool)
 

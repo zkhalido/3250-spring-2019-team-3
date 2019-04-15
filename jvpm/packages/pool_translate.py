@@ -1,6 +1,7 @@
 from collections import defaultdict
 from . import jvpm_opcodes, pool_methods
 from collections import deque
+import numpy
 
 
 super_index = 0
@@ -44,6 +45,11 @@ class PoolTranslate:
         return complete_string
 
     def tag_integer(self, sub_list):  # 03
+        hex_full = ""
+        for i in range(len(sub_list)):
+            hex_full += sub_list[i]
+        print(hex_full,"Printing hex_full")
+
         print("Integer  4 bytes")
         # print(sub_list)
 
@@ -52,7 +58,12 @@ class PoolTranslate:
         # print(sub_list)
 
     def tag_long(self, sub_list):  # 5
-        print("Long    8 bytes")
+        hex_long = "0x"
+        for i in range(len(sub_list)):
+            hex_long += sub_list[i]
+        hex_long = int(hex_long,16)
+        return hex_long
+
         # print(sub_list)
 
     def tag_double(self, sub_list):  # 6
