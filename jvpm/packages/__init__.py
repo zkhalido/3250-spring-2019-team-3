@@ -1,1 +1,1 @@
-from . import jvpm_dict, jvpm_methods, pool_methods, pool_translate, stack, access_flag_translater_dictionary, filename_input_prompt
+from . import jvpm_dict, jvpm_methods, pool_methods, pool_translate, stack, access_flag_translater_dictionary
