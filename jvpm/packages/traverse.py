@@ -15,7 +15,7 @@ from collections import defaultdict
 class HeaderClass():
 
     def __init__(self):
-            self.data = ConstBitStream(filename = 'tester.class')
+            self.data = ConstBitStream(filename = 'jvpm/javafiles/HelloWorld.class')
 
     def get_magic(self):
         magic = self.data.read('hex:32')
@@ -33,8 +33,6 @@ class HeaderClass():
         # print("Contant Pool Count: ", self.data[8] + self.data[9])
         return self.data.read('uint:16')
     
-
-    
     def get_const_pool(self):
         
         constants_pool = []
@@ -48,7 +46,7 @@ class HeaderClass():
                     i += 1
 
             i + 1
-        return constants_pool
+        return const_pool_string_swap(constant_pool)
 
     
 
@@ -89,6 +87,14 @@ class HeaderClass():
 
     def get_attributes(self):
         return
+
+    def const_pool_string_swap(self, const_pool):
+        for i in range(len(const_pool)):
+            const_pool[i].descriptor_index = const_pool[const_pool[i].descriptor_index].string
+            const_pool[i].name_and_type_index = const_pool[const_pool[i].name_and_type_index].string
+            const_pool[i].name_index = const_pool[const_pool[i].name_index].string
+            return cont_pool
+
 
 if '__main__' == __name__:
     d = HeaderClass()
