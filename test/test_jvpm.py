@@ -295,18 +295,10 @@ class test_pool_methods(unittest.TestCase):
          )
          """
          x_list = [0]
-         """x.tag_integer(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Integer  4 bytes")]
-         )"""
          x.tag_float(x_list)
          sys.stdout.assert_has_calls(
             [call.write("Float  4 bytes")]
          )
-         """x.tag_long(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Long    8 bytes")]
-         )"""
          x.tag_double(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Double    8 bytes")]
