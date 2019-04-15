@@ -77,18 +77,18 @@ class ConstInfo:
         self.string_index = bits.read('uint:16')
 
     def parseInteger(self, bits):
-        self.bytes = bits.read(4))
+        self.bytes = bits.read(4)
 
     def parseFloat(self, bits):
-        self.bytes = bits.read(4))
+        self.bytes = bits.read(4)
 
     def parseLong(self, bits):
-        self.high_bytes = bits.read(4))
-        self.low_bytes = bits.read(4))
+        self.high_bytes = bits.read(4)
+        self.low_bytes = bits.read(4)
 
     def parseDouble(self, bits):
-        self.high_bytes = bits.read(4))
-        self.low_bytes = bits.read(4))
+        self.high_bytes = bits.read(4)
+        self.low_bytes = bits.read(4)
 
     def parseNameAndType(self, bits):
         self.name_index = bits.read('uint:16')
