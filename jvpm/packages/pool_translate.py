@@ -60,9 +60,9 @@ class PoolTranslate:
         sub_list.reverse()
         for i in range(len(sub_list)):
             hex_string += sub_list[i]
-        hex_tuple = struct.unpack('<f', binascii.unhexlify(hex_string))
-        hex_float = hex_tuple[0]
-        return hex_float
+        tuple_float = struct.unpack('<f', binascii.unhexlify(hex_string))
+        dec_float = tuple_float[0]
+        return dec_float
 
     def tag_long(self, sub_list):  # 5
         hex_long = "0x"
