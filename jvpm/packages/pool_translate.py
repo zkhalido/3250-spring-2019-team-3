@@ -65,11 +65,11 @@ class PoolTranslate:
         return dec_float
 
     def tag_long(self, sub_list):  # 5
-        hex_long = "0x"
+        string_hex = "0x"
         for i in range(len(sub_list)):
-            hex_long += sub_list[i]
-        hex_long = int(hex_long,16)
-        return hex_long
+            string_hex += sub_list[i]
+        dec_long = int(string_hex,16)
+        return dec_long
 
         # print(sub_list)
 
