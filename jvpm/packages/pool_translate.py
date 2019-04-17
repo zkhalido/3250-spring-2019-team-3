@@ -2,6 +2,8 @@ from collections import defaultdict
 from . import jvpm_opcodes, pool_methods
 from collections import deque
 import numpy
+import struct
+import binascii
 
 
 super_index = 0
@@ -54,8 +56,11 @@ class PoolTranslate:
         # print(sub_list)
 
     def tag_float(self, sub_list):  # 04
-        print("Float  4 bytes")
-        # print(sub_list)
+        hex_string = ""
+        for i in range(len(sub_list)):
+            hex_string += sub_list[i]
+        hex_float = struct.unpack('<f', binascii.unhexlify(hex_string))
+        return hex_float
 
     def tag_long(self, sub_list):  # 5
         hex_long = "0x"

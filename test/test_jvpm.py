@@ -295,10 +295,10 @@ class test_pool_methods(unittest.TestCase):
          )
          """
          x_list = [0]
-         x.tag_float(x_list)
-         sys.stdout.assert_has_calls(
-            [call.write("Float  4 bytes")]
-         )
+        #  x.tag_float(x_list)
+        #  sys.stdout.assert_has_calls(
+        #     [call.write("Float  4 bytes")]
+         
          x.tag_double(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Double    8 bytes")]
@@ -869,3 +869,10 @@ class test_long(unittest.TestCase):
             name="jvpm/javafiles/testSaveVar.class")
         long_result = pool_translate_object.tag_long(sub_list)
         self.assertEqual(long_result, 1002)
+
+    def test_tag_float(self):
+        sub_list = ["38","1a","a3","44"]
+        pool_translate_object = packages.pool_translate.PoolTranslate(
+            name="jvpm/javafiles/testSaveVar.class")
+        float_result = pool_translate_object.tag_float(sub_list)
+        self.assertEqual(float_result, (1304.8193359375,))
