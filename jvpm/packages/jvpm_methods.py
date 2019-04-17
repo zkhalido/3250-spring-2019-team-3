@@ -9,7 +9,6 @@ from . import jvpm_opcodes, pool_translate
 
 S = Stack()
 VARIABLES = [0]
-STANDING = deque(["first", "second", "third"]) # used by next_int
 
 class OpCodeMethods():
     """CLass of methods that are called from the CP."""
