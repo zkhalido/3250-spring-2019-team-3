@@ -871,8 +871,8 @@ class test_long(unittest.TestCase):
         self.assertEqual(long_result, 1002)
 
     def test_tag_float(self):
-        sub_list = ["38","1a","a3","44"]
+        sub_list = ["44","a3","1a","38"]
         pool_translate_object = packages.pool_translate.PoolTranslate(
             name="jvpm/javafiles/testSaveVar.class")
         float_result = pool_translate_object.tag_float(sub_list)
-        self.assertEqual(float_result, (1304.8193359375,))
+        self.assertEqual(float_result, 1304.8193359375)
