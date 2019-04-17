@@ -61,11 +61,7 @@ class PoolTranslate:
         for i in range(len(sub_list)):
             hex_string += sub_list[i]
         hex_tuple = struct.unpack('<f', binascii.unhexlify(hex_string))
-        print(hex_tuple)
         hex_float = hex_tuple[0]
-
-        print(type(hex_float), "This is hex_float datatype.")
-        print(hex_float)
         return hex_float
 
     def tag_long(self, sub_list):  # 5
