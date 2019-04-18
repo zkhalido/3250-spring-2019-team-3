@@ -46,7 +46,7 @@ class HeaderClass():
                     i += 1
 
             i + 1
-        return const_pool_string_swap(constant_pool)
+        return constants_pool
 
     
 
@@ -88,12 +88,17 @@ class HeaderClass():
     def get_attributes(self):
         return
 
-    def const_pool_string_swap(self, const_pool):
-        for i in range(len(const_pool)):
-            const_pool[i].descriptor_index = const_pool[const_pool[i].descriptor_index].string
-            const_pool[i].name_and_type_index = const_pool[const_pool[i].name_and_type_index].string
-            const_pool[i].name_index = const_pool[const_pool[i].name_index].string
-            return cont_pool
+    #def const_pool_string_swap(self, const_pool):
+    #    holder = 0
+    #    for i in const_pool:
+    #        if 'descriptor_index' in i.__dict__
+    #            const_pool[holder].descriptor_index = const_pool[i.descriptor_index - 1].string
+    #        if 'string_index' in i.__dict__
+    #            const_pool[holder].string_index = const_pool[i.name_and_type_index - 1].string
+    #        if 'name_index' in i.__dict__
+    #            const_pool[holder].name_index = const_pool[i.name_index - 1].string
+    #        holder += 1    
+    #    return const_pool
 
 
 if '__main__' == __name__:
