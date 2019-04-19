@@ -114,6 +114,7 @@ class HeaderClass():
 
         return self.constant_pool
 
+
     def get_access_flags(self):
         access_flag_position = self.reader_location
         access_flag = [format((self.data[access_flag_position]) , "02x")]
@@ -234,6 +235,8 @@ class HeaderClass():
     def get_attribute_table(self):
         x = 3
         atribute_reader = read_attribute.ReadAttribute()
+
+
 
 
 

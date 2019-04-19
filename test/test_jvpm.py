@@ -763,6 +763,11 @@ class Test_Op_Methods(unittest.TestCase):
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 0.0)
 
+        packages.jvpm_methods.S.push(-1)
+        a.i2f()
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, -1.0)
+
     def test_i2b(self):
         a = packages.jvpm_methods.OpCodeMethods()
 
@@ -791,16 +796,22 @@ class Test_Op_Methods(unittest.TestCase):
 
     def test_i2s(self):
         a = packages.jvpm_methods.OpCodeMethods()
-
-        packages.jvpm_methods.S.push(555555)
-        a.i2s()
+        packages.jvpm_methods.S.push(5)
+        a.i2d()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, "0x7a23")
+        self.assertEqual(b, 5)
 
-        packages.jvpm_methods.S.push(000000)
-        a.i2s()
+        a = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.S.push(0)
+        a.i2d()
         b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, "0x0")
+        self.assertEqual(b, 0)
+
+        a = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.S.push(-1)
+        a.i2d()
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, -1)
 
     def test_i2d(self):
         a = packages.jvpm_methods.OpCodeMethods()
@@ -809,12 +820,36 @@ class Test_Op_Methods(unittest.TestCase):
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 5)
 
+        a = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.S.push(0)
+        a.i2d()
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, 0)
+
+        a = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.S.push(-1)
+        a.i2d()
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, -1)
+
     def test_i2l(self):
         a = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.S.push(5)
         a.i2l()
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 5)
+
+        a = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.S.push(0)
+        a.i2l()
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, 0)
+
+        a = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.S.push(-1)
+        a.i2d()
+        b = packages.jvpm_methods.S.pop()
+        self.assertEqual(b, -1)
 
     def test_dup(self):
         a = packages.jvpm_methods.OpCodeMethods()
