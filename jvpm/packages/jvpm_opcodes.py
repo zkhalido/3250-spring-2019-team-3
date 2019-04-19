@@ -32,6 +32,8 @@ class HeaderClass():
             self.methods_table =defaultdict(list)
             self.op_codes = []
             self.integer_attribute_count = 0
+            self.field_count = 0
+            self.field_dictionary = defaultdict(list)
 
     def get_magic(self):
         magic = ""
@@ -149,12 +151,25 @@ class HeaderClass():
         field_count.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
         self.integer_field_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
         self.reader_location += 2
+        self.field_count = field_count
         return field_count
 
 
     def get_field(self):
+        dictionary_index  = 0
+
         if (self.integer_field_count == 0):
             print("field table empty")
+
+        else:
+            x=0
+            for i in range(self.field_count):
+                field = []
+                field.clear()
+
+
+
+
 
 
     def get_methods_count(self):
@@ -208,6 +223,7 @@ class HeaderClass():
             method_index +=1
         return self.op_codes
 
+
     def get_attribute_count(self):
         attribute_count = [format((self.data[self.reader_location]) , "02x")]
         attribute_count.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
@@ -216,9 +232,8 @@ class HeaderClass():
         return attribute_count
 
     def get_attribute_table(self):
-        x= 3
+        x = 3
         atribute_reader = read_attribute.ReadAttribute()
-        #self.reader_location = atribute_reader.get_attribute(tag, self.methods_table, self.reader_location, self.data, self.op_codes, method_index, pool)
 
 
 
