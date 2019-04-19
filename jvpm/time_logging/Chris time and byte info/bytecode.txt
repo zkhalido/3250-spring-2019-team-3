@@ -552,3 +552,136 @@ BootstrapMethods:
               line 4: 8
       }
       SourceFile: "HelloWorld.java"
+
+
+Hello World
+
+0000-0010:  ca fe ba be-00 00 00 37-00 1d 0a 00-06 00 0f 09  .......7 ........
+0000-0020:  00 10 00 11-08 00 12 0a-00 13 00 14-07 00 15 07  ........ ........
+0000-0030:  00 16 01 00-06 3c 69 6e-69 74 3e 01-00 03 28 29  .....<in it>...()
+0000-0040:  56 01 00 04-43 6f 64 65-01 00 0f 4c-69 6e 65 4e  V...Code ...LineN
+0000-0050:  75 6d 62 65-72 54 61 62-6c 65 01 00-04 6d 61 69  umberTab le...mai
+0000-0060:  6e 01 00 16-28 5b 4c 6a-61 76 61 2f-6c 61 6e 67  n...([Lj ava/lang
+0000-0070:  2f 53 74 72-69 6e 67 3b-29 56 01 00-0a 53 6f 75  /String; )V...Sou
+0000-0080:  72 63 65 46-69 6c 65 01-00 0f 48 65-6c 6c 6f 57  rceFile. ..HelloW
+0000-0090:  6f 72 6c 64-2e 6a 61 76-61 0c 00 07-00 08 07 00  orld.jav a.......
+0000-00a0:  17 0c 00 18-00 19 01 00-0c 48 65 6c-6c 6f 20 57  ........ .Hello.W
+0000-00b0:  6f 72 6c 64-21 07 00 1a-0c 00 1b 00-1c 01 00 0a  orld!... ........
+0000-00c0:  48 65 6c 6c-6f 57 6f 72-6c 64 01 00-10 6a 61 76  HelloWor ld...jav
+0000-00d0:  61 2f 6c 61-6e 67 2f 4f-62 6a 65 63-74 01 00 10  a/lang/O bject...
+0000-00e0:  6a 61 76 61-2f 6c 61 6e-67 2f 53 79-73 74 65 6d  java/lan g/System
+0000-00f0:  01 00 03 6f-75 74 01 00-15 4c 6a 61-76 61 2f 69  ...out.. .Ljava/i
+0000-0100:  6f 2f 50 72-69 6e 74 53-74 72 65 61-6d 3b 01 00  o/PrintS tream;..
+0000-0110:  13 6a 61 76-61 2f 69 6f-2f 50 72 69-6e 74 53 74  .java/io /PrintSt
+0000-0120:  72 65 61 6d-01 00 07 70-72 69 6e 74-6c 6e 01 00  ream...p rintln..
+0000-0130:  15 28 4c 6a-61 76 61 2f-6c 61 6e 67-2f 53 74 72  .(Ljava/ lang/Str
+0000-0140:  69 6e 67 3b-29 56 00 21-00 05 00 06-00 00 00 00  ing;)V.! ........
+0000-0150:  00 02 00 01-00 07 00 08-00 01 00 09-00 00 00 1d  ........ ........
+0000-0160:  00 01 00 01-00 00 00 05-2a b7 00 01-b1 00 00 00  ........ *.......
+0000-0170:  01 00 0a 00-00 00 06 00-01 00 00 00-01 00 09 00  ........ ........
+0000-0180:  0b 00 0c 00-01 00 09 00-00 00 25 00-02 00 01 00  ........ ..%.....
+0000-0190:  00 00 09 b2-00 02 12 03-b6 00 04 b1-00 00 00 01  ........ ........
+0000-01a0:  00 0a 00 00-00 0a 00 02-00 00 00 03-00 08 00 04  ........ ........
+0000-01aa:  00 01 00 0d-00 00 00 02-00 0e                    ........ ..
+
+pulled pool
+['0',
+'java/lang/Object.<init>:()V',
+'java/lang/System.out:Ljava/io/PrintStream;',
+'Hello World!',
+'java/io/PrintStream.println:(Ljava/lang/String;)V',
+'HelloWorld',
+'java/lang/Object',
+'<init>',
+'()V',
+'Code',
+'LineNumberTable',
+'main',
+'([Ljava/lang/String;)V',
+'SourceFile',
+'HelloWorld.java',
+'<init>:()V',
+'java/lang/System',
+'out:Ljava/io/PrintStream;',
+'Hello World!',
+'java/io/PrintStream',
+'println:(Ljava/lang/String;)V',
+'HelloWorld',
+'java/lang/Object',
+'java/lang/System',
+'out',
+'Ljava/io/PrintStream;',
+'java/io/PrintStream',
+'println',
+'(Ljava/lang/String;)V']
+
+pulled opcodes
+['2a', 'b7', '00', '01', 'b1', 'b2', '00', '02', '12', '03', 'b6', '00', '04', 'b1']    ** op codes **
+
+
+Classfile /C:/Users/chris/PycharmProjects/GitConfusedTeam/jvpm/javafiles/HelloWorld.class
+  Last modified Apr 8, 2019; size 426 bytes
+  MD5 checksum 4986ae80d34409a6287b36ff40672a21
+  Compiled from "HelloWorld.java"
+public class HelloWorld
+  minor version: 0
+  major version: 55
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #5                          // HelloWorld
+  super_class: #6                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 2, attributes: 1
+Constant pool:
+   #1 = Methodref          #6.#15         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #16.#17        // java/lang/System.out:Ljava/io/PrintStream;
+   #3 = String             #18            // Hello World!
+   #4 = Methodref          #19.#20        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #5 = Class              #21            // HelloWorld
+   #6 = Class              #22            // java/lang/Object
+   #7 = Utf8               <init>
+   #8 = Utf8               ()V
+   #9 = Utf8               Code
+  #10 = Utf8               LineNumberTable
+  #11 = Utf8               main
+  #12 = Utf8               ([Ljava/lang/String;)V
+  #13 = Utf8               SourceFile
+  #14 = Utf8               HelloWorld.java
+  #15 = NameAndType        #7:#8          // "<init>":()V
+  #16 = Class              #23            // java/lang/System
+  #17 = NameAndType        #24:#25        // out:Ljava/io/PrintStream;
+  #18 = Utf8               Hello World!
+  #19 = Class              #26            // java/io/PrintStream
+  #20 = NameAndType        #27:#28        // println:(Ljava/lang/String;)V
+  #21 = Utf8               HelloWorld
+  #22 = Utf8               java/lang/Object
+  #23 = Utf8               java/lang/System
+  #24 = Utf8               out
+  #25 = Utf8               Ljava/io/PrintStream;
+  #26 = Utf8               java/io/PrintStream
+  #27 = Utf8               println
+  #28 = Utf8               (Ljava/lang/String;)V
+{
+  public HelloWorld();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #3                  // String Hello World!
+         5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 3: 0
+        line 4: 8
+}
+SourceFile: "HelloWorld.java"
