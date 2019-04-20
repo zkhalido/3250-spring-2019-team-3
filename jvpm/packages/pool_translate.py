@@ -39,10 +39,10 @@ class PoolTranslate:
         self.super_index = 0
 
     def UTF_8_string(self, sub_list):  # 01
-        print(sub_list, "^^^^^^^^^^  sub list in utf   ^^^^^^^^^^")
-        complete_string = sub_list[0]
+        #print(sub_list, "^^^^^^^^^^  sub list in utf   ^^^^^^^^^^")
+        #complete_string = sub_list[0]
 
-        """
+
         index = 2
         complete_string = ""
         while index < len(sub_list):
@@ -51,16 +51,16 @@ class PoolTranslate:
             converted_text = translated_byte.decode("utf-8", "ignore")
             complete_string += converted_text
             index += 1
-        self.translated_pool[self.current_pool_index] = complete_string"""
+        self.translated_pool[self.current_pool_index] = complete_string
         return complete_string
 
     def tag_integer(self, sub_list):  # 03
         hex_full = ""
         for i in range(len(sub_list)):
             hex_full += sub_list[i]
-        print(hex_full,"Printing hex_full")
+        #print(hex_full,"Printing hex_full")
 
-        print("Integer  4 bytes")
+        #print("Integer  4 bytes")
         # print(sub_list)
 
     def tag_float(self, sub_list):  # 04
@@ -256,8 +256,8 @@ class PoolTranslate:
         current_list_length = len(current_list)
         sub_list = []
         tag_byte = current_list[0]
-        print(current_list, "   current list")
-        print(tag_byte, "   current list")
+        #print(current_list, "   current list")
+        #print(tag_byte, "   current list")
 
         j = 1
         while j < current_list_length:
