@@ -245,6 +245,5 @@ class ReadAttribute():
 
     def get_attribute(self, tag, methods_table, reader_location, data, op_codes, method_index, pool):
 
-        print(tag, "tagggggg")
         method = ReadAttribute.switcher.get(tag, "invalid")
         return method(self, methods_table, reader_location, data, op_codes, method_index, pool)

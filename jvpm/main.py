@@ -2,7 +2,7 @@ import packages
 
 if '__main__' == __name__:                  #pragma: no cover
 
-    file_name = "jvpm/javafiles/testSaveVar.class"
+    file_name = "jvpm/javafiles/AddTwo.class"
     H = packages.jvpm_opcodes.HeaderClass(name = file_name)               #pragma: no cover
     print(H.get_magic())              #pragma: no cover
     print(H.get_minor())              #pragma: no cover
@@ -35,7 +35,7 @@ if '__main__' == __name__:                  #pragma: no cover
     H.get_field() # no method built yet but should just be variable table
 
     f = H.get_methods_count()
-    print(f, "   methods count", H.integer_method_count, "   int meth count")
+    print(f, " - methods count        ", H.integer_method_count, " -int meth count")
 
     f = H.get_methods(pool)
     print(f, "   ** op codes **")
