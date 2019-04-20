@@ -137,7 +137,8 @@ class ReadAttribute():
 
     def get_source_file(self, methods_table, reader_location, data, op_codes, method_index, pool):
         x=0
-
+    # *DO NOT DELETE WILL NEED FOR LATER CLASS FILES*    
+    """
     def get_local_variable_table(self, methods_table, reader_location, data, op_codes, method_index, pool):
         x=0
         local_variable_table = []
@@ -190,7 +191,7 @@ class ReadAttribute():
 
         methods_table[method_index].append(local_variable_table_length)
 
-        return reader_location
+        return reader_location """
 
 
 
