@@ -9,7 +9,6 @@ from . import jvpm_opcodes, pool_translate
 
 S = Stack()
 VARIABLES = [0]
-STANDING = deque(["first", "second", "third"]) # used by next_int
 
 class OpCodeMethods():
     """CLass of methods that are called from the CP."""
@@ -208,7 +207,7 @@ class OpCodeMethods():
 
     def i2c(self):
         """convert int to character"""
-        variable1 = numpy.int32(S.pop())
+        variable1 = numpy.uint32(S.pop())
         S.push(chr(variable1))
 
     def i2f(self):
@@ -219,12 +218,12 @@ class OpCodeMethods():
     def i2l(self):
         """convert int to long"""
         variable1 = numpy.int32(S.pop())
-        S.push(int(variable1))
+        S.push(numpy.int64(variable1))
 
     def i2s(self):
         """convert int to short"""
-        variable1 = numpy.int16(S.pop())
-        S.push(hex(variable1 & 0xffff))
+        variable1 = numpy.int32(S.pop())
+        S.push(numpy.int16(variable1))
 
     def i2d(self):
         """convert int to decimal"""
