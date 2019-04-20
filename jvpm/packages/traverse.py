@@ -15,7 +15,7 @@ from collections import defaultdict
 class HeaderClass():
 
     def __init__(self):
-            self.data = ConstBitStream(filename = 'jvpm/javafiles/HelloWorld.class')
+            self.data = ConstBitStream(filename = 'jvpm/javafiles/test.class')
 
     def get_magic(self):
         magic = self.data.read('hex:32')
@@ -40,6 +40,7 @@ class HeaderClass():
         i = 0
         for i in range(const_pool_count-1):
             constant = ConstInfo().read(self.data)
+            print(constant, "**********constant")
             constants_pool.append(constant)
             if constant.tag == ConstTag.DOUBLE or ConstTag.LONG:
                     constants_pool.append(ConstInfo())
@@ -103,10 +104,13 @@ class HeaderClass():
 
 if '__main__' == __name__:
     d = HeaderClass()
-    d.get_magic()
+    print(d.get_magic())
     d.get_minor()
     d.get_major()
-    d.get_const_pool()
+    h = d.get_const_pool()
+    #print(h.discriptor_index)
+
+    """
     print(d.get_access_flags())
     print(d.get_this_class())
     print(d.get_super_class())
@@ -118,3 +122,4 @@ if '__main__' == __name__:
     d.get_methods()
     d.get_attributes_count()
     d.get_attributes()
+    """

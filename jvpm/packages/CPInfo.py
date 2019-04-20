@@ -25,7 +25,9 @@ class ConstInfo:
 
     def read(self, bits):
         tag = bits.read('uint:8')
+        print (tag, "%%%%%%%%%%%%%%%%tag")
         self.tag = ConstTag(tag)
+        print(self.tag, "^^^^^^^^^^^^^^^^^^^ self.tag")
 
         if self.tag == ConstTag.CLASS:
             self.parseClass(bits)
@@ -55,7 +57,7 @@ class ConstInfo:
             self.parseMethodType(bits)
         elif self.tag == ConstTag.INVOKE_DYNAMIC:
             self.parseInvokeDynamic(bits)
-
+        print(self.class_index, " ^^^^^^^^^^^self")
         return self
 
     def parseClass(self, bits):
