@@ -885,6 +885,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.VARIABLES.append(5)
 
         sys.stdout = unittest.mock.Mock()
+
         # l.dict_search()
 #         sys.stdout.assert_has_calls(
 
@@ -905,6 +906,7 @@ class Test_Op_Methods(unittest.TestCase):
 #             call.write('istore_3'), call.write('\n'),
 #             call.write('ran istore_3'), call.write('\n'), call.write('\n')]
 #         )
+
 class test_long(unittest.TestCase):
     def test_tag_long(self):
         sub_list = ["00", "00", "00", "00", "00", "00", "03", "ea"]
@@ -947,3 +949,21 @@ class test_pool_opcodes(unittest.TestCase):
         self.assertEqual(jvpm_opcodes_obj.get_field(), None)
         self.assertEqual(jvpm_opcodes_obj.get_methods_count(), methods_count)
         self.assertEqual(jvpm_opcodes_obj.get_methods(translated_pool), op_codes)
+
+
+class TestAccessFlagTranslater(unittest.TestCase):
+    def test_translate_access_flag(self):
+        a = packages.access_flag_translater_dictionary.AccessFlagTranslater()
+        
+        self.assertEqual(a.translate_access_flag(1), "ACC_PUBLIC")
+        self.assertEqual(a.translate_access_flag(2), "ACC_PRIVATE")
+        self.assertEqual(a.translate_access_flag(4), "ACC_PROTECTED")
+        self.assertEqual(a.translate_access_flag(8), "ACC_STATIC")
+        self.assertEqual(a.translate_access_flag(10), "ACC_FINAL")
+        self.assertEqual(a.translate_access_flag(20), "ACC_SUPER")
+        self.assertEqual(a.translate_access_flag(200), "ACC_INTERFACE")
+        self.assertEqual(a.translate_access_flag(400), "ACC_ABSTRACT")
+        self.assertEqual(a.translate_access_flag(1000), "ACC_SYNTHETIC")
+        self.assertEqual(a.translate_access_flag(2000), "ACC_ANNOTATION")
+        self.assertEqual(a.translate_access_flag(4000), "ACC_ENUM")
+
