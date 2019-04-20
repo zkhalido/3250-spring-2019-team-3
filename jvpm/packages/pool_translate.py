@@ -14,12 +14,15 @@ cp_strings = []
 
 class PoolTranslate:
 
-    def __init__(self, name="testSaveVar.class"):
+    def __init__(self, constant_pool, skips, name="testSaveVar.class"):
 
         self.name = name
-        jvpm_opcodes_obj = jvpm_opcodes.HeaderClass(name=name)
-        self.pulled_constant_pool = defaultdict(list)
-        self.pulled_constant_pool = jvpm_opcodes_obj.get_const_pool()
+        #jvpm_opcodes_obj = jvpm_opcodes.HeaderClass(name=name)
+        #self.pulled_constant_pool = defaultdict(list)
+        self.pulled_constant_pool = constant_pool
+
+
+        #self.pulled_constant_pool = jvpm_opcodes_obj.get_const_pool()
         self.byte_list_length = len(self.pulled_constant_pool.keys())
         self.key_list = list(self.pulled_constant_pool.keys())
         self.translated_pool = []
@@ -28,13 +31,18 @@ class PoolTranslate:
         self.current_pool_index = 0
         self.counter = 0
         self.pool_list_index = 0
-        self.skips_in_pool = jvpm_opcodes_obj.skips_in_constant_pool
+        #self.skips_in_pool = jvpm_opcodes_obj.skips_in_constant_pool
+        self.skips_in_pool = skips
+
         self.constant_pool_length = len(self.pulled_constant_pool)
-        self.translated_pool = ["0"] * (self.constant_pool_length + self.skips_in_pool + 1)
+        self.translated_pool = ["0"] * (self.constant_pool_length + self.skips_in_pool)
         self.super_index = 0
 
     def UTF_8_string(self, sub_list):  # 01
-        print(sub_list, "^^^^^^^^^^  sub list in utf   ^^^^^^^^^^")
+        #print(sub_list, "^^^^^^^^^^  sub list in utf   ^^^^^^^^^^")
+        #complete_string = sub_list[0]
+
+
         index = 2
         complete_string = ""
         while index < len(sub_list):
@@ -50,9 +58,9 @@ class PoolTranslate:
         hex_full = ""
         for i in range(len(sub_list)):
             hex_full += sub_list[i]
-        print(hex_full,"Printing hex_full")
+        #print(hex_full,"Printing hex_full")
 
-        print("Integer  4 bytes")
+        #print("Integer  4 bytes")
         # print(sub_list)
 
     def tag_float(self, sub_list):  # 04
@@ -248,6 +256,8 @@ class PoolTranslate:
         current_list_length = len(current_list)
         sub_list = []
         tag_byte = current_list[0]
+        #print(current_list, "   current list")
+        #print(tag_byte, "   current list")
 
         j = 1
         while j < current_list_length:
@@ -259,14 +269,13 @@ class PoolTranslate:
         return method(self, sub_list)
 
     def translate_pool(self):
-        pool_translater = PoolTranslate(name=self.name)
+        pool_translater = PoolTranslate(self.pulled_constant_pool, self.skips_in_pool, name=self.name)
         pool_index = 1
 
-        while pool_index <= self.constant_pool_length + self.skips_in_pool:
+        while pool_index <= self.constant_pool_length + self.skips_in_pool-1:
             self.translated_pool[pool_index] = pool_translater.method_dict(self.pulled_constant_pool, pool_index)
 
-            if (self.pulled_constant_pool[pool_index][0] == '05' or self.pulled_constant_pool[pool_index][
-                0] == '06'):
+            if (self.pulled_constant_pool[pool_index][0] == '05' or self.pulled_constant_pool[pool_index][0] == '06'):
                 pool_index += 1
             pool_index += 1
 
