@@ -1,5 +1,5 @@
 class AccessFlagTranslater:
-    def translate_access_flag(access_flag_value):
+    def translate_access_flag(self, access_flag_value):
         access_flag = {
             1 : "ACC_PUBLIC",
             2 : "ACC_PRIVATE",
@@ -13,4 +13,4 @@ class AccessFlagTranslater:
             2000 : "ACC_ANNOTATION",
             4000 : "ACC_ENUM"
         }
-        return access_flag
+        return access_flag[access_flag_value]
