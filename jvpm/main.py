@@ -2,16 +2,18 @@ import packages
 
 if '__main__' == __name__:                  #pragma: no cover
 
+    file_name = "jvpm/javafiles/test.class"
+    H = packages.jvpm_opcodes.HeaderClass(name = file_name)               #pragma: no cover
+    print( H.get_magic()   )                #pragma: no cover
+    print(H.get_minor()     )              #pragma: no cover
+    print(H.get_major())                   #pragma: no cover
 
-    H = packages.jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/test.class")               #pragma: no cover
-    #H.get_magic()                   #pragma: no cover
-    #H.get_minor()                   #pragma: no cover
-    #H.get_major()                   #pragma: no cover
     n = H.get_const_pool()
     print(n)
-    p_translator = packages.pool_translate.PoolTranslate(name = "jvpm/javafiles/test.class")
+    p_translator = packages.pool_translate.PoolTranslate(n, H.skips_in_constant_pool, name = file_name)
+
     pool = p_translator.translate_pool()
-    print(pool)
+    print(pool, "translated")
 
     a = H.get_access_flags()
     print(a, "   access flags")

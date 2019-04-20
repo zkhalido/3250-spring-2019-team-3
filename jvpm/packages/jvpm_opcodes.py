@@ -1,7 +1,13 @@
 """Read bit stream."""
 from collections import defaultdict
 from collections import deque
-from . import jvpm_dict, jvpm_methods, read_attribute  # import external opcode dictionary
+
+from bitstring import ConstBitStream
+#from CPInfo import ConstInfo, ConstTag
+
+import packages
+
+from . import jvpm_dict, jvpm_methods, read_attribute, CPInfo  # import external opcode dictionary
 
 # A deque of invokevirtual constants used for method calls from AddToo.class.
 #     Eventually wee will acquire these values from the CP, but they are hardcoded for now.
@@ -12,8 +18,9 @@ INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 class HeaderClass():
 
     """Class that parses the header data from .class file and assigns values to variables."""
-    def __init__(self, name="jvpm/javafiles/Test.class"):
+    def __init__(self, name="jvpm/javafiles/test.class"):
         self.name = name
+        self.bits = ConstBitStream(filename=name)
         add_one_byte = 1
         constant_pool_byte_size = 0
         with open(name, 'rb') as binary_file:
@@ -36,21 +43,53 @@ class HeaderClass():
             self.field_dictionary = defaultdict(list)
 
     def get_magic(self):
+        """
         magic = ""
         for i in range(4):
             magic += format(self.data[i], '02X')
+        return magic"""
+
+        magic = self.bits.read('hex:32')
         return magic
 
     def get_minor(self):
-        return self.data[4] + self.data[5]
+        #return self.data[4] + self.data[5]
+        return self.bits.read('hex:16')
 
     def get_major(self):
-        return self.data[6] + self.data[7]
+        return self.bits.read('hex:16')
+        #return self.data[6] + self.data[7]
 
     def get_const_pool_count(self):
-        return self.data[8] + self.data[9]
+        return self.bits.read('uint:16')
+        #return self.data[8] + self.data[9]
 
     def get_const_pool(self):
+        constants_pool = defaultdict(list)
+        constants_pool[0].append("base")
+        # constants_pool = ["0"]
+        const_pool_count = self.get_const_pool_count()
+        const_pool_count -= 1
+        i = 1
+        while i <= const_pool_count:
+            constant = packages.CPInfo.ConstInfo().read(self.bits)
+            #print(constant, "**********constant")
+            constants_pool[i]=(constant)
+            #print(i, "                   IIIIIIIIIII                ")
+            #print(constant[0], "#############constant [0]  ######")
+            if constant[0] == "06" or constant[0] == "05":
+                #print("              skiiiiiiiiiiiipppppp ")
+                self.skips_in_constant_pool += 1
+                i += 1
+
+            i += 1
+        print(self.bits.bytepos, "@@@@@@@@@@@@  byte pos   @@@@@@@@")
+        print(constants_pool, "&&&&&&&&&&&     consts pool   &&&&&&&&&&&&&")
+        self.reader_location = self.bits.bytepos
+        self.constant_pool = constants_pool
+        return constants_pool
+
+        """
 
         self.constant_pool_size = self.get_const_pool_count()
 
@@ -112,7 +151,7 @@ class HeaderClass():
         self.constant_pool_byte_size = current_byte_location -10
         self.temp_2 = self.constant_pool
 
-        return self.constant_pool
+        return self.constant_pool"""
 
 
     def get_access_flags(self):
