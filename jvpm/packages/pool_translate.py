@@ -1,6 +1,9 @@
 from collections import defaultdict
 from . import jvpm_opcodes, pool_methods
 from collections import deque
+import numpy
+import struct
+import binascii
 
 
 super_index = 0
@@ -11,12 +14,15 @@ cp_strings = []
 
 class PoolTranslate:
 
-    def __init__(self, name="testSaveVar.class"):
+    def __init__(self, constant_pool, skips, name="testSaveVar.class"):
 
         self.name = name
-        jvpm_opcodes_obj = jvpm_opcodes.HeaderClass(name=name)
-        self.pulled_constant_pool = defaultdict(list)
-        self.pulled_constant_pool = jvpm_opcodes_obj.get_const_pool()
+        #jvpm_opcodes_obj = jvpm_opcodes.HeaderClass(name=name)
+        #self.pulled_constant_pool = defaultdict(list)
+        self.pulled_constant_pool = constant_pool
+
+
+        #self.pulled_constant_pool = jvpm_opcodes_obj.get_const_pool()
         self.byte_list_length = len(self.pulled_constant_pool.keys())
         self.key_list = list(self.pulled_constant_pool.keys())
         self.translated_pool = []
@@ -25,13 +31,18 @@ class PoolTranslate:
         self.current_pool_index = 0
         self.counter = 0
         self.pool_list_index = 0
-        self.skips_in_pool = jvpm_opcodes_obj.skips_in_constant_pool
+        #self.skips_in_pool = jvpm_opcodes_obj.skips_in_constant_pool
+        self.skips_in_pool = skips
+
         self.constant_pool_length = len(self.pulled_constant_pool)
-        self.translated_pool = ["0"] * (self.constant_pool_length + self.skips_in_pool + 1)
+        self.translated_pool = ["0"] * (self.constant_pool_length + self.skips_in_pool)
         self.super_index = 0
 
     def UTF_8_string(self, sub_list):  # 01
-        # print(sub_list)
+        #print(sub_list, "^^^^^^^^^^  sub list in utf   ^^^^^^^^^^")
+        #complete_string = sub_list[0]
+
+
         index = 2
         complete_string = ""
         while index < len(sub_list):
@@ -43,19 +54,34 @@ class PoolTranslate:
         self.translated_pool[self.current_pool_index] = complete_string
         return complete_string
 
-    def integer(self, sub_list):  # 03
-        print("Integer  4 bytes")
+    def tag_integer(self, sub_list):  # 03
+        hex_full = ""
+        for i in range(len(sub_list)):
+            hex_full += sub_list[i]
+        #print(hex_full,"Printing hex_full")
+
+        #print("Integer  4 bytes")
         # print(sub_list)
 
-    def float(self, sub_list):  # 04
-        print("Float  4 bytes")
+    def tag_float(self, sub_list):  # 04
+        hex_string = ""
+        sub_list.reverse()
+        for i in range(len(sub_list)):
+            hex_string += sub_list[i]
+        tuple_float = struct.unpack('<f', binascii.unhexlify(hex_string))
+        dec_float = tuple_float[0]
+        return dec_float
+
+    def tag_long(self, sub_list):  # 5
+        string_hex = "0x"
+        for i in range(len(sub_list)):
+            string_hex += sub_list[i]
+        dec_long = int(string_hex,16)
+        return dec_long
+
         # print(sub_list)
 
-    def long(self, sub_list):  # 5
-        print("Long    8 bytes")
-        # print(sub_list)
-
-    def double(self, sub_list):  # 6
+    def tag_double(self, sub_list):  # 6
         print("Double    8 bytes")
         # print(sub_list)
 
@@ -204,10 +230,10 @@ class PoolTranslate:
     switcher = {
 
         "01": UTF_8_string,  # 2+x bytes
-        "03": integer,  # 4 bytes
-        "04": float,  # 4 bytes
-        "05": long,  # 8 bytes
-        "06": double,  # 8 bytes
+        "03": tag_integer,  # 4 bytes
+        "04": tag_float,  # 4 bytes
+        "05": tag_long,  # 8 bytes
+        "06": tag_double,  # 8 bytes
         "07": class_reference,  # 2 bytes
         "08": string_reference,  # 2 bytes
         "09": field_reference,  # 4 bytes
@@ -230,6 +256,8 @@ class PoolTranslate:
         current_list_length = len(current_list)
         sub_list = []
         tag_byte = current_list[0]
+        #print(current_list, "   current list")
+        #print(tag_byte, "   current list")
 
         j = 1
         while j < current_list_length:
@@ -241,14 +269,13 @@ class PoolTranslate:
         return method(self, sub_list)
 
     def translate_pool(self):
-        pool_translater = PoolTranslate(name=self.name)
+        pool_translater = PoolTranslate(self.pulled_constant_pool, self.skips_in_pool, name=self.name)
         pool_index = 1
 
-        while pool_index <= self.constant_pool_length + self.skips_in_pool:
+        while pool_index <= self.constant_pool_length + self.skips_in_pool-1:
             self.translated_pool[pool_index] = pool_translater.method_dict(self.pulled_constant_pool, pool_index)
 
-            if (self.pulled_constant_pool[pool_index][0] == '05' or self.pulled_constant_pool[pool_index][
-                0] == '06'):
+            if (self.pulled_constant_pool[pool_index][0] == '05' or self.pulled_constant_pool[pool_index][0] == '06'):
                 pool_index += 1
             pool_index += 1
 

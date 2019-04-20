@@ -24,6 +24,9 @@ class test_const_pool(unittest.TestCase):
     def test_const_pool(self):
 
         x = packages.jvpm_opcodes.HeaderClass(name= "jvpm/javafiles/tester.class")
+        x.get_magic()  # pragma: no cover
+        x.get_minor()  # pragma: no cover
+        x.get_major()
         #x.data = self.data
         n = x.get_const_pool()
 
@@ -72,17 +75,22 @@ class test_const_pool(unittest.TestCase):
 class test_pool_translate1(unittest.TestCase):
 
     def test_working_methods(self):
-        jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/tester.class")
+        jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/testSaveVar.class")
+        jvpm_opcodes_obj.get_magic()
+        jvpm_opcodes_obj.get_minor()
+        jvpm_opcodes_obj.get_major()  # pragma: no cover
+        n = jvpm_opcodes_obj.get_const_pool()
+        y = packages.pool_translate.PoolTranslate(n, jvpm_opcodes_obj.skips_in_constant_pool,
+                                                  name="jvpm/javafiles/testSaveVar.class")
 
-        y = packages.pool_translate.PoolTranslate(name="jvpm/javafiles/testSaveVar.class")
 
         # y.dictionary = x.get_const_pool()
-        b = defaultdict(list)
-        b = jvpm_opcodes_obj.get_const_pool()
+       # b = defaultdict(list)
+        #b = jvpm_opcodes_obj.get_const_pool()
         new_array = ["0",
                      "java/lang/Object.<init>:()V",
                      "hello",
-                     None,
+                     1002,
                      "0",
                      None,
                      "0",
@@ -143,13 +151,14 @@ class test_pool_translate1(unittest.TestCase):
                      "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;",
                      "java/lang/invoke/MethodHandles",
                      "java/lang/invoke/MethodHandles$Lookup",
-                     "java/lang/invoke/MethodHandles"]
+                     "java/lang/invoke/MethodHandles"
+                     ]
 
         a = {
             0: "0",
             1: "java/lang/Object.<init>:()V",
             2: "hello",
-            3: None,
+            3: "1002",
             4: "0",
             5: None,
             6: "0",
@@ -268,6 +277,13 @@ class test_pool_translate1(unittest.TestCase):
 
 class test_pool_methods(unittest.TestCase):
     def test_tag_translate(self):
+         jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/tester.class")
+         jvpm_opcodes_obj.get_magic()
+         jvpm_opcodes_obj.get_minor()
+         jvpm_opcodes_obj.get_major()  # pragma: no cover
+         n = jvpm_opcodes_obj.get_const_pool()
+         x = packages.pool_translate.PoolTranslate(n, jvpm_opcodes_obj.skips_in_constant_pool,
+                                                  name="jvpm/javafiles/tester.class")
          new_dict = {
              "1": "01",
              "2": "03",
@@ -287,7 +303,7 @@ class test_pool_methods(unittest.TestCase):
              "16": "13",
              "17": "14"
          }
-         x = packages.pool_translate.PoolTranslate(name ="jvpm/javafiles/tester.class")
+         #x = packages.pool_translate.PoolTranslate(name ="jvpm/javafiles/tester.class")
          """
          x.field_reference()
          sys.stdout.assert_has_calls(
@@ -295,22 +311,9 @@ class test_pool_methods(unittest.TestCase):
          )
          """
          x_list = [0]
-         x.integer(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Integer  4 bytes")]
-         )
-         x.float(x_list)
-         sys.stdout.assert_has_calls(
-            [call.write("Float  4 bytes")]
-         )
-         x.long(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Long    8 bytes")]
-         )
-         x.double(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Double    8 bytes")]
-         )
+
+
+
          x.interface_method_reference(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Interface Method Reference    4 bytes")]
@@ -904,6 +907,50 @@ class Test_Op_Methods(unittest.TestCase):
 #             call.write('ran istore_3'), call.write('\n'), call.write('\n')]
 #         )
 
+class test_long(unittest.TestCase):
+    def test_tag_long(self):
+        sub_list = ["00", "00", "00", "00", "00", "00", "03", "ea"]
+        long_result = packages.pool_translate.PoolTranslate.tag_long(self, sub_list)
+
+        self.assertEqual(long_result, 1002)
+
+    def test_tag_float(self):
+        sub_list = ["44","a3","1a","38"]
+        float_result = packages.pool_translate.PoolTranslate.tag_float(self, sub_list)
+        self.assertEqual(float_result, 1304.8193359375)
+
+class test_pool_opcodes(unittest.TestCase):
+
+    def test_get_opcodes(self):
+        jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/AddTwo.class")
+        
+        self.assertEqual(jvpm_opcodes_obj.get_magic(), "cafebabe")
+        self.assertEqual(jvpm_opcodes_obj.get_minor(), "0000")
+        self.assertEqual(jvpm_opcodes_obj.get_minor(), "0037")
+
+        const_pool = jvpm_opcodes_obj.get_const_pool()
+        translator = packages.pool_translate.PoolTranslate(const_pool, jvpm_opcodes_obj.skips_in_constant_pool, name="jvpm/javafiles/AddTwo.class")
+        translated_pool = translator.translate_pool()
+        a_f = ['00', '21']
+        this = ['00', '08']
+        super = ['00', '09']
+        interface = ['00', '00']
+        int_table = "interface table empty"
+        f_c = ['00', '00']
+        field_table = "field table empty"
+        methods_count = ['00', '02']
+        op_codes = ['2a', 'b7', '00', '01', 'b1', 'bb', '00', '02', '59', 'b2', '00', '03', 'b7', '00', '04', '4c', '2b', 'b6', '00', '05', '3d', '2b', 'b6', '00', '05', '3e', 'b2', '00', '06', '1c', '1d', '60', 'b6', '00', '07', 'b1']
+        self.assertEqual(jvpm_opcodes_obj.get_access_flags(), a_f)
+        self.assertEqual(jvpm_opcodes_obj.get_this_class(), this)
+        self.assertEqual(jvpm_opcodes_obj.get_super_class(), super)
+        self.assertEqual(jvpm_opcodes_obj.get_interfaces_count(), interface)
+        self.assertEqual(jvpm_opcodes_obj.get_interface(), None)
+        self.assertEqual(jvpm_opcodes_obj.get_field_count(), f_c)
+        self.assertEqual(jvpm_opcodes_obj.get_field(), None)
+        self.assertEqual(jvpm_opcodes_obj.get_methods_count(), methods_count)
+        self.assertEqual(jvpm_opcodes_obj.get_methods(translated_pool), op_codes)
+
+
 class TestAccessFlagTranslater(unittest.TestCase):
     def test_translate_access_flag(self):
         a = packages.access_flag_translater_dictionary.AccessFlagTranslater()
@@ -919,3 +966,4 @@ class TestAccessFlagTranslater(unittest.TestCase):
         self.assertEqual(a.translate_access_flag(1000), "ACC_SYNTHETIC")
         self.assertEqual(a.translate_access_flag(2000), "ACC_ANNOTATION")
         self.assertEqual(a.translate_access_flag(4000), "ACC_ENUM")
+

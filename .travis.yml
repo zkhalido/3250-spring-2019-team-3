@@ -9,6 +9,7 @@ install:
   - pip install codecov
   - pip install numpy
   - pip install coverage
+  - pip install bitstring
 
 script:
   #- coverage run -m unittest
