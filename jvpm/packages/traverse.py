@@ -15,7 +15,7 @@ from collections import defaultdict
 class HeaderClass():
 
     def __init__(self):
-            self.data = ConstBitStream(filename = 'jvpm/javafiles/test.class')
+            self.data = ConstBitStream(filename = 'jvpm/javafiles/testSaveVar.class')
 
     def get_magic(self):
         magic = self.data.read('hex:32')
@@ -40,17 +40,18 @@ class HeaderClass():
         const_pool_count = self.get_const_pool_count()
         const_pool_count -= 1
         i = 1  # does nothing
-        for i in range(const_pool_count):
+        while i <= const_pool_count:
+        #for i in range(const_pool_count):
             constant = ConstInfo().read(self.data)
             print(constant, "**********constant")
-            constants_pool[i+1].append(constant)
+            constants_pool[i].append(constant)
             print(i, "                   IIIIIIIIIII                ")
             print(constant[0], "#############constant [0]  ######")
-            if constant[0] == "6" or "5":
-                    #constants_pool[i+1].append("skip index")
-                    i += 1
+            if constant[0] == "06" or constant[0] == "05":
+                print("              skiiiiiiiiiiiipppppp ")
+                i += 1
 
-            i + 1
+            i += 1
             print(self.data.bytepos, "@@@@@@@@@@@@  byte pos   @@@@@@@@")
         print(constants_pool, "&&&&&&&&&&&     consts pool   &&&&&&&&&&&&&")
         return constants_pool

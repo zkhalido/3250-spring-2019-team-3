@@ -65,70 +65,78 @@ class ConstInfo:
         return self.pool
 
     def parseClass(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(2):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
+
+
 
 
     def parseField(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(4):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
 
     def parseMethod(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(4):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
 
     def parseInterface(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(4):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
 
     def parseString(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(2):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
 
     def parseInteger(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(2):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
 
     def parseFloat(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(4):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
 
     def parseLong(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(8):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
 
 
     def parseDouble(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(8):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
 
     def parseNameAndType(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(4):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
 
     def parseUTF8(self, bits):
         self.length = bits.read('uint:16')
@@ -136,16 +144,22 @@ class ConstInfo:
         self.pool.append(bits.read('bytes:(%d)' % self.length).decode('utf-8'))
 
     def parseMethodHandle(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(3):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
 
     def parseMethodType(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(2):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
 
     def parseInvokeDynamic(self, bits):
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
-        self.pool.append (bits.read('hex:8'))
+        for i in range(4):
+            next_byte = bits.read('hex:8')
+            print(next_byte,"    next byte     ", type(next_byte), "type")
+            if (next_byte != "00"):
+                self.pool.append(next_byte)
