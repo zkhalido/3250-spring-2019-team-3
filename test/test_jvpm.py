@@ -916,3 +916,34 @@ class test_long(unittest.TestCase):
         sub_list = ["44","a3","1a","38"]
         float_result = packages.pool_translate.PoolTranslate.tag_float(self, sub_list)
         self.assertEqual(float_result, 1304.8193359375)
+
+class test_pool_opcodes(unittest.TestCase):
+
+    def test_get_opcodes(self):
+        jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/AddTwo.class")
+        
+        self.assertEqual(jvpm_opcodes_obj.get_magic(), "cafebabe")
+        self.assertEqual(jvpm_opcodes_obj.get_minor(), "0000")
+        self.assertEqual(jvpm_opcodes_obj.get_minor(), "0037")
+
+        const_pool = jvpm_opcodes_obj.get_const_pool()
+        translator = packages.pool_translate.PoolTranslate(const_pool, jvpm_opcodes_obj.skips_in_constant_pool, name="jvpm/javafiles/AddTwo.class")
+        translated_pool = translator.translate_pool()
+        a_f = ['00', '21']
+        this = ['00', '08']
+        super = ['00', '09']
+        interface = ['00', '00']
+        int_table = "interface table empty"
+        f_c = ['00', '00']
+        field_table = "field table empty"
+        methods_count = ['00', '02']
+        op_codes = ['2a', 'b7', '00', '01', 'b1', 'bb', '00', '02', '59', 'b2', '00', '03', 'b7', '00', '04', '4c', '2b', 'b6', '00', '05', '3d', '2b', 'b6', '00', '05', '3e', 'b2', '00', '06', '1c', '1d', '60', 'b6', '00', '07', 'b1']
+        self.assertEqual(jvpm_opcodes_obj.get_access_flags(), a_f)
+        self.assertEqual(jvpm_opcodes_obj.get_this_class(), this)
+        self.assertEqual(jvpm_opcodes_obj.get_super_class(), super)
+        self.assertEqual(jvpm_opcodes_obj.get_interfaces_count(), interface)
+        self.assertEqual(jvpm_opcodes_obj.get_interface(), None)
+        self.assertEqual(jvpm_opcodes_obj.get_field_count(), f_c)
+        self.assertEqual(jvpm_opcodes_obj.get_field(), None)
+        self.assertEqual(jvpm_opcodes_obj.get_methods_count(), methods_count)
+        self.assertEqual(jvpm_opcodes_obj.get_methods(translated_pool), op_codes)
