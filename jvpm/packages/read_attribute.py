@@ -240,7 +240,7 @@ class ReadAttribute():
         "LineNumberTable": get_line_number_table,  # 4 bytes
         "SourceFile": get_source_file,
         "Exceptions": get_exceptions,
-        "LocalVariableTable": get_local_variable_table,
+        #"LocalVariableTable": get_local_variable_table,
     }
 
 
