@@ -2,6 +2,7 @@ import packages
 
 if '__main__' == __name__:                  #pragma: no cover
 
+
     H = packages.jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/test.class")               #pragma: no cover
     #H.get_magic()                   #pragma: no cover
     #H.get_minor()                   #pragma: no cover
