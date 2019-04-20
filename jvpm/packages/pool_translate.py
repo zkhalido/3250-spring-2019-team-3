@@ -35,7 +35,7 @@ class PoolTranslate:
         self.skips_in_pool = skips
 
         self.constant_pool_length = len(self.pulled_constant_pool)
-        self.translated_pool = ["0"] * (self.constant_pool_length + self.skips_in_pool + 1)
+        self.translated_pool = ["0"] * (self.constant_pool_length + self.skips_in_pool)
         self.super_index = 0
 
     def UTF_8_string(self, sub_list):  # 01
@@ -275,8 +275,7 @@ class PoolTranslate:
         while pool_index <= self.constant_pool_length + self.skips_in_pool-1:
             self.translated_pool[pool_index] = pool_translater.method_dict(self.pulled_constant_pool, pool_index)
 
-            if (self.pulled_constant_pool[pool_index][0] == '05' or self.pulled_constant_pool[pool_index][
-                0] == '06'):
+            if (self.pulled_constant_pool[pool_index][0] == '05' or self.pulled_constant_pool[pool_index][0] == '06'):
                 pool_index += 1
             pool_index += 1
 
