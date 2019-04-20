@@ -23,30 +23,36 @@ class HeaderClass():
 
     def get_minor(self):
         #print("Minor: ", self.data[4] + self.data[5])
-        return self.data.read('uint:16')
+        return self.data.read('hex:16')
 
     def get_major(self):
         #print("Major: ", self.data[6] + self.data[7])
-        return self.data.read('uint:16')
+        return self.data.read('hex:16')
 
     def get_const_pool_count(self):
         # print("Contant Pool Count: ", self.data[8] + self.data[9])
         return self.data.read('uint:16')
     
     def get_const_pool(self):
-        
-        constants_pool = []
+        constants_pool = defaultdict(list)
+        constants_pool[0].append("base")
+        #constants_pool = ["0"]
         const_pool_count = self.get_const_pool_count()
-        i = 0
-        for i in range(const_pool_count-1):
+        const_pool_count -= 1
+        i = 1  # does nothing
+        for i in range(const_pool_count):
             constant = ConstInfo().read(self.data)
             print(constant, "**********constant")
-            constants_pool.append(constant)
-            if constant.tag == ConstTag.DOUBLE or ConstTag.LONG:
-                    constants_pool.append(ConstInfo())
+            constants_pool[i+1].append(constant)
+            print(i, "                   IIIIIIIIIII                ")
+            print(constant[0], "#############constant [0]  ######")
+            if constant[0] == "6" or "5":
+                    #constants_pool[i+1].append("skip index")
                     i += 1
 
             i + 1
+            print(self.data.bytepos, "@@@@@@@@@@@@  byte pos   @@@@@@@@")
+        print(constants_pool, "&&&&&&&&&&&     consts pool   &&&&&&&&&&&&&")
         return constants_pool
 
     
@@ -105,8 +111,8 @@ class HeaderClass():
 if '__main__' == __name__:
     d = HeaderClass()
     print(d.get_magic())
-    d.get_minor()
-    d.get_major()
+    print(d.get_minor(), "minor%%%%")
+    print(d.get_major(), "$$$$$$$$major")
     h = d.get_const_pool()
     #print(h.discriptor_index)
 

@@ -3,28 +3,32 @@ from bitstring import ConstBitStream
 import struct
 
 class ConstTag(Enum):
-    CLASS = 7
-    FIELD = 9
-    METHOD = 10
-    INTERFACE = 11
-    STRING = 8
-    INTEGER = 3
-    FLOAT = 4
-    LONG = 5
-    DOUBLE = 6
-    NAME_AND_TYPE = 12
-    UTF8 = 1
-    METHOD_HANDLE = 15
-    METHOD_TYPE = 16
-    INVOKE_DYNAMIC = 18
+    CLASS = "07"
+    FIELD = "09"
+    METHOD = "0a"
+    INTERFACE = "0b"
+    STRING = "08"
+    INTEGER = "03"
+    FLOAT = "04"
+    LONG = "05"
+    DOUBLE = "06"
+    NAME_AND_TYPE = "0c"
+    UTF8 = "01"
+    METHOD_HANDLE = "0f"
+    METHOD_TYPE = "10"
+    INVOKE_DYNAMIC = "12"
 
 class ConstInfo:
 
     def __init__(self):
         self.tag = None
+        self.pool = []
 
     def read(self, bits):
-        tag = bits.read('uint:8')
+        #pool = []
+        tag = bits.read('hex:8')
+        print(int(tag,16), "  iinnntt")
+        self.pool.append(tag)
         print (tag, "%%%%%%%%%%%%%%%%tag")
         self.tag = ConstTag(tag)
         print(self.tag, "^^^^^^^^^^^^^^^^^^^ self.tag")
@@ -57,56 +61,91 @@ class ConstInfo:
             self.parseMethodType(bits)
         elif self.tag == ConstTag.INVOKE_DYNAMIC:
             self.parseInvokeDynamic(bits)
-        print(self.class_index, " ^^^^^^^^^^^self")
-        return self
+        #print(self.class_index, " ^^^^^^^^^^^self")
+        return self.pool
 
     def parseClass(self, bits):
-        self.name_index = bits.read('uint:16')
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+
 
     def parseField(self, bits):
-        self.class_index = bits.read('uint:16')
-        self.name_and_type_index = bits.read('uint:16')
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
 
     def parseMethod(self, bits):
-        self.class_index = bits.read('uint:16')
-        self.name_and_type_index = bits.read('uint:16')
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
 
     def parseInterface(self, bits):
-        self.class_index = bits.read('uint:16')
-        self.name_and_type_index = bits.read('uint:16')
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
 
     def parseString(self, bits):
-        self.string_index = bits.read('uint:16')
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
 
     def parseInteger(self, bits):
-        self.bytes = bits.read(4)
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
 
     def parseFloat(self, bits):
-        self.bytes = bits.read(4)
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
 
     def parseLong(self, bits):
-        self.high_bytes = bits.read(4)
-        self.low_bytes = bits.read(4)
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+
 
     def parseDouble(self, bits):
-        self.high_bytes = bits.read(4)
-        self.low_bytes = bits.read(4)
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
 
     def parseNameAndType(self, bits):
-        self.name_index = bits.read('uint:16')
-        self.descriptor_index = bits.read('uint:16')
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
 
     def parseUTF8(self, bits):
         self.length = bits.read('uint:16')
-        self.string = bits.read('bytes:(%d)' % self.length).decode('utf-8')
+
+        self.pool.append(bits.read('bytes:(%d)' % self.length).decode('utf-8'))
 
     def parseMethodHandle(self, bits):
-        self.reference_kind = bits.read('uint:8')
-        self.reference_index = bits.read('uint:16')
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
 
     def parseMethodType(self, bits):
-        self.descriptor_index = bits.read('uint:16')
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
 
     def parseInvokeDynamic(self, bits):
-        self.bootstrap_method_attr_index = bits.read('uint:16')
-        self.name_and_type_index = bits.read('uint:16')
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
+        self.pool.append (bits.read('hex:8'))
