@@ -96,8 +96,8 @@ class HeaderClass():
                 byte_index = 1
                 while byte_index <= bytes_to_read:
                     empty_byte = format(self.data[current_byte_location + byte_index], '02x')
-                    if (empty_byte == '00'):
-                        byte_index += 1
+                    #if (empty_byte == '00'):
+                        #byte_index += 1
                     self.constant_pool[index].append(format(self.data[current_byte_location + byte_index], '02x'))
 
                     byte_index += 1

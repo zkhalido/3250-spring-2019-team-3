@@ -34,7 +34,7 @@ class PoolTranslate:
         self.super_index = 0
 
     def UTF_8_string(self, sub_list):  # 01
-        # print(sub_list)
+        print(sub_list, "^^^^^^^^^^  sub list in utf   ^^^^^^^^^^")
         index = 2
         complete_string = ""
         while index < len(sub_list):
