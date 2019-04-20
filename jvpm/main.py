@@ -2,15 +2,18 @@ import packages
 
 if '__main__' == __name__:                  #pragma: no cover
 
-    H = packages.jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/testFloat.class")               #pragma: no cover
-    #H.get_magic()                   #pragma: no cover
-    #H.get_minor()                   #pragma: no cover
-    #H.get_major()                   #pragma: no cover
+    file_name = "jvpm/javafiles/AddTwo.class"
+    H = packages.jvpm_opcodes.HeaderClass(name = file_name)               #pragma: no cover
+    print(H.get_magic())              #pragma: no cover
+    print(H.get_minor())              #pragma: no cover
+    print(H.get_major())               #pragma: no cover
+
     n = H.get_const_pool()
     print(n)
-    p_translator = packages.pool_translate.PoolTranslate(name = "jvpm/javafiles/testFloat.class")
+    p_translator = packages.pool_translate.PoolTranslate(n, H.skips_in_constant_pool, name = file_name)
+
     pool = p_translator.translate_pool()
-    print(pool)
+    print(pool, "translated")
 
     a = H.get_access_flags()
     print(a, "   access flags")
@@ -32,9 +35,7 @@ if '__main__' == __name__:                  #pragma: no cover
     H.get_field() # no method built yet but should just be variable table
 
     f = H.get_methods_count()
-    print(f, "   methods count", H.integer_method_count, "   int meth count")
-
-    #H.get_methods(pool)
+    print(f, " - methods count        ", H.integer_method_count, " -int meth count")
 
     f = H.get_methods(pool)
     print(f, "   ** op codes **")

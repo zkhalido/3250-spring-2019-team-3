@@ -2,18 +2,14 @@ language: python
 python:
   - "3.6"
   #- "3.5"
-
-#addons:
-  #sonarcloud:
-   # organization: git-confused-team3 # the key of the org you chose at step #3
-   # token: ${newToken}  
-    
+ 
 dist: trusty
 
 install:
   - pip install codecov
   - pip install numpy
   - pip install coverage
+  - pip install bitstring
 
 script:
   #- coverage run -m unittest
@@ -22,7 +18,8 @@ script:
   - sonar-scanner
 after_success:
   - codecov
-  - coverage xml -i
+  #- sonar-scanner
+  #- coverage xml -i
 
   
 addons:
