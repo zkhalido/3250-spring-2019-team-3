@@ -11,244 +11,245 @@ cp_strings = []
 
 class PoolTranslate:
 
-    def __init__(self, name = ""):
-        self.dictionary = defaultdict(list)
-        #self.name = "jvpm/javafiles/AddTwo.class"
+    def __init__(self, name="testSaveVar.class"):
+
         self.name = name
-
-        H = jvpm_opcodes.HeaderClass(name)
-        # H = jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/AddTwo.class")
-        # H = jvpm_opcodes.HeaderClass(name = input("What file do you want to open? "))
-        self.dictionary = H.get_const_pool()
-        self.byte_list_count = len(self.dictionary.keys())
-        global new_l
-        new_l = []
-        self.current_k = 0
-        self.main_index = 0
+        jvpm_opcodes_obj = jvpm_opcodes.HeaderClass(name=name)
+        self.pulled_constant_pool = defaultdict(list)
+        self.pulled_constant_pool = jvpm_opcodes_obj.get_const_pool()
+        self.byte_list_length = len(self.pulled_constant_pool.keys())
+        self.key_list = list(self.pulled_constant_pool.keys())
+        self.translated_pool = []
+        self.current_pool_list = []
+        self.constant_pool_index = 0
+        self.current_pool_index = 0
+        self.counter = 0
+        self.pool_list_index = 0
+        self.skips_in_pool = jvpm_opcodes_obj.skips_in_constant_pool
+        self.constant_pool_length = len(self.pulled_constant_pool)
+        self.translated_pool = ["0"] * (self.constant_pool_length + self.skips_in_pool + 1)
         self.super_index = 0
-        dictLen = len(self.dictionary)
-        i = 0
-        self.vals = ["0"]
-        while i < dictLen:
-            new_l.append("0")
-            self.vals.append("0")
-            i += 1
 
-# ****************************************************************************************
-
-    def UTF_8_string(self, di, super_index):                 #01
-        # print("UTF_8_string  2+x bytes (variable)")
-        self.super_index = super_index
-
-        newLen = len(di)
-
-        length = len(di)
-        count = 1
-        dtext = ""
-        while count < length :
-            int1 = int(di[count], 16)
-            int2 = (int1).to_bytes(1, byteorder='big')
-            ctext = int2.decode("utf-8", "ignore")
-            dtext += ctext
-            count += 1
-
-        new_l[self.super_index-1] = dtext
-        # cp_strings.append(dtext)
-        return dtext
-
-    def integer(self):                      #03
-        #self.super_index = super_index
-        print("Integer  4 bytes")
-
-    def float(self):                        #04
-        print("Float  4 bytes")
-
-    def long(self):                         #5
-        print("Long    8 bytes")
-
-    def double(self):                       #6
-        print("Double    8 bytes")
-
-    def class_reference(self, di, super_index):              #7
-        # print("class reference           4 bytes")
-
-        self.super_index = super_index
-        index = self.main_index
-
-        self.main_index = int(di[0], 16)
-        r = PoolTranslate.method_dict(self, self.dictionary, self.main_index, self.super_index)
-        new_l[self.super_index-1] = r
-        return r
-
-    def string_reference(self):
-        """string reference""" #8
-        # print("String Reference    2 bytes")
-        cp_strings.append(dtext)
-
-    def field_reference(self,  new_li, super_index):
-        """field reference""" #9
-
-    def method_reference(self, di, super_index):             #
-        self.super_index = super_index
-        di2 = di
-        index = 0
-        list_len = len(di2)
-
-        method = ""
-        C = ""
-        count = 0
-
-        while index < list_len :
-            self.main_index = di2[index]
-
-            if self.main_index != 0:
-                self.main_index = int(self.main_index, 16)
-
-            method = PoolTranslate.method_dict(self, self.dictionary, index, super_index)
-            # print(method)
-            # appends the retrieved method to methodrefs list
-            methodrefs.append(method)
+    def UTF_8_string(self, sub_list):  # 01
+        # print(sub_list)
+        index = 2
+        complete_string = ""
+        while index < len(sub_list):
+            byte_to_translate = int(sub_list[index], 16)
+            translated_byte = (byte_to_translate).to_bytes(1, byteorder='big')
+            converted_text = translated_byte.decode("utf-8", "ignore")
+            complete_string += converted_text
             index += 1
-            if count < 1:
-                method = method + "."
-            count += 1
-            C  += method
-        new_l[self.super_index - 1] = C
+        self.translated_pool[self.current_pool_index] = complete_string
+        return complete_string
 
-    def interface_method_reference(self):   #11
+    def integer(self, sub_list):  # 03
+        print("Integer  4 bytes")
+        # print(sub_list)
+
+    def float(self, sub_list):  # 04
+        print("Float  4 bytes")
+        # print(sub_list)
+
+    def long(self, sub_list):  # 5
+        print("Long    8 bytes")
+        # print(sub_list)
+
+    def double(self, sub_list):  # 6
+        print("Double    8 bytes")
+        # print(sub_list)
+
+    def class_reference(self, sub_list):  # 7
+
+        index = 0
+
+        complete_string = ""
+        strings_to_combine = 0
+
+        while index < len(sub_list):
+            new_index = int(sub_list[index], 16)
+
+            pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
+            index += 1
+            if len(sub_list) > 1:
+
+                if strings_to_combine < 1:
+                    pulled_string = pulled_string + "."
+                strings_to_combine += 1
+                complete_string += pulled_string
+            else:
+                complete_string = pulled_string
+
+        return complete_string
+
+        # returned_string = PoolTranslater.method_dict(self,)
+
+    def string_reference(self, sub_list):  # 8
+        index = 0
+
+        complete_string = ""
+        strings_to_combine = 0
+
+        while index < len(sub_list):
+            new_index = int(sub_list[index], 16)
+
+            pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
+            index += 1
+            if len(sub_list) > 1:
+
+                if strings_to_combine < 1:
+                    pulled_string = pulled_string + "."
+                strings_to_combine += 1
+                complete_string += pulled_string
+            else:
+                complete_string = pulled_string
+
+        return complete_string
+
+    def field_reference(self, sub_list):  # 9
+
+        index = 0
+
+        complete_string = ""
+        strings_to_combine = 0
+
+        while index < len(sub_list):
+            new_index = int(sub_list[index], 16)
+
+            pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
+            index += 1
+            if len(sub_list) > 1:
+
+                if strings_to_combine < 1:
+                    pulled_string = pulled_string + "."
+                strings_to_combine += 1
+                complete_string += pulled_string
+            else:
+                complete_string = pulled_string
+
+        return complete_string
+
+    def method_reference(self, sub_list):  # 10
+        index = 0
+
+        complete_string = ""
+        strings_to_combine = 0
+
+        while index < len(sub_list):
+            new_index = int(sub_list[index], 16)
+
+            pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
+            methodrefs.append(pulled_string)
+            index += 1
+
+            if strings_to_combine < 1:
+                pulled_string = pulled_string + "."
+            strings_to_combine += 1
+            complete_string += pulled_string
+
+        return complete_string
+
+    def interface_method_reference(self, sub_list):  # 11
         print("Interface Method Reference    4 bytes")
 
-    def name_and_type_discriptor(self, di, super_index):     #12
-        self.super_index = super_index
-        # print("Name and Type Discriptor    4 bytes")
+    def name_and_type_discriptor(self, sub_list):  # 12
 
-        di2 = di
         index = 0
-        list_len = len(di2)
 
-        M = ""
-        C = ""
-        J = 0
+        complete_string = ""
+        strings_to_combine = 0
 
-        while index < list_len :
-            self.main_index = di2[index]
-            if self.main_index != 0:
-                self.main_index = int(self.main_index, 16)
-            M = PoolTranslate.method_dict(self, self.dictionary, index, self.super_index)
+        while index < len(sub_list):
+            new_index = int(sub_list[index], 16)
+
+            pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
-            if J < 1:
-                M = M + ":"
-            J += 1
-            C  += M
-        new_l[self.super_index-1] = C
+            if strings_to_combine < 1:
+                pulled_string = pulled_string + ":"
+            strings_to_combine += 1
+            complete_string += pulled_string
 
-        cp_strings.append(C)
-        return C
+        return complete_string
 
-    def method_handle(self):                #15
+    def method_handle(self, sub_list):  # 15
         print("Method Handle    3 bytes")
 
-    def method_type(self):                  #16
+        type = {
+            1: "REF_getField",
+            2: "REF_getStatic",
+            3: "REF_putField",
+            4: "REF_putStatic",
+            5: "REF_invokeVirtual",
+            8: "REF_newInvokeSpecial",
+            6: "REF_invokeStatic",
+            7: "REF_invokeSpecial",
+            9: "REF_invokeInterface"
+        }
+
+    def method_type(self, sub_list):  # 16
         print("Method Type    2 bytes")
 
-    def dynamic(self):                      #17
+    def dynamic(self, sub_list):  # 17
         print("Dynamic    4 bytes")
 
-    def invoke_dynamic(self):               #18
+    def invoke_dynamic(self, sub_list):  # 18
         print("Invoke Dynamic    4 bytes")
 
-    def module(self):                       #19
+    def module(self, sub_list):  # 19
         print("Module    2 bytes")
 
-    def package(self):                      #20
+    def package(self, sub_list):  # 20
         print("Package    2 bytes")
-
-# ****************************************************************************************
 
     switcher = {
 
-        "01": UTF_8_string,  # add two ints
-        "03": integer,  # add two ints
-        "04": float,  # add two ints
-        "05": long,  # add two ints
-        "06": double,  # add two ints
-        "07": class_reference,  # add two ints
-        "08": string_reference,  # add two ints
-        "09": field_reference,  # add two ints
-        "0a": method_reference,  # add two ints
-        "0b": interface_method_reference,  # add two ints
-        "0c": name_and_type_discriptor,  # add two ints
-        "0f": method_handle,  # add two ints
-        "10": method_type,  # add two ints
-        "11": dynamic,  # add two ints
-        "12": invoke_dynamic,  # add two ints
-        "13": module,  # add two ints
-        "14": package,  # add two ints
+        "01": UTF_8_string,  # 2+x bytes
+        "03": integer,  # 4 bytes
+        "04": float,  # 4 bytes
+        "05": long,  # 8 bytes
+        "06": double,  # 8 bytes
+        "07": class_reference,  # 2 bytes
+        "08": string_reference,  # 2 bytes
+        "09": field_reference,  # 4 bytes
+        "0a": method_reference,  # 4 bytes
+        "0b": interface_method_reference,  # 4 bytes
+        "0c": name_and_type_discriptor,  # 4 bytes
+        "0f": method_handle,  # 3 bytes
+        "10": method_type,  # 2 bytes
+        "11": dynamic,  # 4 bytes
+        "12": invoke_dynamic,  # 4 bytes
+        "13": module,  # 2 bytes
+        "14": package,  # 2 bytes
 
     }
 
-# ****************************************************************************************
+    def method_dict(self, constant_pool, current_index):
 
-    def method_dict(self, d, main_index, super_index):
+        current_key = current_index
+        current_list = constant_pool[current_key]
+        current_list_length = len(current_list)
+        sub_list = []
+        tag_byte = current_list[0]
 
-        self.super_index = super_index
-
-        d_len = len(d.keys())
-        if type(main_index) == str :
-            self.main_index = int(main_index)
-        if self.main_index == 0:
-            index = int(self.main_index)
-        else:
-            index = int(self.main_index)-1  # dont think this is doing anything
-
-        key_list = list(d.keys())
-        key_current = key_list[int(self.main_index)-1]
-        list_current = d[key_current]
-        tag_byte = list_current[0]
-        list_len = len(list_current)
         j = 1
-        new_li = []
-        while int(index) < d_len :
+        while j < current_list_length:
+            sub_list.append(current_list[j])
+            j += 1
 
-            while j < list_len :
-                new_li.append(list_current[j])
-                j += 1
+        method = PoolTranslate.switcher.get(tag_byte, "invalid")
 
-            method = PoolTranslate.switcher.get(tag_byte, "invalid")
+        return method(self, sub_list)
 
-            return method(self,  new_li, self.super_index)
+    def translate_pool(self):
+        pool_translater = PoolTranslate(name=self.name)
+        pool_index = 1
 
-    def translate(self ):
+        while pool_index <= self.constant_pool_length + self.skips_in_pool:
+            self.translated_pool[pool_index] = pool_translater.method_dict(self.pulled_constant_pool, pool_index)
 
-        print("\nFile opened: " + self.name)
-        header_class = jvpm_opcodes.HeaderClass()
-        translate = PoolTranslate(self.name)
-        count = 1
-        self.main_index = 1
-        while count <= self.byte_list_count :
+            if (self.pulled_constant_pool[pool_index][0] == '05' or self.pulled_constant_pool[pool_index][
+                0] == '06'):
+                pool_index += 1
+            pool_index += 1
 
-            self.main_index = str(self.main_index)
-            self.super_index = count
-            translate.method_dict(self.dictionary, self.main_index, self.super_index)
-            self.main_index = int(self.main_index)
-            count += 1
-            self.main_index = count
-        new_dict = self.dictionary
-        counter = 0
-        while counter < len(new_l):
-            new_dict[counter].append(new_l[counter])
-            counter += 1
-
-        return new_dict
-    """
-    def print_pool(dictionary):
-        H = PoolTranslate
-        l = len(dictionary)
-        i = 0
-        i2 =0
-        while i < l :
-            H.name_tostring(dictionary[i][i2])
-            val_len = dictionary[i]
-    """
-
-    # ****************************************************************************************
+        return self.translated_pool
