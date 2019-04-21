@@ -204,9 +204,11 @@ class OpCodes():
 
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods."""
-    def __init__(self):
+    def __init__(self, opcode, constantpool):
         # Eventually we will acquire these values from the CP, but they are hardcoded for now.
         self.opcodes = ['2a', '59', '4c', '2b', 'b6', '3d', 'b6', '3e', '1c', '1d', '60', 'b6']
+        self.constantpool = constantpool
+        #self.opcodes = opcode
 
         """
 
@@ -221,4 +223,7 @@ class OpCodes():
         """dictionary search method."""
         for opcode in self.opcodes:
             opcall = jvpm_dict.get_opcode(opcode)
-            jvpm_methods.OpCodeMethods().token_dict(opcall)
+            print(opcall, " = translated opcode")
+            if opcall != "Byte code not found!":
+                jvpm_methods.OpCodeMethods().token_dict(opcall,self.opcodes,self.constantpool)
+

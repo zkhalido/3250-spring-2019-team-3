@@ -41,10 +41,11 @@ class OpCodeMethods():
         var1 = numpy.int32(S.pop())
         S.push(var1 + var2)
 
-    def invokevirtual(self):
+    def invokevirtual(self,opcode,constantpool):
         """gets method from constant pool and calls it."""
         constant = jvpm_opcodes.INVOKEVIRTUAL_CONST[0]
         method = pool_translate.methodrefs[int(jvpm_opcodes.INVOKEVIRTUAL_CONST.popleft())]
+        print(method, "***************")
         self.token_dict(method)
 
     def next_int(self):
@@ -230,6 +231,9 @@ class OpCodeMethods():
         variable1 = numpy.int32(S.pop())
         S.push(numpy.int64(variable1))
 
+    def invalid(self,opcode,constantpool):
+        print("method call is invalid")
+
 
 # ****************************************************************************************
 
@@ -276,14 +280,18 @@ class OpCodeMethods():
         "i2l" : i2l, # int to long
         "i2s" : i2s, # int to short
         "nextInt:()I": next_int,
-        "println:(I)V": println
+        "println:(I)V": println,
+        "invalid": invalid,
     }
 
 # ****************************************************************************************
 
-    def token_dict(self, argument):
+    def token_dict(self, argument,opcode,constantpool):
         """dictionary search"""
         method = OpCodeMethods.dictionary.get(argument, "invalid")
-        return method(self)
+        if type(method) == str:
+            method = OpCodeMethods.dictionary.get(method)
+        print(method, "this is the method from the dictionary", argument, type(method))
+        return method(self,opcode,constantpool)
 
 # ****************************************************************************************
