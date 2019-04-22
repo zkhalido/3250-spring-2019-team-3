@@ -53,6 +53,7 @@ class OpCodeMethods():
         #print(method, "***********method ***************")
         self.token_dict(method,location, constantpool)
 
+
     def next_int(self,opcode,constantpool):
         """receive input from the keyboard."""
         var1 = numpy.int32(int(input()))
@@ -284,7 +285,9 @@ class OpCodeMethods():
         "i2f" : i2f, # int to float
         "i2l" : i2l, # int to long
         "i2s" : i2s, # int to short
+
         "java/util/Scanner.nextInt:()I": next_int,
+
         "java/io/PrintStream.println:(I)V": println,
         "invalid": invalid,
     }
