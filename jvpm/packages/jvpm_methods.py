@@ -7,13 +7,15 @@ from . import jvpm_opcodes, pool_translate
 
 # ****************************************************************************************
 
-S = Stack()
-VARIABLES = [0]
+#S = Stack()
+#VARIABLES = [0]
 
 class OpCodeMethods():
     """CLass of methods that are called from the CP."""
     def __init__(self):
         """opcode_methods"""
+        self.stack = Stack()
+        self.VARIABLES = [0]
 
     def aload_0(self,opcode,constantpool):
         """(2a)Load a reference to the stack."""
@@ -32,14 +34,14 @@ class OpCodeMethods():
     def dup(self,opcode,constantpool):
         """Doubles the top item on the stack."""
         # forcing it to work.
-        var = S.peek()
-        S.push(var)
+        var = self.stack.peek()
+        self.stack.push(var)
 
     def iadd(self,opcode,constantpool):
         """iadd: add two ints from the stack."""
-        var2 = numpy.int32(S.pop())
-        var1 = numpy.int32(S.pop())
-        S.push(var1 + var2)
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
+        self.stack.push(var1 + var2)
 
     def invokevirtual(self,location,constantpool):
         """gets method from constant pool and calls it."""
@@ -54,51 +56,51 @@ class OpCodeMethods():
     def next_int(self,opcode,constantpool):
         """receive input from the keyboard."""
         var1 = numpy.int32(int(input()))
-        S.push(var1)
+        self.stack.push(var1)
 
     def println(self,opcode,constantpool):
         """print from the stack."""
-        print(str(S.pop()))
+        print(str(self.stack.pop()))
 
     def iand(self,opcode,constantpool):
         """perform a bitwise AND on two integers."""
-        var2 = numpy.int32(S.pop())
-        var1 = numpy.int32(S.pop())
-        S.push(var1 & var2)
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
+        self.stack.push(var1 & var2)
 
     def iconst_m1(self,opcode,constantpool):
         """load the int value -1 onto the stack."""
-        S.push(-1)
+        self.stack.push(-1)
 
     def iconst_0(self,opcode,constantpool):
         """load the int value 0 onto the stack."""
-        S.push(0)
+        self.stack.push(0)
 
     def iconst_1(self,opcode,constantpool):
         """load the int value 1 onto the stack."""
-        S.push(1)
+        self.stack.push(1)
 
     def iconst_2(self,opcode,constantpool):
         """load the int value 2 onto the stack."""
-        S.push(2)
+        self.stack.push(2)
 
     def iconst_3(self,opcode,constantpool):
         """load the int value 3 onto the stack."""
-        S.push(3)
+        self.stack.push(3)
 
     def iconst_4(self,opcode,constantpool):
         """load the int value 4 onto the stack."""
-        S.push(4)
+        self.stack.push(4)
 
     def iconst_5(self,opcode,constantpool):
         """load the int value 5 onto the stack."""
-        S.push(5)
+        self.stack.push(5)
 
     def idiv(self,opcode,constantpool):
         """divide two integers."""
-        var2 = numpy.int32(S.pop())
-        var1 = numpy.int32(S.pop())
-        S.push(var1 / var2)
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
+        self.stack.push(var1 / var2)
 
     def iinc(self,opcode,constantpool):
         """increment local variable."""
@@ -106,133 +108,133 @@ class OpCodeMethods():
 
     def iload_0(self,opcode,constantpool):
         """load an int value from local array variable[0]."""
-        pushing0 = VARIABLES[0]
-        S.push(pushing0)
+        pushing0 = self.VARIABLES[0]
+        self.stack.push(pushing0)
 
     def iload_1(self,opcode,constantpool):
         """load an int value from local array variable[1]."""
-        pushing1 = VARIABLES[1]
-        S.push(pushing1)
+        pushing1 = self.VARIABLES[1]
+        self.stack.push(pushing1)
         # print("ran iload_1")
 
     def iload_2(self,opcode,constantpool):
         """load an int value from local array variable[2]."""
-        pushing2 = VARIABLES[2]
-        S.push(pushing2)
+        pushing2 = self.VARIABLES[2]
+        self.stack.push(pushing2)
         # print("ran iload_2")
 
     def iload_3(self,opcode,constantpool):
         """load an int value from local array variable[3]."""
-        pushing3 = VARIABLES[3]
-        S.push(pushing3)
+        pushing3 = self.VARIABLES[3]
+        self.stack.push(pushing3)
         # print("ran iload_3")
 
     def imul(self,opcode,constantpool):
         """multiply two integers."""
-        var2 = numpy.int32(S.pop())
-        var1 = numpy.int32(S.pop())
-        S.push(var1 * var2)
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
+        self.stack.push(var1 * var2)
 
     def ineg(self,opcode,constantpool):
         """negate int."""
-        var1 = numpy.int32(S.pop())
-        S.push(0 - var1)
+        var1 = numpy.int32(self.stack.pop())
+        self.stack.push(0 - var1)
 
     def ior(self,opcode,constantpool):
         """bitwise int OR."""
-        var2 = numpy.int32(S.pop())
-        var1 = numpy.int32(S.pop())
-        S.push(var1 | var2)
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
+        self.stack.push(var1 | var2)
 
     def irem(self,opcode,constantpool):
         """logical in remainder."""
-        var2 = numpy.int32(S.pop())
-        var1 = numpy.int32(S.pop())
-        S.push(var1 % var2)
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
+        self.stack.push(var1 % var2)
 
     def ishl(self,opcode,constantpool):
         """int shift left."""
-        var2 = numpy.int32(S.pop())
-        var1 = numpy.int32(S.pop())
-        S.push(var1 << var2)
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
+        self.stack.push(var1 << var2)
 
     def ishr(self,opcode,constantpool):
         """int arithmetic shift right."""
-        var2 = numpy.int32(S.pop())
-        var1 = numpy.int32(S.pop())
-        S.push(var1 >> var2)
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
+        self.stack.push(var1 >> var2)
 
     def istore_0(self,opcode,constantpool):
         """store int value into VARIABLE[0]."""
-        popped = S.pop()
-        VARIABLES.pop(0) # remove the assigned 0 from the [0]position
-        VARIABLES.insert(0, popped)
+        popped = self.stack.pop()
+        self.VARIABLES.pop(0) # remove the assigned 0 from the [0]position
+        self.VARIABLES.insert(0, popped)
 
     def istore_1(self,opcode,constantpool):
         """store int value into VARIABLE[1]."""
-        popped = S.pop()
-        VARIABLES.insert(1, popped)
+        popped = self.stack.pop()
+        self.VARIABLES.insert(1, popped)
 
     def istore_2(self,opcode,constantpool):
         """store int value into VARIABLE[2]."""
-        popped = S.pop()
-        VARIABLES.insert(2, popped)
+        popped = self.stack.pop()
+        self.VARIABLES.insert(2, popped)
 
     def istore_3(self,opcode,constantpool):
         """store int value into VARIABLE[3.]"""
-        popped = S.pop()
-        VARIABLES.insert(3, popped)
+        popped = self.stack.pop()
+        self.VARIABLES.insert(3, popped)
 
     def isub(self,opcode,constantpool):
         """int subtract"""
-        var2 = numpy.int32(S.pop())
-        var1 = numpy.int32(S.pop())
-        S.push(var1 - var2)
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
+        self.stack.push(var1 - var2)
 
     def iushr(self,opcode,constantpool):
         """int logical shift right"""
-        var2 = numpy.int32(S.pop())
-        var1 = numpy.int32(S.pop())
+        var2 = numpy.int32(self.stack.pop())
+        var1 = numpy.int32(self.stack.pop())
         if var1 >= 0:
-            S.push(var1 >> var2)
+            self.stack.push(var1 >> var2)
         else:
-            S.push((var1 + 0x10000000) >> var2)
+            self.stack.push((var1 + 0x10000000) >> var2)
 
     def ixor(self,opcode,constantpool):
         """xor"""
-        variable2 = numpy.int32(S.pop())
-        variable1 = numpy.int32(S.pop())
-        S.push(variable1 ^ variable2)
+        variable2 = numpy.int32(self.stack.pop())
+        variable1 = numpy.int32(self.stack.pop())
+        self.stack.push(variable1 ^ variable2)
 
     def i2b(self,opcode,constantpool):
         """convert int to byte"""
-        variable1 = S.pop()
-        S.push(variable1.to_bytes(8, byteorder='big'))
+        variable1 = self.stack.pop()
+        self.stack.push(variable1.to_bytes(8, byteorder='big'))
 
     def i2c(self,opcode,constantpool):
         """convert int to character"""
-        variable1 = numpy.uint32(S.pop())
-        S.push(chr(variable1))
+        variable1 = numpy.uint32(self.stack.pop())
+        self.stack.push(chr(variable1))
 
     def i2f(self,opcode,constantpool):
         """convert int to float"""
-        variable1 = numpy.int32(S.pop())
-        S.push(float(variable1))
+        variable1 = numpy.int32(self.stack.pop())
+        self.stack.push(float(variable1))
 
     def i2l(self,opcode,constantpool):
         """convert int to long"""
-        variable1 = numpy.int32(S.pop())
-        S.push(numpy.int64(variable1))
+        variable1 = numpy.int32(self.stack.pop())
+        self.stack.push(numpy.int64(variable1))
 
     def i2s(self,opcode,constantpool):
         """convert int to short"""
-        variable1 = numpy.int32(S.pop())
-        S.push(numpy.int16(variable1))
+        variable1 = numpy.int32(self.stack.pop())
+        self.stack.push(numpy.int16(variable1))
 
     def i2d(self,opcode,constantpool):
         """convert int to decimal"""
-        variable1 = numpy.int32(S.pop())
-        S.push(numpy.int64(variable1))
+        variable1 = numpy.int32(self.stack.pop())
+        self.stack.push(numpy.int64(variable1))
 
     def invalid(self,opcode,constantpool):
         print("method call is invalid")
