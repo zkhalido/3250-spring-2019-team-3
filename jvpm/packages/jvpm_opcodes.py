@@ -229,17 +229,17 @@ class OpCodes():
             #print(self.opcodes[i], " &&&&&&&&&& op code i &&&&&&&&&")
         # opcode in self.opcodes:
             opcall = jvpm_dict.get_opcode(self.opcodes[i])
-            print(opcall, " = translated opcode, not invoke")
+            #print(opcall, " = translated opcode, not invoke")
             if opcall == "invokevirtual":
                 op_location = int(self.opcodes[i+2])
                 opcall = self.constantpool[op_location]
                 #print(op_location, "oplocation +2", type(op_location))
                 #jvpm_methods.OpCodeMethods().token_dict(opcall,op_location,self.constantpool)
-                print (opcall, " *********op call ****** after invoke")
+                #print (opcall, " *********op call ****** after invoke")
                 i += 2
 
             if opcall != "Byte code not found!":
-                jvpm_methods_object.token_dict(opcall,self.opcodes,self.constantpool)
+                jvpm_methods_object.token_dict(opcall,self.opcodes,self.constantpool,)
                 #jvpm_methods.OpCodeMethods().token_dict(opcall,self.opcodes,self.constantpool)
             i += 1
 

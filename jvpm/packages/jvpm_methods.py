@@ -17,33 +17,33 @@ class OpCodeMethods():
         self.stack = Stack()
         self.VARIABLES = [0]
 
-    def aload_0(self,opcode,constantpool):
+    def aload_0(self,opcode,constantpool,argument):
         """(2a)Load a reference to the stack."""
         # forcing it to work by using iconst_0.
-        self.iconst_0(opcode,constantpool)
+        self.iconst_0(opcode,constantpool,argument)
 
-    def aload_1(self,opcode,constantpool):
+    def aload_1(self,opcode,constantpool,argument):
         """(2b)Load a reference to stack."""
         # do nothing
 
-    def astore_1(self,opcode,constantpool):
+    def astore_1(self,opcode,constantpool,argument):
         """Store reference to the local array."""
         # forcing it to work by using istore_1 instead.
-        self.istore_1(opcode,constantpool)
+        self.istore_1(opcode,constantpool,argument)
 
-    def dup(self,opcode,constantpool):
+    def dup(self,opcode,constantpool,argument):
         """Doubles the top item on the stack."""
         # forcing it to work.
         var = self.stack.peek()
         self.stack.push(var)
 
-    def iadd(self,opcode,constantpool):
+    def iadd(self,opcode,constantpool,argument):
         """iadd: add two ints from the stack."""
         var2 = numpy.int32(self.stack.pop())
         var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 + var2)
 
-    def invokevirtual(self,location,constantpool):
+    def invokevirtual(self,location,constantpool,argument):
         """gets method from constant pool and calls it."""
         #constant = jvpm_opcodes.INVOKEVIRTUAL_CONST[0]
         #method = pool_translate.methodrefs[int(jvpm_opcodes.INVOKEVIRTUAL_CONST.popleft())]
@@ -54,145 +54,145 @@ class OpCodeMethods():
         self.token_dict(method,location, constantpool)
 
 
-    def next_int(self,opcode,constantpool):
+    def next_int(self,opcode,constantpool,argument):
         """receive input from the keyboard."""
         var1 = numpy.int32(int(input()))
         self.stack.push(var1)
 
-    def println(self,opcode,constantpool):
+    def println(self,opcode,constantpool,argument):
         """print from the stack."""
         print(str(self.stack.pop()))
 
-    def iand(self,opcode,constantpool):
+    def iand(self,opcode,constantpool,argument):
         """perform a bitwise AND on two integers."""
         var2 = numpy.int32(self.stack.pop())
         var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 & var2)
 
-    def iconst_m1(self,opcode,constantpool):
+    def iconst_m1(self,opcode,constantpool,argument):
         """load the int value -1 onto the stack."""
         self.stack.push(-1)
 
-    def iconst_0(self,opcode,constantpool):
+    def iconst_0(self,opcode,constantpool,argument):
         """load the int value 0 onto the stack."""
         self.stack.push(0)
 
-    def iconst_1(self,opcode,constantpool):
+    def iconst_1(self,opcode,constantpool,argument):
         """load the int value 1 onto the stack."""
         self.stack.push(1)
 
-    def iconst_2(self,opcode,constantpool):
+    def iconst_2(self,opcode,constantpool,argument):
         """load the int value 2 onto the stack."""
         self.stack.push(2)
 
-    def iconst_3(self,opcode,constantpool):
+    def iconst_3(self,opcode,constantpool,argument):
         """load the int value 3 onto the stack."""
         self.stack.push(3)
 
-    def iconst_4(self,opcode,constantpool):
+    def iconst_4(self,opcode,constantpool,argument):
         """load the int value 4 onto the stack."""
         self.stack.push(4)
 
-    def iconst_5(self,opcode,constantpool):
+    def iconst_5(self,opcode,constantpool,argument):
         """load the int value 5 onto the stack."""
         self.stack.push(5)
 
-    def idiv(self,opcode,constantpool):
+    def idiv(self,opcode,constantpool,argument):
         """divide two integers."""
         var2 = numpy.int32(self.stack.pop())
         var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 / var2)
 
-    def iinc(self,opcode,constantpool):
+    def iinc(self,opcode,constantpool,argument):
         """increment local variable."""
         # print("iinc: not needed for this sprint")
 
-    def iload_0(self,opcode,constantpool):
+    def iload_0(self,opcode,constantpool,argument):
         """load an int value from local array variable[0]."""
         pushing0 = self.VARIABLES[0]
         self.stack.push(pushing0)
 
-    def iload_1(self,opcode,constantpool):
+    def iload_1(self,opcode,constantpool,argument):
         """load an int value from local array variable[1]."""
         pushing1 = self.VARIABLES[1]
         self.stack.push(pushing1)
         # print("ran iload_1")
 
-    def iload_2(self,opcode,constantpool):
+    def iload_2(self,opcode,constantpool,argument):
         """load an int value from local array variable[2]."""
         pushing2 = self.VARIABLES[2]
         self.stack.push(pushing2)
         # print("ran iload_2")
 
-    def iload_3(self,opcode,constantpool):
+    def iload_3(self,opcode,constantpool,argument):
         """load an int value from local array variable[3]."""
         pushing3 = self.VARIABLES[3]
         self.stack.push(pushing3)
         # print("ran iload_3")
 
-    def imul(self,opcode,constantpool):
+    def imul(self,opcode,constantpool,argument):
         """multiply two integers."""
         var2 = numpy.int32(self.stack.pop())
         var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 * var2)
 
-    def ineg(self,opcode,constantpool):
+    def ineg(self,opcode,constantpool,argument):
         """negate int."""
         var1 = numpy.int32(self.stack.pop())
         self.stack.push(0 - var1)
 
-    def ior(self,opcode,constantpool):
+    def ior(self,opcode,constantpool,argument):
         """bitwise int OR."""
         var2 = numpy.int32(self.stack.pop())
         var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 | var2)
 
-    def irem(self,opcode,constantpool):
+    def irem(self,opcode,constantpool,argument):
         """logical in remainder."""
         var2 = numpy.int32(self.stack.pop())
         var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 % var2)
 
-    def ishl(self,opcode,constantpool):
+    def ishl(self,opcode,constantpool,argument):
         """int shift left."""
         var2 = numpy.int32(self.stack.pop())
         var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 << var2)
 
-    def ishr(self,opcode,constantpool):
+    def ishr(self,opcode,constantpool,argument):
         """int arithmetic shift right."""
         var2 = numpy.int32(self.stack.pop())
         var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 >> var2)
 
-    def istore_0(self,opcode,constantpool):
+    def istore_0(self,opcode,constantpool,argument):
         """store int value into VARIABLE[0]."""
         popped = self.stack.pop()
         self.VARIABLES.pop(0) # remove the assigned 0 from the [0]position
         self.VARIABLES.insert(0, popped)
 
-    def istore_1(self,opcode,constantpool):
+    def istore_1(self,opcode,constantpool,argument):
         """store int value into VARIABLE[1]."""
         popped = self.stack.pop()
         self.VARIABLES.insert(1, popped)
 
-    def istore_2(self,opcode,constantpool):
+    def istore_2(self,opcode,constantpool,argument):
         """store int value into VARIABLE[2]."""
         popped = self.stack.pop()
         self.VARIABLES.insert(2, popped)
 
-    def istore_3(self,opcode,constantpool):
+    def istore_3(self,opcode,constantpool,argument):
         """store int value into VARIABLE[3.]"""
         popped = self.stack.pop()
         self.VARIABLES.insert(3, popped)
 
-    def isub(self,opcode,constantpool):
+    def isub(self,opcode,constantpool,argument):
         """int subtract"""
         var2 = numpy.int32(self.stack.pop())
         var1 = numpy.int32(self.stack.pop())
         self.stack.push(var1 - var2)
 
-    def iushr(self,opcode,constantpool):
+    def iushr(self,opcode,constantpool,argument):
         """int logical shift right"""
         var2 = numpy.int32(self.stack.pop())
         var1 = numpy.int32(self.stack.pop())
@@ -201,44 +201,44 @@ class OpCodeMethods():
         else:
             self.stack.push((var1 + 0x10000000) >> var2)
 
-    def ixor(self,opcode,constantpool):
+    def ixor(self,opcode,constantpool,argument):
         """xor"""
         variable2 = numpy.int32(self.stack.pop())
         variable1 = numpy.int32(self.stack.pop())
         self.stack.push(variable1 ^ variable2)
 
-    def i2b(self,opcode,constantpool):
+    def i2b(self,opcode,constantpool,argument):
         """convert int to byte"""
         variable1 = self.stack.pop()
         self.stack.push(variable1.to_bytes(8, byteorder='big'))
 
-    def i2c(self,opcode,constantpool):
+    def i2c(self,opcode,constantpool,argument):
         """convert int to character"""
         variable1 = numpy.uint32(self.stack.pop())
         self.stack.push(chr(variable1))
 
-    def i2f(self,opcode,constantpool):
+    def i2f(self,opcode,constantpool,argument):
         """convert int to float"""
         variable1 = numpy.int32(self.stack.pop())
         self.stack.push(float(variable1))
 
-    def i2l(self,opcode,constantpool):
+    def i2l(self,opcode,constantpool,argument):
         """convert int to long"""
         variable1 = numpy.int32(self.stack.pop())
         self.stack.push(numpy.int64(variable1))
 
-    def i2s(self,opcode,constantpool):
+    def i2s(self,opcode,constantpool,argument):
         """convert int to short"""
         variable1 = numpy.int32(self.stack.pop())
         self.stack.push(numpy.int16(variable1))
 
-    def i2d(self,opcode,constantpool):
+    def i2d(self,opcode,constantpool,argument):
         """convert int to decimal"""
         variable1 = numpy.int32(self.stack.pop())
         self.stack.push(numpy.int64(variable1))
 
-    def invalid(self,opcode,constantpool):
-        print("method call is invalid")
+    def invalid(self,opcode,constantpool,argument):
+        print( argument, " method call is invalid")
 
 
 # ****************************************************************************************
@@ -285,9 +285,7 @@ class OpCodeMethods():
         "i2f" : i2f, # int to float
         "i2l" : i2l, # int to long
         "i2s" : i2s, # int to short
-
         "java/util/Scanner.nextInt:()I": next_int,
-
         "java/io/PrintStream.println:(I)V": println,
         "invalid": invalid,
     }
@@ -300,6 +298,7 @@ class OpCodeMethods():
         if type(method) == str:
             method = OpCodeMethods.dictionary.get(method)
         #print(method, "this is the method from the dictionary", argument, type(method))
-        return method(self,opcode,constantpool)
+
+        return method(self,opcode,constantpool,argument)
 
 # ****************************************************************************************

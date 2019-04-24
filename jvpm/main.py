@@ -35,10 +35,10 @@ if '__main__' == __name__:                  #pragma: no cover
     header_class_object.get_field() # no method built yet but should just be variable table
 
     opcodes = header_class_object.get_methods_count()
-    print(opcodes, " - methods count        ", header_class_object.integer_method_count, " -int meth count")
+    print(opcodes, " - methods count       \n ", header_class_object.integer_method_count, " -int meth count")
 
     opcodes = header_class_object.get_methods(pool)
-    print(opcodes, "   ** op codes **")
+    print("OpCodes:\n ", opcodes,    "** op codes **")
 
 
     dict_search_object = packages.jvpm_opcodes.OpCodes(opcodes, pool)
