@@ -58,13 +58,3 @@ if '__main__' == __name__:                  #pragma: no cover
 
     dict_search_object = packages.jvpm_opcodes.OpCodes(opcodes, pool)
     dict_search_object.dict_search()
-
-
-
-
-
-    #P = packages.pool_translate.PoolTranslate(name ="jvpm/javafiles/AddTwo.class")                 #pragma: no cover
-    #N = P.translate_pool()                   #pragma: no cover
-    #X = packages.pool_methods.TagTranslate()#pragma: no cover
-    
-    #packages.jvpm_opcodes.OpCodes().dict_search()
