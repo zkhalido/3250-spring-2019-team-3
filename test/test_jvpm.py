@@ -1053,10 +1053,9 @@ class Test_Op_Methods(unittest.TestCase):
         self.assertEqual(b,1)
 
     def test_lastore(self):
-
     
     def test_lcmp(self):
-    
+
     def test_lconst_0(self):
         op = None
         con = None
@@ -1080,14 +1079,13 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(5)
         self.assertEqual(packages.jvpm_methods.S.peek(), 5)
         self.assertNotEqual(packages.jvpm_methods.S.peek(), 1)
-
     
     def test_ldc(self):
         
     def test_ldc_w(self):
         
     def test_ldc2_w(self):
-        
+
     def test_ldiv(self):
         op = None
         con = None
@@ -1217,6 +1215,7 @@ class Test_Op_Methods(unittest.TestCase):
         packages.jvpm_methods.S.push(8)
         packages.jvpm_methods.S.push(2)
         a.lor(op, con, arg)
+        a.ior(op, con, arg)
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, 10)
         packages.jvpm_methods.S.push(10)
