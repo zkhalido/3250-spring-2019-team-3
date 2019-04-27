@@ -73,7 +73,41 @@ jvpm_dict = {
     "64": "isub",            # int subtract
     "7c": "iushr",           # int logical shift right
     "82": "ixor",            # xor
-    "59": "dup"              # duplicates the top of the stack
+    "59": "dup",             # duplicates the top of the stack
+    "8a": "l2d",
+    "89": "l2f",
+    "88": "l2i",
+    "61": "ladd",
+    "2f": "laload",
+    "7f": "land",
+    "50": "lastore",
+    "94": "lcmp",
+    "09": "lconst_0",
+    "0a": "lconst_1",
+    "12": "ldc",
+    "13": "ldc_w",
+    "14": "ldc2_w",
+    "6d": "ldiv",
+    "16": "lload",
+    "1e": "lload_0",
+    "1f": "lload_1",
+    "20": "lload_2",
+    "21": "lload_3",
+    "69": "lmul",
+    "75": "lneg",
+    "81": "lor",
+    "71": "lrem",
+    "ad": "lreturn",
+    "79": "lshl",
+    "7b": "lshr",
+    "37": "lstore",
+    "3f": "lstore_0",
+    "40": "lstore_1",
+    "41": "lstore_2",
+    "42": "lstore_3",
+    "65": "lsub",
+    "7d": "lushr",
+    "83": "lxor"
     }
     
 def get_opcode(byte_code):
