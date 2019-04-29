@@ -6,10 +6,7 @@ python:
 dist: trusty
 
 install:
-  - pip install codecov
-  - pip install numpy
-  - pip install coverage
-  - pip install bitstring
+  - pip install -r requirements.txt
 
 script:
   #- coverage run -m unittest
