@@ -19,8 +19,6 @@ class HeaderClass():
     def __init__(self, name="jvpm/javafiles/test.class"):
         self.name = name
         self.bits = ConstBitStream(filename=name)
-        add_one_byte = 1
-        constant_pool_byte_size = 0
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
@@ -102,8 +100,6 @@ class HeaderClass():
         return field_count
 
     def get_field(self):
-        dictionary_index = 0
-
         if (self.integer_field_count == 0):
             print("field table empty")
 
@@ -196,25 +192,15 @@ class OpCodes():
         """
 
     def dict_search(self):
-        """dictionary search method."""
-        #print(self.opcodes, " = opcodes        ", self.constantpool, " = const pool")
         jvpm_methods_object = jvpm_methods.OpCodeMethods()
 
         i = 0
         while i < len(self.opcodes):
-            #print(self.opcodes[i], " &&&&&&&&&& op code i &&&&&&&&&")
-        # opcode in self.opcodes:
             opcall = jvpm_dict.get_opcode(self.opcodes[i])
-            #print(opcall, " = translated opcode, not invoke")
             if opcall == "invokevirtual":
                 op_location = int(self.opcodes[i+2])
                 opcall = self.constantpool[op_location]
-                #print(op_location, "oplocation +2", type(op_location))
-                #jvpm_methods.OpCodeMethods().token_dict(opcall,op_location,self.constantpool)
-                #print (opcall, " *********op call ****** after invoke")
                 i += 2
 
             if opcall != "Byte code not found!":
                 jvpm_methods_object.token_dict(opcall,self.opcodes,self.constantpool,)
-                #jvpm_methods.OpCodeMethods().token_dict(opcall,self.opcodes,self.constantpool)
-            i += 1

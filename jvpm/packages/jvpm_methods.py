@@ -14,8 +14,6 @@ class OpCodeMethods():
     """CLass of methods that are called from the CP."""
     def __init__(self):
         """opcode_methods"""
-        #self.S = Stack()
-        #self.VARIABLES = [0]
 
     def aload_0(self,opcode,constantpool,argument):
         """(2a)Load a reference to the stack."""
