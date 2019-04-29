@@ -36,8 +36,8 @@ if '__main__' == __name__:                  #pragma: no cover
     this_class = header_class_object.get_this_class()
     print(this_class, "   this class")
 
-    c = header_class_object.get_super_class()
-    print(c, "   super class")
+    super_class = header_class_object.get_super_class()
+    print(super_class, "   super class")
 
     d = header_class_object.get_interfaces_count()
     print(d, "   interfaces count")
