@@ -30,8 +30,8 @@ if '__main__' == __name__:                  #pragma: no cover
     pool = p_translator.translate_pool()
     print(pool, "translated")
 
-    a = header_class_object.get_access_flags()
-    print(a, "   access flags")
+    access_flags = header_class_object.get_access_flags()
+    print(access_flags, "   access flags")
 
     b = header_class_object.get_this_class()
     print(b, "   this class")
