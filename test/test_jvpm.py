@@ -24,8 +24,8 @@ class test_const_pool(unittest.TestCase):
     def test_const_pool(self):
 
         x = packages.jvpm_opcodes.HeaderClass(name= "jvpm/javafiles/tester.class")
-        x.get_magic()  # pragma: no cover
-        x.get_minor()  # pragma: no cover
+        x.get_magic()
+        x.get_minor()
         x.get_major()
         #x.data = self.data
         n = x.get_const_pool()
@@ -78,15 +78,11 @@ class test_pool_translate1(unittest.TestCase):
         jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/testSaveVar.class")
         jvpm_opcodes_obj.get_magic()
         jvpm_opcodes_obj.get_minor()
-        jvpm_opcodes_obj.get_major()  # pragma: no cover
+        jvpm_opcodes_obj.get_major()
         n = jvpm_opcodes_obj.get_const_pool()
         y = packages.pool_translate.PoolTranslate(n, jvpm_opcodes_obj.skips_in_constant_pool,
                                                   name="jvpm/javafiles/testSaveVar.class")
 
-
-        # y.dictionary = x.get_const_pool()
-       # b = defaultdict(list)
-        #b = jvpm_opcodes_obj.get_const_pool()
         new_array = ["0",
                      "java/lang/Object.<init>:()V",
                      "hello",
@@ -280,7 +276,7 @@ class test_pool_methods(unittest.TestCase):
          jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/tester.class")
          jvpm_opcodes_obj.get_magic()
          jvpm_opcodes_obj.get_minor()
-         jvpm_opcodes_obj.get_major()  # pragma: no cover
+         jvpm_opcodes_obj.get_major()
          n = jvpm_opcodes_obj.get_const_pool()
          x = packages.pool_translate.PoolTranslate(n, jvpm_opcodes_obj.skips_in_constant_pool,
                                                   name="jvpm/javafiles/tester.class")
@@ -303,13 +299,7 @@ class test_pool_methods(unittest.TestCase):
              "16": "13",
              "17": "14"
          }
-         #x = packages.pool_translate.PoolTranslate(name ="jvpm/javafiles/tester.class")
-         """
-         x.field_reference()
-         sys.stdout.assert_has_calls(
-             [call.write("Field Reference    4 bytes")]
-         )
-         """
+
          x_list = [0]
 
 
@@ -414,7 +404,6 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         a = packages.jvpm_methods.OpCodeMethods()
-        # packages.jvpm_methods.S.push(1) EXAMPLE THAT I USED IN THE MAIN AND IT WORKS
         packages.jvpm_methods.S.push(2)
         packages.jvpm_methods.S.push(1)
         a.iadd(op, con, arg)
