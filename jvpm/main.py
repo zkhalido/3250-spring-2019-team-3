@@ -33,8 +33,8 @@ if '__main__' == __name__:                  #pragma: no cover
     access_flags = header_class_object.get_access_flags()
     print(access_flags, "   access flags")
 
-    b = header_class_object.get_this_class()
-    print(b, "   this class")
+    this_class = header_class_object.get_this_class()
+    print(this_class, "   this class")
 
     c = header_class_object.get_super_class()
     print(c, "   super class")
