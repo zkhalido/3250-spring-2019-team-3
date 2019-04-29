@@ -87,8 +87,8 @@ class HeaderClass():
         return super_class
 
     def get_interfaces_count(self):
-        interface_count = self.class_file_item_reader_in_hex()
         self.integer_interface_count = self.class_file_item_count_to_int()
+        interface_count = self.class_file_item_reader_in_hex()
         return interface_count
 
     def get_interface(self):
@@ -96,26 +96,25 @@ class HeaderClass():
             print ("interface table empty")
 
     def get_field_count(self):
-        field_count = self.class_file_item_reader_in_hex()
         self.integer_field_count = self.class_file_item_count_to_int()
+        field_count = self.class_file_item_reader_in_hex()
         self.field_count = field_count
         return field_count
 
     def get_field(self):
-        dictionary_index  = 0
+        dictionary_index = 0
 
         if (self.integer_field_count == 0):
             print("field table empty")
 
         else:
-            x=0
             for i in range(self.field_count):
                 field = []
                 field.clear()
 
     def get_methods_count(self):
-        method_count = self.class_file_item_reader_in_hex()
         self.integer_method_count = self.class_file_item_count_to_int()
+        method_count = self.class_file_item_reader_in_hex()
         return method_count
 
     def get_methods(self, pool):
