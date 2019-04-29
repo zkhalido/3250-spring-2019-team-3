@@ -1,4 +1,4 @@
+codecov
 numpy
-binascii
-collections
-struct
+coverage
+bitstring
