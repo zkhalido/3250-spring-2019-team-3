@@ -238,8 +238,6 @@ class PoolTranslate:
         current_list_length = len(current_list)
         sub_list = []
         tag_byte = current_list[0]
-        #print(current_list, "   current list")
-        #print(tag_byte, "   current list")
 
         j = 1
         while j < current_list_length:
