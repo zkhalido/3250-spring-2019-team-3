@@ -3,8 +3,6 @@ from collections import defaultdict
 
 class ReadAttribute():
 
-
-
     def get_code_attribute(self, methods_table, reader_location, data, op_codes, method_index, pool):
         add_one_byte = 1
         attribute_table = []
@@ -56,7 +54,6 @@ class ReadAttribute():
         attribute_table.append(format((data[reader_location + add_one_byte]), "02x"))
         reader_location += 2
 
-
         ############## exception table
         #if exception_table_length > 0:
         for x in range(exception_table_length):
@@ -72,7 +69,6 @@ class ReadAttribute():
             attribute_table.append(format((data[reader_location]), "02x"))  # catch type
             attribute_table.append(format((data[reader_location + add_one_byte]), "02x"))
             reader_location += 2
-
 
         ############## attribute count
         attribute_table.append(format((data[reader_location]), "02x"))  # attribute count
@@ -91,9 +87,6 @@ class ReadAttribute():
         values_to_return[1] = op_codes
 
         return values_to_return
-
-
-
 
     def get_line_number_table(self, methods_table, reader_location, data, op_codes, method_index, pool):
         line_number_table = []
@@ -117,8 +110,6 @@ class ReadAttribute():
 
         reader_location += 2
 
-
-        #line_number_table = ((data[reader_location])+ (data[reader_location + 1]))
         for x in range(line_number_table_length):
             ########### start pc
             line_number_table.append(format((data[reader_location]), "02x"))
@@ -130,14 +121,13 @@ class ReadAttribute():
             line_number_table.append(format((data[reader_location + 1]), "02x"))
             reader_location += 2
 
-
         methods_table[method_index].append(line_number_table)
 
         return reader_location
 
     def get_source_file(self, methods_table, reader_location, data, op_codes, method_index, pool):
         x=0
-    # *DO NOT DELETE WILL NEED FOR LATER CLASS FILES*    
+    # *DO NOT DELETE WILL NEED FOR LATER CLASS FILES*
     """
     def get_local_variable_table(self, methods_table, reader_location, data, op_codes, method_index, pool):
         x=0
@@ -193,8 +183,6 @@ class ReadAttribute():
 
         return reader_location """
 
-
-
     def get_exceptions(self, methods_table, reader_location, data, op_codes, method_index, pool):
         exception_table = []
         ##################    name index
@@ -227,22 +215,12 @@ class ReadAttribute():
 
         return reader_location
 
-
-
-
-
-
-
-
-
     switcher = {
         "Code": get_code_attribute,  # 2+x bytes
         "LineNumberTable": get_line_number_table,  # 4 bytes
         "SourceFile": get_source_file,
         "Exceptions": get_exceptions,
-        #"LocalVariableTable": get_local_variable_table,
     }
-
 
     def get_attribute(self, tag, methods_table, reader_location, data, op_codes, method_index, pool):
 
