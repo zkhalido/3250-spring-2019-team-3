@@ -407,7 +407,7 @@ class test_stack(unittest.TestCase):
         s.pop()
         self.assertEqual(s.size(), 2)
 
-class Test_Op_Methods(unittest.TestCase):
+class test_op_methods(unittest.TestCase):
 
     def test_iadd(self):
         op = None
@@ -962,7 +962,7 @@ class Test_Op_Methods(unittest.TestCase):
         a.i2d(op, con, arg)
         b = packages.jvpm_methods.S.pop()
         self.assertEqual(b, -1)
-    
+
     def test_dup(self):
         op = None
         con = None
@@ -1029,7 +1029,7 @@ class test_pool_opcodes(unittest.TestCase):
 
     def test_get_opcodes(self):
         jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/AddTwo.class")
-        
+
         self.assertEqual(jvpm_opcodes_obj.get_magic(), "cafebabe")
         self.assertEqual(jvpm_opcodes_obj.get_minor(), "0000")
         self.assertEqual(jvpm_opcodes_obj.get_minor(), "0037")
@@ -1060,7 +1060,7 @@ class test_pool_opcodes(unittest.TestCase):
 class TestAccessFlagTranslater(unittest.TestCase):
     def test_translate_access_flag(self):
         a = packages.access_flag_translater_dictionary.AccessFlagTranslater()
-        
+
         self.assertEqual(a.translate_access_flag(1), "ACC_PUBLIC")
         self.assertEqual(a.translate_access_flag(2), "ACC_PRIVATE")
         self.assertEqual(a.translate_access_flag(4), "ACC_PROTECTED")
@@ -1072,4 +1072,3 @@ class TestAccessFlagTranslater(unittest.TestCase):
         self.assertEqual(a.translate_access_flag(1000), "ACC_SYNTHETIC")
         self.assertEqual(a.translate_access_flag(2000), "ACC_ANNOTATION")
         self.assertEqual(a.translate_access_flag(4000), "ACC_ENUM")
-
