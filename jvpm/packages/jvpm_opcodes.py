@@ -75,45 +75,31 @@ class HeaderClass():
 
 
     def get_access_flags(self):
-        access_flag_position = self.reader_location
-        access_flag = [format((self.data[access_flag_position]) , "02x")]
-        access_flag.append(format((self.data[access_flag_position + self.add_one_byte]), "02x"))
-        self.reader_location += 2
-
+        access_flag = self.class_file_item_reader_in_hex()
         return access_flag
 
     def get_this_class(self):
-        this_class = [format((self.data[self.reader_location]) , "02x")]
-        this_class.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
-        self.reader_location += 2
+        this_class = self.class_file_item_reader_in_hex()
         return this_class
 
     def get_super_class(self):
-        super_class = [format((self.data[self.reader_location]) , "02x")]
-        super_class.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
-        self.reader_location += 2
+        super_class = self.class_file_item_reader_in_hex()
         return super_class
 
     def get_interfaces_count(self):
-        interface_count = [format((self.data[self.reader_location]) , "02x")]
-        interface_count.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
-        self.integer_interface_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
-        self.reader_location += 2
+        interface_count = self.class_file_item_reader_in_hex()
+        self.integer_interface_count = self.class_file_item_count_to_int()
         return interface_count
 
     def get_interface(self):
         if (self.integer_interface_count == 0):
             print ("interface table empty")
 
-
     def get_field_count(self):
-        field_count = [format((self.data[self.reader_location]) , "02x")]
-        field_count.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
-        self.integer_field_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
-        self.reader_location += 2
+        field_count = self.class_file_item_reader_in_hex()
+        self.integer_field_count = self.class_file_item_count_to_int()
         self.field_count = field_count
         return field_count
-
 
     def get_field(self):
         dictionary_index  = 0
@@ -127,16 +113,9 @@ class HeaderClass():
                 field = []
                 field.clear()
 
-
-
-
-
-
     def get_methods_count(self):
-        method_count = [format((self.data[self.reader_location]) , "02x")]
-        method_count.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
-        self.integer_method_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
-        self.reader_location += 2
+        method_count = self.class_file_item_reader_in_hex()
+        self.integer_method_count = self.class_file_item_count_to_int()
         return method_count
 
     def get_methods(self, pool):
@@ -183,17 +162,15 @@ class HeaderClass():
             method_index +=1
         return self.op_codes
 
+    def class_file_item_count_to_int(self):
+        count_as_int = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+        return count_as_int
 
-    def get_attribute_count(self):
-        attribute_count = [format((self.data[self.reader_location]) , "02x")]
-        attribute_count.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
-        self.integer_attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+    def class_file_item_reader_in_hex(self):
+        class_file_item = [format((self.data[self.reader_location]) , "02x")]
+        class_file_item.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
         self.reader_location += 2
-        return attribute_count
-
-    def get_attribute_table(self):
-        x = 3
-        atribute_reader = read_attribute.ReadAttribute()
+        return class_file_item
 
 
 
@@ -242,4 +219,3 @@ class OpCodes():
                 jvpm_methods_object.token_dict(opcall,self.opcodes,self.constantpool,)
                 #jvpm_methods.OpCodeMethods().token_dict(opcall,self.opcodes,self.constantpool)
             i += 1
-
