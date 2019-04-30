@@ -9,7 +9,6 @@ from . import jvpm_opcodes, pool_methods
 super_index = 0
 methodrefs = []
 cp_strings = []
-TRANSLATED_POOL = []
 
 # ****************************************************************************************
 
@@ -237,5 +236,4 @@ class PoolTranslate:
             if (self.pulled_constant_pool[pool_index][0] == '05' or self.pulled_constant_pool[pool_index][0] == '06'):
                 pool_index += 1
             pool_index += 1
-        self.TRANSLATED_POOL = self.translated_pool
         return self.translated_pool
