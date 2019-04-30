@@ -48,13 +48,15 @@ JVPM_DICT = {
     "1b": "iload_1",         # load an int value from local variable 1
     "1c": "iload_2",         # load an int value from local variable 2
     "1d": "iload_3",         # load an int value from local variable 3
-    "fe": "impdep1",         # reserved for implementation dependent operations, should not appear in any class
+    "fe": "impdep1",         # reserved for implementation dependent operations,
+                             # should not appear in any class
     "ff": "impdep2",         # reserved for implementation dependent operations, should not appear
     "68": "imul",            # multiply two integers
     "74": "ineg",            # negate int
     "c1": "instanceof",      # determines if objectref is of a given type
     "ba": "invokedynamic",   # invoke a dynamic method and puts the result on the stack
-    "b9": "invokeinterface", # invoke an interface method on object objectref and puts results on the stack
+    "b9": "invokeinterface", # invoke an interface method on object objectref and
+                             # puts results on the stack.
     "b7": "invokespecial",   # invoke instance method on objectref and puts result on the stack
     "b8": "invokestatic",    # invoke static method and puts result on the stack
     "b6": "invokevirtual",   # invoke virtual method on objectref and puts result on the stack
@@ -107,13 +109,12 @@ JVPM_DICT = {
     "7d": "lushr",
     "83": "lxor"
     }
-    
+
 def get_opcode(byte_code):
     """ Return opcode from given byte code, or an error message if not found """
     try:
         opcode = JVPM_DICT[byte_code]
     except KeyError:
         opcode = "Byte code not found!"
-    
-    return opcode
 
+    return opcode
