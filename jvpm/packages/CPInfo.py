@@ -18,62 +18,62 @@ class ConstInfo:
     def parse_class(self, bits):
         for i in range(2):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_field(self, bits):
         for i in range(4):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_method(self, bits):
         for i in range(4):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_interface(self, bits):
         for i in range(4):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_string(self, bits):
         for i in range(2):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_integer(self, bits):
         for i in range(2):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_float(self, bits):
         for i in range(4):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_long(self, bits):
         for i in range(8):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
 
     def parse_double(self, bits):
         for i in range(8):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_name_and_type(self, bits):
         for i in range(4):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_UTF8(self, bits):
@@ -88,19 +88,19 @@ class ConstInfo:
     def parse_method_handle(self, bits):
         for i in range(3):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_method_type(self, bits):
         for i in range(2):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_invoke_dynamic(self, bits):
         for i in range(4):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     const_tag_dict = {
