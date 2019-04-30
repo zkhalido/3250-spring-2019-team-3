@@ -1,5 +1,7 @@
 from collections import defaultdict
 
+# pylint: disable=C0111, R0201
+
 # ****************************************************************************************
 
 class TagTranslate():
@@ -56,7 +58,7 @@ class TagTranslate():
         return "Package"
 
 # ****************************************************************************************
-    
+
     switcher = {
 
         "01": UTF_8_string,  # add two ints
@@ -85,6 +87,5 @@ class TagTranslate():
         method = TagTranslate.switcher.get(argument, "invalid")
         # execute function
         return method(self)
-    
-# ****************************************************************************************
 
+# ****************************************************************************************
