@@ -1,7 +1,11 @@
-from bitstring import ConstBitStream
+"""Module that parses the Constant Pool."""
 import struct
+from bitstring import ConstBitStream
+
+# pylint: disable=C0111,W0612
 
 class ConstInfo:
+    """Class with modules that parse the CP."""
 
     def __init__(self):
         self.tag = None
