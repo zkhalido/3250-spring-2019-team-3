@@ -1,7 +1,9 @@
+"""Module that parses the Constant Pool."""
 from bitstring import ConstBitStream
 import struct
 
 class ConstInfo:
+    """Class with modules that parse the CP."""
 
     def __init__(self):
         self.tag = None
