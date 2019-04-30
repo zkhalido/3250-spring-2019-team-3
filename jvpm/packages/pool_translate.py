@@ -5,7 +5,7 @@ import numpy
 import struct
 import binascii
 
-
+# pylint: disable=C0111, C0200, R0201
 super_index = 0
 methodrefs = []
 cp_strings = []
