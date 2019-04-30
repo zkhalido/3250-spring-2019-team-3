@@ -109,7 +109,7 @@ jvpm_dict = {
     }
     
 def get_opcode(byte_code):
-    ''' Return opcode from given byte code, or an error message if not found '''
+    """ Return opcode from given byte code, or an error message if not found """
     try:
         opcode = jvpm_dict[byte_code]
     except KeyError:
