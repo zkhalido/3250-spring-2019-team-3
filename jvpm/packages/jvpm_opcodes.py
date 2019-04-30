@@ -1,10 +1,7 @@
 """Read bit stream."""
 from collections import defaultdict
 from collections import deque
-
 from bitstring import ConstBitStream
-
-
 from . import jvpm_dict, jvpm_methods, read_attribute, CPInfo  # import external opcode dictionary
 
 # A deque of invokevirtual constants used for method calls from AddToo.class.
@@ -14,7 +11,6 @@ INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 # ****************************************************************************************
 
 class HeaderClass():
-
     """Class that parses the header data from .class file and assigns values to variables."""
     def __init__(self, name="jvpm/javafiles/test.class"):
         self.name = name
@@ -91,7 +87,7 @@ class HeaderClass():
 
     def get_interface(self):
         if self.integer_interface_count == 0:
-            print ("interface table empty")
+            print("interface table empty")
 
     def get_field_count(self):
         self.integer_field_count = self.class_file_item_count_to_int()
@@ -100,7 +96,7 @@ class HeaderClass():
         return field_count
 
     def get_field(self):
-        if (self.integer_field_count == 0):
+        if self.integer_field_count == 0:
             print("field table empty")
 
         else:
