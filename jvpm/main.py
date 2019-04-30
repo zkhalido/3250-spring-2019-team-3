@@ -27,7 +27,7 @@ if '__main__' == __name__:                  #pragma: no cover
     print(n)
     p_translator = packages.pool_translate.PoolTranslate(n, header_class_object.skips_in_constant_pool, name = file_name)
     
-    print(packages.pool_translate.methodrefs)
+    print(packages.pool_translate.methodrefs[])
 
     pool = p_translator.translate_pool()
     print(pool, "translated")
