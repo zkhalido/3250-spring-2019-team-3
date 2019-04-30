@@ -63,7 +63,7 @@ class PoolTranslate:
         string_hex = "0x"
         for i in range(len(sub_list)):
             string_hex += sub_list[i]
-        dec_long = int(string_hex,16)
+        dec_long = int(string_hex, 16)
         return dec_long
 
     def tag_double(self, sub_list):  # 6
@@ -249,11 +249,13 @@ class PoolTranslate:
         return method(self, sub_list)
 
     def translate_pool(self):
-        pool_translater = PoolTranslate(self.pulled_constant_pool, self.skips_in_pool, name=self.name)
+        pool_translater = PoolTranslate(self.pulled_constant_pool,
+                                        self.skips_in_pool, name=self.name)
         pool_index = 1
 
         while pool_index <= self.constant_pool_length + self.skips_in_pool-1:
-            self.translated_pool[pool_index] = pool_translater.method_dict(self.pulled_constant_pool, pool_index)
+            self.translated_pool[pool_index] = pool_translater.method_dict(self.pulled_constant_pool,
+                                                                           pool_index)
 
             if (self.pulled_constant_pool[pool_index][0] == '05' or self.pulled_constant_pool[pool_index][0] == '06'):
                 pool_index += 1
