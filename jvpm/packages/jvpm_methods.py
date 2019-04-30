@@ -24,7 +24,7 @@ class OpCodeMethods():
         """(2b)Load a reference to stack."""
         # do nothing
 
-    def astore_1(self ,opcode, constantpool, argument):
+    def astore_1(self, opcode, constantpool, argument):
         """Store reference to the local array."""
         # forcing it to work by using istore_1 instead.
         self.istore_1(opcode, constantpool, argument)
@@ -53,7 +53,7 @@ class OpCodeMethods():
         var1 = numpy.int32(int(input()))
         S.push(var1)
 
-    def println(self,opcode, constantpool, argument):
+    def println(self, opcode, constantpool, argument):
         """print from the stack."""
         print(str(S.pop()))
 
@@ -228,7 +228,7 @@ class OpCodeMethods():
         S.push(numpy.int64(variable1))
 
     def invalid(self, opcode, constantpool, argument):
-        print( argument, " method call is invalid")
+        print(argument, " method call is invalid")
 
 
 # ****************************************************************************************
@@ -282,12 +282,12 @@ class OpCodeMethods():
 
 # ****************************************************************************************
 
-    def token_dict(self, argument,opcode,constantpool):
+    def token_dict(self, argument, opcode, constantpool):
         """dictionary search"""
         method = OpCodeMethods.dictionary.get(argument, "invalid")
         if type(method) == str:
             method = OpCodeMethods.dictionary.get(method)
 
-        return method(self,opcode,constantpool,argument)
+        return method(self, opcode, constantpool, argument)
 
 # ****************************************************************************************
