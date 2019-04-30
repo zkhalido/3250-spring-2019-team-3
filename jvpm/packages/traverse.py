@@ -1,6 +1,6 @@
 """import the unittest"""
 import unittest
-import Stack
+import stack
 import struct
 from CPInfo import ConstInfo, ConstTag
 from bitstring import ConstBitStream
