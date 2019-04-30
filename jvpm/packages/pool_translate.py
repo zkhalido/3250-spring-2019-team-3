@@ -70,15 +70,11 @@ class PoolTranslate:
         print("Double    8 bytes")
 
     def class_reference(self, sub_list):  # 7
-
         index = 0
-
         complete_string = ""
         strings_to_combine = 0
-
         while index < len(sub_list):
             new_index = int(sub_list[index], 16)
-
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
             if len(sub_list) > 1:
@@ -89,18 +85,14 @@ class PoolTranslate:
                 complete_string += pulled_string
             else:
                 complete_string = pulled_string
-
         return complete_string
 
     def string_reference(self, sub_list):  # 8
         index = 0
-
         complete_string = ""
         strings_to_combine = 0
-
         while index < len(sub_list):
             new_index = int(sub_list[index], 16)
-
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
             if len(sub_list) > 1:
@@ -111,19 +103,14 @@ class PoolTranslate:
                 complete_string += pulled_string
             else:
                 complete_string = pulled_string
-
         return complete_string
 
     def field_reference(self, sub_list):  # 9
-
         index = 0
-
         complete_string = ""
         strings_to_combine = 0
-
         while index < len(sub_list):
             new_index = int(sub_list[index], 16)
-
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
             if len(sub_list) > 1:
@@ -134,18 +121,14 @@ class PoolTranslate:
                 complete_string += pulled_string
             else:
                 complete_string = pulled_string
-
         return complete_string
 
     def method_reference(self, sub_list):  # 10
         index = 0
-
         complete_string = ""
         strings_to_combine = 0
-
         while index < len(sub_list):
             new_index = int(sub_list[index], 16)
-
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             methodrefs.append(pulled_string)
             index += 1
@@ -154,29 +137,23 @@ class PoolTranslate:
                 pulled_string = pulled_string + "."
             strings_to_combine += 1
             complete_string += pulled_string
-
         return complete_string
 
     def interface_method_reference(self, sub_list):  # 11
         print("Interface Method Reference    4 bytes")
 
     def name_and_type_discriptor(self, sub_list):  # 12
-
         index = 0
-
         complete_string = ""
         strings_to_combine = 0
-
         while index < len(sub_list):
             new_index = int(sub_list[index], 16)
-
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
             if strings_to_combine < 1:
                 pulled_string = pulled_string + ":"
             strings_to_combine += 1
             complete_string += pulled_string
-
         return complete_string
 
     def method_handle(self, sub_list):  # 15
@@ -245,7 +222,6 @@ class PoolTranslate:
             j += 1
 
         method = PoolTranslate.switcher.get(tag_byte, "invalid")
-
         return method(self, sub_list)
 
     def translate_pool(self):
@@ -260,5 +236,4 @@ class PoolTranslate:
             if (self.pulled_constant_pool[pool_index][0] == '05' or self.pulled_constant_pool[pool_index][0] == '06'):
                 pool_index += 1
             pool_index += 1
-
         return self.translated_pool
