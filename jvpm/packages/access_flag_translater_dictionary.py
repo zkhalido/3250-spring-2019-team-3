@@ -1,5 +1,8 @@
+"""translates the access flags"""
 class AccessFlagTranslater:
+    """class for translating the access flags"""
     def translate_access_flag(self, access_flag_value):
+        """method that translates the access flags"""
         access_flag = {
             1 : "ACC_PUBLIC",
             2 : "ACC_PRIVATE",
