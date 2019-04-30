@@ -59,11 +59,9 @@ class HeaderClass():
             if constant[0] == "06" or constant[0] == "05":
                 self.skips_in_constant_pool += 1
                 i += 1
-
             i += 1
         self.reader_location = self.bits.bytepos
         self.constant_pool = constants_pool
-
         return constants_pool
 
 
@@ -134,7 +132,6 @@ class HeaderClass():
 
             self.reader_location += 2
             attribute_index = 0
-
             while attribute_index < attribute_count:
                 tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
                 tag = pool[tag_location]
@@ -146,10 +143,7 @@ class HeaderClass():
                 else:
                     self.reader_location = int(returned_vals[0])
                     self.op_codes = returned_vals[1]
-
                 attribute_index += 1
-
-
             method_index += 1
         return self.op_codes
 
@@ -164,13 +158,7 @@ class HeaderClass():
         self.reader_location += 2
         return class_file_item
 
-
-
-
-
-
 class OpCodes():
-
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods."""
     def __init__(self, opcode, constantpool):
@@ -179,18 +167,8 @@ class OpCodes():
         self.constantpool = constantpool
         self.opcodes = opcode
 
-        """
-
-
-        METHOD GOES HERE TO FIND OPCODES FROM ANY .CLASS FILE AND SAVE TO self.opcodes LIST.
-
-
-
-        """
-
     def dict_search(self):
         jvpm_methods_object = jvpm_methods.OpCodeMethods()
-
         i = 0
         while i < len(self.opcodes):
             opcall = jvpm_dict.get_opcode(self.opcodes[i])
@@ -198,8 +176,6 @@ class OpCodes():
                 op_location = int(self.opcodes[i+2])
                 opcall = self.constantpool[op_location]
                 i += 2
-
             if opcall != "Byte code not found!":
                 jvpm_methods_object.token_dict(opcall, self.opcodes, self.constantpool,)
-
             i += 1
