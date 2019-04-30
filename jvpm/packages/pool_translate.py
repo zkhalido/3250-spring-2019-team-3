@@ -1,9 +1,9 @@
 from collections import defaultdict
-from . import jvpm_opcodes, pool_methods
 from collections import deque
-import numpy
 import struct
 import binascii
+import numpy
+from . import jvpm_opcodes, pool_methods
 
 # pylint: disable=C0111, C0200, R0201
 super_index = 0
