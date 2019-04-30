@@ -1,10 +1,10 @@
 """import the unittest"""
 import unittest
-import stack
 import struct
-from CPInfo import ConstInfo, ConstTag
-from bitstring import ConstBitStream
 from collections import defaultdict
+from bitstring import ConstBitStream
+import stack
+from CPInfo import ConstInfo, ConstTag
 # pylint: disable=C0111, C0122, R0201
 
 class HeaderClass():
