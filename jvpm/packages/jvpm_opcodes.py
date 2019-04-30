@@ -7,6 +7,7 @@ from . import jvpm_dict, jvpm_methods, read_attribute, CPInfo  # import external
 # A deque of invokevirtual constants used for method calls from AddToo.class.
 #     Eventually wee will acquire these values from the CP, but they are hardcoded for now.
 INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
+# pylint: disable=C0111, W0612, R0903, R0902
 
 # ****************************************************************************************
 
