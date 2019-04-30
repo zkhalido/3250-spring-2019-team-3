@@ -4,7 +4,7 @@ Method finds bytecode in dictionary and returns opcode
 """
 
 
-jvpm_dict = {
+JVPM_DICT = {
     "2a": "aload_0",
     "2b": "aload_1",
     "4c": "astore_1",
@@ -111,7 +111,7 @@ jvpm_dict = {
 def get_opcode(byte_code):
     """ Return opcode from given byte code, or an error message if not found """
     try:
-        opcode = jvpm_dict[byte_code]
+        opcode = JVPM_DICT[byte_code]
     except KeyError:
         opcode = "Byte code not found!"
     
