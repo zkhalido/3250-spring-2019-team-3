@@ -27,7 +27,6 @@ class PoolTranslate:
         self.counter = 0
         self.pool_list_index = 0
         self.skips_in_pool = skips
-        self.TRANSLATED_POOL = 0
         self.constant_pool_length = len(self.pulled_constant_pool)
         self.translated_pool = ["0"] * (self.constant_pool_length + self.skips_in_pool)
         self.super_index = 0
