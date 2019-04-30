@@ -1,5 +1,5 @@
 from collections import defaultdict
-
+# pylint = disable=C0111
 
 class ReadAttribute():
 
@@ -108,7 +108,8 @@ class ReadAttribute():
 
         ############### line number table length
         line_number_table.append(format((data[reader_location]), "02x"))
-        line_number_table.append(format((data[reader_location + 1]), "02x")) # not sure if this is correct for line number table length i jsut read 4 more
+        # not sure if this is correct for line number table length i just read 4 more
+        line_number_table.append(format((data[reader_location + 1]), "02x"))
         line_number_table_length = ((data[reader_location])+ (data[reader_location + 1]))
 
         reader_location += 2
@@ -205,7 +206,7 @@ class ReadAttribute():
         exception_table.append(format((data[reader_location]), "02x"))
         exception_table.append(format((data[reader_location + 1]), "02x"))
 
-        number_of_exceptions = (data[reader_location ]) + (data[reader_location + 1])
+        number_of_exceptions = (data[reader_location]) + (data[reader_location + 1])
         reader_location += 2
 
         for x in range(number_of_exceptions):
@@ -225,7 +226,8 @@ class ReadAttribute():
         "Exceptions": get_exceptions,
     }
 
-    def get_attribute(self, tag, methods_table, reader_location, data, op_codes, method_index, pool):
+    def get_attribute(self, tag, methods_table, reader_location,
+                      data, op_codes, method_index, pool):
 
         method = ReadAttribute.switcher.get(tag, "invalid")
         return method(self, methods_table, reader_location, data, op_codes, method_index, pool)
