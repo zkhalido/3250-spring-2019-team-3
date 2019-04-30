@@ -64,7 +64,6 @@ class HeaderClass():
 
     def get_interfaces(self):
         interface_class_names = []
-        count = self.get_interfaces_count()
 
         return interface_class_names
 

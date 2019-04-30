@@ -27,7 +27,6 @@ class test_const_pool(unittest.TestCase):
         x.get_magic()
         x.get_minor()
         x.get_major()
-        #x.data = self.data
         n = x.get_const_pool()
 
         a = {
