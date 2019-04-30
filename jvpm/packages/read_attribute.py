@@ -3,10 +3,11 @@ from collections import defaultdict
 
 class ReadAttribute():
 
-    def get_code_attribute(self, methods_table, reader_location, data, op_codes, method_index, pool):
+    def get_code_attribute(self, methods_table, reader_location,
+                           data, op_codes, method_index, pool):
         add_one_byte = 1
         attribute_table = []
-        values_to_return= [0,0]
+        values_to_return = [0, 0]
 
         ############### attribute name index
         attribute_table.append(format((data[reader_location]), "02x"))
@@ -81,14 +82,16 @@ class ReadAttribute():
         methods_table[method_index].append(attribute_table)
 
         for x in range(next_attribute_count):
-            reader_location = ReadAttribute.get_attribute(self, tag, methods_table, reader_location, data, op_codes, method_index, pool)
-
+            reader_location = ReadAttribute.get_attribute(self, tag, methods_table,
+                                                          reader_location, data, op_codes,
+                                                          method_index, pool)
         values_to_return[0] = reader_location
         values_to_return[1] = op_codes
 
         return values_to_return
 
-    def get_line_number_table(self, methods_table, reader_location, data, op_codes, method_index, pool):
+    def get_line_number_table(self, methods_table, reader_location, data,
+                              op_codes, method_index, pool):
         line_number_table = []
         ##################    name index
         line_number_table.append(format((data[reader_location]), "02x"))
@@ -126,7 +129,7 @@ class ReadAttribute():
         return reader_location
 
     def get_source_file(self, methods_table, reader_location, data, op_codes, method_index, pool):
-        x=0
+        x = 0
     # *DO NOT DELETE WILL NEED FOR LATER CLASS FILES*
     """
     def get_local_variable_table(self, methods_table, reader_location, data, op_codes, method_index, pool):
