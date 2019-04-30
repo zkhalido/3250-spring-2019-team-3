@@ -231,7 +231,7 @@ class OpCodeMethods():
         print(argument, " method call is invalid")
         
     def ldc(self, opcode, constantpool, argument):
-        print(pool_translate.TRANSLATED_POOL[1, 2, 3])
+        print(pool_translate.TRANSLATED_POOL[1])
         print("12:ldc - This will eventually push Hello World! from the CP to the Stack")
 
 # ****************************************************************************************
