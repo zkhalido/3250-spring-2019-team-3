@@ -19,8 +19,6 @@ class HeaderClass():
     def __init__(self, name="jvpm/javafiles/test.class"):
         self.name = name
         self.bits = ConstBitStream(filename=name)
-        add_one_byte = 1
-        constant_pool_byte_size = 0
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
@@ -102,7 +100,6 @@ class HeaderClass():
         return field_count
 
     def get_field(self):
-        dictionary_index = 0
         if (self.integer_field_count == 0):
             print("field table empty")
 
