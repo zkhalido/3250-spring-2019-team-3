@@ -232,8 +232,8 @@ class OpCodeMethods():
         
     def ldc(self, opcode, constantpool, argument):
         print("12:ldc - This will eventually push Hello World! from the CP to the Stack")
-        p_translator = pool_translate.PoolTranslate(jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/HelloWorld.class").get_const_pool(),
-                                                             header_class_object.skips_in_constant_pool, name = "jvpm/javafiles/HelloWorld.class")
+        p_translator = pool_translate.PoolTranslate(jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/HelloWorld").get_const_pool(),
+                                                             header_class_object.skips_in_constant_pool, name = "jvpm/javafiles/HelloWorld")
         pool = p_translator.translate_pool()
         print(pool[3], "translated")
 
