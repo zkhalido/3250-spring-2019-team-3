@@ -232,7 +232,6 @@ class OpCodeMethods():
         
     def ldc(self, opcode, constantpool, argument):
         print(pool_translate.TRANSLATED_POOL[2])
-        print("12:ldc - This will eventually push Hello World! from the CP to the Stack")
 
 # ****************************************************************************************
 
