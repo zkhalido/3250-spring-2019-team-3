@@ -18,7 +18,7 @@ class ConstInfo:
     def parse_class(self, bits):
         for i in range(2):
             next_byte = bits.read('hex:8')
-            if (next_byte != "00"):
+            if next_byte != "00":
                 self.pool.append(next_byte)
 
     def parse_field(self, bits):
