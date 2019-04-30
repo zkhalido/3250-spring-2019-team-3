@@ -43,12 +43,8 @@ class OpCodeMethods():
 
     def invokevirtual(self,location,constantpool,argument):
         """gets method from constant pool and calls it."""
-        #constant = jvpm_opcodes.INVOKEVIRTUAL_CONST[0]
-        #method = pool_translate.methodrefs[int(jvpm_opcodes.INVOKEVIRTUAL_CONST.popleft())]
 
         method = constantpool[location]
-
-        #print(method, "***********method ***************")
         self.token_dict(method,location, constantpool)
 
 
