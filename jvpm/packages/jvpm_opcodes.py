@@ -37,6 +37,7 @@ class HeaderClass():
             self.integer_attribute_count = 0
             self.field_count = 0
             self.field_dictionary = defaultdict(list)
+        binary_file.close()
 
     def get_magic(self):
         magic = self.bits.read('hex:32')
