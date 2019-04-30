@@ -1,6 +1,6 @@
 """Module that parses the Constant Pool."""
-from bitstring import ConstBitStream
 import struct
+from bitstring import ConstBitStream
 
 # pylint: disable=C0111,W0612
 
