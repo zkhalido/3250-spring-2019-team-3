@@ -2,6 +2,8 @@
 from bitstring import ConstBitStream
 import struct
 
+# pylint: disable=C0111
+
 class ConstInfo:
     """Class with modules that parse the CP."""
 
