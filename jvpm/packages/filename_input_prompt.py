@@ -1,5 +1,6 @@
 """Module that will prompt for file info."""
-# pylint: 
+# pylint: disable=E0211,R0903
+
 class FileNameInputPrompt:
     """Class to prompt for info."""
     def input_prompt():
