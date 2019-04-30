@@ -231,6 +231,7 @@ class OpCodeMethods():
         print(argument, " method call is invalid")
         
     def ldc(self, opcode, constantpool, argument):
+        S.push(pool_translate.TRANSLATED_POOL[2])
         print(pool_translate.TRANSLATED_POOL[2])
 
 # ****************************************************************************************
