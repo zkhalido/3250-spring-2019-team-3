@@ -1,4 +1,5 @@
 """Module that will prompt for file info."""
+# pylint: 
 class FileNameInputPrompt:
     """Class to prompt for info."""
     def input_prompt():
