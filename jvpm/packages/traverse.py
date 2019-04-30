@@ -1,6 +1,6 @@
 """import the unittest"""
 import unittest
-import stack
+import Stack
 import struct
 from CPInfo import ConstInfo, ConstTag
 from bitstring import ConstBitStream
@@ -11,7 +11,7 @@ from collections import defaultdict
 class HeaderClass():
 
     def __init__(self):
-            self.data = ConstBitStream(filename = 'jvpm/javafiles/testSaveVar.class')
+        self.data = ConstBitStream(filename='jvpm/javafiles/testSaveVar.class')
 
     def get_magic(self):
         magic = self.data.read('hex:32')
