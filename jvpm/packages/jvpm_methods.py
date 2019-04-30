@@ -281,7 +281,7 @@ class OpCodeMethods():
         "java/util/Scanner.nextInt:()I": next_int,
         "java/io/PrintStream.println:(I)V": println,
         "invalid": invalid,
-        "ldc":ldc
+        "ldc": ldc
     }
 
 # ****************************************************************************************
