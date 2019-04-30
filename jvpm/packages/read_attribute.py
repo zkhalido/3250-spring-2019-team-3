@@ -1,5 +1,5 @@
 from collections import defaultdict
-# pylint = disable=C0111
+# pylint: disable=C0111, C0200, R0201
 
 class ReadAttribute():
 
