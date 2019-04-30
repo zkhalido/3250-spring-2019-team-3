@@ -229,6 +229,9 @@ class OpCodeMethods():
 
     def invalid(self, opcode, constantpool, argument):
         print(argument, " method call is invalid")
+        
+    def ldc(self, opcode, constantpool, argument):
+        print("This will eventually print Hello World!")
 
 
 # ****************************************************************************************
@@ -278,6 +281,7 @@ class OpCodeMethods():
         "java/util/Scanner.nextInt:()I": next_int,
         "java/io/PrintStream.println:(I)V": println,
         "invalid": invalid,
+        "ldc":ldc
     }
 
 # ****************************************************************************************
