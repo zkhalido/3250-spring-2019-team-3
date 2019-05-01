@@ -54,7 +54,6 @@ class OpCodeMethods():
         if S.peek() == 0:
             S.pop()
         print(str(S.pop()))
- 
 
     def iand(self, opcode, constantpool, argument):
         """perform a bitwise AND on two integers."""
@@ -228,10 +227,10 @@ class OpCodeMethods():
 
     def invalid(self, opcode, constantpool, argument):
         print(argument, " method call is invalid")
-        
+
     def ldc(self, opcode, constantpool, argument):
         S.push(pool_translate.TRANSLATED_POOL[2])
-        
+
     def invokespecial(self, opcode, constantpool, argument):
         """coming soon"""
 
