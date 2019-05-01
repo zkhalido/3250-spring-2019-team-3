@@ -1,7 +1,7 @@
 # JVPM
 To run a class file input the following command:
 
-$python jvpm/main.py -f filename.class
+$ python jvpm/main.py {filename}
 
 where filename.class is the class file you want to run.
 
