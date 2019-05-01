@@ -2,5 +2,4 @@ codecov
 numpy
 coverage
 bitstring
-binascii
 sys
