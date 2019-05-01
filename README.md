@@ -5,12 +5,14 @@ $python jvpm/main.py -f filename.class
 
 where filename.class is the class file you want to run.
 
-
-This repo has a simple 'Hello World' program in Python 3. To run the
-program, do
+This repo has a java virtual machine program, taking in a .class file and running
+the java program. To run use command below, HelloWorld can be replaced with any
+class file name. The file must be in the javafiles folder in jvpm; ".class" post-fix
+is added by the program. 
 ```
-$ python3 jvpm/HelloWorld.py
-Hello world
+$ python3 jvpm/main.py HelloWorld
+or
+$ python3 jvpm/main.py AddTwo
 ```
 
 As with all good programs, there are unit tests for Test-Driven Development
