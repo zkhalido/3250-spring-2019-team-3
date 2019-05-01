@@ -3,7 +3,7 @@ from collections import deque
 import numpy
 from .stack import Stack
 from . import jvpm_opcodes, pool_translate
-# pylint: disable=R0201, R0904
+# pylint: disable=R0201, R0904, W0613
 
 # ****************************************************************************************
 
