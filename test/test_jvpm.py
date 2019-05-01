@@ -29,7 +29,7 @@ class test_const_pool(unittest.TestCase):
             '0500124c6f06000474680c00080100046d61696e' +
             '0f0016281000041000135b4c')
         i = 1
-        while i <= 14;
+        while i <= 14:
             x = packages.CPInfo.read(test_bits)
 
         a = {
