@@ -48,6 +48,7 @@ class OpCodeMethods():
 
     def next_int(self, opcode, constantpool, argument):
         """receive input from the keyboard."""
+        print("Enter an integer: ")
         var1 = numpy.int32(int(input()))
         S.push(var1)
 
