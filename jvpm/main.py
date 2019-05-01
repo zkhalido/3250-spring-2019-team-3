@@ -1,25 +1,12 @@
+import sys
 import packages
 import argparse
 
 
 if '__main__' == __name__:                  #pragma: no cover
 
+    file_name = ("jvpm/javafiles/" + str(sys.argv[1]) + ".class")
 
-    ap = argparse.ArgumentParser(description='This is a Java Virtual Machine.')
-    ap.add_argument("-f", "--file", required=False, help='Name of java class file with .class extension')
-    args=vars(ap.parse_args())
-
-    if args['file']==None:
-        file = input("Type a file to run: helloworld, AddTwo, testPrintLine. ")
-    else:
-        file = args['file']
-
-    if not '.class' in file:
-        file += '.class'
-        
-    # ********************************************************************************************    
-
-    file_name = ("jvpm/javafiles/%s" % str(file))
     header_class_object = packages.jvpm_opcodes.HeaderClass(name = file_name)
     header_class_object.get_magic()
     header_class_object.get_minor()
