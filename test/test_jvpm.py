@@ -2,6 +2,7 @@ import unittest
 from unittest.mock import mock_open, patch, call
 from jvpm import packages
 from bitstring import ConstBitStream
+import numpy
 import sys
 from collections import deque, defaultdict
 
@@ -24,13 +25,13 @@ class test_get_opcode(unittest.TestCase):
 class test_const_pool(unittest.TestCase):
     def test_const_pool(self):
 
-        test_bits = ConstBitStream('0x0703' +
+        test_bits = ConstBitStream('0x070003' +
             '0914020a15200b0006082803000404000f' +
             '0500124c6f06000474680c00080100046d61696e' +
             '0f0016281000041000135b4c')
         i = 1
         while i <= 14:
-            x = packages.CPInfo.read(test_bits)
+            x = packages.CPInfo.ConstInfo().read(test_bits)
 
         a = {
             0: ['07', '03'],
