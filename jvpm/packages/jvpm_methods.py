@@ -43,10 +43,8 @@ class OpCodeMethods():
 
     def invokevirtual(self, location, constantpool, argument):
         """gets method from constant pool and calls it."""
-
         method = constantpool[location]
         self.token_dict(method, location, constantpool)
-
 
     def next_int(self, opcode, constantpool, argument):
         """receive input from the keyboard."""
@@ -282,6 +280,7 @@ class OpCodeMethods():
         "i2s" : i2s, # int to short
         "java/util/Scanner.nextInt:()I": next_int,
         "java/io/PrintStream.println:(I)V": println,
+        "java/io/PrintStream.println:(Ljava/lang/String;)V": println,
         "invalid": invalid,
         "ldc": ldc
     }
