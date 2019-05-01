@@ -146,8 +146,8 @@ class HeaderClass():
             self.reader_location += 2
             attribute_index = 0
             while attribute_index < attribute_count:
-                tag_location = (self.data[self.reader_location]) +
-                (self.data[self.reader_location + self.add_one_byte])
+                tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location +
+                                                                              self.add_one_byte])
                 tag = pool[tag_location]
                 atribute_reader = read_attribute.ReadAttribute()
                 returned_vals = atribute_reader.get_attribute(tag, self.methods_table,
