@@ -10,7 +10,7 @@ if '__main__' == __name__:                  #pragma: no cover
     args=vars(ap.parse_args())
 
     if args['file']==None:
-        file = input("Select file to run: ")
+        file = input("Select file to run: helloworld, AddTwo. ")
     else:
         file = args['file']
 
@@ -39,8 +39,8 @@ if '__main__' == __name__:                  #pragma: no cover
     super_class = header_class_object.get_super_class()
     print(super_class, "   super class")
 
-    interfaces_count = header_class_object.get_interfaces_count()
-    print(interfaces_count, "   interfaces count")
+    d = header_class_object.get_interfaces_count()
+    print(d, "   interfaces count")
 
     header_class_object.get_interface() # no method built yet but should just be index in constant pool
 
