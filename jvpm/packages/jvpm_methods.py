@@ -57,6 +57,7 @@ class OpCodeMethods():
         print(var)
         print(S)
         print(str(S.pop()))
+        print(str(S.pop()))
 
     def iand(self, opcode, constantpool, argument):
         """perform a bitwise AND on two integers."""
