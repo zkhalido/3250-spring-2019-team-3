@@ -10,7 +10,7 @@ if '__main__' == __name__:                  #pragma: no cover
     args=vars(ap.parse_args())
 
     if args['file']==None:
-        file = input("Select file to run: ")
+        file = input("Select file to run: helloworld, AddTwo, testPrintLine. ")
     else:
         file = args['file']
 
