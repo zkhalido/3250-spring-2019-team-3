@@ -55,6 +55,8 @@ class OpCodeMethods():
         """print from the stack."""
         # var = S.peek()
         # print(var)
+        if S.peek() == 0:
+            S.pop()
         print(str(S.pop()))
         # print(str(S.pop()))
 
