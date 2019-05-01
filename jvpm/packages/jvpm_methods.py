@@ -17,7 +17,6 @@ class OpCodeMethods():
 
     def aload_0(self, opcode, constantpool, argument):
         """(2a)Load a reference to the stack."""
-        # forcing it to work by using iconst_0.
         self.iconst_0(opcode, constantpool, argument)
 
     def aload_1(self, opcode, constantpool, argument):
@@ -26,12 +25,10 @@ class OpCodeMethods():
 
     def astore_1(self, opcode, constantpool, argument):
         """Store reference to the local array."""
-        # forcing it to work by using istore_1 instead.
         self.istore_1(opcode, constantpool, argument)
 
     def dup(self, opcode, constantpool, argument):
         """Doubles the top item on the stack."""
-        # forcing it to work.
         var = S.peek()
         S.push(var)
 
@@ -54,8 +51,6 @@ class OpCodeMethods():
 
     def println(self, opcode, constantpool, argument):
         """print from the stack."""
-        # var = S.peek()
-        # print(var)
         if S.peek() == 0:
             S.pop()
         print(str(S.pop()))
