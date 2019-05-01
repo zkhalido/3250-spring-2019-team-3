@@ -53,9 +53,8 @@ class OpCodeMethods():
 
     def println(self, opcode, constantpool, argument):
         """print from the stack."""
-        var = S.peek()
-        print(var)
-        print(S)
+        # var = S.peek()
+        # print(var)
         print(str(S.pop()))
         # print(str(S.pop()))
 
