@@ -234,7 +234,7 @@ class OpCodeMethods():
         S.push(pool_translate.TRANSLATED_POOL[2])
         var = S.peek()
         print(var)
-        print(pool_translate.TRANSLATED_POOL[2])
+        # print(pool_translate.TRANSLATED_POOL[2])
 
 # ****************************************************************************************
 
