@@ -5,7 +5,7 @@ from collections import defaultdict
 from bitstring import ConstBitStream
 import stack
 from CPInfo import ConstInfo, ConstTag
-# pylint: disable=C0111, C0122, R0201
+# pylint: disable=C0111, C0122, R0201, W0611
 
 class HeaderClass():
 
