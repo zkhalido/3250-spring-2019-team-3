@@ -87,7 +87,8 @@ class HeaderClass():
 
     def get_interface(self):
         if self.integer_interface_count == 0:
-            print("interface table empty")
+            pass
+            # print("interface table empty")
 
     def get_field_count(self):
         self.integer_field_count = self.class_file_item_count_to_int()
@@ -97,7 +98,8 @@ class HeaderClass():
 
     def get_field(self):
         if self.integer_field_count == 0:
-            print("field table empty")
+            pass
+            # print("field table empty")
 
         else:
             for i in range(self.field_count):
