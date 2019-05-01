@@ -81,10 +81,18 @@ class ReadAttribute():
 
         methods_table[method_index].append(attribute_table)
 
+        pass_through = []
+        pass_through.append(tag)
+        pass_through.append(methods_table)
+        pass_through.append(reader_location)
+        pass_through.append(data)
+        pass_through.append(op_codes)
+        pass_through.append(method_index)
+        pass_through.append(pool)
+
         for x in range(next_attribute_count):
-            reader_location = ReadAttribute.get_attribute(self, tag, methods_table,
-                                                          reader_location, data, op_codes,
-                                                          method_index, pool)
+            reader_location = ReadAttribute.get_attribute(self, pass_through)
+
         values_to_return[0] = reader_location
         values_to_return[1] = op_codes
 
@@ -226,8 +234,15 @@ class ReadAttribute():
         "Exceptions": get_exceptions,
     }
 
-    def get_attribute(self, tag, methods_table, reader_location,
-                      data, op_codes, method_index, pool):
+    def get_attribute(self, pass_through_variables):
+        tag = pass_through_variables[0]
+        methods_table = pass_through_variables[1]
+        reader_location = pass_through_variables[2]
+        data = pass_through_variables[3]
+        op_codes = pass_through_variables[4]
+        method_index = pass_through_variables[5]
+        pool = pass_through_variables[6]
 
         method = ReadAttribute.switcher.get(tag, "invalid")
         return method(self, methods_table, reader_location, data, op_codes, method_index, pool)
+

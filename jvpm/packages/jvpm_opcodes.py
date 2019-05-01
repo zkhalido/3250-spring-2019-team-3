@@ -145,14 +145,22 @@ class HeaderClass():
 
             self.reader_location += 2
             attribute_index = 0
+
             while attribute_index < attribute_count:
-                tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location +
-                                                                              self.add_one_byte])
+                tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
                 tag = pool[tag_location]
                 atribute_reader = read_attribute.ReadAttribute()
-                returned_vals = atribute_reader.get_attribute(tag, self.methods_table,
-                                                              self.reader_location, self.data,
-                                                              self.op_codes, method_index, pool)
+                pass_through_variables = []
+                pass_through_variables.append(tag)
+                pass_through_variables.append(self.methods_table)
+                pass_through_variables.append(self.reader_location)
+                pass_through_variables.append(self.data)
+                pass_through_variables.append(self.op_codes)
+                pass_through_variables.append(method_index)
+                pass_through_variables.append(pool)
+                print(pass_through_variables, "==========passs thru****")
+
+                returned_vals = atribute_reader.get_attribute(pass_through_variables)
 
                 if isinstance(returned_vals, int):
                     self.reader_location = returned_vals
