@@ -124,7 +124,8 @@ class HeaderClass():
                                                                       + self.add_one_byte]), "02x"))
             self.reader_location += 2
             ################### name index
-            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location]),
+                                                           "02x"))
             self.methods_table[method_index].append(format((self.data[self.reader_location +
                                                                       self.add_one_byte]), "02x"))
             self.reader_location += 2
@@ -148,7 +149,9 @@ class HeaderClass():
                 tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
                 tag = pool[tag_location]
                 atribute_reader = read_attribute.ReadAttribute()
-                returned_vals = atribute_reader.get_attribute(tag, self.methods_table, self.reader_location, self.data, self.op_codes, method_index, pool)
+                returned_vals = atribute_reader.get_attribute(tag, self.methods_table,
+                                                              self.reader_location, self.data,
+                                                              self.op_codes, method_index, pool)
 
                 if isinstance(returned_vals, int):
                     self.reader_location = returned_vals
