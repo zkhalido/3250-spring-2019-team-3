@@ -23,13 +23,13 @@ class test_get_opcode(unittest.TestCase):
 class test_const_pool(unittest.TestCase):
     def test_const_pool(self):
 
-        x = packages.jvpm_opcodes.HeaderClass(name= "jvpm/javafiles/tester.class")
-        x.get_magic()
-        x.get_minor()
-        x.get_major()
-        n = x.get_const_pool()
+        header_test_object = packages.jvpm_opcodes.HeaderClass(name= "jvpm/javafiles/tester.class")
+        header_test_object.get_magic()
+        header_test_object.get_minor()
+        header_test_object.get_major()
+        const_pool_test = header_test_object.get_const_pool()
 
-        a = {
+        mock_bytes = {
             0: ['0a', '03', '13'],
             1: ['07', '14'],
             2: ['07', '15'],
@@ -53,22 +53,22 @@ class test_const_pool(unittest.TestCase):
             20: ['01', '00', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63','74']
         }
 
-        self.assertEqual(n[1], a[0])
-        self.assertEqual(n[2], a[1])
-        self.assertEqual(n[3], a[2])
-        self.assertEqual(n[4], a[3])
-        self.assertEqual(n[5], a[4])
-        self.assertEqual(n[6], a[5])
-        self.assertEqual(n[7], a[6])
-        self.assertEqual(n[8], a[7])
-        self.assertEqual(n[9], a[8])
-        self.assertEqual(n[10], a[9])
-        self.assertEqual(n[11], a[10])
-        self.assertEqual(n[12], a[11])
-        self.assertEqual(n[13], a[12])
-        self.assertEqual(n[14], a[13])
-        self.assertEqual(n[15], a[14])
-        self.assertEqual(n[16], a[15])
+        self.assertEqual(const_pool_test[1], mock_bytes[0])
+        self.assertEqual(const_pool_test[2], mock_bytes[1])
+        self.assertEqual(const_pool_test[3], mock_bytes[2])
+        self.assertEqual(const_pool_test[4], mock_bytes[3])
+        self.assertEqual(const_pool_test[5], mock_bytes[4])
+        self.assertEqual(const_pool_test[6], mock_bytes[5])
+        self.assertEqual(const_pool_test[7], mock_bytes[6])
+        self.assertEqual(const_pool_test[8], mock_bytes[7])
+        self.assertEqual(const_pool_test[9], mock_bytes[8])
+        self.assertEqual(const_pool_test[10], mock_bytes[9])
+        self.assertEqual(const_pool_test[11], mock_bytes[10])
+        self.assertEqual(const_pool_test[12], mock_bytes[11])
+        self.assertEqual(const_pool_test[13], mock_bytes[12])
+        self.assertEqual(const_pool_test[14], mock_bytes[13])
+        self.assertEqual(const_pool_test[15], mock_bytes[14])
+        self.assertEqual(const_pool_test[16], mock_bytes[15])
 
 
 class test_pool_translate1(unittest.TestCase):
@@ -78,9 +78,9 @@ class test_pool_translate1(unittest.TestCase):
         jvpm_opcodes_obj.get_magic()
         jvpm_opcodes_obj.get_minor()
         jvpm_opcodes_obj.get_major()
-        n = jvpm_opcodes_obj.get_const_pool()
-        y = packages.pool_translate.PoolTranslate(n, jvpm_opcodes_obj.skips_in_constant_pool,
-                                                  name="jvpm/javafiles/testSaveVar.class")
+        const_pool_test = jvpm_opcodes_obj.get_const_pool()
+        translated_const_pool = packages.pool_translate.PoolTranslate(const_pool_test, jvpm_opcodes_obj.skips_in_constant_pool,
+                                                                      name="jvpm/javafiles/testSaveVar.class")
 
         new_array = ["0",
                      "java/lang/Object.<init>:()V",
@@ -217,7 +217,7 @@ class test_pool_translate1(unittest.TestCase):
             64: "java/lang/invoke/MethodHandles"
         }
 
-        new_dict = y.translate_pool()
+        new_dict = translated_const_pool.translate_pool()
 
         n = {
             0: 'java/lang/Object.<init>:()V',
@@ -245,30 +245,6 @@ class test_pool_translate1(unittest.TestCase):
         }
 
         self.assertEqual(new_dict, new_array)
-        """
-        self.assertEqual(new_dict[1], n[0])
-        self.assertEqual(new_dict[2], n[1])
-        self.assertEqual(new_dict[3], n[2])
-        self.assertEqual(new_dict[4], n[3])
-        self.assertEqual(new_dict[5], n[4])
-        self.assertEqual(new_dict[6], n[5])
-        self.assertEqual(new_dict[7], n[6])
-        self.assertEqual(new_dict[8], n[7])
-        self.assertEqual(new_dict[9], n[8])
-        self.assertEqual(new_dict[10], n[9])
-        self.assertEqual(new_dict[11], n[10])
-        self.assertEqual(new_dict[12], n[11])
-        self.assertEqual(new_dict[13], n[12])
-        self.assertEqual(new_dict[14], n[13])
-        self.assertEqual(new_dict[15], n[14])
-        self.assertEqual(new_dict[16], n[15])
-        self.assertEqual(new_dict[17], n[16])
-        self.assertEqual(new_dict[18], n[17])
-        self.assertEqual(new_dict[19], n[18])
-        self.assertEqual(new_dict[20], n[19])
-        self.assertEqual(new_dict[21], n[20])
-        """
-
 
 class test_pool_methods(unittest.TestCase):
     def test_tag_translate(self):
@@ -276,8 +252,8 @@ class test_pool_methods(unittest.TestCase):
          jvpm_opcodes_obj.get_magic()
          jvpm_opcodes_obj.get_minor()
          jvpm_opcodes_obj.get_major()
-         n = jvpm_opcodes_obj.get_const_pool()
-         x = packages.pool_translate.PoolTranslate(n, jvpm_opcodes_obj.skips_in_constant_pool,
+         const_pool_test = jvpm_opcodes_obj.get_const_pool()
+         translated_const_pool = packages.pool_translate.PoolTranslate(const_pool_test, jvpm_opcodes_obj.skips_in_constant_pool,
                                                   name="jvpm/javafiles/tester.class")
          new_dict = {
              "1": "01",
@@ -303,98 +279,98 @@ class test_pool_methods(unittest.TestCase):
 
 
 
-         x.interface_method_reference(x_list)
+         translated_const_pool.interface_method_reference(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Interface Method Reference    4 bytes")]
          )
 
-         x.method_handle(x_list)
+         translated_const_pool.method_handle(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Method Handle    3 bytes")]
          )
 
-         x.method_type(x_list)
+         translated_const_pool.method_type(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Method Type    2 bytes")]
          )
 
-         x.dynamic(x_list)
+         translated_const_pool.dynamic(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Dynamic    4 bytes")]
          )
-         x.invoke_dynamic(x_list)
+         translated_const_pool.invoke_dynamic(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Invoke Dynamic    4 bytes")]
          )
-         x.module(x_list)
+         translated_const_pool.module(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Module    2 bytes")]
          )
-         x.package(x_list)
+         translated_const_pool.package(x_list)
          sys.stdout.assert_has_calls(
              [call.write("Package    2 bytes")]
          )
 
 
-         x = packages.pool_methods.TagTranslate()
-         self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
-         self.assertEqual(x.token_dict(new_dict['2']), "Integer")
-         self.assertEqual(x.token_dict(new_dict['3']), "Float")
-         self.assertEqual(x.token_dict(new_dict['4']), "Long")
-         self.assertEqual(x.token_dict(new_dict['5']), "Double")
-         self.assertEqual(x.token_dict(new_dict['6']), "Class Reference")
-         self.assertEqual(x.token_dict(new_dict['7']), "String Reference")
-         self.assertEqual(x.token_dict(new_dict['8']), "Field Reference")
-         self.assertEqual(x.token_dict(new_dict['9']), "Method Reference")
-         self.assertEqual(x.token_dict(new_dict['10']), "Interface Method Reference")
-         self.assertEqual(x.token_dict(new_dict['11']), "Name and Type")
-         self.assertEqual(x.token_dict(new_dict['12']), "Method Handle")
-         self.assertEqual(x.token_dict(new_dict['13']), "Method Type")
-         self.assertEqual(x.token_dict(new_dict['14']), "Dynamic")
-         self.assertEqual(x.token_dict(new_dict['15']), "Invoke Dynamic")
-         self.assertEqual(x.token_dict(new_dict['16']), "Module")
-         self.assertEqual(x.token_dict(new_dict['17']), "Package")
+         translated_const_pool = packages.pool_methods.TagTranslate()
+         self.assertEqual(translated_const_pool.token_dict(new_dict['1']), "UTF 8 String")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['2']), "Integer")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['3']), "Float")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['4']), "Long")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['5']), "Double")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['6']), "Class Reference")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['7']), "String Reference")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['8']), "Field Reference")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['9']), "Method Reference")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['10']), "Interface Method Reference")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['11']), "Name and Type")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['12']), "Method Handle")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['13']), "Method Type")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['14']), "Dynamic")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['15']), "Invoke Dynamic")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['16']), "Module")
+         self.assertEqual(translated_const_pool.token_dict(new_dict['17']), "Package")
 
 class test_stack(unittest.TestCase):
     def test_is_empty(self):
-        s = packages.stack.Stack()
-        s.push(1)
-        s.pop()
-        self.assertTrue(s.is_empty())
+        stack = packages.stack.Stack()
+        stack.push(1)
+        stack.pop()
+        self.assertTrue(stack.is_empty())
 
     def test_push(self):
-        s = packages.stack.Stack()
-        s.push(2)
-        s.push(3)
-        v = s.pop()
-        self.assertEqual(v, 3)
+        stack = packages.stack.Stack()
+        stack.push(2)
+        stack.push(3)
+        popped_var = stack.pop()
+        self.assertEqual(popped_var, 3)
 
     def test_pop(self):
-        s = packages.stack.Stack()
-        s.push(3)
-        s.push(2)
-        s.push(4)
-        s.push(0)
-        a = s.pop()
-        b = s.pop()
-        self.assertEqual(a, 0)
-        self.assertEqual(b, 4)
+        stack = packages.stack.Stack()
+        stack.push(3)
+        stack.push(2)
+        stack.push(4)
+        stack.push(0)
+        popped_var_1 = stack.pop()
+        popped_var_2 = stack.pop()
+        self.assertEqual(popped_var_1, 0)
+        self.assertEqual(popped_var_2, 4)
 
     def test_peek(self):
-        s = packages.stack.Stack()
-        s.push("hello")
-        s.push("hi")
-        self.assertEqual(s.peek(),"hi")
-        s.pop()
+        stack = packages.stack.Stack()
+        stack.push("hello")
+        stack.push("hi")
+        self.assertEqual(stack.peek(),"hi")
+        stack.pop()
 
     def test_size(self):
-        s = packages.stack.Stack()
-        s.push("hello")
-        s.push(2)
-        s.push("hi")
-        self.assertEqual(s.size(), 3)
-        s.pop()
-        self.assertEqual(s.size(), 2)
+        stack = packages.stack.Stack()
+        stack.push("hello")
+        stack.push(2)
+        stack.push("hi")
+        self.assertEqual(stack.size(), 3)
+        stack.pop()
+        self.assertEqual(stack.size(), 2)
 
 class test_op_methods(unittest.TestCase):
 
@@ -402,32 +378,32 @@ class test_op_methods(unittest.TestCase):
         op = None
         con = None
         arg = None
-        a = packages.jvpm_methods.OpCodeMethods()
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.S.push(2)
         packages.jvpm_methods.S.push(1)
-        a.iadd(op, con, arg)
-        b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 3)
+        opcode_test.iadd(op, con, arg)
+        popped_var = packages.jvpm_methods.S.pop()
+        self.assertEqual(popped_var, 3)
 
     def test_iand(self):
         op = None
         con = None
         arg = None
-        a = packages.jvpm_methods.OpCodeMethods()
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.S.push(5)
         packages.jvpm_methods.S.push(3)
-        a.iand(op, con, arg)
-        b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b,1)
+        opcode_test.iand(op, con, arg)
+        popped_var = packages.jvpm_methods.S.pop()
+        self.assertEqual(popped_var, 1)
 
     def test_iconst_m1(self):
         op = None
         con = None
         arg = None
-        a = packages.jvpm_methods.OpCodeMethods()
-        a.iconst_m1(op, con, arg)
-        b = packages.jvpm_methods.S.peek()
-        self.assertEqual(b, -1)
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
+        opcode_test.iconst_m1(op, con, arg)
+        peeked_var = packages.jvpm_methods.S.peek()
+        self.assertEqual(peeked_var, -1)
         packages.jvpm_methods.S.push(5)
         self.assertEqual(packages.jvpm_methods.S.peek(), 5)
         self.assertNotEqual(packages.jvpm_methods.S.peek(), -1)
@@ -436,10 +412,10 @@ class test_op_methods(unittest.TestCase):
         op = None
         con = None
         arg = None
-        a = packages.jvpm_methods.OpCodeMethods()
-        a.iconst_0(op, con, arg)
-        b = packages.jvpm_methods.S.peek()
-        self.assertEqual(b, 0)
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
+        opcode_test.iconst_0(op, con, arg)
+        peeked_var = packages.jvpm_methods.S.peek()
+        self.assertEqual(peeked_var, 0)
         packages.jvpm_methods.S.push(5)
         self.assertEqual(packages.jvpm_methods.S.peek(), 5)
         self.assertNotEqual(packages.jvpm_methods.S.peek(), 0)
