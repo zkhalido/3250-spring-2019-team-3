@@ -24,7 +24,7 @@ if '__main__' == __name__:                  #pragma: no cover
     header_class_object.get_major()
 
     n = header_class_object.get_const_pool()
-    print(n)
+    # print(n)
     p_translator = packages.pool_translate.PoolTranslate(n, header_class_object.skips_in_constant_pool, name = file_name)
 
     pool = p_translator.translate_pool()
