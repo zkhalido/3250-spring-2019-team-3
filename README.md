@@ -1,4 +1,10 @@
 # JVPM
+To run a class file input the following command:
+
+$python jvpm/main.py -f filename.class
+
+where filename.class is the class file you want to run.
+
 
 This repo has a simple 'Hello World' program in Python 3. To run the
 program, do
