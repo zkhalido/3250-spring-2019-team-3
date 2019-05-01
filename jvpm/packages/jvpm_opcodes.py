@@ -158,7 +158,7 @@ class HeaderClass():
                 pass_through_variables.append(self.op_codes)
                 pass_through_variables.append(method_index)
                 pass_through_variables.append(pool)
-                print(pass_through_variables, "==========passs thru****")
+                
 
                 returned_vals = atribute_reader.get_attribute(pass_through_variables)
 
