@@ -3,3 +3,4 @@ numpy
 coverage
 bitstring
 binascii
+sys
