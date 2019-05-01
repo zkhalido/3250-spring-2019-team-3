@@ -19,9 +19,9 @@ if '__main__' == __name__:                  #pragma: no cover
 
     file_name = ("jvpm/javafiles/%s" % str(file))
     header_class_object = packages.jvpm_opcodes.HeaderClass(name = file_name)
-    # print(header_class_object.get_magic())
-    # print(header_class_object.get_minor())
-    # print(header_class_object.get_major())
+    print(header_class_object.get_magic())
+    print(header_class_object.get_minor())
+    print(header_class_object.get_major())
 
     n = header_class_object.get_const_pool()
     print(n)
