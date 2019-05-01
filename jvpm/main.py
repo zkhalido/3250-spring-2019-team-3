@@ -16,6 +16,8 @@ if '__main__' == __name__:                  #pragma: no cover
 
     if not '.class' in file:
         file += '.class'
+        
+    # ********************************************************************************************    
 
     file_name = ("jvpm/javafiles/%s" % str(file))
     header_class_object = packages.jvpm_opcodes.HeaderClass(name = file_name)
@@ -55,6 +57,7 @@ if '__main__' == __name__:                  #pragma: no cover
     opcodes = header_class_object.get_methods(pool)
     # print("OpCodes:\n ", opcodes,    "** op codes **")
 
+    # ********************************************************************************************
 
     dict_search_object = packages.jvpm_opcodes.OpCodes(opcodes, pool)
     dict_search_object.dict_search()
