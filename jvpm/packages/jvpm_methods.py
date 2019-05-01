@@ -53,6 +53,8 @@ class OpCodeMethods():
 
     def println(self, opcode, constantpool, argument):
         """print from the stack."""
+        var = S.peek()
+        print(var)
         print(str(S.pop()))
 
     def iand(self, opcode, constantpool, argument):
