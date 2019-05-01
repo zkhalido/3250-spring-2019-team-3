@@ -6,6 +6,7 @@ import argparse
 if '__main__' == __name__:                  #pragma: no cover
 
     file_name = ("jvpm/javafiles/" + str(sys.argv[1]) + ".class")
+
     header_class_object = packages.jvpm_opcodes.HeaderClass(name = file_name)
     header_class_object.get_magic()
     header_class_object.get_minor()
@@ -43,6 +44,7 @@ if '__main__' == __name__:                  #pragma: no cover
     opcodes = header_class_object.get_methods(pool)
     # print("OpCodes:\n ", opcodes,    "** op codes **")
 
+    # ********************************************************************************************
 
     dict_search_object = packages.jvpm_opcodes.OpCodes(opcodes, pool)
     dict_search_object.dict_search()

@@ -5,7 +5,8 @@ import binascii
 import numpy
 from . import jvpm_opcodes, pool_methods
 
-# pylint: disable=C0111, C0200, R0201, W0613, W0611
+# pylint: disable=C0111, C0200, R0201, W0613, W0611, W0622
+
 super_index = 0
 methodrefs = []
 cp_strings = []
