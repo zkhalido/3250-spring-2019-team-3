@@ -1,7 +1,6 @@
-# from collections import defaultdict
 import struct
 import binascii
-from . import jvpm_opcodes, pool_methods
+# from . import jvpm_opcodes, pool_methods
 
 # pylint: disable=C0111, C0200, R0201, W0613, W0611, W0622, R0902, C0103, W0612
 
@@ -74,7 +73,6 @@ class PoolTranslate:
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
             if len(sub_list) > 1:
-
                 if strings_to_combine < 1:
                     pulled_string = pulled_string + "."
                 strings_to_combine += 1
@@ -92,7 +90,6 @@ class PoolTranslate:
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
             if len(sub_list) > 1:
-
                 if strings_to_combine < 1:
                     pulled_string = pulled_string + "."
                 strings_to_combine += 1
@@ -110,7 +107,6 @@ class PoolTranslate:
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
             if len(sub_list) > 1:
-
                 if strings_to_combine < 1:
                     pulled_string = pulled_string + "."
                 strings_to_combine += 1
@@ -128,7 +124,6 @@ class PoolTranslate:
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             METHOD_REFS.append(pulled_string)
             index += 1
-
             if strings_to_combine < 1:
                 pulled_string = pulled_string + "."
             strings_to_combine += 1
@@ -201,17 +196,14 @@ class PoolTranslate:
         "12": invoke_dynamic,  # 4 bytes
         "13": module,  # 2 bytes
         "14": package,  # 2 bytes
-
     }
 
     def method_dict(self, constant_pool, current_index):
-
         current_key = current_index
         current_list = constant_pool[current_key]
         current_list_length = len(current_list)
         sub_list = []
         tag_byte = current_list[0]
-
         j = 1
         while j < current_list_length:
             sub_list.append(current_list[j])
@@ -224,7 +216,6 @@ class PoolTranslate:
         pool_translater = PoolTranslate(self.pulled_constant_pool,
                                         self.skips_in_pool, name=self.name)
         pool_index = 1
-
         while pool_index <= self.constant_pool_length + self.skips_in_pool-1:
             self.translated_pool[pool_index] = pool_translater.method_dict(self.pulled_constant_pool,
                                                                            pool_index)
