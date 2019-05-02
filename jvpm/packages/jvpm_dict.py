@@ -3,7 +3,6 @@ jvpm_dict
 Method finds bytecode in dictionary and returns opcode
 """
 
-
 JVPM_DICT = {
     "2a": "aload_0",
     "2b": "aload_1",
