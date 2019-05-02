@@ -1,6 +1,7 @@
 """Module that reads attributes from the CP"""
-
 # pylint: disable=C0111, C0200, R0201, R0913, R0914, W0612, R0915, C0103, W0613
+
+# *****************************************************************************
 
 class ReadAttribute():
 
@@ -245,3 +246,5 @@ class ReadAttribute():
         pool = pass_through_variables[6]
         method = ReadAttribute.switcher.get(tag, "invalid")
         return method(self, methods_table, reader_location, data, op_codes, method_index, pool)
+
+    # *****************************************************************************
