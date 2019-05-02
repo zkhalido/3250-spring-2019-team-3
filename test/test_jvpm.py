@@ -286,10 +286,10 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(2)
-        packages.jvpm_methods.S.push(1)
+        packages.jvpm_methods.Stack.push(2)
+        packages.jvpm_methods.Stack.push(1)
         opcode_test.iadd(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 3)
 
     def test_iand(self):
@@ -297,10 +297,10 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(5)
-        packages.jvpm_methods.S.push(3)
+        packages.jvpm_methods.Stack.push(5)
+        packages.jvpm_methods.Stack.push(3)
         opcode_test.iand(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 1)
 
     def test_iconst_m1(self):
@@ -309,11 +309,11 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
         opcode_test.iconst_m1(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.peek()
+        peeked_var = packages.jvpm_methods.Stack.peek()
         self.assertEqual(peeked_var, -1)
-        packages.jvpm_methods.S.push(5)
-        self.assertEqual(packages.jvpm_methods.S.peek(), 5)
-        self.assertNotEqual(packages.jvpm_methods.S.peek(), -1)
+        packages.jvpm_methods.Stack.push(5)
+        self.assertEqual(packages.jvpm_methods.Stack.peek(), 5)
+        self.assertNotEqual(packages.jvpm_methods.Stack.peek(), -1)
 
     def test_iconst_0(self):
         op = None
@@ -321,11 +321,11 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
         opcode_test.iconst_0(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.peek()
+        peeked_var = packages.jvpm_methods.Stack.peek()
         self.assertEqual(peeked_var, 0)
-        packages.jvpm_methods.S.push(5)
-        self.assertEqual(packages.jvpm_methods.S.peek(), 5)
-        self.assertNotEqual(packages.jvpm_methods.S.peek(), 0)
+        packages.jvpm_methods.Stack.push(5)
+        self.assertEqual(packages.jvpm_methods.Stack.peek(), 5)
+        self.assertNotEqual(packages.jvpm_methods.Stack.peek(), 0)
 
     def test_iconst_1(self):
         op = None
@@ -333,11 +333,11 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
         opcode_test.iconst_1(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.peek()
+        peeked_var = packages.jvpm_methods.Stack.peek()
         self.assertEqual(peeked_var, 1)
-        packages.jvpm_methods.S.push(5)
-        self.assertEqual(packages.jvpm_methods.S.peek(), 5)
-        self.assertNotEqual(packages.jvpm_methods.S.peek(), 1)
+        packages.jvpm_methods.Stack.push(5)
+        self.assertEqual(packages.jvpm_methods.Stack.peek(), 5)
+        self.assertNotEqual(packages.jvpm_methods.Stack.peek(), 1)
 
     def test_iconst_2(self):
         op = None
@@ -345,11 +345,11 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
         opcode_test.iconst_2(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.peek()
+        peeked_var = packages.jvpm_methods.Stack.peek()
         self.assertEqual(peeked_var, 2)
-        packages.jvpm_methods.S.push(5)
-        self.assertEqual(packages.jvpm_methods.S.peek(), 5)
-        self.assertNotEqual(packages.jvpm_methods.S.peek(), 2)
+        packages.jvpm_methods.Stack.push(5)
+        self.assertEqual(packages.jvpm_methods.Stack.peek(), 5)
+        self.assertNotEqual(packages.jvpm_methods.Stack.peek(), 2)
 
     def test_iconst_3(self):
         op = None
@@ -357,11 +357,11 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
         opcode_test.iconst_3(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.peek()
+        peeked_var = packages.jvpm_methods.Stack.peek()
         self.assertEqual(peeked_var, 3)
-        packages.jvpm_methods.S.push(5)
-        self.assertEqual(packages.jvpm_methods.S.peek(), 5)
-        self.assertNotEqual(packages.jvpm_methods.S.peek(), 3)
+        packages.jvpm_methods.Stack.push(5)
+        self.assertEqual(packages.jvpm_methods.Stack.peek(), 5)
+        self.assertNotEqual(packages.jvpm_methods.Stack.peek(), 3)
 
     def test_iconst_4(self):
         op = None
@@ -369,11 +369,11 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
         opcode_test.iconst_4(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.peek()
+        peeked_var = packages.jvpm_methods.Stack.peek()
         self.assertEqual(peeked_var, 4)
-        packages.jvpm_methods.S.push(5)
-        self.assertEqual(packages.jvpm_methods.S.peek(), 5)
-        self.assertNotEqual(packages.jvpm_methods.S.peek(), 4)
+        packages.jvpm_methods.Stack.push(5)
+        self.assertEqual(packages.jvpm_methods.Stack.peek(), 5)
+        self.assertNotEqual(packages.jvpm_methods.Stack.peek(), 4)
 
     def test_iconst_5(self):
         op = None
@@ -381,31 +381,31 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
         opcode_test.iconst_5(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.peek()
+        peeked_var = packages.jvpm_methods.Stack.peek()
         self.assertEqual(peeked_var, 5)
-        packages.jvpm_methods.S.push(2)
-        self.assertEqual(packages.jvpm_methods.S.peek(), 2)
-        self.assertNotEqual(packages.jvpm_methods.S.peek(), 5)
+        packages.jvpm_methods.Stack.push(2)
+        self.assertEqual(packages.jvpm_methods.Stack.peek(), 2)
+        self.assertNotEqual(packages.jvpm_methods.Stack.peek(), 5)
 
     def test_idiv(self):
         op = None
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(4)
-        packages.jvpm_methods.S.push(2)
+        packages.jvpm_methods.Stack.push(4)
+        packages.jvpm_methods.Stack.push(2)
         opcode_test.idiv(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.pop()
+        peeked_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(peeked_var, 2.0)
-        packages.jvpm_methods.S.push(6)
-        packages.jvpm_methods.S.push(-2)
+        packages.jvpm_methods.Stack.push(6)
+        packages.jvpm_methods.Stack.push(-2)
         opcode_test.idiv(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.pop()
+        peeked_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(peeked_var, -3)
-        packages.jvpm_methods.S.push(-6)
-        packages.jvpm_methods.S.push(-2)
+        packages.jvpm_methods.Stack.push(-6)
+        packages.jvpm_methods.Stack.push(-2)
         opcode_test.idiv(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.pop()
+        peeked_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(peeked_var, 3)
 
     def test_iload_0(self):
@@ -419,7 +419,7 @@ class test_op_methods(unittest.TestCase):
         packages.jvpm_methods.VARIABLES.append(1)
         packages.jvpm_methods.VARIABLES[0] = 2
         opcode_test.iload_0(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.peek()
+        peeked_var = packages.jvpm_methods.Stack.peek()
         self.assertEqual(peeked_var, 2)
 
     def test_iload_1(self):
@@ -430,7 +430,7 @@ class test_op_methods(unittest.TestCase):
         packages.jvpm_methods.VARIABLES.insert(0, 7)
         packages.jvpm_methods.VARIABLES.insert(1, 5)
         opcode_test.iload_1(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.peek()
+        peeked_var = packages.jvpm_methods.Stack.peek()
         self.assertEqual(peeked_var, 5)
 
     def test_iload_2(self):
@@ -445,7 +445,7 @@ class test_op_methods(unittest.TestCase):
         del packages.jvpm_methods.VARIABLES[2]
         packages.jvpm_methods.VARIABLES[2] = 7
         opcode_test.iload_2(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.peek()
+        peeked_var = packages.jvpm_methods.Stack.peek()
         self.assertEqual(peeked_var, 7)
 
     def test_iload_3(self):
@@ -461,7 +461,7 @@ class test_op_methods(unittest.TestCase):
         del packages.jvpm_methods.VARIABLES[3]
         packages.jvpm_methods.VARIABLES[3] = 9
         opcode_test.iload_3(op, con, arg)
-        peeked_var = packages.jvpm_methods.S.peek()
+        peeked_var = packages.jvpm_methods.Stack.peek()
         self.assertEqual(peeked_var, 9)
 
     def test_imul(self):
@@ -470,20 +470,20 @@ class test_op_methods(unittest.TestCase):
         arg = None
 
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(3)
-        packages.jvpm_methods.S.push(4)
+        packages.jvpm_methods.Stack.push(3)
+        packages.jvpm_methods.Stack.push(4)
         opcode_test.imul(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 12)
-        packages.jvpm_methods.S.push(-2)
-        packages.jvpm_methods.S.push(3)
+        packages.jvpm_methods.Stack.push(-2)
+        packages.jvpm_methods.Stack.push(3)
         opcode_test.imul(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, -6)
-        packages.jvpm_methods.S.push(-5)
-        packages.jvpm_methods.S.push(-4)
+        packages.jvpm_methods.Stack.push(-5)
+        packages.jvpm_methods.Stack.push(-4)
         opcode_test.imul(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 20)
 
     def test_ineg(self):
@@ -492,13 +492,13 @@ class test_op_methods(unittest.TestCase):
         arg = None
 
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(3)
+        packages.jvpm_methods.Stack.push(3)
         opcode_test.ineg(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, -3)
-        packages.jvpm_methods.S.push(-5)
+        packages.jvpm_methods.Stack.push(-5)
         opcode_test.ineg(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 5)
 
     def test_ior(self):
@@ -506,25 +506,25 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(2)
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(2)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.ior(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 7)
-        packages.jvpm_methods.S.push(8)
-        packages.jvpm_methods.S.push(2)
+        packages.jvpm_methods.Stack.push(8)
+        packages.jvpm_methods.Stack.push(2)
         opcode_test.ior(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 10)
-        packages.jvpm_methods.S.push(10)
-        packages.jvpm_methods.S.push(-3)
+        packages.jvpm_methods.Stack.push(10)
+        packages.jvpm_methods.Stack.push(-3)
         opcode_test.ior(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, -1)
-        packages.jvpm_methods.S.push(-5)
-        packages.jvpm_methods.S.push(-6)
+        packages.jvpm_methods.Stack.push(-5)
+        packages.jvpm_methods.Stack.push(-6)
         opcode_test.ior(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, -5)
 
     def test_irem(self):
@@ -533,28 +533,28 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
 
-        packages.jvpm_methods.S.push(5)
-        packages.jvpm_methods.S.push(2)
+        packages.jvpm_methods.Stack.push(5)
+        packages.jvpm_methods.Stack.push(2)
         opcode_test.irem(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 1)
 
-        packages.jvpm_methods.S.push(10)
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(10)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.irem(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 0)
 
-        packages.jvpm_methods.S.push(-6)
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(-6)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.irem(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 4)
 
-        packages.jvpm_methods.S.push(6)
-        packages.jvpm_methods.S.push(-6)
+        packages.jvpm_methods.Stack.push(6)
+        packages.jvpm_methods.Stack.push(-6)
         opcode_test.irem(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 0)
 
     def test_ishl(self):
@@ -562,10 +562,10 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(2)
-        packages.jvpm_methods.S.push(1)
+        packages.jvpm_methods.Stack.push(2)
+        packages.jvpm_methods.Stack.push(1)
         opcode_test.ishl(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 4)
 
     def test_ishr(self):
@@ -574,28 +574,28 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
 
-        packages.jvpm_methods.S.push(3)
-        packages.jvpm_methods.S.push(1)
+        packages.jvpm_methods.Stack.push(3)
+        packages.jvpm_methods.Stack.push(1)
         opcode_test.ishr(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 1)
 
-        packages.jvpm_methods.S.push(-1)
-        packages.jvpm_methods.S.push(1)
+        packages.jvpm_methods.Stack.push(-1)
+        packages.jvpm_methods.Stack.push(1)
         opcode_test.ishr(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, -1)
 
-        packages.jvpm_methods.S.push(5)
-        packages.jvpm_methods.S.push(0)
+        packages.jvpm_methods.Stack.push(5)
+        packages.jvpm_methods.Stack.push(0)
         opcode_test.ishr(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 5)
 
-        packages.jvpm_methods.S.push(0)
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(0)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.ishr(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 0)
 
     def test_istore_0(self):
@@ -603,7 +603,7 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(3)
+        packages.jvpm_methods.Stack.push(3)
         opcode_test.istore_0(op, con, arg)
         array_var = packages.jvpm_methods.VARIABLES[0]
         self.assertEqual(array_var, 3)
@@ -613,8 +613,8 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(2)
-        packages.jvpm_methods.S.push(4)
+        packages.jvpm_methods.Stack.push(2)
+        packages.jvpm_methods.Stack.push(4)
         opcode_test.istore_0(op, con, arg)
         opcode_test.istore_1(op, con, arg)
         array_var = packages.jvpm_methods.VARIABLES[1]
@@ -625,9 +625,9 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(8)
-        packages.jvpm_methods.S.push(7)
-        packages.jvpm_methods.S.push(9)
+        packages.jvpm_methods.Stack.push(8)
+        packages.jvpm_methods.Stack.push(7)
+        packages.jvpm_methods.Stack.push(9)
         opcode_test.istore_0(op, con, arg)
         opcode_test.istore_1(op, con, arg)
         opcode_test.istore_2(op, con, arg)
@@ -639,10 +639,10 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(9)
-        packages.jvpm_methods.S.push(10)
-        packages.jvpm_methods.S.push(3)
-        packages.jvpm_methods.S.push(4)
+        packages.jvpm_methods.Stack.push(9)
+        packages.jvpm_methods.Stack.push(10)
+        packages.jvpm_methods.Stack.push(3)
+        packages.jvpm_methods.Stack.push(4)
         opcode_test.istore_0(op, con, arg)
         opcode_test.istore_1(op, con, arg)
         opcode_test.istore_2(op, con, arg)
@@ -656,28 +656,28 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
 
-        packages.jvpm_methods.S.push(5)
-        packages.jvpm_methods.S.push(2)
+        packages.jvpm_methods.Stack.push(5)
+        packages.jvpm_methods.Stack.push(2)
         opcode_test.isub(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 3)
 
-        packages.jvpm_methods.S.push(5)
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(5)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.isub(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 0)
 
-        packages.jvpm_methods.S.push(5)
-        packages.jvpm_methods.S.push(0)
+        packages.jvpm_methods.Stack.push(5)
+        packages.jvpm_methods.Stack.push(0)
         opcode_test.isub(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 5)
 
-        packages.jvpm_methods.S.push(0)
-        packages.jvpm_methods.S.push(0)
+        packages.jvpm_methods.Stack.push(0)
+        packages.jvpm_methods.Stack.push(0)
         opcode_test.isub(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 0)
 
     def test_iushr(self):
@@ -686,10 +686,10 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
 
-        packages.jvpm_methods.S.push(5)
-        packages.jvpm_methods.S.push(2)
+        packages.jvpm_methods.Stack.push(5)
+        packages.jvpm_methods.Stack.push(2)
         opcode_test.iushr(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 1)
 
     def test_ixor(self):
@@ -698,10 +698,10 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
 
-        packages.jvpm_methods.S.push(5)
-        packages.jvpm_methods.S.push(3)
+        packages.jvpm_methods.Stack.push(5)
+        packages.jvpm_methods.Stack.push(3)
         opcode_test.ixor(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 6)
 
     def test_i2f(self):
@@ -710,19 +710,19 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
 
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.i2f(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 5.0)
 
-        packages.jvpm_methods.S.push(0)
+        packages.jvpm_methods.Stack.push(0)
         opcode_test.i2f(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 0.0)
 
-        packages.jvpm_methods.S.push(-1)
+        packages.jvpm_methods.Stack.push(-1)
         opcode_test.i2f(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, -1.0)
 
     def test_i2b(self):
@@ -731,14 +731,14 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
 
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.i2b(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, b'\x00\x00\x00\x00\x00\x00\x00\x05')
 
-        packages.jvpm_methods.S.push(0)
+        packages.jvpm_methods.Stack.push(0)
         opcode_test.i2b(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, b'\x00\x00\x00\x00\x00\x00\x00\x00')
 
     def test_i2c(self):
@@ -747,14 +747,14 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
 
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.i2c(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, '\x05')
 
-        packages.jvpm_methods.S.push(0)
+        packages.jvpm_methods.Stack.push(0)
         opcode_test.i2c(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, '\x00')
 
     def test_i2s(self):
@@ -762,21 +762,21 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.i2d(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 5)
 
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(0)
+        packages.jvpm_methods.Stack.push(0)
         opcode_test.i2d(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 0)
 
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(-1)
+        packages.jvpm_methods.Stack.push(-1)
         opcode_test.i2d(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, -1)
 
     def test_i2d(self):
@@ -784,21 +784,21 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.i2d(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 5)
 
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(0)
+        packages.jvpm_methods.Stack.push(0)
         opcode_test.i2d(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 0)
 
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(-1)
+        packages.jvpm_methods.Stack.push(-1)
         opcode_test.i2d(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, -1)
 
     def test_i2l(self):
@@ -806,21 +806,21 @@ class test_op_methods(unittest.TestCase):
         con = None
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.i2l(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 5)
 
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(0)
+        packages.jvpm_methods.Stack.push(0)
         opcode_test.i2l(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 0)
 
         opcode_test = packages.jvpm_methods.OpCodeMethods()
-        packages.jvpm_methods.S.push(-1)
+        packages.jvpm_methods.Stack.push(-1)
         opcode_test.i2d(op, con, arg)
-        popped_var = packages.jvpm_methods.S.pop()
+        popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, -1)
 
     def test_dup(self):
@@ -829,10 +829,10 @@ class test_op_methods(unittest.TestCase):
         arg = None
         opcode_test = packages.jvpm_methods.OpCodeMethods()
 
-        packages.jvpm_methods.S.push(5)
+        packages.jvpm_methods.Stack.push(5)
         opcode_test.dup(op, con, arg)
-        popped_var_1 = packages.jvpm_methods.S.pop()
-        popped_var_2 = packages.jvpm_methods.S.pop()
+        popped_var_1 = packages.jvpm_methods.Stack.pop()
+        popped_var_2 = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var_1, 5)
         self.assertEqual(popped_var_2, 5)
 

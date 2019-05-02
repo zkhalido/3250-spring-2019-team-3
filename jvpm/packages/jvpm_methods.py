@@ -147,7 +147,7 @@ class OpCodeMethods():
 
     def ishr(self, opcode, constantpool, argument):
         """int arithmetic shift right."""
-        var2 = numpy.int32(stack.pop())
+        var2 = numpy.int32(Stack.pop())
         var1 = numpy.int32(Stack.pop())
         Stack.push(var1 >> var2)
 
