@@ -1,5 +1,4 @@
-"""Imports"""
-# from collections import deque
+"""Module with mothods to interacts with the stack and the CP."""
 import numpy
 from .stack import Stack
 from . import pool_translate, jvpm_opcodes
@@ -21,7 +20,7 @@ class OpCodeMethods():
 
     def aload_1(self, opcode, constantpool, argument):
         """(2b)Load a reference to stack."""
-        # do nothing
+        # do nothing yet
 
     def astore_1(self, opcode, constantpool, argument):
         """Store reference to the local array."""
