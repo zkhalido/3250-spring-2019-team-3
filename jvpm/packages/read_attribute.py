@@ -1,5 +1,6 @@
-from collections import defaultdict
-# pylint: disable=C0111, C0200, R0201
+"""Module that reads attributes from the CP"""
+
+# pylint: disable=C0111, C0200, R0201, R0913, R0914, W0612, R0915, C0103, W0613
 
 class ReadAttribute():
 
@@ -134,66 +135,67 @@ class ReadAttribute():
             reader_location += 2
 
         methods_table[method_index].append(line_number_table)
-
         return reader_location
 
     def get_source_file(self, methods_table, reader_location, data, op_codes, method_index, pool):
         x = 0
-    # *DO NOT DELETE WILL NEED FOR LATER CLASS FILES*
-    """
-    def get_local_variable_table(self, methods_table, reader_location, data, op_codes, method_index, pool):
-        x=0
-        local_variable_table = []
-        ##################    name index
-        local_variable_table.append(format((data[reader_location]), "02x"))
-        local_variable_table.append(format((data[reader_location + 1]), "02x"))
 
-        ##################### attribute length
-        local_variable_table.append(format((data[reader_location + 2]), "02x"))
-        local_variable_table.append(format((data[reader_location + 3]), "02x"))
-        local_variable_table.append(format((data[reader_location + 4]), "02x"))
-        local_variable_table.append(format((data[reader_location + 5]), "02x"))
+    # DO NOT DELETE WILL NEED FOR LATER CLASS FILES*
 
-        local_variable_length = (data[reader_location + 2]) + (data[reader_location + 3]) \
-                              + (data[reader_location + 4]) + (data[reader_location + 5])
-        reader_location += 6
-
-        local_variable_table.append(format((data[reader_location]), "02x"))
-        local_variable_table.append(format((data[reader_location + 1]), "02x"))
-
-        local_variable_table_length = (data[reader_location]) + (data[reader_location + 1])
-        reader_location += 2
-
-        for x in range(local_variable_table_length):
-
-            ########### start pc
-            local_variable_table_length.append(format((data[reader_location]), "02x"))
-            local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
-            reader_location += 2
-
-            ########### length
-            local_variable_table_length.append(format((data[reader_location]), "02x"))
-            local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
-            reader_location += 2
-
-            ########### name index
-            local_variable_table_length.append(format((data[reader_location]), "02x"))
-            local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
-            reader_location += 2
-
-            ########### discriptor index
-            local_variable_table_length.append(format((data[reader_location]), "02x"))
-            local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
-            reader_location += 2
-
-            ########### index
-            local_variable_table_length.append(format((data[reader_location]), "02x"))
-            local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
-            reader_location += 2
-
-        methods_table[method_index].append(local_variable_table_length)
-
-        return reader_location """
+    # def get_local_variable_table(self, methods_table, reader_location,
+    #                              data, op_codes, method_index, pool):
+    #     x=0
+    #     local_variable_table = []
+    #     ##################    name index
+    #     local_variable_table.append(format((data[reader_location]), "02x"))
+    #     local_variable_table.append(format((data[reader_location + 1]), "02x"))
+    #
+    #     ##################### attribute length
+    #     local_variable_table.append(format((data[reader_location + 2]), "02x"))
+    #     local_variable_table.append(format((data[reader_location + 3]), "02x"))
+    #     local_variable_table.append(format((data[reader_location + 4]), "02x"))
+    #     local_variable_table.append(format((data[reader_location + 5]), "02x"))
+    #
+    #     local_variable_length = (data[reader_location + 2]) + (data[reader_location + 3]) \
+    #                           + (data[reader_location + 4]) + (data[reader_location + 5])
+    #     reader_location += 6
+    #
+    #     local_variable_table.append(format((data[reader_location]), "02x"))
+    #     local_variable_table.append(format((data[reader_location + 1]), "02x"))
+    #
+    #     local_variable_table_length = (data[reader_location]) + (data[reader_location + 1])
+    #     reader_location += 2
+    #
+    #     for x in range(local_variable_table_length):
+    #
+    #         ########### start pc
+    #         local_variable_table_length.append(format((data[reader_location]), "02x"))
+    #         local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
+    #         reader_location += 2
+    #
+    #         ########### length
+    #         local_variable_table_length.append(format((data[reader_location]), "02x"))
+    #         local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
+    #         reader_location += 2
+    #
+    #         ########### name index
+    #         local_variable_table_length.append(format((data[reader_location]), "02x"))
+    #         local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
+    #         reader_location += 2
+    #
+    #         ########### discriptor index
+    #         local_variable_table_length.append(format((data[reader_location]), "02x"))
+    #         local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
+    #         reader_location += 2
+    #
+    #         ########### index
+    #         local_variable_table_length.append(format((data[reader_location]), "02x"))
+    #         local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
+    #         reader_location += 2
+    #
+    #     methods_table[method_index].append(local_variable_table_length)
+    #
+    #     return reader_location
 
     def get_exceptions(self, methods_table, reader_location, data, op_codes, method_index, pool):
         exception_table = []
@@ -224,7 +226,6 @@ class ReadAttribute():
 
 
         methods_table[method_index].append(exception_table)
-
         return reader_location
 
     switcher = {
@@ -242,7 +243,5 @@ class ReadAttribute():
         op_codes = pass_through_variables[4]
         method_index = pass_through_variables[5]
         pool = pass_through_variables[6]
-
         method = ReadAttribute.switcher.get(tag, "invalid")
         return method(self, methods_table, reader_location, data, op_codes, method_index, pool)
-
