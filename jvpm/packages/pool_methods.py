@@ -1,4 +1,5 @@
-from collections import defaultdict
+"""Module that assigns a name to each input."""
+# pylint: disable=C0111, R0201, C0103
 
 # ****************************************************************************************
 
@@ -56,7 +57,7 @@ class TagTranslate():
         return "Package"
 
 # ****************************************************************************************
-    
+
     switcher = {
 
         "01": UTF_8_string,  # add two ints
@@ -85,6 +86,5 @@ class TagTranslate():
         method = TagTranslate.switcher.get(argument, "invalid")
         # execute function
         return method(self)
-    
-# ****************************************************************************************
 
+# ****************************************************************************************
