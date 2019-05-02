@@ -20,5 +20,5 @@ class AccessFlagTranslater:
             4000 : "ACC_ENUM"
         }
         return access_flag[access_flag_value]
-    
+
 # ****************************************************************************************
