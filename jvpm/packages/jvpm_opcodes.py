@@ -4,7 +4,6 @@ from collections import deque
 from bitstring import ConstBitStream
 from . import jvpm_dict, jvpm_methods, read_attribute, CPInfo  # import external opcode dictionary
 
-# INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 # pylint: disable=C0111, W0612, R0903, R0902
 
 # ****************************************************************************************
@@ -96,7 +95,6 @@ class HeaderClass():
         if self.integer_field_count == 0:
             pass
             # print("field table empty")
-
         else:
             for i in range(self.field_count):
                 field = []
@@ -143,7 +141,8 @@ class HeaderClass():
             attribute_index = 0
 
             while attribute_index < attribute_count:
-                tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+                tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location +
+                                                                              self.add_one_byte])
                 tag = pool[tag_location]
                 atribute_reader = read_attribute.ReadAttribute()
                 pass_through_variables = []
