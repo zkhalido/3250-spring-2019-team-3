@@ -1,9 +1,6 @@
 """Module that traverses the CP"""
-# import unittest
-# import struct
 from collections import defaultdict
 from bitstring import ConstBitStream
-# import stack
 from CPInfo import ConstInfo
 
 # pylint: disable=C0111, C0122, R0201, W0611
@@ -41,13 +38,10 @@ class HeaderClass():
             if constant[0] == "06" or constant[0] == "05":
                 print("              skiiiiiiiiiiiipppppp ")
                 i += 1
-
             i += 1
             print(self.data.bytepos, "@@@@@@@@@@@@  byte pos   @@@@@@@@")
         print(constants_pool, "&&&&&&&&&&&     consts pool   &&&&&&&&&&&&&")
         return constants_pool
-
-
 
     def get_access_flags(self):
         return self.data.read('uint:16')
@@ -64,7 +58,6 @@ class HeaderClass():
 
     def get_interfaces(self):
         interface_class_names = []
-
         return interface_class_names
 
     def get_fields_count(self):
@@ -90,4 +83,4 @@ if '__main__' == __name__:
     print(HEADERS.get_magic())
     print(HEADERS.get_minor(), "minor%%%%")
     print(HEADERS.get_major(), "$$$$$$$$major")
-    h = HEADERS.get_const_pool()
+    HEADER_POOL = HEADERS.get_const_pool()
