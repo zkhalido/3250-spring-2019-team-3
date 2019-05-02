@@ -228,7 +228,7 @@ class OpCodeMethods():
         print(argument, " method call is invalid")
 
     def ldc(self, opcode, constantpool, argument):
-        S.push(pool_translate.TRANSLATED_POOL[2])
+        S.push(pool_translate.TRANSLATED_STRINGS[2])
 
     def invokespecial(self, opcode, constantpool, argument):
         """coming soon"""
