@@ -8,7 +8,7 @@ from . import jvpm_opcodes, pool_methods
 # pylint: disable=C0111, C0200, R0201, W0613, W0611, W0622
 
 super_index = 0
-methodrefs = []
+METHOD_REFS = []
 cp_strings = []
 TRANSLATED_POOL = []
 
@@ -131,7 +131,7 @@ class PoolTranslate:
         while index < len(sub_list):
             new_index = int(sub_list[index], 16)
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
-            methodrefs.append(pulled_string)
+            METHOD_REFS.append(pulled_string)
             index += 1
 
             if strings_to_combine < 1:
