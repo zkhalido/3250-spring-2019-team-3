@@ -783,66 +783,66 @@ class test_op_methods(unittest.TestCase):
         op = None
         con = None
         arg = None
-        a = packages.jvpm_methods.OpCodeMethods()
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.S.push(5)
-        a.i2d(op, con, arg)
-        b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 5)
+        opcode_test.i2d(op, con, arg)
+        popped_var = packages.jvpm_methods.S.pop()
+        self.assertEqual(popped_var, 5)
 
-        a = packages.jvpm_methods.OpCodeMethods()
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.S.push(0)
-        a.i2d(op, con, arg)
-        b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 0)
+        opcode_test.i2d(op, con, arg)
+        popped_var = packages.jvpm_methods.S.pop()
+        self.assertEqual(popped_var, 0)
 
-        a = packages.jvpm_methods.OpCodeMethods()
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.S.push(-1)
-        a.i2d(op, con, arg)
-        b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, -1)
+        opcode_test.i2d(op, con, arg)
+        popped_var = packages.jvpm_methods.S.pop()
+        self.assertEqual(popped_var, -1)
 
     def test_i2l(self):
         op = None
         con = None
         arg = None
-        a = packages.jvpm_methods.OpCodeMethods()
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.S.push(5)
-        a.i2l(op, con, arg)
-        b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 5)
+        opcode_test.i2l(op, con, arg)
+        popped_var = packages.jvpm_methods.S.pop()
+        self.assertEqual(popped_var, 5)
 
-        a = packages.jvpm_methods.OpCodeMethods()
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.S.push(0)
-        a.i2l(op, con, arg)
-        b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 0)
+        opcode_test.i2l(op, con, arg)
+        popped_var = packages.jvpm_methods.S.pop()
+        self.assertEqual(popped_var, 0)
 
-        a = packages.jvpm_methods.OpCodeMethods()
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.S.push(-1)
-        a.i2d(op, con, arg)
-        b = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, -1)
+        opcode_test.i2d(op, con, arg)
+        popped_var = packages.jvpm_methods.S.pop()
+        self.assertEqual(popped_var, -1)
 
     def test_dup(self):
         op = None
         con = None
         arg = None
-        a = packages.jvpm_methods.OpCodeMethods()
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
 
         packages.jvpm_methods.S.push(5)
-        a.dup(op, con, arg)
-        b = packages.jvpm_methods.S.pop()
-        c = packages.jvpm_methods.S.pop()
-        self.assertEqual(b, 5)
-        self.assertEqual(c, 5)
+        opcode_test.dup(op, con, arg)
+        popped_var_1 = packages.jvpm_methods.S.pop()
+        popped_var_2 = packages.jvpm_methods.S.pop()
+        self.assertEqual(popped_var_1, 5)
+        self.assertEqual(popped_var_2, 5)
 
     def test_dict_search(self):
         op = None
         con = None
-        a = packages.jvpm_methods.OpCodeMethods()
-        l = packages.jvpm_opcodes.OpCodes(op, con)
+        opcode_method_test = packages.jvpm_methods.OpCodeMethods()
+        opcode_test = packages.jvpm_opcodes.OpCodes(op, con)
 
-        l.opcodes =['06', '3c', '04', '3d', '1b', '1c', '82', '3e'] # Testing some op codes
+        opcode_test.opcodes =['06', '3c', '04', '3d', '1b', '1c', '82', '3e'] # Testing some op codes
         packages.jvpm_methods.VARIABLES.append(0) # adding random constants to test methods \/
         packages.jvpm_methods.VARIABLES.append(1)
         packages.jvpm_methods.VARIABLES.append(2)
@@ -851,27 +851,6 @@ class test_op_methods(unittest.TestCase):
         packages.jvpm_methods.VARIABLES.append(5)
 
         sys.stdout = unittest.mock.Mock()
-
-        # l.dict_search()
-#         sys.stdout.assert_has_calls(
-
-#             [call.write('iconst_3'), call.write('\n'),
-#             call.write('ran iconst_3'), call.write('\n'),
-#             call.write('istore_1'), call.write('\n'),
-#             call.write('ran istore_1'), call.write('\n'),
-#             call.write('iconst_1'), call.write('\n'),
-#             call.write('ran iconst_1'), call.write('\n'),
-#             call.write('istore_2'), call.write('\n'),
-#             call.write('ran istore_2'), call.write('\n'),
-#             call.write('iload_1'), call.write('\n'),
-#             call.write('ran iload_1'), call.write('\n'),
-#             call.write('iload_2'), call.write('\n'),
-#             call.write('ran iload_2'), call.write('\n'),
-#             call.write('ixor'), call.write('\n'),
-#             call.write('ran ixor'), call.write('\n'),
-#             call.write('istore_3'), call.write('\n'),
-#             call.write('ran istore_3'), call.write('\n'), call.write('\n')]
-#         )
 
 class test_long(unittest.TestCase):
     def test_tag_long(self):
@@ -919,16 +898,16 @@ class test_pool_opcodes(unittest.TestCase):
 
 class TestAccessFlagTranslater(unittest.TestCase):
     def test_translate_access_flag(self):
-        a = packages.access_flag_translater_dictionary.AccessFlagTranslater()
+        access_flag_test = packages.access_flag_translater_dictionary.AccessFlagTranslater()
 
-        self.assertEqual(a.translate_access_flag(1), "ACC_PUBLIC")
-        self.assertEqual(a.translate_access_flag(2), "ACC_PRIVATE")
-        self.assertEqual(a.translate_access_flag(4), "ACC_PROTECTED")
-        self.assertEqual(a.translate_access_flag(8), "ACC_STATIC")
-        self.assertEqual(a.translate_access_flag(10), "ACC_FINAL")
-        self.assertEqual(a.translate_access_flag(20), "ACC_SUPER")
-        self.assertEqual(a.translate_access_flag(200), "ACC_INTERFACE")
-        self.assertEqual(a.translate_access_flag(400), "ACC_ABSTRACT")
-        self.assertEqual(a.translate_access_flag(1000), "ACC_SYNTHETIC")
-        self.assertEqual(a.translate_access_flag(2000), "ACC_ANNOTATION")
-        self.assertEqual(a.translate_access_flag(4000), "ACC_ENUM")
+        self.assertEqual(access_flag_test.translate_access_flag(1), "ACC_PUBLIC")
+        self.assertEqual(access_flag_test.translate_access_flag(2), "ACC_PRIVATE")
+        self.assertEqual(access_flag_test.translate_access_flag(4), "ACC_PROTECTED")
+        self.assertEqual(access_flag_test.translate_access_flag(8), "ACC_STATIC")
+        self.assertEqual(access_flag_test.translate_access_flag(10), "ACC_FINAL")
+        self.assertEqual(access_flag_test.translate_access_flag(20), "ACC_SUPER")
+        self.assertEqual(access_flag_test.translate_access_flag(200), "ACC_INTERFACE")
+        self.assertEqual(access_flag_test.translate_access_flag(400), "ACC_ABSTRACT")
+        self.assertEqual(access_flag_test.translate_access_flag(1000), "ACC_SYNTHETIC")
+        self.assertEqual(access_flag_test.translate_access_flag(2000), "ACC_ANNOTATION")
+        self.assertEqual(access_flag_test.translate_access_flag(4000), "ACC_ENUM")
