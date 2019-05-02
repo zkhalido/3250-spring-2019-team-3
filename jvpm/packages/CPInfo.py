@@ -13,9 +13,7 @@ class ConstInfo:
     def read(self, bits):
         tag = bits.read('hex:8')
         self.pool.append(tag)
-
         self.const_tag_dict[tag](self, bits)
-
         return self.pool
 
     def parse_class(self, bits):
