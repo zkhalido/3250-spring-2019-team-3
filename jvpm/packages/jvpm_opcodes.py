@@ -4,9 +4,6 @@ from collections import deque
 from bitstring import ConstBitStream
 from . import jvpm_dict, jvpm_methods, read_attribute, CPInfo  # import external opcode dictionary
 
-# A deque of invokevirtual constants used for method calls from AddToo.class.
-#     Eventually wee will acquire these values from the CP, but they are hardcoded for now.
-INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 # pylint: disable=C0111, W0612, R0903, R0902
 
 # ****************************************************************************************
@@ -66,8 +63,6 @@ class HeaderClass():
         self.constant_pool = constants_pool
         return constants_pool
 
-
-
     def get_access_flags(self):
         access_flag = self.class_file_item_reader_in_hex()
         return access_flag
@@ -100,7 +95,6 @@ class HeaderClass():
         if self.integer_field_count == 0:
             pass
             # print("field table empty")
-
         else:
             for i in range(self.field_count):
                 field = []
@@ -147,7 +141,8 @@ class HeaderClass():
             attribute_index = 0
 
             while attribute_index < attribute_count:
-                tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+                tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location +
+                                                                              self.add_one_byte])
                 tag = pool[tag_location]
                 atribute_reader = read_attribute.ReadAttribute()
                 pass_through_variables = []
@@ -158,8 +153,6 @@ class HeaderClass():
                 pass_through_variables.append(self.op_codes)
                 pass_through_variables.append(method_index)
                 pass_through_variables.append(pool)
-                
-
                 returned_vals = atribute_reader.get_attribute(pass_through_variables)
 
                 if isinstance(returned_vals, int):
