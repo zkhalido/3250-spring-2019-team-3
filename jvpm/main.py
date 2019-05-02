@@ -2,6 +2,7 @@ import sys
 import packages
 import argparse
 
+# ****************************************************************************************
 
 if '__main__' == __name__:                  #pragma: no cover
 
@@ -23,7 +24,9 @@ if '__main__' == __name__:                  #pragma: no cover
     opcodes = header_class_object.get_methods_count()
     opcodes = header_class_object.get_methods(pool)
 
-    # ********************************************************************************************
+# ****************************************************************************************
 
     dict_search_object = packages.jvpm_opcodes.OpCodes(opcodes, pool)
     dict_search_object.dict_search()
+
+# ****************************************************************************************
