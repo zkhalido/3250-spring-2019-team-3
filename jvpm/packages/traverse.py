@@ -1,10 +1,11 @@
-"""import the unittest"""
-import unittest
-import struct
+"""Module that traverses the CP"""
+# import unittest
+# import struct
 from collections import defaultdict
 from bitstring import ConstBitStream
-import stack
-from CPInfo import ConstInfo, ConstTag
+# import stack
+from CPInfo import ConstInfo
+
 # pylint: disable=C0111, C0122, R0201, W0611
 
 class HeaderClass():
@@ -85,8 +86,8 @@ class HeaderClass():
         return
 
 if '__main__' == __name__:
-    d = HeaderClass()
-    print(d.get_magic())
-    print(d.get_minor(), "minor%%%%")
-    print(d.get_major(), "$$$$$$$$major")
-    h = d.get_const_pool()
+    HEADERS = HeaderClass()
+    print(HEADERS.get_magic())
+    print(HEADERS.get_minor(), "minor%%%%")
+    print(HEADERS.get_major(), "$$$$$$$$major")
+    h = HEADERS.get_const_pool()
