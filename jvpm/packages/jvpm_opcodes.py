@@ -1,6 +1,5 @@
-"""Read bit stream."""
+"""Read cp and opcodes."""
 from collections import defaultdict
-from collections import deque
 from bitstring import ConstBitStream
 from . import jvpm_dict, jvpm_methods, read_attribute, CPInfo  # import external opcode dictionary
 
@@ -136,7 +135,6 @@ class HeaderClass():
                                                                       self.add_one_byte]), "02x"))
             attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location +
                                                                              self.add_one_byte])
-
             self.reader_location += 2
             attribute_index = 0
 
@@ -179,8 +177,6 @@ class OpCodes():
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods."""
     def __init__(self, opcode, constantpool):
-        # Eventually we will acquire these values from the CP, but they are hardcoded for now.
-        #self.opcodes = ['2a', '59', '4c', '2b', 'b6', '3d', 'b6', '3e', '1c', '1d', '60', 'b6']
         self.constantpool = constantpool
         self.opcodes = opcode
 
