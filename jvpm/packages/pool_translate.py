@@ -1,7 +1,6 @@
 """Module that parses and translates the constant pool."""
 import struct
 import binascii
-
 # pylint: disable=C0111, C0200, R0201, W0613, W0611, W0622, R0902, C0103, W0612, C0301
 
 METHOD_REFS = []
@@ -224,3 +223,6 @@ class PoolTranslate:
                 pool_index += 1
             pool_index += 1
         return self.translated_pool
+    
+    # *****************************************************************************
+
