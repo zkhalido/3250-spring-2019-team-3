@@ -9,8 +9,7 @@ from . import jvpm_opcodes, pool_methods
 
 super_index = 0
 METHOD_REFS = []
-cp_strings = []
-TRANSLATED_POOL = []
+TRANSLATED_STRINGS = []
 
 # ****************************************************************************************
 
@@ -233,7 +232,7 @@ class PoolTranslate:
         while pool_index <= self.constant_pool_length + self.skips_in_pool-1:
             self.translated_pool[pool_index] = pool_translater.method_dict(self.pulled_constant_pool,
                                                                            pool_index)
-            TRANSLATED_POOL.append(self.translated_pool[pool_index])
+            TRANSLATED_STRINGS.append(self.translated_pool[pool_index])
             if (self.pulled_constant_pool[pool_index][0] == '05' or self.pulled_constant_pool[pool_index][0] == '06'):
                 pool_index += 1
             pool_index += 1
