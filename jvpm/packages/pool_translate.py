@@ -1,8 +1,8 @@
+"""Module that parses and translates the constant pool."""
 import struct
 import binascii
-# from . import jvpm_opcodes, pool_methods
 
-# pylint: disable=C0111, C0200, R0201, W0613, W0611, W0622, R0902, C0103, W0612
+# pylint: disable=C0111, C0200, R0201, W0613, W0611, W0622, R0902, C0103, W0612, C0301
 
 METHOD_REFS = []
 TRANSLATED_STRINGS = []
