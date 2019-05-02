@@ -2,8 +2,9 @@
 from collections import defaultdict
 from bitstring import ConstBitStream
 from CPInfo import ConstInfo
-
 # pylint: disable=C0111, C0122, R0201, W0611
+
+# *****************************************************************************
 
 class HeaderClass():
 
@@ -78,9 +79,13 @@ class HeaderClass():
     def get_attributes(self):
         return
 
+    # *****************************************************************************
+
 if '__main__' == __name__:
     HEADERS = HeaderClass()
     print(HEADERS.get_magic())
     print(HEADERS.get_minor(), "minor%%%%")
     print(HEADERS.get_major(), "$$$$$$$$major")
     HEADER_POOL = HEADERS.get_const_pool()
+    
+    # *****************************************************************************
