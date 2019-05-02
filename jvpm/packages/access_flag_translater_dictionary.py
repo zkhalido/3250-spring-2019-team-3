@@ -1,4 +1,7 @@
 """translates the access flags"""
+
+# ****************************************************************************************
+
 class AccessFlagTranslater:
     """class for translating the access flags"""
     def translate_access_flag(self, access_flag_value):
@@ -17,3 +20,5 @@ class AccessFlagTranslater:
             4000 : "ACC_ENUM"
         }
         return access_flag[access_flag_value]
+    
+# ****************************************************************************************
