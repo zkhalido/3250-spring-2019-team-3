@@ -1,4 +1,7 @@
 """Module that creates a stack along with methods to access the Stack"""
+
+# *****************************************************************************
+
 class Stack:
     """Class that creates a Stack, with methods to interact with the Stack"""
     def __init__(self):
@@ -23,3 +26,5 @@ class Stack:
     def size(self):
         """Tells how many items are on the stack"""
         return len(self.items)
+    
+    # *****************************************************************************
