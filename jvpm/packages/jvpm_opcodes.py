@@ -2,7 +2,6 @@
 from collections import defaultdict
 from bitstring import ConstBitStream
 from . import jvpm_dict, jvpm_methods, read_attribute, CPInfo  # import external opcode dictionary
-
 # pylint: disable=C0111, W0612, R0903, R0902
 
 # ****************************************************************************************
@@ -192,3 +191,6 @@ class OpCodes():
             if opcall != "Byte code not found!":
                 jvpm_methods_object.token_dict(opcall, self.opcodes, self.constantpool,)
             i += 1
+
+    # *****************************************************************************
+
