@@ -7,7 +7,7 @@ from . import jvpm_opcodes, pool_methods
 
 # pylint: disable=C0111, C0200, R0201, W0613, W0611, W0622
 
-super_index = 0
+SUPER_INDEX = 0
 METHOD_REFS = []
 TRANSLATED_STRINGS = []
 
@@ -30,7 +30,7 @@ class PoolTranslate:
         self.skips_in_pool = skips
         self.constant_pool_length = len(self.pulled_constant_pool)
         self.translated_pool = ["0"] * (self.constant_pool_length + self.skips_in_pool)
-        self.super_index = 0
+        self.SUPER_INDEX = 0
 
     def UTF_8_string(self, sub_list):  # 01
 
