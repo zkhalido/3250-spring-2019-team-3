@@ -1,9 +1,9 @@
 """Imports"""
-from collections import deque
+# from collections import deque
 import numpy
 from .stack import Stack
-from . import jvpm_opcodes, pool_translate
-# pylint: disable=R0201, R0904, W0613
+from . import pool_translate, jvpm_opcodes
+# pylint: disable=R0201, R0904, W0613, C0111
 
 # ****************************************************************************************
 
