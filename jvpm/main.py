@@ -13,7 +13,7 @@ if '__main__' == __name__:                  #pragma: no cover
     header_class_object.get_major()
 
     get_cp = header_class_object.get_const_pool()
-    # print(n)
+    # print(get_cp)
     p_translator = packages.pool_translate.PoolTranslate(get_cp, header_class_object.skips_in_constant_pool, name = file_name)
 
     pool = p_translator.translate_pool()
@@ -29,12 +29,12 @@ if '__main__' == __name__:                  #pragma: no cover
     # print(super_class, "   super class")
 
     get_ic = header_class_object.get_interfaces_count()
-    # print(d, "   interfaces count")
+    # print(get_ic, "   interfaces count")
 
     header_class_object.get_interface() # no method built yet but should just be index in constant pool
 
-    e = header_class_object.get_field_count()
-    # print(e, "   field count")
+    get_fc = header_class_object.get_field_count()
+    # print(get_fc, "   field count")
 
     header_class_object.get_field() # no method built yet but should just be variable table
 
