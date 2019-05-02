@@ -3,6 +3,8 @@ jvpm_dict
 Method finds bytecode in dictionary and returns opcode
 """
 
+# ****************************************************************************************
+
 JVPM_DICT = {
     "2a": "aload_0",
     "2b": "aload_1",
@@ -109,11 +111,14 @@ JVPM_DICT = {
     "83": "lxor"
     }
 
+# ****************************************************************************************
+
 def get_opcode(byte_code):
     """ Return opcode from given byte code, or an error message if not found """
     try:
         opcode = JVPM_DICT[byte_code]
     except KeyError:
         opcode = "Byte code not found!"
-
     return opcode
+
+# ****************************************************************************************
