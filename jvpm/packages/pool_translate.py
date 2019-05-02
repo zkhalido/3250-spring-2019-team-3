@@ -1,8 +1,6 @@
-from collections import defaultdict
-# from collections import deque
+# from collections import defaultdict
 import struct
 import binascii
-# import numpy
 from . import jvpm_opcodes, pool_methods
 
 # pylint: disable=C0111, C0200, R0201, W0613, W0611, W0622, R0902, C0103, W0612
