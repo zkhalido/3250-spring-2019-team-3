@@ -3,7 +3,7 @@ class test1_float {
         double a = 1.2;
         double b = 2.8;
         double c = a + b;
-        print(c);
+        println(c);
         // int c = ((((a + b) * b) / b) - b);
     };
 }
