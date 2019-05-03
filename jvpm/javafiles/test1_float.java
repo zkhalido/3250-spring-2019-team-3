@@ -4,6 +4,5 @@ class test1_float {
         double b = 2.8;
         double c = a + b;
         System.out.println(c);
-        // int c = ((((a + b) * b) / b) - b);
     };
 }
