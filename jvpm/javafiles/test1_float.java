@@ -1,8 +1,9 @@
 class test1_float {
     static void main(String[] args) {
-        int a = 1;
-        int b = 2;
-        int c = a + b;
+        double a = 1.2;
+        double b = 2.8;
+        double c = a + b;
+        print(c);
         // int c = ((((a + b) * b) / b) - b);
     };
 }
