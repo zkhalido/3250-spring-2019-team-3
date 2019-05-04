@@ -26,43 +26,48 @@ class test_const_pool(unittest.TestCase):
     def test_const_pool(self):
 
         test_bits = ConstBitStream('0x070003' +
-            '0914020a15200b0006082803000404000f' +
-            '0500124c6f06000474680c00080100046d61696e' +
-            '0f0016281000041000135b4c')
+            '09001400020a001500200b0000b0060800280300100004' +
+            '040300000f0506000012004c006f06030000'+
+            '04007400680c050000080100046d61696e' +
+            '0f0201601060041200135b4c')
         i = 1
+        n = []
         while i <= 14:
             x = packages.CPInfo.ConstInfo().read(test_bits)
+            n.append(x)    
+            i += 1
 
         a = {
             0: ['07', '03'],
             1: ['09', '14', '02'],
             2: ['0a', '15', '20'],
-            3: ['0b', '00', '06'],
+            3: ['0b', 'b0', '06'],
             4: ['08', '28'],
-            5: ['03', '00', '04'],
-            6: ['04', '00', '0f'],
-            7: ['05', '00', '12', '4c', '6f'],
-            8: ['06', '00', '04', '74', '68'],
-            9: ['0c', '00', '08'],
+            5: ['03', '10', '04'],
+            6: ['04', '03', '0f'],
+            7: ['05', '06', '12', '4c', '6f'],
+            8: ['06', '03', '04', '74', '68'],
+            9: ['0c', '05', '08'],
             10: ['01', '00', '04', '6d', '61', '69', '6e'],
-            11: ['0f', '00', '16', '28'],
-            12: ['10', '00', '04'],
-            13: ['12', '00', '13', '5b', '4c']
+            11: ['0f', '02', '01', '60'],
+            12: ['10', '60', '04'],
+            13: ['12', '13', '5b', '4c']
         }
 
-        self.assertEqual(n[1], a[0])
-        self.assertEqual(n[2], a[1])
-        self.assertEqual(n[3], a[2])
-        self.assertEqual(n[4], a[3])
-        self.assertEqual(n[5], a[4])
-        self.assertEqual(n[6], a[5])
-        self.assertEqual(n[7], a[6])
-        self.assertEqual(n[8], a[7])
-        self.assertEqual(n[9], a[8])
-        self.assertEqual(n[10], a[9])
-        self.assertEqual(n[11], a[10])
-        self.assertEqual(n[12], a[11])
-        self.assertEqual(n[13], a[12])
+        self.assertEqual(n[0], a[0])
+        self.assertEqual(n[1], a[1])
+        self.assertEqual(n[2], a[2])
+        self.assertEqual(n[3], a[3])
+        self.assertEqual(n[4], a[4])
+        self.assertEqual(n[5], a[5])
+        self.assertEqual(n[6], a[6])
+        self.assertEqual(n[7], a[7])
+        self.assertEqual(n[8], a[8])
+        self.assertEqual(n[9], a[9])
+        self.assertEqual(n[10], a[10])
+        self.assertEqual(n[11], a[11])
+        self.assertEqual(n[12], a[12])
+        self.assertEqual(n[13], a[13])
 
 
 class test_pool_translate1(unittest.TestCase):
