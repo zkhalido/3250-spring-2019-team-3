@@ -52,10 +52,14 @@ class OpCodeMethods():
     def next_int(self, opcode, constantpool, argument):
         """receive input from the keyboard."""
         var = input()
+        print(var)
+        print(type(var))
         if isinstance(var, float):
             var1 = var.float64(var)
-        else isinstance(var, int):
+            print(var)
+        elif isinstance(var, int):
             var1 = numpy.int64(var)
+            print(var)
             
         Stack.push(var1)
 
