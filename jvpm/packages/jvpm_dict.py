@@ -69,46 +69,49 @@ JVPM_DICT = {
     "36": "istore",          # store int value into variable #index
     "3b": "istore_0",        # store int value into variable 0
     "3c": "istore_1",        # store int value into variable 1
+    "44": "istore_1",        #store float value into variable 1
     "3d": "istore_2",        # store int value into variable 2
+    "45":  "istore_2",        # store float value in variable 2
     "3e": "istore_3",        # store int value into variable 3
+    "46": "istore_3",        # store float value into variable 3
     "64": "isub",            # int subtract
     "7c": "iushr",           # int logical shift right
     "82": "ixor",            # xor
     "59": "dup",             # duplicates the top of the stack
-    "8a": "l2d",
-    "89": "l2f",
-    "88": "l2i",
-    "61": "ladd",
-    "2f": "laload",
-    "7f": "land",
-    "50": "lastore",
-    "94": "lcmp",
-    "09": "lconst_0",
-    "0a": "lconst_1",
-    "12": "ldc",
-    "13": "ldc_w",
-    "14": "ldc2_w",
-    "6d": "ldiv",
-    "16": "lload",
-    "1e": "lload_0",
-    "1f": "lload_1",
-    "20": "lload_2",
-    "21": "lload_3",
-    "69": "lmul",
-    "75": "lneg",
-    "81": "lor",
-    "71": "lrem",
-    "ad": "lreturn",
-    "79": "lshl",
-    "7b": "lshr",
-    "37": "lstore",
-    "3f": "lstore_0",
-    "40": "lstore_1",
-    "41": "lstore_2",
-    "42": "lstore_3",
-    "65": "lsub",
-    "7d": "lushr",
-    "83": "lxor"
+    "8a": "i2d",
+    "89": "i2f",
+    "88": "i2i",
+    "61": "iadd",
+    "2f": "iaload",
+    "7f": "iand",
+    "50": "iastore",
+    "94": "icmp",
+    "09": "iconst_0",
+    "0a": "iconst_1",
+    "12": "idc",
+    "13": "idc_w",
+    "14": "idc2_w",
+    "6d": "idiv",
+    "16": "iload",
+    "1e": "iload_0",
+    "1f": "iload_1",
+    "20": "iload_2",
+    "21": "iload_3",
+    "69": "imul",
+    "75": "ineg",
+    "81": "ior",
+    "71": "irem",
+    "ad": "ireturn",
+    "79": "ishl",
+    "7b": "ishr",
+    "37": "istore",
+    "3f": "istore_0",
+    "40": "istore_1",
+    "41": "istore_2",
+    "42": "istore_3",
+    "65": "isub",
+    "7d": "iushr",
+    "83": "ixor"
     }
 
 # ****************************************************************************************
