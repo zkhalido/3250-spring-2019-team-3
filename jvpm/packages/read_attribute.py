@@ -60,18 +60,7 @@ class ReadAttribute():
         ############## exception table
         #if exception_table_length > 0:
         for x in range(exception_table_length):
-            attribute_table.append(format((data[reader_location]), "02x"))  # start pc
-            attribute_table.append(format((data[reader_location + add_one_byte]), "02x"))
-            reader_location += 2
-            attribute_table.append(format((data[reader_location]), "02x"))  # end pc
-            attribute_table.append(format((data[reader_location + add_one_byte]), "02x"))
-            reader_location += 2
-            attribute_table.append(format((data[reader_location]), "02x"))  # handler pc pc
-            attribute_table.append(format((data[reader_location + add_one_byte]), "02x"))
-            reader_location += 2
-            attribute_table.append(format((data[reader_location]), "02x"))  # catch type
-            attribute_table.append(format((data[reader_location + add_one_byte]), "02x"))
-            reader_location += 2
+            pass
 
         ############## attribute count
         attribute_table.append(format((data[reader_location]), "02x"))  # attribute count
@@ -139,7 +128,7 @@ class ReadAttribute():
         return reader_location
 
     def get_source_file(self, methods_table, reader_location, data, op_codes, method_index, pool):
-        x = 0
+        pass
 
     # DO NOT DELETE WILL NEED FOR LATER CLASS FILES*
 

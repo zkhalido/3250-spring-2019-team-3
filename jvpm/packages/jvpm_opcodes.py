@@ -93,10 +93,10 @@ class HeaderClass():
         if self.integer_field_count == 0:
             pass
             # print("field table empty")
-        else:
-            for i in range(self.field_count):
-                field = []
-                field.clear()
+        #else:
+            #for i in range(self.field_count):
+                #field = []
+                #field.clear()
 
     def get_methods_count(self):
         self.integer_method_count = self.class_file_item_count_to_int()
@@ -105,7 +105,8 @@ class HeaderClass():
 
     def get_methods(self, pool):
         if self.integer_method_count == 0:
-            print("method table empty")
+            pass
+            #print("method table empty")
 
         method_index = 0
         while method_index < self.integer_method_count:

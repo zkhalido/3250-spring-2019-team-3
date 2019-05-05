@@ -22,9 +22,9 @@ class OpCodeMethods():
         """(2b)Load a reference to stack."""
         # do nothing yet
 
-    def astore_1(self, opcode, constantpool, argument):
-        """Store reference to the local array."""
-        self.istore_1(opcode, constantpool, argument)
+    # def astore_1(self, opcode, constantpool, argument):
+    #     """Store reference to the local array."""
+    #     self.istore_1(opcode, constantpool, argument)
 
     def dup(self, opcode, constantpool, argument):
         """Doubles the top item on the stack."""
@@ -43,11 +43,6 @@ class OpCodeMethods():
             var2 = numpy.float64(var2)
             var1 = numpy.float64(var1)
             Stack.push(var1 + var2)
-
-    def invokevirtual(self, location, constantpool, argument):
-        """gets method from constant pool and calls it."""
-        method = constantpool[location]
-        self.token_dict(method, location, constantpool)
 
     def next_int(self, opcode, constantpool, argument):
         """receive input from the keyboard."""
@@ -250,7 +245,7 @@ class OpCodeMethods():
 
         "aload_0": aload_0,
         "aload_1": aload_1,
-        "astore_1": astore_1,
+        "astore_1": istore_1,
         "dup": dup,
         "iadd": iadd,  # add two ints
         "iand": iand,  # perform a bitwise AND on two integers
@@ -269,7 +264,6 @@ class OpCodeMethods():
         "iload_3": iload_3,  # load an int value from local variable[3]
         "imul": imul,  # multiply two integers
         "ineg": ineg,  # negate int
-        "invokevirtual": invokevirtual, # gets method from constant pool and calls it.
         "ior": ior,  # bitwise int OR
         "irem": irem,  # logical in remainder
         "ishl": ishl,  # int shift left
