@@ -63,7 +63,7 @@ class OpCodeMethods():
 #             print(var)
 #         elif isinstance(var, int):
 #             var1 = numpy.int64(var)
-        print(var)  
+        print(var1)  
         Stack.push(var1)
 
     def println(self, opcode, constantpool, argument):
