@@ -33,7 +33,7 @@ class OpCodeMethods():
 
     def iadd(self, opcode, constantpool, argument):
         """iadd: add two ints from the stack."""
-        var = S.peek()
+        var = Stack.peek()
         if isinstance(var, float):
             var2 = numpy.float64(Stack.pop())
             var1 = numpy.float64(Stack.pop())
