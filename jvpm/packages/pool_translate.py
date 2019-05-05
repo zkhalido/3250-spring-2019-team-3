@@ -61,7 +61,7 @@ class PoolTranslate:
         return dec_long
 
     def tag_double(self, sub_list):  # 6
-        print("Double    8 bytes")
+        pass
 
     def class_reference(self, sub_list):  # 7
         index = 0
@@ -119,7 +119,7 @@ class PoolTranslate:
         return complete_string
 
     def interface_method_reference(self, sub_list):  # 11
-        print("Interface Method Reference    4 bytes")
+        pass
 
     def name_and_type_discriptor(self, sub_list):  # 12
         index = 0
@@ -136,7 +136,7 @@ class PoolTranslate:
         return complete_string
 
     def method_handle(self, sub_list):  # 15
-        print("Method Handle    3 bytes")
+
 
         type = {
             1: "REF_getField",
@@ -151,19 +151,19 @@ class PoolTranslate:
         }
 
     def method_type(self, sub_list):  # 16
-        print("Method Type    2 bytes")
+        pass
 
     def dynamic(self, sub_list):  # 17
-        print("Dynamic    4 bytes")
+        pass
 
     def invoke_dynamic(self, sub_list):  # 18
-        print("Invoke Dynamic    4 bytes")
+        pass
 
     def module(self, sub_list):  # 19
-        print("Module    2 bytes")
+        pass
 
     def package(self, sub_list):  # 20
-        print("Package    2 bytes")
+        pass
 
     switcher = {
 

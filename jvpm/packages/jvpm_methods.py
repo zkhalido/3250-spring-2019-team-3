@@ -236,7 +236,7 @@ class OpCodeMethods():
         Stack.push(numpy.int64(variable1))
 
     def invalid(self, opcode, constantpool, argument):
-        print(argument, " method call is invalid")
+        pass
 
     def ldc(self, opcode, constantpool, argument):
         Stack.push(pool_translate.TRANSLATED_STRINGS[2])

@@ -188,37 +188,18 @@ class test_pool_methods(unittest.TestCase):
 
 
          translated_const_pool.interface_method_reference(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Interface Method Reference    4 bytes")]
-         )
 
          translated_const_pool.method_handle(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Method Handle    3 bytes")]
-         )
 
          translated_const_pool.method_type(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Method Type    2 bytes")]
-         )
 
          translated_const_pool.dynamic(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Dynamic    4 bytes")]
-         )
-         translated_const_pool.invoke_dynamic(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Invoke Dynamic    4 bytes")]
-         )
-         translated_const_pool.module(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Module    2 bytes")]
-         )
-         translated_const_pool.package(x_list)
-         sys.stdout.assert_has_calls(
-             [call.write("Package    2 bytes")]
-         )
 
+         translated_const_pool.invoke_dynamic(x_list)
+
+         translated_const_pool.module(x_list)
+
+         translated_const_pool.package(x_list)
 
          translated_const_pool = packages.pool_methods.TagTranslate()
          self.assertEqual(translated_const_pool.token_dict(new_dict['1']), "UTF 8 String")
@@ -895,6 +876,32 @@ class test_pool_opcodes(unittest.TestCase):
         self.assertEqual(jvpm_opcodes_obj.get_field(), None)
         self.assertEqual(jvpm_opcodes_obj.get_methods_count(), methods_count)
         self.assertEqual(jvpm_opcodes_obj.get_methods(translated_pool), op_codes)
+
+    def test_hello_world(self):
+        file_name = "jvpm/javafiles/HelloWorld.class"
+        header_class_object = packages.jvpm_opcodes.HeaderClass(name=file_name)
+        header_class_object.get_magic()
+        header_class_object.get_minor()
+        header_class_object.get_major()
+        get_cp = header_class_object.get_const_pool()
+        p_translator = packages.pool_translate.PoolTranslate(get_cp, header_class_object.skips_in_constant_pool,
+                                                             name=file_name)
+        pool = p_translator.translate_pool()
+        access_flags = header_class_object.get_access_flags()
+        this_class = header_class_object.get_this_class()
+        super_class = header_class_object.get_super_class()
+        get_ic = header_class_object.get_interfaces_count()
+        header_class_object.get_interface()  # no method built yet but should just be index in constant pool
+        get_fc = header_class_object.get_field_count()
+        header_class_object.get_field()  # no method built yet but should just be variable table
+        opcodes = header_class_object.get_methods_count()
+        opcodes = header_class_object.get_methods(pool)
+
+        # ****************************************************************************************
+
+        dict_search_object = packages.jvpm_opcodes.OpCodes(opcodes, pool)
+        dict_search_object.dict_search()
+        sys.stdout.assert_has_calls([call.write('java/lang/System.in:Ljava/io/InputStream;'), call.write('\n')])
 
 
 class TestAccessFlagTranslater(unittest.TestCase):
