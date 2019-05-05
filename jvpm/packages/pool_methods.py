@@ -1,7 +1,5 @@
-"""Module that assigns a name for each input."""
-from collections import defaultdict
-
-# pylint: disable=C0111, R0201
+"""Module that assigns a name to each input."""
+# pylint: disable=C0111, R0201, C0103
 
 # ****************************************************************************************
 

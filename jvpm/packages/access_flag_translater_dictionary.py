@@ -1,4 +1,8 @@
 """translates the access flags"""
+# pylint: disable=R0201,R0903
+
+# ****************************************************************************************
+
 class AccessFlagTranslater:
     """class for translating the access flags"""
     def translate_access_flag(self, access_flag_value):
@@ -17,3 +21,5 @@ class AccessFlagTranslater:
             4000 : "ACC_ENUM"
         }
         return access_flag[access_flag_value]
+
+# ****************************************************************************************

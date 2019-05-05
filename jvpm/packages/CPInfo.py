@@ -1,6 +1,7 @@
 """Module that parses the Constant Pool."""
-
 # pylint: disable=C0111,W0612
+
+# ****************************************************************************************
 
 class ConstInfo:
     """Class with modules that parse the CP."""
@@ -12,9 +13,7 @@ class ConstInfo:
     def read(self, bits):
         tag = bits.read('hex:8')
         self.pool.append(tag)
-
         self.const_tag_dict[tag](self, bits)
-
         return self.pool
 
     def parse_class(self, bits):
@@ -105,6 +104,8 @@ class ConstInfo:
             if next_byte != "00":
                 self.pool.append(next_byte)
 
+# ****************************************************************************************
+
     const_tag_dict = {
         "07" : parse_class,
         "09" : parse_field,
@@ -121,3 +122,5 @@ class ConstInfo:
         "10" : parse_method_type,
         "12" : parse_invoke_dynamic,
     }
+
+# ****************************************************************************************
