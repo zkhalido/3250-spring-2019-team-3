@@ -223,6 +223,6 @@ class PoolTranslate:
                 pool_index += 1
             pool_index += 1
         return self.translated_pool
-    
+
     # *****************************************************************************
 
