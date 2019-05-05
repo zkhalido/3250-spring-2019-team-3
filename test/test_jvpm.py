@@ -1,6 +1,8 @@
 import unittest
 from unittest.mock import mock_open, patch, call
 from jvpm import packages
+from bitstring import ConstBitStream
+import numpy
 import sys
 from collections import deque, defaultdict
 
@@ -23,52 +25,51 @@ class test_get_opcode(unittest.TestCase):
 class test_const_pool(unittest.TestCase):
     def test_const_pool(self):
 
-        header_test_object = packages.jvpm_opcodes.HeaderClass(name= "jvpm/javafiles/tester.class")
-        header_test_object.get_magic()
-        header_test_object.get_minor()
-        header_test_object.get_major()
-        const_pool_test = header_test_object.get_const_pool()
 
-        mock_bytes = {
-            0: ['0a', '03', '13'],
-            1: ['07', '14'],
-            2: ['07', '15'],
-            3: ['01', '00', '06', '3c', '69', '6e', '69', '74', '3e'],
-            4: ['01', '00', '03', '28', '29', '56'],
-            5: ['01', '00', '04', '43', '6f', '64', '65'],
-            6: ['01', '00', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65'],
-            7: ['01', '00', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61','62', '6c', '65'],
-            8: ['01', '00', '04', '74', '68', '69', '73'],
-            9: ['01', '00', '08', '4c', '74', '65', '73', '74', '65', '72', '3b'],
+        test_bits = ConstBitStream('0x070003' +
+            '09001400020a001500200b0000b0060800280300100004' +
+            '040300000f0506000012004c006f06030000'+
+            '04007400680c050000080100046d61696e' +
+            '0f0201601060041200135b4c')
+        i = 1
+        n = []
+        while i <= 14:
+            x = packages.CPInfo.ConstInfo().read(test_bits)
+            n.append(x)    
+            i += 1
+
+        a = {
+            0: ['07', '03'],
+            1: ['09', '14', '02'],
+            2: ['0a', '15', '20'],
+            3: ['0b', 'b0', '06'],
+            4: ['08', '28'],
+            5: ['03', '10', '04'],
+            6: ['04', '03', '0f'],
+            7: ['05', '06', '12', '4c', '6f'],
+            8: ['06', '03', '04', '74', '68'],
+            9: ['0c', '05', '08'],
             10: ['01', '00', '04', '6d', '61', '69', '6e'],
-            11: ['01', '00', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74','72', '69', '6e', '67', '3b', '29', '56'],
-            12: ['01', '00', '04', '61', '72', '67', '73'],
-            13: ['01', '00', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72','69', '6e', '67', '3b'],
-            14: ['01', '00', '01', '61'],
-            15: ['01', '00', '01', '49'],
-            16: ['01', '00', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c', '65'],
-            17: ['01', '00', '0b', '74', '65', '73', '74', '65', '72', '2e', '6a', '61', '76', '61'],
-            18: ['0c', '04', '05'],
-            19: ['01', '00', '06', '74', '65', '73', '74', '65', '72'],
-            20: ['01', '00', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63','74']
+            11: ['0f', '02', '01', '60'],
+            12: ['10', '60', '04'],
+            13: ['12', '13', '5b', '4c']
         }
 
-        self.assertEqual(const_pool_test[1], mock_bytes[0])
-        self.assertEqual(const_pool_test[2], mock_bytes[1])
-        self.assertEqual(const_pool_test[3], mock_bytes[2])
-        self.assertEqual(const_pool_test[4], mock_bytes[3])
-        self.assertEqual(const_pool_test[5], mock_bytes[4])
-        self.assertEqual(const_pool_test[6], mock_bytes[5])
-        self.assertEqual(const_pool_test[7], mock_bytes[6])
-        self.assertEqual(const_pool_test[8], mock_bytes[7])
-        self.assertEqual(const_pool_test[9], mock_bytes[8])
-        self.assertEqual(const_pool_test[10], mock_bytes[9])
-        self.assertEqual(const_pool_test[11], mock_bytes[10])
-        self.assertEqual(const_pool_test[12], mock_bytes[11])
-        self.assertEqual(const_pool_test[13], mock_bytes[12])
-        self.assertEqual(const_pool_test[14], mock_bytes[13])
-        self.assertEqual(const_pool_test[15], mock_bytes[14])
-        self.assertEqual(const_pool_test[16], mock_bytes[15])
+        self.assertEqual(n[0], a[0])
+        self.assertEqual(n[1], a[1])
+        self.assertEqual(n[2], a[2])
+        self.assertEqual(n[3], a[3])
+        self.assertEqual(n[4], a[4])
+        self.assertEqual(n[5], a[5])
+        self.assertEqual(n[6], a[6])
+        self.assertEqual(n[7], a[7])
+        self.assertEqual(n[8], a[8])
+        self.assertEqual(n[9], a[9])
+        self.assertEqual(n[10], a[10])
+        self.assertEqual(n[11], a[11])
+        self.assertEqual(n[12], a[12])
+        self.assertEqual(n[13], a[13])
+
 
 
 class test_pool_translate1(unittest.TestCase):

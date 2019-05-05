@@ -71,14 +71,9 @@ class PoolTranslate:
             new_index = int(sub_list[index], 16)
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
-            if len(sub_list) > 1:
-                if strings_to_combine < 1:
-                    pulled_string = pulled_string + "."
-                strings_to_combine += 1
-                complete_string += pulled_string
-            else:
-                complete_string = pulled_string
-        return complete_string
+
+        return pulled_string
+
 
     def string_reference(self, sub_list):  # 8
         index = 0
@@ -88,14 +83,9 @@ class PoolTranslate:
             new_index = int(sub_list[index], 16)
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
-            if len(sub_list) > 1:
-                if strings_to_combine < 1:
-                    pulled_string = pulled_string + "."
-                strings_to_combine += 1
-                complete_string += pulled_string
-            else:
-                complete_string = pulled_string
-        return complete_string
+
+        return pulled_string
+
 
     def field_reference(self, sub_list):  # 9
         index = 0
@@ -105,13 +95,12 @@ class PoolTranslate:
             new_index = int(sub_list[index], 16)
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
-            if len(sub_list) > 1:
-                if strings_to_combine < 1:
-                    pulled_string = pulled_string + "."
-                strings_to_combine += 1
-                complete_string += pulled_string
-            else:
-                complete_string = pulled_string
+
+            if strings_to_combine < 1:
+                pulled_string = pulled_string + "."
+            strings_to_combine += 1
+            complete_string += pulled_string
+
         return complete_string
 
     def method_reference(self, sub_list):  # 10

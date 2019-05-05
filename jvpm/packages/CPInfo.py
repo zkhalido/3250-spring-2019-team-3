@@ -47,7 +47,7 @@ class ConstInfo:
                 self.pool.append(next_byte)
 
     def parse_integer(self, bits):
-        for i in range(2):
+        for i in range(4):
             next_byte = bits.read('hex:8')
             if next_byte != "00":
                 self.pool.append(next_byte)
