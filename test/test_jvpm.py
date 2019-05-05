@@ -439,8 +439,13 @@ class test_op_methods(unittest.TestCase):
         self.assertEqual(peeked_var, 0)
 
     def test_astore_1(self):
+        op = None
+        con = None
+        arg = None
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
         packages.jvpm_methods.Stack.push(1)
         popped = packages.jvpm_methods.Stack.pop()
+        opcode_test.astore_1(op, con, arg)
         packages.jvpm_methods.VARIABLES.insert(1, popped)
         peeked_var = packages.jvpm_methods.VARIABLES[1]
         self.assertEqual(peeked_var, 1)

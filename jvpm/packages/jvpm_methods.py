@@ -22,9 +22,9 @@ class OpCodeMethods():
         """(2b)Load a reference to stack."""
         # do nothing yet
 
-    def astore_1(self, opcode, constantpool, argument):
-        """Store reference to the local array."""
-        self.istore_1(opcode, constantpool, argument)
+    # def astore_1(self, opcode, constantpool, argument):
+    #     """Store reference to the local array."""
+    #     self.istore_1(opcode, constantpool, argument)
 
     def dup(self, opcode, constantpool, argument):
         """Doubles the top item on the stack."""
@@ -246,7 +246,7 @@ class OpCodeMethods():
 
         "aload_0": aload_0,
         "aload_1": aload_1,
-        "astore_1": astore_1,
+        "astore_1": istore_1,
         "dup": dup,
         "iadd": iadd,  # add two ints
         "iand": iand,  # perform a bitwise AND on two integers
