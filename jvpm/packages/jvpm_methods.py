@@ -2,7 +2,7 @@
 import numpy
 from .stack import Stack
 from . import pool_translate, jvpm_opcodes
-# pylint: disable=R0201, R0904, W0613, C0111
+# pylint: disable=R0201, R0904, W0613, C0111, C0123
 
 # ****************************************************************************************
 
