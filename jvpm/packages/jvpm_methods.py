@@ -33,14 +33,15 @@ class OpCodeMethods():
 
     def iadd(self, opcode, constantpool, argument):
         """iadd: add two ints from the stack."""
-        var = Stack.peek()
-        if type(var) == numpy.int64:
-            var2 = numpy.int64(Stack.pop())
-            var1 = numpy.int64(Stack.pop())
+        var2 = Stack.pop()
+        var1 = Stack.pop()
+        if type(var1) == numpy.int64 and type(var2) == numpy.int64:
+            var2 = numpy.int64(var2)
+            var1 = numpy.int64(var1)
             Stack.push(var1 + var2)
         else:
-            var2 = numpy.float64(Stack.pop())
-            var1 = numpy.float64(Stack.pop())
+            var2 = numpy.float64(var2)
+            var1 = numpy.float64(var1)
             Stack.push(var1 + var2)
 
     def invokevirtual(self, location, constantpool, argument):
@@ -63,10 +64,6 @@ class OpCodeMethods():
         if Stack.peek() == 0:
             Stack.pop()
         print(str(Stack.pop()))
-        # print(str(Stack.pop()))
-        # print(str(Stack.pop()))
-        # print(str(Stack.pop()))
-
 
     def iand(self, opcode, constantpool, argument):
         """perform a bitwise AND on two integers."""
