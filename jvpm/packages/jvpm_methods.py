@@ -33,8 +33,8 @@ class OpCodeMethods():
 
     def iadd(self, opcode, constantpool, argument):
         """iadd: add two ints from the stack."""
-        var2 = numpy.int32(Stack.pop())
-        var1 = numpy.int32(Stack.pop())
+        var2 = numpy.float64(Stack.pop())
+        var1 = numpy.float64(Stack.pop())
         Stack.push(var1 + var2)
 
     def invokevirtual(self, location, constantpool, argument):
