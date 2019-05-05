@@ -88,7 +88,7 @@ JVPM_DICT = {
     "94": "icmp",
     "09": "iconst_0",
     "0a": "iconst_1",
-    "12": "idc",
+    "12": "ldc",
     "13": "idc_w",
     "14": "idc2_w",
     "6d": "idiv",
