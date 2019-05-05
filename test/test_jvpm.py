@@ -292,6 +292,11 @@ class test_op_methods(unittest.TestCase):
         opcode_test.iadd(op, con, arg)
         popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, 3)
+        packages.jvpm_methods.Stack.push(2.1)
+        packages.jvpm_methods.Stack.push(1.2)
+        opcode_test.iadd(op, con, arg)
+        popped_var = packages.jvpm_methods.Stack.pop()
+        self.assertEqual(popped_var, 3.3)
 
     def test_iand(self):
         op = None
