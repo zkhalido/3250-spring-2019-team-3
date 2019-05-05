@@ -44,11 +44,6 @@ class OpCodeMethods():
             var1 = numpy.float64(var1)
             Stack.push(var1 + var2)
 
-    def invokevirtual(self, location, constantpool, argument):
-        """gets method from constant pool and calls it."""
-        method = constantpool[location]
-        self.token_dict(method, location, constantpool)
-
     def next_int(self, opcode, constantpool, argument):
         """receive input from the keyboard."""
         var = input()
@@ -269,7 +264,6 @@ class OpCodeMethods():
         "iload_3": iload_3,  # load an int value from local variable[3]
         "imul": imul,  # multiply two integers
         "ineg": ineg,  # negate int
-        "invokevirtual": invokevirtual, # gets method from constant pool and calls it.
         "ior": ior,  # bitwise int OR
         "irem": irem,  # logical in remainder
         "ishl": ishl,  # int shift left

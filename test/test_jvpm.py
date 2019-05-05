@@ -829,6 +829,28 @@ class test_op_methods(unittest.TestCase):
         popped_var = packages.jvpm_methods.Stack.pop()
         self.assertEqual(popped_var, -1)
 
+    def test_i2s(self):
+        op = None
+        con = None
+        arg = None
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.Stack.push(5)
+        opcode_test.i2s(op, con, arg)
+        popped_var = packages.jvpm_methods.Stack.pop()
+        self.assertEqual(popped_var, 5)
+
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.Stack.push(0)
+        opcode_test.i2s(op, con, arg)
+        popped_var = packages.jvpm_methods.Stack.pop()
+        self.assertEqual(popped_var, 0)
+
+        opcode_test = packages.jvpm_methods.OpCodeMethods()
+        packages.jvpm_methods.Stack.push(-1)
+        opcode_test.i2d(op, con, arg)
+        popped_var = packages.jvpm_methods.Stack.pop()
+        self.assertEqual(popped_var, -1)
+
     def test_dup(self):
         op = None
         con = None
