@@ -54,13 +54,16 @@ class OpCodeMethods():
         var = input()
         print(var)
         print(type(var))
-        if isinstance(var, float):
-            var1 = var.float64(var)
-            print(var)
-        elif isinstance(var, int):
+        if var.isdigit():
             var1 = numpy.int64(var)
-            print(var)
-            
+        else:
+            var1 = numpy.float64(var)
+#         if isinstance(var, float):
+#             var1 = numpy.float64(var)
+#             print(var)
+#         elif isinstance(var, int):
+#             var1 = numpy.int64(var)
+        print(var)  
         Stack.push(var1)
 
     def println(self, opcode, constantpool, argument):
