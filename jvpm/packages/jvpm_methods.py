@@ -54,7 +54,7 @@ class OpCodeMethods():
         var = input()
         if isinstance(var, float):
             var1 = var.float64(var)
-        elif isinstance(var, int):
+        else isinstance(var, int):
             var1 = numpy.int64(var)
             
         Stack.push(var1)
