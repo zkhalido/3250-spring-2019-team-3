@@ -12,6 +12,5 @@ class FileNameInputPrompt:
         directory = "jvpm/javafiles/"
         new_name = directory + name + extension
         return new_name
-
 # ****************************************************************************************
     
