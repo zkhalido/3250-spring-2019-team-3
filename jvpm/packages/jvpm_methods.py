@@ -34,20 +34,14 @@ class OpCodeMethods():
     def iadd(self, opcode, constantpool, argument):
         """iadd: add two ints from the stack."""
         var = Stack.peek()
-        print(var, type(var))
         if type(var) == numpy.int64:
-            print("inside if", type(var))
             var2 = numpy.int64(Stack.pop())
             var1 = numpy.int64(Stack.pop())
             Stack.push(var1 + var2)
         else:
-            print("inside elif")
             var2 = numpy.float64(Stack.pop())
             var1 = numpy.float64(Stack.pop())
             Stack.push(var1 + var2)
-        # var2 = numpy.float64(Stack.pop())
-        # var1 = numpy.float64(Stack.pop())
-        # Stack.push(var1 + var2)
 
     def invokevirtual(self, location, constantpool, argument):
         """gets method from constant pool and calls it."""
@@ -57,22 +51,12 @@ class OpCodeMethods():
     def next_int(self, opcode, constantpool, argument):
         """receive input from the keyboard."""
         var = input()
-        print(var)
-        print(type(var))
         if var.isdigit():
             var1 = numpy.int64(var)
-            print(type(var1))
             Stack.push(var1)
         else:
             var1 = numpy.float64(var)
             Stack.push(var1)
-#         if isinstance(var, float):
-#             var1 = numpy.float64(var)
-#             print(var)
-#         elif isinstance(var, int):
-#             var1 = numpy.int64(var)
-        print(var1)  
-        # Stack.push(var1)
 
     def println(self, opcode, constantpool, argument):
         """print from the stack."""
