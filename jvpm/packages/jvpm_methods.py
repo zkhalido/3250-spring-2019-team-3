@@ -44,7 +44,7 @@ class OpCodeMethods():
 
     def next_int(self, opcode, constantpool, argument):
         """receive input from the keyboard."""
-        var1 = numpy.int32(int(input()))
+        var1 = numpy.float64(int(input()))
         Stack.push(var1)
 
     def println(self, opcode, constantpool, argument):
