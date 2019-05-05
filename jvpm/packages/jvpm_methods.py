@@ -33,6 +33,13 @@ class OpCodeMethods():
 
     def iadd(self, opcode, constantpool, argument):
         """iadd: add two ints from the stack."""
+        var = S.peek()
+        if isinstance(var, float):
+            var2 = numpy.float64(Stack.pop())
+            var1 = numpy.float64(Stack.pop())
+        elif isinstance(var, int):
+            var2 = numpy.int64(Stack.pop())
+            var1 = numpy.int64(Stack.pop())
         var2 = numpy.float64(Stack.pop())
         var1 = numpy.float64(Stack.pop())
         Stack.push(var1 + var2)
@@ -44,7 +51,12 @@ class OpCodeMethods():
 
     def next_int(self, opcode, constantpool, argument):
         """receive input from the keyboard."""
-        var1 = numpy.float64(float(input()))
+        var = input()
+        if isinstance(var, float):
+            var1 = var.float64(var)
+        elif isinstance(var, int):
+            var1 = numpy.int64(var)
+            
         Stack.push(var1)
 
     def println(self, opcode, constantpool, argument):
