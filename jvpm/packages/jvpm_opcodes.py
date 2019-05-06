@@ -178,19 +178,19 @@ class OpCodes():
     opcodes, and implement the methods using the external dictionary of methods."""
     def __init__(self, opcode, constantpool):
         self.constantpool = constantpool
-        self.opcodes = opcode
+        self.opcode = opcode
 
     def dict_search(self):
         jvpm_methods_object = jvpm_methods.OpCodeMethods()
         i = 0
-        while i < len(self.opcodes):
-            opcall = jvpm_dict.get_opcode(self.opcodes[i])
+        while i < len(self.opcode):
+            opcall = jvpm_dict.get_opcode(self.opcode[i])
             if opcall == "invokevirtual":
-                op_location = int(self.opcodes[i+2])
+                op_location = int(self.opcode[i+2])
                 opcall = self.constantpool[op_location]
                 i += 2
             if opcall != "Byte code not found!":
-                jvpm_methods_object.token_dict(opcall, self.opcodes, self.constantpool,)
+                jvpm_methods_object.token_dict(opcall, self.opcode, self.constantpool,)
             i += 1
 
     # *****************************************************************************

@@ -20,11 +20,6 @@ class OpCodeMethods():
 
     def aload_1(self, opcode, constantpool, argument):
         """(2b)Load a reference to stack."""
-        # do nothing yet
-
-    # def astore_1(self, opcode, constantpool, argument):
-    #     """Store reference to the local array."""
-    #     self.istore_1(opcode, constantpool, argument)
 
     def dup(self, opcode, constantpool, argument):
         """Doubles the top item on the stack."""

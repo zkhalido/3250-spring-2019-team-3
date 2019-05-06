@@ -65,8 +65,6 @@ class PoolTranslate:
 
     def class_reference(self, sub_list):  # 7
         index = 0
-        complete_string = ""
-        strings_to_combine = 0
         while index < len(sub_list):
             new_index = int(sub_list[index], 16)
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
@@ -77,8 +75,6 @@ class PoolTranslate:
 
     def string_reference(self, sub_list):  # 8
         index = 0
-        complete_string = ""
-        strings_to_combine = 0
         while index < len(sub_list):
             new_index = int(sub_list[index], 16)
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)

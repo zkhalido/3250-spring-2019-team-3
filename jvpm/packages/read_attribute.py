@@ -130,63 +130,6 @@ class ReadAttribute():
     def get_source_file(self, methods_table, reader_location, data, op_codes, method_index, pool):
         pass
 
-    # DO NOT DELETE WILL NEED FOR LATER CLASS FILES*
-
-    # def get_local_variable_table(self, methods_table, reader_location,
-    #                              data, op_codes, method_index, pool):
-    #     x=0
-    #     local_variable_table = []
-    #     ##################    name index
-    #     local_variable_table.append(format((data[reader_location]), "02x"))
-    #     local_variable_table.append(format((data[reader_location + 1]), "02x"))
-    #
-    #     ##################### attribute length
-    #     local_variable_table.append(format((data[reader_location + 2]), "02x"))
-    #     local_variable_table.append(format((data[reader_location + 3]), "02x"))
-    #     local_variable_table.append(format((data[reader_location + 4]), "02x"))
-    #     local_variable_table.append(format((data[reader_location + 5]), "02x"))
-    #
-    #     local_variable_length = (data[reader_location + 2]) + (data[reader_location + 3]) \
-    #                           + (data[reader_location + 4]) + (data[reader_location + 5])
-    #     reader_location += 6
-    #
-    #     local_variable_table.append(format((data[reader_location]), "02x"))
-    #     local_variable_table.append(format((data[reader_location + 1]), "02x"))
-    #
-    #     local_variable_table_length = (data[reader_location]) + (data[reader_location + 1])
-    #     reader_location += 2
-    #
-    #     for x in range(local_variable_table_length):
-    #
-    #         ########### start pc
-    #         local_variable_table_length.append(format((data[reader_location]), "02x"))
-    #         local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
-    #         reader_location += 2
-    #
-    #         ########### length
-    #         local_variable_table_length.append(format((data[reader_location]), "02x"))
-    #         local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
-    #         reader_location += 2
-    #
-    #         ########### name index
-    #         local_variable_table_length.append(format((data[reader_location]), "02x"))
-    #         local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
-    #         reader_location += 2
-    #
-    #         ########### discriptor index
-    #         local_variable_table_length.append(format((data[reader_location]), "02x"))
-    #         local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
-    #         reader_location += 2
-    #
-    #         ########### index
-    #         local_variable_table_length.append(format((data[reader_location]), "02x"))
-    #         local_variable_table_length.append(format((data[reader_location + 1]), "02x"))
-    #         reader_location += 2
-    #
-    #     methods_table[method_index].append(local_variable_table_length)
-    #
-    #     return reader_location
-
     def get_exceptions(self, methods_table, reader_location, data, op_codes, method_index, pool):
         exception_table = []
         ##################    name index
