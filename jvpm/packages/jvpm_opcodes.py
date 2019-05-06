@@ -92,11 +92,6 @@ class HeaderClass():
     def get_field(self):
         if self.integer_field_count == 0:
             pass
-            # print("field table empty")
-        #else:
-            #for i in range(self.field_count):
-                #field = []
-                #field.clear()
 
     def get_methods_count(self):
         self.integer_method_count = self.class_file_item_count_to_int()
@@ -111,28 +106,17 @@ class HeaderClass():
         method_index = 0
         while method_index < self.integer_method_count:
             ################# access flags
-            self.methods_table[method_index].append(format((self.data[self.reader_location]),
-                                                           "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location
-                                                                      + self.add_one_byte]), "02x"))
+            self.method_table_traverse(method_index)
             self.reader_location += 2
             ################### name index
-            self.methods_table[method_index].append(format((self.data[self.reader_location]),
-                                                           "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location +
-                                                                      self.add_one_byte]), "02x"))
+            self.method_table_traverse(method_index)
             self.reader_location += 2
             ################# discriptor index
-            self.methods_table[method_index].append(format((self.data[self.reader_location]),
-                                                           "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location +
-                                                                      self.add_one_byte]), "02x"))
+            self.method_table_traverse(method_index)
             self.reader_location += 2
             ################## attribute count
-            self.methods_table[method_index].append(format((self.data[self.reader_location]),
-                                                           "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location +
-                                                                      self.add_one_byte]), "02x"))
+            self.method_table_traverse(method_index)
+
             attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location +
                                                                              self.add_one_byte])
             self.reader_location += 2
@@ -173,6 +157,11 @@ class HeaderClass():
         self.reader_location += 2
         return class_file_item
 
+    def method_table_traverse(self, method_index):
+        self.methods_table[method_index].append(format((self.data[self.reader_location]),
+                                                       "02x"))
+        self.methods_table[method_index].append(format((self.data[self.reader_location
+                                                                  + self.add_one_byte]), "02x"))
 class OpCodes():
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods."""
