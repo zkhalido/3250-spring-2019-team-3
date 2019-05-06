@@ -21,7 +21,10 @@ after_success:
 
 
 addons:
- sonarcloud:
-   organization: git-confused-team3 # the key of the org you chose at step #3
-   token:
-     secure: ${newToken}
+  sonarcloud:
+    organization: zkhalido-github # the key of the org you chose at step #3
+    token: 
+      secure: ${SONAR_TOKEN}
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
