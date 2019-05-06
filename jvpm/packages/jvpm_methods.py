@@ -2,7 +2,7 @@
 import numpy
 from .stack import Stack
 from . import pool_translate, jvpm_opcodes
-# pylint: disable=R0201, R0904, W0613, C0111
+# pylint: disable=R0201, R0904, W0613, C0111, C0123
 
 # ****************************************************************************************
 
@@ -20,11 +20,6 @@ class OpCodeMethods():
 
     def aload_1(self, opcode, constantpool, argument):
         """(2b)Load a reference to stack."""
-        # do nothing yet
-
-    def astore_1(self, opcode, constantpool, argument):
-        """Store reference to the local array."""
-        self.istore_1(opcode, constantpool, argument)
 
     def dup(self, opcode, constantpool, argument):
         """Doubles the top item on the stack."""
@@ -33,19 +28,26 @@ class OpCodeMethods():
 
     def iadd(self, opcode, constantpool, argument):
         """iadd: add two ints from the stack."""
-        var2 = numpy.int32(Stack.pop())
-        var1 = numpy.int32(Stack.pop())
-        Stack.push(var1 + var2)
-
-    def invokevirtual(self, location, constantpool, argument):
-        """gets method from constant pool and calls it."""
-        method = constantpool[location]
-        self.token_dict(method, location, constantpool)
+        var2 = Stack.pop()
+        var1 = Stack.pop()
+        if type(var1) == numpy.int64 and type(var2) == numpy.int64:
+            var2 = numpy.int64(var2)
+            var1 = numpy.int64(var1)
+            Stack.push(var1 + var2)
+        else:
+            var2 = numpy.float64(var2)
+            var1 = numpy.float64(var1)
+            Stack.push(var1 + var2)
 
     def next_int(self, opcode, constantpool, argument):
         """receive input from the keyboard."""
-        var1 = numpy.int32(int(input()))
-        Stack.push(var1)
+        var = input()
+        if var.isdigit():
+            var1 = numpy.int64(var)
+            Stack.push(var1)
+        else:
+            var1 = numpy.float64(var)
+            Stack.push(var1)
 
     def println(self, opcode, constantpool, argument):
         """print from the stack."""
@@ -224,7 +226,7 @@ class OpCodeMethods():
         Stack.push(numpy.int64(variable1))
 
     def invalid(self, opcode, constantpool, argument):
-        print(argument, " method call is invalid")
+        pass
 
     def ldc(self, opcode, constantpool, argument):
         Stack.push(pool_translate.TRANSLATED_STRINGS[2])
@@ -238,7 +240,7 @@ class OpCodeMethods():
 
         "aload_0": aload_0,
         "aload_1": aload_1,
-        "astore_1": astore_1,
+        "astore_1": istore_1,
         "dup": dup,
         "iadd": iadd,  # add two ints
         "iand": iand,  # perform a bitwise AND on two integers
@@ -257,7 +259,6 @@ class OpCodeMethods():
         "iload_3": iload_3,  # load an int value from local variable[3]
         "imul": imul,  # multiply two integers
         "ineg": ineg,  # negate int
-        "invokevirtual": invokevirtual, # gets method from constant pool and calls it.
         "ior": ior,  # bitwise int OR
         "irem": irem,  # logical in remainder
         "ishl": ishl,  # int shift left

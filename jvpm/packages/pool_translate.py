@@ -61,41 +61,27 @@ class PoolTranslate:
         return dec_long
 
     def tag_double(self, sub_list):  # 6
-        print("Double    8 bytes")
+        pass
 
     def class_reference(self, sub_list):  # 7
         index = 0
-        complete_string = ""
-        strings_to_combine = 0
         while index < len(sub_list):
             new_index = int(sub_list[index], 16)
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
-            if len(sub_list) > 1:
-                if strings_to_combine < 1:
-                    pulled_string = pulled_string + "."
-                strings_to_combine += 1
-                complete_string += pulled_string
-            else:
-                complete_string = pulled_string
-        return complete_string
+
+        return pulled_string
+
 
     def string_reference(self, sub_list):  # 8
         index = 0
-        complete_string = ""
-        strings_to_combine = 0
         while index < len(sub_list):
             new_index = int(sub_list[index], 16)
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
-            if len(sub_list) > 1:
-                if strings_to_combine < 1:
-                    pulled_string = pulled_string + "."
-                strings_to_combine += 1
-                complete_string += pulled_string
-            else:
-                complete_string = pulled_string
-        return complete_string
+
+        return pulled_string
+
 
     def field_reference(self, sub_list):  # 9
         index = 0
@@ -105,13 +91,12 @@ class PoolTranslate:
             new_index = int(sub_list[index], 16)
             pulled_string = PoolTranslate.method_dict(self, self.pulled_constant_pool, new_index)
             index += 1
-            if len(sub_list) > 1:
-                if strings_to_combine < 1:
-                    pulled_string = pulled_string + "."
-                strings_to_combine += 1
-                complete_string += pulled_string
-            else:
-                complete_string = pulled_string
+
+            if strings_to_combine < 1:
+                pulled_string = pulled_string + "."
+            strings_to_combine += 1
+            complete_string += pulled_string
+
         return complete_string
 
     def method_reference(self, sub_list):  # 10
@@ -130,7 +115,7 @@ class PoolTranslate:
         return complete_string
 
     def interface_method_reference(self, sub_list):  # 11
-        print("Interface Method Reference    4 bytes")
+        pass
 
     def name_and_type_discriptor(self, sub_list):  # 12
         index = 0
@@ -147,7 +132,7 @@ class PoolTranslate:
         return complete_string
 
     def method_handle(self, sub_list):  # 15
-        print("Method Handle    3 bytes")
+
 
         type = {
             1: "REF_getField",
@@ -162,19 +147,19 @@ class PoolTranslate:
         }
 
     def method_type(self, sub_list):  # 16
-        print("Method Type    2 bytes")
+        pass
 
     def dynamic(self, sub_list):  # 17
-        print("Dynamic    4 bytes")
+        pass
 
     def invoke_dynamic(self, sub_list):  # 18
-        print("Invoke Dynamic    4 bytes")
+        pass
 
     def module(self, sub_list):  # 19
-        print("Module    2 bytes")
+        pass
 
     def package(self, sub_list):  # 20
-        print("Package    2 bytes")
+        pass
 
     switcher = {
 
@@ -223,6 +208,5 @@ class PoolTranslate:
                 pool_index += 1
             pool_index += 1
         return self.translated_pool
-    
-    # *****************************************************************************
 
+    # *****************************************************************************

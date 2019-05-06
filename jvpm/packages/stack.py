@@ -26,5 +26,5 @@ class Stack:
     def size(self):
         """Tells how many items are on the stack"""
         return len(self.items)
-    
+
     # *****************************************************************************
